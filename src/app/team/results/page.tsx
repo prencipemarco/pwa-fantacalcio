@@ -65,21 +65,43 @@ export default function ResultsPage() {
                     return (
                         <Link href={`/team/results/${f.id}`} key={f.id} className="block group">
                             <Card className={`border-l-4 transition-all group-hover:shadow-md ${resultColor}`}>
-                                <CardContent className="p-4 flex justify-between items-center">
-                                    <div className="text-sm font-bold text-gray-500 w-12 text-center">
-                                        Day {f.matchday}
+                                <CardContent className="p-3 sm:p-4">
+                                    {/* Mobile Layout (< md) */}
+                                    <div className="flex flex-col gap-3 md:hidden">
+                                        <div className="flex justify-between items-center text-xs text-gray-500 font-medium border-b pb-2">
+                                            <span>Matchday {f.matchday}</span>
+                                            {f.calculated ? <Badge variant="secondary" className="text-[10px] h-5">Finished</Badge> : <Badge variant="outline" className="text-[10px] h-5">Upcoming</Badge>}
+                                        </div>
+                                        <div className="flex items-center justify-between px-2">
+                                            <span className={`text-sm font-semibold w-5/12 text-right truncate ${isHome ? 'text-primary' : ''}`}>
+                                                {isHome ? 'My Team' : 'Opponent'}
+                                            </span>
+                                            <div className="w-2/12 flex justify-center">
+                                                <span className={`text-sm font-mono font-bold px-2 py-1 rounded ${f.calculated ? 'bg-slate-100' : ''}`}>{score}</span>
+                                            </div>
+                                            <span className={`text-sm font-semibold w-5/12 text-left truncate ${!isHome ? 'text-primary' : ''}`}>
+                                                {!isHome ? 'My Team' : 'Opponent'}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className={`flex-1 flex justify-between items-center px-4 ${f.calculated ? 'font-bold' : ''}`}>
-                                        <span className={isHome ? 'text-primary' : ''}>
-                                            {isHome ? 'My Team' : 'Opponent'}
-                                        </span>
-                                        <span className="mx-4 text-xl">{score}</span>
-                                        <span className={!isHome ? 'text-primary' : ''}>
-                                            {!isHome ? 'My Team' : 'Opponent'}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        {f.calculated ? <Badge>Finished</Badge> : <Badge variant="outline">Upcoming</Badge>}
+
+                                    {/* Desktop Layout (>= md) */}
+                                    <div className="hidden md:flex justify-between items-center">
+                                        <div className="text-sm font-bold text-gray-500 w-16 text-center">
+                                            Day {f.matchday}
+                                        </div>
+                                        <div className={`flex-1 flex justify-center items-center gap-8 ${f.calculated ? 'font-bold' : ''}`}>
+                                            <span className={`text-base w-32 text-right truncate ${isHome ? 'text-primary' : ''}`}>
+                                                {isHome ? 'My Team' : 'Opponent'}
+                                            </span>
+                                            <span className="text-xl bg-slate-100 px-3 py-1 rounded min-w-[80px] text-center font-mono">{score}</span>
+                                            <span className={`text-base w-32 text-left truncate ${!isHome ? 'text-primary' : ''}`}>
+                                                {!isHome ? 'My Team' : 'Opponent'}
+                                            </span>
+                                        </div>
+                                        <div className="w-24 text-right">
+                                            {f.calculated ? <Badge>Finished</Badge> : <Badge variant="outline">Upcoming</Badge>}
+                                        </div>
                                     </div>
                                 </CardContent>
                             </Card>
