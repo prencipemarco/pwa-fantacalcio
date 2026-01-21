@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Users, ShoppingCart, Trophy } from 'lucide-react';
+import { Home, Users, ShoppingCart, Trophy, ListOrdered } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export function BottomNav() {
@@ -35,6 +35,11 @@ export function BottomNav() {
                 <Link href="/team/results" className={`flex flex-col items-center p-2 ${isActive('/team/results') ? 'text-blue-600' : 'text-gray-500'}`}>
                     <Trophy size={24} />
                     <span className="text-[10px] mt-1">{t('results')}</span>
+                </Link>
+
+                <Link href="/standings" className={`flex flex-col items-center p-2 ${isActive('/standings') ? 'text-blue-600' : 'text-gray-500'}`}>
+                    <ListOrdered size={24} />
+                    <span className="text-[10px] mt-1">Classifica</span>
                 </Link>
             </div>
         </div>
