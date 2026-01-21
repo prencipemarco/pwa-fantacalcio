@@ -40,7 +40,15 @@ export default function MarketPage() {
         // Realtime? Ideally yes, but sticking to basic for now
     }, [view]); // Refresh when view changes (back to home)
 
-    if (!team) return <div className="p-4">Loading team info...</div>;
+    if (!team) return (
+        <div className="p-8 text-center">
+            <h2 className="text-xl font-bold mb-4">{t('createTeamFirst')}</h2>
+            <p className="text-gray-500 mb-6">{t('noTeamMessage')}</p>
+            <Button asChild>
+                <a href="/team/create">Create Team</a>
+            </Button>
+        </div>
+    );
 
     return (
         <div className="container mx-auto p-4 max-w-2xl pb-24">

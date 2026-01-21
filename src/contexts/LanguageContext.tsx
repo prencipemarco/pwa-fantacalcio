@@ -35,6 +35,8 @@ type Translations = {
         loading: string;
         error: string;
         success: string;
+        createTeamFirst: string;
+        noTeamMessage: string;
     };
 };
 
@@ -69,6 +71,8 @@ const translations: Translations = {
         loading: 'Loading...',
         error: 'Error',
         success: 'Success',
+        createTeamFirst: 'Create Team First',
+        noTeamMessage: 'You need to create a team to access this section.',
     },
     it: {
         welcome: 'Bentornato',
@@ -100,6 +104,8 @@ const translations: Translations = {
         loading: 'Caricamento...',
         error: 'Errore',
         success: 'Successo',
+        createTeamFirst: 'Crea Prima la Squadra',
+        noTeamMessage: 'Devi creare una squadra per accedere a questa sezione.',
     },
 };
 

@@ -30,6 +30,7 @@ export function ResetManager() {
         calendar: false,
         votes: false,
         players: false,
+        logs: false,
     });
 
     const handleCheck = (key: keyof ResetOptions, checked: boolean) => {
@@ -164,6 +165,15 @@ export function ResetManager() {
                     </div>
 
                     <div className="flex items-center space-x-2 mt-4 pt-4 border-t">
+                        <Checkbox
+                            id="opt-logs"
+                            checked={options.logs}
+                            onCheckedChange={(c) => handleCheck('logs', c as boolean)}
+                        />
+                        <Label htmlFor="opt-logs">System Logs</Label>
+                    </div>
+
+                    <div className="flex items-center space-x-2">
                         <Checkbox
                             id="opt-players"
                             checked={options.players}

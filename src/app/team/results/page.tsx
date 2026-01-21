@@ -5,6 +5,7 @@ import { getMyTeam } from '@/app/actions/user';
 import { createClient } from '@/utils/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 export default function ResultsPage() {
     const [fixtures, setFixtures] = useState<any[]>([]);
@@ -29,7 +30,15 @@ export default function ResultsPage() {
         load();
     }, []);
 
-    if (!teamId) return <div className="p-4">Loading...</div>;
+    if (!teamId) return (
+        <div className="p-8 text-center">
+            <h2 className="text-xl font-bold mb-4">No Team Found</h2>
+            <p className="text-gray-500 mb-6">You need to create a team to see results.</p>
+            <Button asChild className="bg-blue-600 text-white">
+                <a href="/team/create">Create Team</a>
+            </Button>
+        </div>
+    );
 
     return (
         <div className="container mx-auto p-4 max-w-2xl">

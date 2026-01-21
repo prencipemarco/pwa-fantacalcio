@@ -92,7 +92,7 @@ export default function LineupPage() {
 
     if (team && !unlocked) {
         return (
-            <Dialog open={true}>
+            <Dialog open={true} onOpenChange={() => window.location.href = '/'}>
                 <DialogContent>
                     <DialogHeader>
                         <DialogTitle>Team Locked</DialogTitle>
@@ -109,7 +109,8 @@ export default function LineupPage() {
                         />
                         {unlockError && <p className="text-red-500 text-sm mt-2">{unlockError}</p>}
                     </div>
-                    <DialogFooter>
+                    <DialogFooter className="gap-2">
+                        <Button variant="outline" onClick={() => window.location.href = '/'}>Cancel</Button>
                         <Button onClick={handleUnlock}>Unlock</Button>
                     </DialogFooter>
                 </DialogContent>

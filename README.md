@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fantacalcio PWA v0.1
 
-## Getting Started
+Fantacalcio Manager application built with Next.js 14 and Supabase.
 
-First, run the development server:
+## 🚀 Main Features (v0.1)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 👥 Team Management
+- **User Authentication**: Sign up/Login via Supabase Auth.
+- **Team Creation**: Users can create their own team with a secure password.
+- **Admin Dashboard**: Full control for administrators.
+    - **Parametric Seeder**: Generate N test teams for debugging.
+    - **Single Team Deletion**: Granular control to remove specific teams and cascading data.
+    - **Reset Tools**: Granular system reset (Market, Rosters, Logs, etc.).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 📅 Calendar & Fixtures
+- **Automated Generation**: Berger algorithm implementation.
+- **38 Matchdays**: Automatically loops fixtures to cover a full Serie A season style calendar.
+- **Table View**: Clear visualization of matches per day.
+- **Persisted State**: Fixtures are saved to database.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 💰 Market System
+- **Auction Mechanism**: Create and bid on players (English auction style).
+- **Free Agents (Listone)**: Browse and purchase available players.
+- **Credits Management**: Real-time budget tracking.
+- **Roster Management**: View owned players.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ⚽ Competitive Features
+- **Lineup Builder**: Interactive pitch view to set formation (3-4-3, 4-4-2, etc.).
+- **Results Page**: View match outcomes (calculated vs upcoming).
+- **Team Locked Mode**: Password protection for team management to prevent unauthorized changes.
 
-## Learn More
+### 🌍 Internationalization
+- **Multi-language Support**: Full IT/EN translation.
+- **Smart Toggle**: Animated flag selector for language switching.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Tech Stack
+- **Frontend**: Next.js 14 (App Router), Tailwind CSS, Lucide React, Shadcn/UI.
+- **Backend**: Supabase (PostgreSQL, Auth, Edge Functions).
+- **Deployment**: Vercel (PWA support enabled).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone repository.
+2. `npm install`
+3. Set up `.env` with Supabase credentials.
+4. `npm run dev`

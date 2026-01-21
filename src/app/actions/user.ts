@@ -35,8 +35,9 @@ export async function getMyTeamId() {
 
 export async function getMyTeam(userId: string) {
     const supabase = await createClient();
-    const { data } = await supabase.from('teams').select('*').eq('user_id', userId).single();
-    return data;
+    // Use limit(1) to avoid error if multiple teams (e.g. admin seeded)
+    const { data } = await supabase.from('teams').select('*').eq('user_id', userId).limit(1);
+    return data && data.length > 0 ? data[0] : null;
 }
 
 export async function getMyRoster(teamId: string) {

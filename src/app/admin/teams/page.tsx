@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
+import { Trash2 } from 'lucide-react';
+import { deleteTeam } from '@/app/actions/admin';
 
 export default function AdminTeamsPage() {
     const [teams, setTeams] = useState<any[]>([]);
@@ -50,9 +52,10 @@ export default function AdminTeamsPage() {
                                 <TableRow>
                                     <TableHead>Team Name</TableHead>
                                     <TableHead>Credits</TableHead>
-                                    <TableHead>Password Set?</TableHead>
+                                    <TableHead>Password</TableHead>
                                     <TableHead>Created At</TableHead>
                                     <TableHead>User ID</TableHead>
+                                    <TableHead className="w-[50px]">Actions</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
@@ -65,17 +68,29 @@ export default function AdminTeamsPage() {
                                             </Badge>
                                         </TableCell>
                                         <TableCell>
-                                            {team.password ? (
-                                                <Badge className="bg-green-500 hover:bg-green-600">Yes</Badge>
-                                            ) : (
-                                                <Badge variant="destructive">No</Badge>
-                                            )}
+                                            <code className="bg-gray-100 p-1 rounded text-xs">{team.password || 'none'}</code>
                                         </TableCell>
                                         <TableCell className="text-xs text-gray-500">
                                             {team.created_at ? format(new Date(team.created_at), 'dd/MM/yyyy') : '-'}
                                         </TableCell>
                                         <TableCell className="text-xs font-mono text-gray-400">
                                             {team.user_id?.split('-')[0]}...
+                                        </TableCell>
+                                        <TableCell>
+                                            <Button
+                                                variant="destructive"
+                                                size="icon"
+                                                className="h-8 w-8 rounded-full"
+                                                onClick={async () => {
+                                                    if (confirm(`Delete team "${team.name}"? This cannot be undone.`)) {
+                                                        await deleteTeam(team.id);
+                                                        const updated = await getAllTeams();
+                                                        setTeams(updated);
+                                                    }
+                                                }}
+                                            >
+                                                <Trash2 className="h-4 w-4" />
+                                            </Button>
                                         </TableCell>
                                     </TableRow>
                                 ))}

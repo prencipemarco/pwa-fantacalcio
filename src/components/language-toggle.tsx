@@ -7,22 +7,22 @@ export function LanguageToggle() {
     const { language, setLanguage } = useLanguage();
 
     return (
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2 bg-gray-100 rounded-full p-1 border">
             <Button
-                variant={language === 'en' ? 'default' : 'outline'}
+                variant="ghost"
                 size="sm"
                 onClick={() => setLanguage('en')}
-                className="w-10 h-8 p-0"
+                className={`rounded-full transition-all duration-300 ${language === 'en' ? 'bg-white shadow-sm scale-110' : 'opacity-50 grayscale'}`}
             >
-                EN
+                <span className="text-xl">🇬🇧</span>
             </Button>
             <Button
-                variant={language === 'it' ? 'default' : 'outline'}
+                variant="ghost"
                 size="sm"
                 onClick={() => setLanguage('it')}
-                className="w-10 h-8 p-0"
+                className={`rounded-full transition-all duration-300 ${language === 'it' ? 'bg-white shadow-sm scale-110' : 'opacity-50 grayscale'}`}
             >
-                IT
+                <span className="text-xl">🇮🇹</span>
             </Button>
         </div>
     );

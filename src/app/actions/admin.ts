@@ -122,31 +122,31 @@ export async function generateCalendar(leagueId: string) {
     // Generate Fixtures database records
     const dbFixtures: { league_id: string; matchday: number; home_team_id: string; away_team_id: string }[] = [];
 
-    // First Leg (Andata)
-    rounds.forEach((roundMatches, roundIndex) => {
-        const matchday = roundIndex + 1;
-        roundMatches.forEach(match => {
-            dbFixtures.push({
-                league_id: leagueId,
-                matchday: matchday,
-                home_team_id: match.home,
-                away_team_id: match.away
-            });
-        });
-    });
+    // Target 38 matchdays (Serie A standard)
+    const TOTAL_MATCHDAYS = 38;
+    const roundsPerLeg = n - 1;
 
-    // Second Leg (Ritorno)
-    rounds.forEach((roundMatches, roundIndex) => {
-        const matchday = roundIndex + 1 + (n - 1);
+    for (let day = 1; day <= TOTAL_MATCHDAYS; day++) {
+        // Calculate which round index (0 to n-2) this day corresponds to
+        const roundIndex = (day - 1) % roundsPerLeg;
+
+        // Calculate leg index (0 = 1st leg, 1 = 2nd leg, 2 = 3rd leg...)
+        const legIndex = Math.floor((day - 1) / roundsPerLeg);
+
+        // Determine if we swap Home/Away (Standard: Leg 0=Standard, Leg 1=Swap, Leg 2=Standard...)
+        const swapHomeAway = legIndex % 2 !== 0;
+
+        const roundMatches = rounds[roundIndex];
+
         roundMatches.forEach(match => {
             dbFixtures.push({
                 league_id: leagueId,
-                matchday: matchday,
-                home_team_id: match.away,
-                away_team_id: match.home
+                matchday: day,
+                home_team_id: swapHomeAway ? match.away : match.home,
+                away_team_id: swapHomeAway ? match.home : match.away
             });
         });
-    });
+    }
 
     // Insert
     // Check if calendar exists?
@@ -186,6 +186,7 @@ export type ResetOptions = {
     calendar: boolean;
     votes: boolean;
     players: boolean;
+    logs: boolean;
 };
 
 export async function resetSystem(options: ResetOptions) {
@@ -241,6 +242,11 @@ export async function resetSystem(options: ResetOptions) {
             await supabase.from('players').delete().neq('id', 0);
         }
 
+        // 9. Logs
+        if (options.logs) {
+            await supabase.from('logs').delete().neq('id', 0);
+        }
+
         await logEvent('RESET_SYSTEM', { options, timestamp: new Date() });
         return { success: true };
 
@@ -258,4 +264,45 @@ export async function getAllTeams() {
     // Fetch teams with user email if possible (need join on auth.users which is restricted usually, so maybe just team info)
     const { data } = await supabase.from('teams').select('*, user_id').order('name', { ascending: true });
     return data || [];
+}
+// Single Team Deletion
+export async function deleteTeam(teamId: string) {
+    const supabase = await createClient();
+
+    try {
+        // 1. Lineup Players (via Lineups)
+        const { data: lineups } = await supabase.from('lineups').select('id').eq('team_id', teamId);
+        if (lineups && lineups.length > 0) {
+            const lineupIds = lineups.map(l => l.id);
+            await supabase.from('lineup_players').delete().in('lineup_id', lineupIds);
+            await supabase.from('lineups').delete().in('id', lineupIds); // Delete lineups themselves
+        }
+
+        // 2. Rosters
+        await supabase.from('rosters').delete().eq('team_id', teamId);
+
+        // 3. Trades (As proposer or receiver)
+        await supabase.from('trade_proposals').delete().or(`proposer_team_id.eq.${teamId},receiver_team_id.eq.${teamId}`);
+
+        // 4. Auctions (Clear bids only, don't delete auctions if they are won by this team? 
+        // If team won auction, auction should ideally reset or deleted? 
+        // Let's reset winner to null so player returns to market or stays closed without winner.)
+        await supabase.from('auctions').update({ current_winner_team_id: null }).eq('current_winner_team_id', teamId);
+
+        // 5. Fixtures (Unlink)
+        await supabase.from('fixtures').update({ home_team_id: null }).eq('home_team_id', teamId);
+        await supabase.from('fixtures').update({ away_team_id: null }).eq('away_team_id', teamId);
+
+        // 6. Delete Team
+        const { error } = await supabase.from('teams').delete().eq('id', teamId);
+
+        if (error) throw error;
+
+        await logEvent('DELETE_TEAM', { teamId, timestamp: new Date() });
+        return { success: true };
+
+    } catch (error: any) {
+        console.error('Delete team error:', error);
+        return { success: false, error: error.message };
+    }
 }

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ResetManager } from '@/components/admin/reset-manager';
+import { DevTools } from '@/components/admin/dev-tools';
 
 export default function AdminDashboard() {
     return (
@@ -65,6 +66,16 @@ export default function AdminDashboard() {
                         <Link href="/admin/settings">
                             <Button className="w-full" variant="outline">Settings</Button>
                         </Link>
+                    </CardContent>
+                </Card>
+
+                <Card className="border-indigo-200 bg-indigo-50">
+                    <CardHeader>
+                        <CardTitle className="text-indigo-700">Dev Tools</CardTitle>
+                        <CardDescription>Test utilites.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <DevTools />
                     </CardContent>
                 </Card>
 
