@@ -82,6 +82,7 @@ export function ResetManager() {
                     calendar: false,
                     votes: false,
                     players: false,
+                    logs: false,
                 });
                 setTimeout(() => setOpen(false), 2000);
             } else {
