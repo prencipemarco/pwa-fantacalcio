@@ -1,0 +1,119 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { getAllTeams } from '@/app/actions/admin';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { format } from 'date-fns';
+
+export default function AdminTeamsPage() {
+    const [teams, setTeams] = useState<any[]>([]);
+    const [search, setSearch] = useState('');
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 10;
+
+    useEffect(() => {
+        getAllTeams().then(setTeams);
+    }, []);
+
+    const filteredTeams = teams.filter(t => t.name.toLowerCase().includes(search.toLowerCase()));
+
+    // Pagination logic
+    const totalPages = Math.ceil(filteredTeams.length / itemsPerPage);
+    const paginatedTeams = filteredTeams.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+    return (
+        <div className="container mx-auto p-4 md:p-8">
+            <h1 className="text-3xl font-bold mb-6">Registered Teams</h1>
+
+            <Card>
+                <CardHeader>
+                    <CardTitle>Teams Overview</CardTitle>
+                    <CardDescription>View all registered teams and their status.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div className="mb-4 flex gap-2">
+                        <Input
+                            placeholder="Search team..."
+                            value={search}
+                            onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+                            className="max-w-sm"
+                        />
+                    </div>
+
+                    <div className="rounded-md border">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Team Name</TableHead>
+                                    <TableHead>Credits</TableHead>
+                                    <TableHead>Password Set?</TableHead>
+                                    <TableHead>Created At</TableHead>
+                                    <TableHead>User ID</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {paginatedTeams.map((team) => (
+                                    <TableRow key={team.id}>
+                                        <TableCell className="font-bold">{team.name}</TableCell>
+                                        <TableCell>
+                                            <Badge variant="secondary" className="font-mono text-xs">
+                                                {team.credits_left}
+                                            </Badge>
+                                        </TableCell>
+                                        <TableCell>
+                                            {team.password ? (
+                                                <Badge className="bg-green-500 hover:bg-green-600">Yes</Badge>
+                                            ) : (
+                                                <Badge variant="destructive">No</Badge>
+                                            )}
+                                        </TableCell>
+                                        <TableCell className="text-xs text-gray-500">
+                                            {team.created_at ? format(new Date(team.created_at), 'dd/MM/yyyy') : '-'}
+                                        </TableCell>
+                                        <TableCell className="text-xs font-mono text-gray-400">
+                                            {team.user_id?.split('-')[0]}...
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                                {paginatedTeams.length === 0 && (
+                                    <TableRow>
+                                        <TableCell colSpan={5} className="text-center py-4 text-gray-500">
+                                            No teams found.
+                                        </TableCell>
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </div>
+
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
+                        <div className="flex justify-center items-center gap-2 mt-4">
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => setPage(p => Math.max(1, p - 1))}
+                                disabled={page === 1}
+                            >
+                                Previous
+                            </Button>
+                            <span className="text-sm font-medium">Page {page} of {totalPages}</span>
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                                disabled={page === totalPages}
+                            >
+                                Next
+                            </Button>
+                        </div>
+                    )}
+                </CardContent>
+            </Card>
+        </div>
+    );
+}
