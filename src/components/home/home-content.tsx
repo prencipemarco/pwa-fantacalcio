@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { LanguageToggle } from '@/components/language-toggle';
+import { LogoutButton } from '@/components/logout-button';
 
 // Inner component to use the hook
 function InnerHome({ user }: { user: any }) {
@@ -11,7 +12,15 @@ function InnerHome({ user }: { user: any }) {
 
     return (
         <>
-            <div className="absolute top-4 right-4">
+            {/* Top Left: Logout (if user exists) */}
+            {user && (
+                <div className="absolute top-4 left-4 z-10">
+                    <LogoutButton />
+                </div>
+            )}
+
+            {/* Top Right: Language */}
+            <div className="absolute top-4 right-4 z-10">
                 <LanguageToggle />
             </div>
 

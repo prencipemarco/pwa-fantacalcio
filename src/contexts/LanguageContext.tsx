@@ -37,6 +37,32 @@ type Translations = {
         success: string;
         createTeamFirst: string;
         noTeamMessage: string;
+        // Admin
+        dataImport: string;
+        dataImportDesc: string;
+        goToImports: string;
+        matchCalendar: string;
+        matchCalendarDesc: string;
+        manageCalendar: string;
+        teams: string;
+        teamsDesc: string;
+        manageTeams: string;
+        marketSettings: string;
+        marketSettingsDesc: string;
+        settings: string;
+        userManagement: string;
+        userManagementDesc: string;
+        manageUsers: string;
+        systemLogs: string;
+        systemLogsDesc: string;
+        viewLogs: string;
+        systemUtilities: string;
+        devTools: string;
+        devToolsDesc: string;
+        dangerZone: string;
+        dangerZoneDesc: string;
+        coreManagement: string;
+        created: string;
     };
 };
 
@@ -73,6 +99,32 @@ const translations: Translations = {
         success: 'Success',
         createTeamFirst: 'Create Team First',
         noTeamMessage: 'You need to create a team to access this section.',
+        // Admin
+        dataImport: 'Data Import',
+        dataImportDesc: 'Manage Players, Rosters, and Match Votes.',
+        goToImports: 'Go to Imports',
+        matchCalendar: 'Match Calendar',
+        matchCalendarDesc: 'Generate season fixtures (Berger Algorithm).',
+        manageCalendar: 'Manage Calendar',
+        teams: 'Teams',
+        teamsDesc: 'View all enrolled teams.',
+        manageTeams: 'Manage Teams',
+        marketSettings: 'Market Settings',
+        marketSettingsDesc: 'Configure auction duration and rules.',
+        settings: 'Settings',
+        userManagement: 'User Management',
+        userManagementDesc: 'Manage registered users (Sign Ups).',
+        manageUsers: 'Manage Users',
+        systemLogs: 'System Logs',
+        systemLogsDesc: 'View system activity and audit logs.',
+        viewLogs: 'View Logs',
+        systemUtilities: 'System Utilities',
+        devTools: 'Dev Tools',
+        devToolsDesc: 'Test utilites (Seeding).',
+        dangerZone: 'Danger Zone',
+        dangerZoneDesc: 'Destructive actions (Reset).',
+        coreManagement: 'Core Management',
+        created: 'Created At',
     },
     it: {
         welcome: 'Bentornato',
@@ -106,6 +158,32 @@ const translations: Translations = {
         success: 'Successo',
         createTeamFirst: 'Crea Prima la Squadra',
         noTeamMessage: 'Devi creare una squadra per accedere a questa sezione.',
+        // Admin
+        dataImport: 'Importazione Dati',
+        dataImportDesc: 'Gestisci Calciatori, Rose e Voti.',
+        goToImports: 'Vai a Importazione',
+        matchCalendar: 'Calendario Partite',
+        matchCalendarDesc: 'Genera il calendario della stagione (Algoritmo Berger).',
+        manageCalendar: 'Gestisci Calendario',
+        teams: 'Squadre',
+        teamsDesc: 'Visualizza tutte le squadre iscritte.',
+        manageTeams: 'Gestisci Squadre',
+        marketSettings: 'Impostazioni Mercato',
+        marketSettingsDesc: 'Configura durata aste e regole.',
+        settings: 'Impostazioni',
+        userManagement: 'Gestione Utenti',
+        userManagementDesc: 'Gestisci utenti registrati (Iscrizioni).',
+        manageUsers: 'Gestisci Utenti',
+        systemLogs: 'Log di Sistema',
+        systemLogsDesc: 'Visualizza attività di sistema e log.',
+        viewLogs: 'Visualizza Log',
+        systemUtilities: 'Utilità di Sistema',
+        devTools: 'Strumenti Sviluppo',
+        devToolsDesc: 'Utility di test (Seeding).',
+        dangerZone: 'Zona Pericolo',
+        dangerZoneDesc: 'Azioni distruttive (Reset).',
+        coreManagement: 'Gestione Principale',
+        created: 'Creato il',
     },
 };
 
