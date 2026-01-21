@@ -4,19 +4,14 @@ import { createClient } from '@/utils/supabase/server';
 import { logEvent } from './admin';
 
 // 1. Get All Users (from public.users)
+// 1. Get All Users (from public.users)
 export async function getUsers() {
     const supabase = await createClient();
 
-    // Join with teams to show if they have a team
-    const { data, error } = await supabase
+    // 1. Get Users
+    const { data: users, error } = await supabase
         .from('users')
-        .select(`
-            *,
-            teams (
-                id,
-                name
-            )
-        `)
+        .select('*')
         .order('created_at', { ascending: false });
 
     if (error) {
@@ -24,7 +19,25 @@ export async function getUsers() {
         return [];
     }
 
-    return data;
+    if (!users || users.length === 0) return [];
+
+    // 2. Get Teams for these users
+    const userIds = users.map(u => u.id);
+    const { data: teams } = await supabase
+        .from('teams')
+        .select('id, name, user_id')
+        .in('user_id', userIds);
+
+    // 3. Map teams to users
+    const usersWithTeams = users.map(user => {
+        const userTeams = teams?.filter(t => t.user_id === user.id) || [];
+        return {
+            ...user,
+            teams: userTeams
+        };
+    });
+
+    return usersWithTeams;
 }
 
 // 2. Delete User
