@@ -54,8 +54,7 @@ export async function saveLineup(teamId: string, matchday: number, matchdayDate:
                 lineup_id: lineupId,
                 player_id: item.player.id,
                 is_starter: true,
-                position_index: parseInt(index),
-                role: item.player.role
+                bench_order: parseInt(index)
             });
         });
 
@@ -65,8 +64,7 @@ export async function saveLineup(teamId: string, matchday: number, matchdayDate:
                 lineup_id: lineupId,
                 player_id: item.player.id,
                 is_starter: false,
-                position_index: index,
-                role: item.player.role
+                bench_order: index
             });
         });
 

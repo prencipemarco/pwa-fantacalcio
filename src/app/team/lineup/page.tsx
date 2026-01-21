@@ -59,14 +59,14 @@ function DraggablePlayer({ player, isSelected }: { player: any, isSelected: bool
     );
 }
 
-function DroppableSlot({ id, role, currentItem, onRemove }: { id: string, role: string, currentItem: any | null, onRemove: () => void }) {
+function DroppableSlot({ id, role, currentItem, onRemove, onClick }: { id: string, role: string, currentItem: any | null, onRemove: () => void, onClick?: () => void }) {
     const { setNodeRef, isOver } = useDroppable({
         id: id,
         data: { role, type: id.startsWith('bench') ? 'bench' : 'field' }
     });
 
     return (
-        <div ref={setNodeRef} className="relative">
+        <div ref={setNodeRef} className="relative cursor-pointer" onClick={onClick}>
             <div
                 className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all shadow-md
                 ${currentItem
@@ -104,7 +104,7 @@ function DroppableSlot({ id, role, currentItem, onRemove }: { id: string, role: 
     );
 }
 
-function DroppableBenchSlot({ index, role, currentItem, onRemove }: { index: number, role: string, currentItem: any | null, onRemove: () => void }) {
+function DroppableBenchSlot({ index, role, currentItem, onRemove, onClick }: { index: number, role: string, currentItem: any | null, onRemove: () => void, onClick?: () => void }) {
     const { setNodeRef, isOver } = useDroppable({
         id: `bench-${index}`,
         data: { role, type: 'bench', index }
@@ -121,6 +121,7 @@ function DroppableBenchSlot({ index, role, currentItem, onRemove }: { index: num
                             ? 'border-solid border-green-500 bg-green-50 scale-105'
                             : 'text-gray-400'
                     }`}
+                onClick={onClick}
             >
                 {currentItem ? (
                     <div className="relative w-full h-full flex items-center justify-center">
@@ -156,6 +157,8 @@ export default function LineupPage() {
     const [selectedRosterPlayer, setSelectedRosterPlayer] = useState<any | null>(null);
     const [loading, setLoading] = useState(false);
     const [activeDragItem, setActiveDragItem] = useState<any | null>(null);
+    // Selector state: target 'lineup' or 'bench'
+    const [openSelector, setOpenSelector] = useState<{ type: 'lineup' | 'bench', index: number; role?: string } | null>(null);
 
     const supabase = createClient();
     const sensors = useSensors(
@@ -191,6 +194,44 @@ export default function LineupPage() {
         return groups;
     };
     const groupedRoster = getGroupedRoster();
+
+    // -- Selection Logic (Click Fallback) --
+
+    const getAvailablePlayers = (role?: string) => {
+        // Exclude players already in lineup OR bench
+        const lineupIds = Object.values(lineup).map((p: any) => p.player.id);
+        const benchIds = bench.filter(b => b !== null).map((p: any) => p.player.id);
+        const usedIds = [...lineupIds, ...benchIds];
+
+        return roster.filter(r =>
+            (!role || r.player.role === role) &&
+            !usedIds.includes(r.player.id)
+        );
+    };
+
+    const handleSelectPlayer = (player: any) => {
+        if (!openSelector) return;
+
+        // Same logic as DnD but simpler
+        if (openSelector.type === 'lineup') {
+            setLineup(prev => ({ ...prev, [openSelector.index]: player }));
+        } else {
+            // Bench
+            setBench(prev => {
+                const newBench = [...prev];
+                newBench[openSelector.index] = player;
+                return newBench;
+            });
+        }
+
+        // Remove from old pos if needed? 
+        // Logic: if I select a player who is already somewhere, I should move them. 
+        // But getAvailablePlayers filters out used players. So clicking only shows *unused* players.
+        // If user wants to swap, they must remove first?
+        // Let's stick to "unused players only" for simplicity in the dialog.
+
+        setOpenSelector(null);
+    };
 
     // -- DnD Handlers --
 
@@ -379,6 +420,7 @@ export default function LineupPage() {
                                         role={pos.role}
                                         currentItem={lineup[index]}
                                         onRemove={() => removeFromTeam(lineup[index]?.player.id)}
+                                        onClick={() => setOpenSelector({ type: 'lineup', index, role: pos.role })}
                                     />
                                 </div>
                             ))}
@@ -399,6 +441,7 @@ export default function LineupPage() {
                                                 onRemove={() => {
                                                     if (bench[index]) removeFromTeam(bench[index].player.id);
                                                 }}
+                                                onClick={() => setOpenSelector({ type: 'bench', index, role: slot.role })}
                                             />
                                         ))}
                                     </div>
@@ -450,6 +493,28 @@ export default function LineupPage() {
                             )}
                         </CardContent>
                     </Card>
+
+                    {/* PLAYER SELECTOR DIALOG */}
+                    <Dialog open={!!openSelector} onOpenChange={(open) => !open && setOpenSelector(null)}>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Select {openSelector?.role === 'P' ? 'Goalkeeper' : openSelector?.role === 'D' ? 'Defender' : openSelector?.role === 'C' ? 'Midfielder' : 'Forward'}</DialogTitle>
+                                <DialogDescription>Choose a player to insert</DialogDescription>
+                            </DialogHeader>
+                            <div className="grid gap-2 overflow-y-auto max-h-[60vh]">
+                                {getAvailablePlayers(openSelector?.role).map((item) => (
+                                    <div key={item.id} onClick={() => handleSelectPlayer(item)} className="p-3 border rounded hover:bg-gray-100 cursor-pointer flex justify-between items-center group">
+                                        <div className="flex items-center gap-3">
+                                            <div className="font-bold text-sm bg-gray-100 w-6 h-6 flex items-center justify-center rounded-full text-gray-600">{item.player.role}</div>
+                                            <span className="font-bold">{item.player.name}</span>
+                                        </div>
+                                        <Badge variant="secondary">{item.player.team_real}</Badge>
+                                    </div>
+                                ))}
+                                {getAvailablePlayers(openSelector?.role).length === 0 && <p className="text-center text-gray-500 py-4">No available players for this role.</p>}
+                            </div>
+                        </DialogContent>
+                    </Dialog>
 
                 </div>
 

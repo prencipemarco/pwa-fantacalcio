@@ -40,9 +40,6 @@ export function DevTools() {
                 {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <TestTube2 className="mr-2 h-4 w-4" />}
                 Seed 10 Test Teams
             </Button>
-            <p className="text-xs text-gray-400 mt-1 pl-1">
-                Generates 10 teams linked to you for Calendar testing. Requires Reset first.
-            </p>
         </div>
     );
 }
