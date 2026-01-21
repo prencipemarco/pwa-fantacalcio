@@ -60,8 +60,7 @@ export async function importVotes(votes: VoteImport[], matchday: number) {
 
     const dbVotes = votes.map(v => ({
         ...v,
-        matchday,
-        id: undefined
+        matchday
     }));
 
     const { error: deleteError } = await supabase

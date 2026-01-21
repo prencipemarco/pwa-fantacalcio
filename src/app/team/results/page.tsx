@@ -6,16 +6,22 @@ import { createClient } from '@/utils/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { ResultsSkeleton } from '@/components/skeletons';
 
 export default function ResultsPage() {
     const [fixtures, setFixtures] = useState<any[]>([]);
     const [teamId, setTeamId] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
     const supabase = createClient();
 
     useEffect(() => {
         const load = async () => {
+            setLoading(true);
             const { data: session } = await supabase.auth.getSession();
-            if (!session.session) return;
+            if (!session.session) {
+                setLoading(false);
+                return;
+            }
             const team = await getMyTeam(session.session.user.id);
             if (team) {
                 setTeamId(team.id);
@@ -26,9 +32,12 @@ export default function ResultsPage() {
                     .order('matchday', { ascending: true });
                 if (fixturesData) setFixtures(fixturesData);
             }
+            setLoading(false);
         };
         load();
     }, []);
+
+    if (loading) return <ResultsSkeleton />;
 
     if (!teamId) return (
         <div className="p-8 text-center">

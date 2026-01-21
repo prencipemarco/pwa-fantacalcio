@@ -12,6 +12,7 @@ import { Hammer, Users, ShoppingCart } from 'lucide-react';
 import { ActiveAuctionsList } from '@/components/market/active-auctions';
 import { FreeAgentsList } from '@/components/market/free-agents';
 import { CreateAuctionModal } from '@/components/market/create-auction-modal';
+import { MarketSkeleton } from '@/components/skeletons';
 
 export default function MarketPage() {
     const { t } = useLanguage();

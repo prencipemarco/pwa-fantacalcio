@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +30,7 @@ export default function RootLayout({
             {children}
           </div>
           <BottomNav />
+          <SpeedInsights />
         </LanguageProvider>
       </body>
     </html>
