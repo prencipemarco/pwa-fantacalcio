@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { parsePlayerListone, parseRosterCSV, parseVotesCSV } from '@/lib/fantacalcio/parsers';
-import { importPlayers, importRosters, importVotes } from '@/app/actions/admin';
+import { importPlayers, importRosters, importVotes, calculateMatchday } from '@/app/actions/admin';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -115,6 +115,24 @@ export default function ImportPage() {
                             <div className="grid w-full max-w-sm items-center gap-1.5">
                                 <Label htmlFor="votes-file">Select CSV</Label>
                                 <Input id="votes-file" type="file" accept=".csv,.txt" onChange={(e) => handleFileChange(e, 'votes')} disabled={loading} />
+                            </div>
+                            <div className="grid w-full max-w-sm items-center gap-1.5 border-t pt-4 mt-4">
+                                <Label>Actions</Label>
+                                <Button
+                                    onClick={async () => {
+                                        setLoading(true);
+                                        const res = await calculateMatchday(matchday);
+                                        setResult(res);
+                                        setLoading(false);
+                                    }}
+                                    disabled={loading}
+                                    variant="secondary"
+                                >
+                                    Calculate Matchday {matchday} Results
+                                </Button>
+                                <p className="text-xs text-gray-500">
+                                    Click after uploading votes to update standings and match results.
+                                </p>
                             </div>
                         </CardContent>
                     </Card>

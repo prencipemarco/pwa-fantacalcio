@@ -58,7 +58,18 @@ export async function importRosters(rosters: RosterImport[]) {
 export async function importVotes(votes: VoteImport[], matchday: number) {
     const supabase = await createClient();
 
-    const dbVotes = votes.map(v => ({
+    const { data: validPlayers } = await supabase.from('players').select('id');
+    const validIds = new Set(validPlayers?.map(p => p.id));
+
+    // Filter votes for players that exist in our DB
+    const validVotes = votes.filter(v => validIds.has(v.player_id));
+    const skippedCount = votes.length - validVotes.length;
+
+    if (skippedCount > 0) {
+        console.warn(`Skipped ${skippedCount} votes for unknown players.`);
+    }
+
+    const dbVotes = validVotes.map(v => ({
         ...v,
         matchday
     }));
@@ -156,11 +167,93 @@ export async function generateCalendar(leagueId: string) {
 
     const { error } = await supabase.from('fixtures').insert(dbFixtures);
 
-    // ... existing code
     if (error) return { success: false, error: error.message };
     return { success: true, count: dbFixtures.length };
 }
 
+export async function calculateMatchday(matchday: number) {
+    const supabase = await createClient();
+
+    // 1. Get fixtures
+    const { data: fixtures } = await supabase.from('fixtures').select('*').eq('matchday', matchday);
+    if (!fixtures || fixtures.length === 0) return { success: false, error: 'No matches found.' };
+
+    for (const match of fixtures) {
+        // Calculate Home
+        const homeScore = await calculateTeamScore(supabase, match.home_team_id, match.id);
+        const homeGoals = convertScoreToGoals(homeScore);
+
+        // Calculate Away
+        const awayScore = await calculateTeamScore(supabase, match.away_team_id, match.id);
+        const awayGoals = convertScoreToGoals(awayScore);
+
+        // Update Fixture
+        await supabase.from('fixtures').update({
+            home_goals: homeGoals,
+            away_goals: awayGoals,
+            calculated: true
+        }).eq('id', match.id);
+    }
+
+    return { success: true };
+}
+
+async function calculateTeamScore(supabase: any, teamId: string, fixtureId: number) {
+    if (!teamId) return 0;
+
+    // Get Lineup
+    const { data: lineup } = await supabase.from('lineups')
+        .select('id')
+        .eq('team_id', teamId)
+        .eq('fixture_id', fixtureId) // Ensure we use fixture_id
+        .single();
+
+    if (!lineup) return 0; // No lineup = 0
+
+    // Get Players (Starters only for MVP)
+    const { data: players } = await supabase.from('lineup_players')
+        .select('player_id')
+        .eq('lineup_id', lineup.id)
+        .eq('is_starter', true);
+
+    if (!players || players.length === 0) return 0;
+
+    // Sum Votes
+    let total = 0;
+    for (const p of players) {
+        const { data: stats } = await supabase.from('match_stats')
+            .select('vote, goals_for, goals_against, yellow_cards, red_cards, assists, penalties_saved, penalties_missed, own_goals')
+            .eq('player_id', p.player_id)
+            .single();
+
+        if (stats) {
+            let playerTotal = stats.vote;
+            playerTotal += (stats.goals_for * 3);
+            playerTotal += (stats.assists * 1);
+            playerTotal -= (stats.yellow_cards * 0.5);
+            playerTotal -= (stats.red_cards * 1);
+            playerTotal += (stats.penalties_saved * 3);
+            playerTotal -= (stats.penalties_missed * 3);
+            playerTotal -= (stats.own_goals * 2);
+            playerTotal -= (stats.goals_against * 1); // GK malus
+
+            total += playerTotal;
+        }
+        // TODO: Handle subs if starter has no vote
+    }
+
+    return total;
+}
+
+function convertScoreToGoals(score: number) {
+    if (score < 66) return 0;
+    if (score < 72) return 1; // 66-71.5
+    if (score < 78) return 2; // 72-77.5
+    if (score < 84) return 3; // 78-83.5
+    if (score < 90) return 4; // 84-89.5
+    if (score < 96) return 5;
+    return 6; // 96+
+}
 // System Logs
 export async function logEvent(action: string, details: any = {}, userId?: string) {
     const supabase = await createClient();

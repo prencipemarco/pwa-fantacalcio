@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ResultsSkeleton } from '@/components/skeletons';
+import Link from 'next/link';
 
 export default function ResultsPage() {
     const [fixtures, setFixtures] = useState<any[]>([]);
@@ -62,26 +63,27 @@ export default function ResultsPage() {
                             (f.home_goals === f.away_goals) ? 'bg-yellow-50 border-yellow-500' : 'bg-red-50 border-red-500';
 
                     return (
-                        <Card key={f.id} className={`border-l-4 ${resultColor}`}>
-                            <CardContent className="p-4 flex justify-between items-center">
-                                <div className="text-sm font-bold text-gray-500 w-12 text-center">
-                                    Day {f.matchday}
-                                </div>
-                                <div className={`flex-1 flex justify-between items-center px-4 ${f.calculated ? 'font-bold' : ''}`}>
-                                    <span className={isHome ? 'text-primary' : ''}>
-                                        {isHome ? 'My Team' : 'Opponent'}
-                                        {/* We would fetch opponent name here ideally */}
-                                    </span>
-                                    <span className="mx-4 text-xl">{score}</span>
-                                    <span className={!isHome ? 'text-primary' : ''}>
-                                        {!isHome ? 'My Team' : 'Opponent'}
-                                    </span>
-                                </div>
-                                <div>
-                                    {f.calculated ? <Badge>Finished</Badge> : <Badge variant="outline">Upcoming</Badge>}
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <Link href={`/team/results/${f.id}`} key={f.id} className="block group">
+                            <Card className={`border-l-4 transition-all group-hover:shadow-md ${resultColor}`}>
+                                <CardContent className="p-4 flex justify-between items-center">
+                                    <div className="text-sm font-bold text-gray-500 w-12 text-center">
+                                        Day {f.matchday}
+                                    </div>
+                                    <div className={`flex-1 flex justify-between items-center px-4 ${f.calculated ? 'font-bold' : ''}`}>
+                                        <span className={isHome ? 'text-primary' : ''}>
+                                            {isHome ? 'My Team' : 'Opponent'}
+                                        </span>
+                                        <span className="mx-4 text-xl">{score}</span>
+                                        <span className={!isHome ? 'text-primary' : ''}>
+                                            {!isHome ? 'My Team' : 'Opponent'}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        {f.calculated ? <Badge>Finished</Badge> : <Badge variant="outline">Upcoming</Badge>}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </Link>
                     );
                 })}
 
