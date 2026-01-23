@@ -35,27 +35,27 @@ export default function StandingsPage() {
     return (
         <div className="container mx-auto p-4 pb-24 max-w-3xl pt-20">
             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
                     {t('standings')}
                 </h1>
             </div>
 
-            <Card className="shadow-sm border rounded-lg overflow-hidden bg-white">
+            <Card className="shadow-sm border rounded-lg overflow-hidden bg-white dark:bg-zinc-900 dark:border-zinc-800">
                 <CardContent className="p-0">
                     <div className="overflow-x-auto">
-                        <Table>
+                        <Table className="min-w-full">
                             <TableHeader>
-                                <TableRow className="bg-gray-50 border-b hover:bg-gray-50">
-                                    <TableHead className="w-[50px] text-center font-semibold text-gray-600">{t('rank')}</TableHead>
-                                    <TableHead className="min-w-[150px] font-semibold text-gray-600">{t('team')}</TableHead>
-                                    <TableHead className="text-center font-bold text-gray-900">{t('pt')}</TableHead>
-                                    <TableHead className="text-center text-xs text-gray-500 hidden sm:table-cell">{t('pg')}</TableHead>
-                                    <TableHead className="text-center text-xs text-gray-500 hidden sm:table-cell">{t('v')}</TableHead>
-                                    <TableHead className="text-center text-xs text-gray-500 hidden sm:table-cell">{t('n')}</TableHead>
-                                    <TableHead className="text-center text-xs text-gray-500 hidden sm:table-cell">{t('l')}</TableHead>
-                                    <TableHead className="text-center text-xs text-gray-500 hidden md:table-cell">{t('gf')}</TableHead>
-                                    <TableHead className="text-center text-xs text-gray-500 hidden md:table-cell">{t('gs')}</TableHead>
-                                    <TableHead className="text-right font-semibold text-indigo-600 pr-6">{t('tot')}</TableHead>
+                                <TableRow className="bg-gray-50 dark:bg-zinc-800 border-b dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800">
+                                    <TableHead className="w-[50px] text-center font-semibold text-gray-600 dark:text-gray-300">{t('rank')}</TableHead>
+                                    <TableHead className="min-w-[150px] font-semibold text-gray-600 dark:text-gray-300">{t('team')}</TableHead>
+                                    <TableHead className="text-center font-bold text-gray-900 dark:text-white">{t('pt')}</TableHead>
+                                    <TableHead className="text-center text-xs text-gray-500 dark:text-gray-400 hidden sm:table-cell">{t('pg')}</TableHead>
+                                    <TableHead className="text-center text-xs text-gray-500 dark:text-gray-400 hidden sm:table-cell">{t('v')}</TableHead>
+                                    <TableHead className="text-center text-xs text-gray-500 dark:text-gray-400 hidden sm:table-cell">{t('n')}</TableHead>
+                                    <TableHead className="text-center text-xs text-gray-500 dark:text-gray-400 hidden sm:table-cell">{t('l')}</TableHead>
+                                    <TableHead className="text-center text-xs text-gray-500 dark:text-gray-400 hidden md:table-cell">{t('gf')}</TableHead>
+                                    <TableHead className="text-center text-xs text-gray-500 dark:text-gray-400 hidden md:table-cell">{t('gs')}</TableHead>
+                                    <TableHead className="text-right font-semibold text-indigo-600 dark:text-indigo-400 pr-6">{t('tot')}</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
@@ -64,39 +64,39 @@ export default function StandingsPage() {
                                     const rank = index + 1;
 
                                     return (
-                                        <TableRow key={team.teamId} className={`border-b last:border-0 h-14 ${isMe ? 'bg-blue-50/60' : ''}`}>
-                                            <TableCell className="text-center text-gray-500 font-medium text-sm">
+                                        <TableRow key={team.teamId} className={`border-b dark:border-zinc-800 last:border-0 h-14 ${isMe ? 'bg-blue-50/60 dark:bg-blue-900/20' : ''}`}>
+                                            <TableCell className="text-center text-gray-500 dark:text-gray-400 font-medium text-sm">
                                                 {rank}
                                             </TableCell>
                                             <TableCell>
                                                 <div className="flex items-center gap-3">
-                                                    <Avatar className="w-8 h-8 border border-gray-200">
-                                                        <AvatarFallback className={`${isMe ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600'} text-xs font-bold`}>
+                                                    <Avatar className="w-8 h-8 border border-gray-200 dark:border-zinc-700">
+                                                        <AvatarFallback className={`${isMe ? 'bg-blue-600 text-white' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-400'} text-xs font-bold`}>
                                                             {team.teamName.substring(0, 2).toUpperCase()}
                                                         </AvatarFallback>
                                                     </Avatar>
                                                     <div className="flex flex-col">
-                                                        <span className={`font-semibold text-sm ${isMe ? 'text-blue-700' : 'text-gray-900'}`}>
+                                                        <span className={`font-semibold text-sm ${isMe ? 'text-blue-700 dark:text-blue-400' : 'text-gray-900 dark:text-gray-100'}`}>
                                                             {team.teamName}
                                                         </span>
-                                                        {isMe && <span className="text-[10px] text-blue-500 font-medium sm:hidden">You</span>}
+                                                        {isMe && <span className="text-[10px] text-blue-500 dark:text-blue-300 font-medium sm:hidden">You</span>}
                                                     </div>
                                                 </div>
                                             </TableCell>
-                                            <TableCell className="text-center font-bold text-lg text-gray-900">
+                                            <TableCell className="text-center font-bold text-lg text-gray-900 dark:text-white">
                                                 {team.points}
                                             </TableCell>
 
                                             {/* Sub stats */}
-                                            <TableCell className="text-center text-gray-600 text-sm hidden sm:table-cell">{team.played}</TableCell>
-                                            <TableCell className="text-center text-gray-600 text-sm hidden sm:table-cell">{team.won}</TableCell>
-                                            <TableCell className="text-center text-gray-600 text-sm hidden sm:table-cell">{team.drawn}</TableCell>
-                                            <TableCell className="text-center text-gray-600 text-sm hidden sm:table-cell">{team.lost}</TableCell>
+                                            <TableCell className="text-center text-gray-600 dark:text-gray-400 text-sm hidden sm:table-cell">{team.played}</TableCell>
+                                            <TableCell className="text-center text-gray-600 dark:text-gray-400 text-sm hidden sm:table-cell">{team.won}</TableCell>
+                                            <TableCell className="text-center text-gray-600 dark:text-gray-400 text-sm hidden sm:table-cell">{team.drawn}</TableCell>
+                                            <TableCell className="text-center text-gray-600 dark:text-gray-400 text-sm hidden sm:table-cell">{team.lost}</TableCell>
 
-                                            <TableCell className="text-center text-xs text-gray-500 hidden md:table-cell">{team.goalsFor}</TableCell>
-                                            <TableCell className="text-center text-xs text-gray-500 hidden md:table-cell">{team.goalsAgainst}</TableCell>
+                                            <TableCell className="text-center text-xs text-gray-500 dark:text-gray-400 hidden md:table-cell">{team.goalsFor}</TableCell>
+                                            <TableCell className="text-center text-xs text-gray-500 dark:text-gray-400 hidden md:table-cell">{team.goalsAgainst}</TableCell>
 
-                                            <TableCell className="text-right font-mono font-bold text-indigo-600 pr-6 text-base">
+                                            <TableCell className="text-right font-mono font-bold text-indigo-600 dark:text-indigo-400 pr-6 text-base">
                                                 {team.totalFantasyPoints.toFixed(1)}
                                             </TableCell>
                                         </TableRow>
@@ -117,7 +117,7 @@ export default function StandingsPage() {
 
             <div className="mt-4 flex justify-between px-2 text-[10px] text-gray-400 sm:hidden">
                 <span>{t('scrollHint')}</span>
-                <span><span className="font-bold text-indigo-600">Tot</span> = Punti Fanta</span>
+                <span><span className="font-bold text-indigo-600 dark:text-indigo-400">Tot</span> = Punti Fanta</span>
             </div>
         </div>
     );

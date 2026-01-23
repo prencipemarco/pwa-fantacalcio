@@ -73,7 +73,30 @@ const translations: Record<string, Translations> = {
         gs: 'GA',
         tot: 'Tot',
         noGames: 'No games played yet.',
-        scrollHint: 'Swipe horizontally to see all stats.'
+        scrollHint: 'Swipe horizontally to see all stats.',
+
+        // ResultsPage
+        matchResults: 'Match Results',
+        upcoming: 'Upcoming',
+        finished: 'Finished',
+        win: 'Win',
+        draw: 'Draw',
+        loss: 'Loss',
+        vs: 'vs',
+
+        // Lineup Page
+        lineup: 'Lineup',
+        myRoster: 'My Roster',
+        bench: 'Bench',
+        playerDetails: 'Player Details',
+        price: 'Price',
+        selectPlayerDetails: 'Select a player to see details',
+        selectPlayer: 'Select Player',
+        choosePlayerInsert: 'Choose a player to insert',
+        noPlayersAvailable: 'No players available for this role',
+        saveLineup: 'Save Lineup',
+        lineupIncomplete: 'Your lineup is incomplete. Select 11 players.',
+        lineupSaved: 'Lineup saved successfully!'
     },
     it: {
         welcome: 'Benvenuto',
@@ -141,7 +164,30 @@ const translations: Record<string, Translations> = {
         gs: 'GS',
         tot: 'Tot',
         noGames: 'Nessuna partita giocata ancora.',
-        scrollHint: 'Scorri orizzontalmente per vedere tutte le statistiche.'
+        scrollHint: 'Scorri orizzontalmente per vedere tutte le statistiche.',
+
+        // ResultsPage
+        matchResults: 'Risultati Partite',
+        upcoming: 'In Programma',
+        finished: 'Terminata',
+        win: 'Vittoria',
+        draw: 'Pareggio',
+        loss: 'Sconfitta',
+        vs: 'vs',
+
+        // Lineup Page
+        lineup: 'Formazione',
+        myRoster: 'La Mia Rosa',
+        bench: 'Panchina',
+        playerDetails: 'Dettagli Giocatore',
+        price: 'Quot.', // Using short form for price usually in lists, but here it is detailed
+        selectPlayerDetails: 'Seleziona un giocatore per i dettagli',
+        selectPlayer: 'Seleziona Giocatore',
+        choosePlayerInsert: 'Scegli un giocatore da inserire',
+        noPlayersAvailable: 'Nessun giocatore disponibile per questo ruolo',
+        saveLineup: 'Salva Formazione',
+        lineupIncomplete: 'La formazione è incompleta. Devi schierare 11 titolari.',
+        lineupSaved: 'Formazione salvata con successo!'
     }
 };
 
