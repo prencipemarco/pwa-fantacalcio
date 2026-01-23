@@ -96,16 +96,60 @@ Uses `@dnd-kit/core` for drag-and-drop.
 
 ---
 
-## 🗄 Database Schema (Supabase)
+### User & Teams
+*   **`users`**: Handled by Supabase Auth (in the `auth` schema). Linked to public data via `teams`.
+*   **`teams`**: The core entity for a user's fantasy team.
+    *   `id` (UUID): Primary Key.
+    *   `user_id` (UUID): References `auth.users`.
+    *   `name` (Text): Team name (e.g., "Real Madrid").
+    *   `credits_left` (Int): Currency balance for market operations (Default: 1000).
+    *   `league_id` (UUID): Logic separation for multiple leagues (optional).
 
-*   **`users`**: Auth profiles.
-*   **`teams`**: User teams (Credits, Name, UserID).
-*   **`players`**: The list of all real Serie A players (Role, Name, Team).
-*   **`rosters`**: Link table (TeamID <-> PlayerID).
-*   **`lineups`**: Saved lineups per matchday.
-*   **`fixtures`**: Match schedule (HomeTeam, AwayTeam, GoalsHome, GoalsAway).
-*   **`auctions`**: Market auctions.
-*   **`trades`**: Trade proposals between teams.
+### Players & Rosters
+*   **`players`**: The comprehensive list of real-world Serie A players.
+    *   `id` (BigInt): External ID from the data provider.
+    *   `name` (Text): e.g., "Lautaro Martinez".
+    *   `role` (Text): 'P' (GK), 'D' (DEF), 'C' (MID), 'A' (FWD).
+    *   `team_real` (Text): Current Serie A club (e.g., "Inter").
+    *   `quotation` (Int): Current market value.
+*   **`rosters`**: The link table defining ownership.
+    *   `team_id` (UUID): Owner team.
+    *   `player_id` (BigInt): Owned player.
+    *   `purchase_price` (Int): Cost paid to acquire.
+    *   *Constraint*: A player can only be in one roster per league (handled by logic, potentially unique constraint).
+
+### Competition (Lineups & Results)
+*   **`fixtures`**: The schedule of matches between Fantasy Teams.
+    *   `matchday` (Int): 1-38.
+    *   `home_team_id` / `away_team_id`: The competing teams.
+    *   `home_goals` / `away_goals`: Calculated fantasy score (e.g. 72.5 -> 2 goals).
+    *   `calculated` (Boolean): True if the match has been processed.
+*   **`lineups`**: Formations submitted by users for a specific matchday.
+    *   `module` (Text): e.g., "3-4-3".
+*   **`lineup_players`**: Detail of the lineup.
+    *   `lineup_id`: Reference to parent formation.
+    *   `player_id`: The player selected.
+    *   `is_starter` (Boolean): Starter vs Bench.
+    *   `bench_order` (Int): Priority for substitutions (1, 2, 3...).
+*   **`match_stats`**: The raw performance data (Votes, Goals, Assists) imported weekly to calculate scores.
+
+### Market
+*   **`auctions`**: Active bidding wars.
+    *   `player_id`: The player being auctioned.
+    *   `current_winner_team_id`: Highest bidder.
+    *   `current_price` (Int): Current bid amount.
+    *   `end_time` (Timestamp): When the auction closes.
+    *   `status`: 'OPEN' or 'CLOSED'.
+*   **`trade_proposals`**: Direct p2p exchanges.
+    *   `proposer_team_id` / `receiver_team_id`: Who is trading.
+    *   `proposer_player_id` / `receiver_player_id`: The swap assets.
+    *   `credits_offer` (Int): Balancing cash (can be negative/positive depending on logic, here explicitly "offer").
+    *   `status`: 'PENDING', 'ACCEPTED', 'REJECTED'.
+
+### System
+*   **`leagues`**: Configuration for the tournament (Name).
+*   **`settings`**: Key-Value store for global configs (e.g., `auction_duration_hours`, `market_open_hour`).
+*   **`logs`**: Audit trail for Admin actions (e.g., "Market closed", "Scores calculated").
 
 ---
 
