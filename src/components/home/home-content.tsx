@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { LanguageToggle } from '@/components/language-toggle';
 import { LogoutButton } from '@/components/logout-button';
+import { MatchdayReminder } from '@/components/matchday-reminder';
 
 // Inner component to use the hook
 function InnerHome({ user }: { user: any }) {
@@ -14,13 +15,19 @@ function InnerHome({ user }: { user: any }) {
         <>
             {/* Top Left: Logout (if user exists) */}
             {user && (
-                <div className="absolute top-4 left-4 z-10">
+                <div className="absolute top-4 left-4 z-10 w-full max-w-[calc(100%-80px)] md:max-w-none text-left md:text-center pointer-events-none">
+                    {/* Logout is absolute */}
+                </div>
+            )}
+
+            {user && (
+                <div className="absolute top-4 left-4 z-20">
                     <LogoutButton />
                 </div>
             )}
 
             {/* Top Right: Language */}
-            <div className="absolute top-4 right-4 z-10">
+            <div className="absolute top-4 right-4 z-20">
                 <LanguageToggle />
             </div>
 
@@ -30,9 +37,15 @@ function InnerHome({ user }: { user: any }) {
 
             {user ? (
                 <>
-                    <p className="text-gray-600 mb-8 animate-pulse">
+                    <p className="text-gray-600 mb-6 animate-pulse">
                         {t('welcome')}, <span className="font-bold">{user.email?.split('@')[0]}</span>!
                     </p>
+
+                    {/* Width increased to max-w-2xl to fit the reminder content properly */}
+                    <div className="w-full max-w-2xl px-4 pointer-events-auto z-10">
+                        <MatchdayReminder />
+                    </div>
+
                     <div className="flex flex-col gap-4 w-full max-w-xs">
                         <Link href="/team/lineup">
                             <Button size="lg" className="w-full font-bold text-lg">{t('myTeam')}</Button>
@@ -42,6 +55,9 @@ function InnerHome({ user }: { user: any }) {
                         </Link>
                         <Link href="/team/results">
                             <Button variant="outline" size="lg" className="w-full">{t('results')}</Button>
+                        </Link>
+                        <Link href="/standings">
+                            <Button variant="outline" size="lg" className="w-full">{t('standings')}</Button>
                         </Link>
                     </div>
                 </>
