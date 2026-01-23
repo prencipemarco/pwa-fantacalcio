@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Check, ArrowLeftRight, ArrowRight, Wallet, Shield, Users } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // --- HELPER COMPONENTS ---
 
@@ -65,12 +66,14 @@ const OfferBox = ({
     players,
     credits,
     onCreditsChange,
-    title
+    title,
+    creditsLabel
 }: {
     players: any[],
     credits: string,
     onCreditsChange: (v: string) => void,
-    title: string
+    title: string,
+    creditsLabel: string
 }) => (
     <div className="border border-dashed border-slate-300 rounded-lg p-3 flex flex-col h-full bg-slate-50/50">
         <div className="text-[10px] font-bold text-slate-400 uppercase mb-2">{title} ({players.length})</div>
@@ -84,7 +87,7 @@ const OfferBox = ({
         </div>
         <div className="mt-auto pt-2 border-t">
             <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1 mb-1">
-                <Wallet className="w-3 h-3" /> Credits
+                <Wallet className="w-3 h-3" /> {creditsLabel || 'Credits'}
             </label>
             <Input
                 type="number"
@@ -101,10 +104,11 @@ const OfferBox = ({
 // --- MAIN COMPONENT ---
 
 export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose: () => void }) {
+    const { t } = useLanguage();
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
     // State
-    const [step, setStep] = useState(1); // 1: Select Partner, 2: Trade Interface (Desktop) or Selection Steps (Mobile)
+    const [step, setStep] = useState(1);
     const [teams, setTeams] = useState<any[]>([]);
     const [opponentId, setOpponentId] = useState<string>('');
 
@@ -157,12 +161,12 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
         const myRoles = getRoles(myOffer);
         const theirRoles = getRoles(theirOffer);
 
-        if (myRoles.P !== theirRoles.P) return "Must exchange same number of Goalkeepers.";
-        if (myRoles.D !== theirRoles.D) return "Must exchange same number of Defenders.";
-        if (myRoles.C !== theirRoles.C) return "Must exchange same number of Midfielders.";
-        if (myRoles.A !== theirRoles.A) return "Must exchange same number of Forwards.";
+        if (myRoles.P !== theirRoles.P) return t('roleMismatch');
+        if (myRoles.D !== theirRoles.D) return t('roleMismatch');
+        if (myRoles.C !== theirRoles.C) return t('roleMismatch');
+        if (myRoles.A !== theirRoles.A) return t('roleMismatch');
 
-        if (myOffer.length === 0 && theirOffer.length === 0 && parseInt(myCredits || '0') === 0 && parseInt(theirCredits || '0') === 0) return "Empty trade.";
+        if (myOffer.length === 0 && theirOffer.length === 0 && parseInt(myCredits || '0') === 0 && parseInt(theirCredits || '0') === 0) return t('emptyTrade');
 
         return null;
     };
@@ -180,7 +184,10 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
             parseInt(theirCredits) || 0
         );
 
-        if (res.success) onClose();
+        if (res.success) {
+            alert(t('tradeSent'));
+            onClose();
+        }
         else alert(res.error);
     };
 
@@ -193,41 +200,42 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto text-blue-600">
                         <Users className="w-6 h-6" />
                     </div>
-                    <h3 className="font-bold text-lg">Select Trading Partner</h3>
-                    <p className="text-xs text-gray-500">Choose a team to propose a trade to.</p>
+                    <h3 className="font-bold text-lg">{t('selectPartner')}</h3>
+                    <p className="text-xs text-gray-500">{t('chooseOpponent')}</p>
                 </div>
 
                 <Select value={opponentId} onValueChange={setOpponentId}>
-                    <SelectTrigger className="w-full h-12"><SelectValue placeholder="Select Team" /></SelectTrigger>
+                    <SelectTrigger className="w-full h-12"><SelectValue placeholder={t('selectTeam')} /></SelectTrigger>
                     <SelectContent>
                         {teams.map(t => <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>)}
                     </SelectContent>
                 </Select>
 
                 <div className="flex justify-end gap-3 pt-4 border-t">
-                    <Button variant="ghost" onClick={onClose}>Cancel</Button>
+                    <Button variant="ghost" onClick={onClose}>{t('back')}</Button>
                     <Button disabled={!opponentId} onClick={() => setStep(2)} className="w-full sm:w-auto">
-                        Start Trade <ArrowRight className="w-4 h-4 ml-2" />
+                        {t('startTrade')} <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                 </div>
             </div>
         );
     }
 
+    const opponentName = teams.find(t => t.id === opponentId)?.name || 'Opponent';
+
     // DESKTOP LAYOUT (4 Columns)
     if (isDesktop) {
-        const opponentName = teams.find(t => t.id === opponentId)?.name || 'Opponent';
         return (
             <div className="h-[80vh] flex flex-col">
                 <div className="flex justify-between items-center mb-4 pb-2 border-b">
-                    <Button variant="ghost" onClick={() => setStep(1)} size="sm">Change Partner</Button>
-                    <div className="font-bold text-lg">Trade Proposal</div>
-                    <Button onClick={handleSubmit}>Send Proposal</Button>
+                    <Button variant="ghost" onClick={() => setStep(1)} size="sm">{t('changePartner')}</Button>
+                    <div className="font-bold text-lg">{t('tradeProposal')}</div>
+                    <Button onClick={handleSubmit}>{t('sendProposal')}</Button>
                 </div>
 
                 <div className="flex-1 grid grid-cols-4 gap-4 min-h-0">
                     <PlayerList
-                        title="My Roster"
+                        title={t('myRoster')}
                         roster={myRoster}
                         selectedIds={myOffer.map(p => p.player_id)}
                         onToggle={(p) => handleToggle(p, 'mine')}
@@ -235,21 +243,23 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                     />
 
                     <OfferBox
-                        title="My Offer"
+                        title={t('myOffer')}
                         players={myOffer}
                         credits={myCredits}
                         onCreditsChange={setMyCredits}
+                        creditsLabel={t('offerCredits')}
                     />
 
                     <OfferBox
-                        title={`${opponentName}'s Offer`}
+                        title={t('theirOffer')}
                         players={theirOffer}
                         credits={theirCredits}
                         onCreditsChange={setTheirCredits}
+                        creditsLabel={t('requestCredits')}
                     />
 
                     <PlayerList
-                        title={`${opponentName}'s Roster`}
+                        title={t('theirRoster')}
                         roster={theirRoster}
                         selectedIds={theirOffer.map(p => p.player_id)}
                         onToggle={(p) => handleToggle(p, 'theirs')}
@@ -261,11 +271,8 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
     }
 
     // MOBILE LAYOUT (Stepper)
-    // Sub-steps for mobile: 2. Pick Theirs, 3. Pick Mine, 4. Review
-    const mobileStep = step; // reusing step variable, but logically: 2=Theirs, 3=Mine, 4=Review
+    const mobileStep = step;
     const setMobileStep = setStep;
-
-    const opponentName = teams.find(t => t.id === opponentId)?.name || 'Opponent';
 
     return (
         <div className="h-[80vh] flex flex-col relative">
@@ -280,12 +287,12 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                 {mobileStep === 2 && (
                     <>
                         <div className="text-center mb-2">
-                            <h4 className="font-bold">Select Players to Request</h4>
-                            <p className="text-xs text-gray-500">From {opponentName}'s Roster</p>
+                            <h4 className="font-bold">{t('selectRequest')}</h4>
+                            <p className="text-xs text-gray-500">{t('fromRoster')} {opponentName}</p>
                         </div>
                         <div className="flex-1 overflow-y-auto mb-2">
                             <PlayerList
-                                title={`${opponentName} Roster`}
+                                title={t('theirRoster')}
                                 roster={theirRoster}
                                 selectedIds={theirOffer.map(p => p.player_id)}
                                 onToggle={(p) => handleToggle(p, 'theirs')}
@@ -293,7 +300,7 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                             />
                         </div>
                         <div className="p-2 border rounded bg-gray-50 mb-2">
-                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">Request Credits (Optional)</div>
+                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">{t('requestCredits')}</div>
                             <Input
                                 type="number"
                                 value={theirCredits}
@@ -302,24 +309,24 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                                 placeholder="0"
                             />
                         </div>
-                        <Button className="w-full mt-2" onClick={() => setMobileStep(3)}>Next: My Offer</Button>
+                        <Button className="w-full mt-2" onClick={() => setMobileStep(3)}>{t('nextMyOffer')}</Button>
                     </>
                 )}
 
                 {mobileStep === 3 && (
                     <>
                         <div className="text-center mb-2">
-                            <h4 className="font-bold">Select Players to Offer</h4>
-                            <p className="text-xs text-gray-500">From My Roster</p>
+                            <h4 className="font-bold">{t('selectOffer')}</h4>
+                            <p className="text-xs text-gray-500">{t('myRoster')}</p>
                         </div>
                         {/* Requirement Hint */}
                         <div className="bg-yellow-50 p-2 text-xs mb-2 border border-yellow-200 rounded text-yellow-800 flex items-center gap-2">
                             <Shield className="w-4 h-4" />
-                            <span>You requested: {theirOffer.length} players. Match roles!</span>
+                            <span>{t('matchRolesWarning').replace('X', theirOffer.length.toString())}</span>
                         </div>
                         <div className="flex-1 overflow-y-auto mb-2">
                             <PlayerList
-                                title="My Roster"
+                                title={t('myRoster')}
                                 roster={myRoster}
                                 selectedIds={myOffer.map(p => p.player_id)}
                                 onToggle={(p) => handleToggle(p, 'mine')}
@@ -327,7 +334,7 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                             />
                         </div>
                         <div className="p-2 border rounded bg-gray-50 mb-2">
-                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">Offer Credits (Optional)</div>
+                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">{t('offerCredits')}</div>
                             <Input
                                 type="number"
                                 value={myCredits}
@@ -337,35 +344,37 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                             />
                         </div>
                         <div className="flex gap-2 mt-2">
-                            <Button variant="outline" className="flex-1" onClick={() => setMobileStep(2)}>Back</Button>
-                            <Button className="flex-1" onClick={() => setMobileStep(4)}>Review</Button>
+                            <Button variant="outline" className="flex-1" onClick={() => setMobileStep(2)}>{t('back')}</Button>
+                            <Button className="flex-1" onClick={() => setMobileStep(4)}>{t('reviewProposal')}</Button>
                         </div>
                     </>
                 )}
 
                 {mobileStep === 4 && (
                     <div className="flex flex-col h-full">
-                        <h4 className="font-bold text-center mb-4">Review Proposal</h4>
+                        <h4 className="font-bold text-center mb-4">{t('reviewProposal')}</h4>
 
                         <div className="flex-1 overflow-y-auto space-y-4">
                             <OfferBox
-                                title="You Give"
+                                title={t('youGive')}
                                 players={myOffer}
                                 credits={myCredits}
                                 onCreditsChange={setMyCredits}
+                                creditsLabel={t('offerCredits')}
                             />
                             <div className="flex justify-center"><ArrowLeftRight className="text-gray-400" /></div>
                             <OfferBox
-                                title={`${opponentName} Gives`}
+                                title={t('youGet')}
                                 players={theirOffer}
                                 credits={theirCredits}
                                 onCreditsChange={setTheirCredits}
+                                creditsLabel={t('requestCredits')}
                             />
                         </div>
 
                         <div className="mt-4 pt-4 border-t flex gap-2">
-                            <Button variant="outline" className="flex-1" onClick={() => setMobileStep(3)}>Back</Button>
-                            <Button className="flex-[2]" onClick={handleSubmit}>Confirm & Send</Button>
+                            <Button variant="outline" className="flex-1" onClick={() => setMobileStep(3)}>{t('back')}</Button>
+                            <Button className="flex-[2]" onClick={handleSubmit}>{t('confirmSend')}</Button>
                         </div>
                     </div>
                 )}

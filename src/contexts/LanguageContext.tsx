@@ -63,6 +63,42 @@ type Translations = {
         manageUsers: string;
         systemLogs: string;
         systemLogsDesc: string;
+        // Trade Keys
+        selectPartner: string;
+        chooseOpponent: string;
+        selectTeam: string;
+        startTrade: string;
+        changePartner: string;
+        tradeProposal: string;
+        sendProposal: string;
+        myRoster: string;
+        myOffer: string;
+        theirOffer: string;
+        theirRoster: string;
+        requestCredits: string;
+        offerCredits: string;
+        nextMyOffer: string;
+        selectRequest: string;
+        selectOffer: string;
+        fromRoster: string;
+        matchRolesWarning: string;
+        reviewProposal: string;
+        youGive: string;
+        youGet: string;
+        confirmSend: string;
+        activeTrades: string;
+        receivedProposals: string;
+        sentProposals: string;
+        confirmTrade: string;
+        rejectTrade: string;
+        cancelTrade: string;
+        tradeSent: string;
+        tradeAccepted: string;
+        tradeRejected: string;
+        tradeCancelled: string;
+        emptyTrade: string;
+        roleMismatch: string;
+        // End Trade Keys
         viewLogs: string;
         systemUtilities: string;
         devTools: string;
@@ -141,6 +177,41 @@ const translations: Translations = {
         dangerZoneDesc: 'Destructive actions (Reset).',
         coreManagement: 'Core Management',
         created: 'Created At',
+        // Trade - EN
+        selectPartner: 'Select Trading Partner',
+        chooseOpponent: 'Choose a team to propose a trade to.',
+        selectTeam: 'Select Team',
+        startTrade: 'Start Trade',
+        changePartner: 'Change Partner',
+        tradeProposal: 'Trade Proposal',
+        sendProposal: 'Send Proposal',
+        myRoster: 'My Roster',
+        myOffer: 'My Offer',
+        theirOffer: 'Opponent\'s Offer',
+        theirRoster: 'Opponent\'s Roster',
+        requestCredits: 'Request Credits (Optional)',
+        offerCredits: 'Offer Credits (Optional)',
+        nextMyOffer: 'Next: My Offer',
+        selectRequest: 'Select Players to Request',
+        selectOffer: 'Select Players to Offer',
+        fromRoster: 'From Roster',
+        matchRolesWarning: 'You requested X players. Match roles!',
+        reviewProposal: 'Review Proposal',
+        youGive: 'You Give',
+        youGet: 'You Get',
+        confirmSend: 'Confirm & Send',
+        activeTrades: 'Active Trades',
+        receivedProposals: 'Received Proposals',
+        sentProposals: 'Sent Proposals',
+        confirmTrade: 'Confirm trade? This is irreversible.',
+        rejectTrade: 'Reject this trade proposal?',
+        cancelTrade: 'Cancel this trade proposal?',
+        tradeSent: 'Trade sent successfully!',
+        tradeAccepted: 'Trade accepted!',
+        tradeRejected: 'Trade rejected.',
+        tradeCancelled: 'Trade cancelled.',
+        emptyTrade: 'Empty Trade.',
+        roleMismatch: 'Must exchange same number of players per role.',
     },
     it: {
         welcome: 'Bentornato',
@@ -208,6 +279,41 @@ const translations: Translations = {
         dangerZoneDesc: 'Azioni distruttive (Reset).',
         coreManagement: 'Gestione Principale',
         created: 'Creato il',
+        // Trade - IT
+        selectPartner: 'Seleziona Partner Scambio',
+        chooseOpponent: 'Scegli una squadra con cui scambiare.',
+        selectTeam: 'Seleziona Squadra',
+        startTrade: 'Avvia Scambio',
+        changePartner: 'Cambia Partner',
+        tradeProposal: 'Proposta di Scambio',
+        sendProposal: 'Invia Proposta',
+        myRoster: 'La Mia Rosa',
+        myOffer: 'La Mia Offerta',
+        theirOffer: 'Offerta Avversario',
+        theirRoster: 'Rosa Avversario',
+        requestCredits: 'Richiedi Crediti (Opzionale)',
+        offerCredits: 'Offri Crediti (Opzionale)',
+        nextMyOffer: 'Avanti: La Mia Offerta',
+        selectRequest: 'Seleziona Giocatori da Richiedere',
+        selectOffer: 'Seleziona Giocatori da Offrire',
+        fromRoster: 'Dalla Rosa',
+        matchRolesWarning: 'Hai richiesto giocatori. Pareggia i ruoli!',
+        reviewProposal: 'Riepilogo Proposta',
+        youGive: 'Tu Dai',
+        youGet: 'Tu Ricevi',
+        confirmSend: 'Conferma e Invia',
+        activeTrades: 'Scambi Attivi',
+        receivedProposals: 'Proposte Ricevute',
+        sentProposals: 'Proposte Inviate',
+        confirmTrade: 'Confermi lo scambio? È irreversibile.',
+        rejectTrade: 'Rifiutare la proposta?',
+        cancelTrade: 'Annullare la proposta?',
+        tradeSent: 'Proposta inviata!',
+        tradeAccepted: 'Scambio concluso!',
+        tradeRejected: 'Proposta rifiutata.',
+        tradeCancelled: 'Proposta annullata.',
+        emptyTrade: 'Scambio vuoto.',
+        roleMismatch: 'Devi scambiare lo stesso numero di giocatori per ruolo.',
     },
 };
 

@@ -18,16 +18,25 @@ Fantacalcio Manager application built with Next.js 14 and Supabase.
 - **Table View**: Clear visualization of matches per day.
 - **Persisted State**: Fixtures are saved to database.
 
+### 🏆 League & Standings
+- **Automated Standings**: Real-time league table (Classifica).
+- **Points System**: 3 pts Win, 1 pt Draw, 0 Loss + Total Fantasy Points tie-breaker.
+- **Mobile Responsive**: Optimized view for small screens.
+
 ### 💰 Market System
 - **Auction Mechanism**: Create and bid on players (English auction style).
 - **Free Agents (Listone)**: Browse and purchase available players.
-- **Credits Management**: Real-time budget tracking.
-- **Roster Management**: View owned players.
+- **Advanced Trades**: 
+    - Proposal system (Offer vs Request).
+    - Multi-player swaps with Credit adjustments (Conguaglio).
+    - Strict role validation (e.g., must swap 1 Attacker for 1 Attacker).
+    - Distinct Desktop (4-Column) and Mobile (Wizard Step) UIs.
+- **Roster Management**: Release players for 50% refund.
 
 ### ⚽ Competitive Features
 - **Lineup Builder**: Interactive pitch view to set formation (3-4-3, 4-4-2, etc.).
 - **Results Page**: View match outcomes (calculated vs upcoming).
-- **Team Locked Mode**: Password protection for team management to prevent unauthorized changes.
+- **Team Locked Mode**: Password protection for team management.
 
 ### 🌍 Internationalization
 - **Multi-language Support**: Full IT/EN translation.
