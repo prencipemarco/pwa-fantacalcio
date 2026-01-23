@@ -11,6 +11,9 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { DndContext, DragOverlay, useDraggable, useDroppable, DragEndEvent, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { TeamLogo } from '@/components/team-logo';
+import { PageTransition, StaggerList, StaggerItem, TapScale } from '@/components/ui/motion-primitives';
 
 // --- Constants & Helpers ---
 
@@ -38,6 +41,16 @@ const BENCH_STRUCTURE = [
     { role: 'A', label: 'FWD' }, { role: 'A', label: 'FWD' }, { role: 'A', label: 'FWD' }
 ];
 
+const getRoleColor = (role: string) => {
+    switch (role) {
+        case 'P': return 'bg-yellow-100/50 text-yellow-700 border-yellow-200';
+        case 'D': return 'bg-green-100/50 text-green-700 border-green-200';
+        case 'C': return 'bg-blue-100/50 text-blue-700 border-blue-200';
+        case 'A': return 'bg-red-100/50 text-red-700 border-red-200';
+        default: return 'bg-gray-100 text-gray-700';
+    }
+};
+
 // --- DnD Components ---
 
 function DraggablePlayer({ player, isSelected }: { player: any, isSelected: boolean }) {
@@ -54,7 +67,7 @@ function DraggablePlayer({ player, isSelected }: { player: any, isSelected: bool
             className={`text-xs md:text-sm p-2 rounded cursor-grab active:cursor-grabbing flex justify-between items-center hover:bg-gray-50 transition-colors border ${isSelected ? 'bg-blue-50 border-blue-200' : 'border-transparent'} ${isDragging ? 'opacity-50' : ''}`}
         >
             <span className="truncate font-medium max-w-[100px]">{player.player.name}</span>
-            <Badge variant="outline" className="text-[9px] h-5 px-1">{player.player.team_real}</Badge>
+            <TeamLogo teamName={player.player.team_real} size={16} />
         </div>
     );
 }
@@ -91,8 +104,8 @@ function DroppableSlot({ id, role, currentItem, onRemove, onClick }: { id: strin
                 )}
             </div>
             {currentItem && (
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded shadow whitespace-nowrap">
-                    {currentItem.player.team_real.substring(0, 3)}
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded shadow whitespace-nowrap flex items-center gap-1">
+                    <TeamLogo teamName={currentItem.player.team_real} size={12} className="inline brightness-0 invert" />
                 </div>
             )}
             {!currentItem && (
@@ -146,6 +159,7 @@ function DroppableBenchSlot({ index, role, currentItem, onRemove, onClick }: { i
 // --- Main Page Component ---
 
 export default function LineupPage() {
+    const { t } = useLanguage();
     const [team, setTeam] = useState<any>(null);
     const [roster, setRoster] = useState<any[]>([]);
     const [module, setModule] = useState('3-4-3');
@@ -223,13 +237,6 @@ export default function LineupPage() {
                 return newBench;
             });
         }
-
-        // Remove from old pos if needed? 
-        // Logic: if I select a player who is already somewhere, I should move them. 
-        // But getAvailablePlayers filters out used players. So clicking only shows *unused* players.
-        // If user wants to swap, they must remove first?
-        // Let's stick to "unused players only" for simplicity in the dialog.
-
         setOpenSelector(null);
     };
 
@@ -259,7 +266,6 @@ export default function LineupPage() {
 
         // 1. Role Validation
         if (overData.role !== player.player.role) {
-            // Optional: visual feedback for invalid role could go here
             return;
         }
 
@@ -267,11 +273,6 @@ export default function LineupPage() {
         const isLineup = Object.values(lineup).some((p: any) => p.player.id === player.player.id);
         const isBench = bench.some(p => p?.player.id === player.player.id);
         if (isLineup || isBench) {
-            // Already in team -> remove strictly from old pos implies we simply overwrite new pos?
-            // For now, let's remove from old pos first to allow "move"
-
-            // This is complex if we drag from roster but it's already placed.
-            // Simplification: Roster source always adds. If player is already placed, remove from old spot first.
             removeFromTeam(player.player.id);
         }
 
@@ -313,7 +314,7 @@ export default function LineupPage() {
 
         // Validate 11 starters
         if (Object.keys(lineup).length < 11) {
-            alert("You must select 11 starters.");
+            alert(t('lineupIncomplete') || "You must select 11 starters.");
             setLoading(false);
             return;
         }
@@ -330,9 +331,9 @@ export default function LineupPage() {
         );
 
         if (res.success) {
-            alert("Lineup saved successfully!");
+            alert(t('lineupSaved') || "Lineup saved successfully!");
         } else {
-            alert("Error saving lineup: " + res.error);
+            alert(t('error') + ": " + res.error);
         }
         setLoading(false);
     };
@@ -346,7 +347,7 @@ export default function LineupPage() {
             <div className="container mx-auto p-4 max-w-7xl pb-24">
                 <div className="flex flex-col gap-4 mb-4">
                     <div className="flex justify-between items-center">
-                        <h1 className="text-xl font-bold">Set Lineup</h1>
+                        <h1 className="text-xl font-bold">{t('lineup')}</h1>
                         <div className="flex gap-2">
                             <Select value={matchday} onValueChange={setMatchday}>
                                 <SelectTrigger className="w-[100px]">
@@ -375,7 +376,7 @@ export default function LineupPage() {
                     {/* LEFT PANEL: ROSTER */}
                     <Card className="md:col-span-3 h-[600px] md:h-[800px] flex flex-col order-2 md:order-1">
                         <CardContent className="p-4 flex-1 overflow-y-auto">
-                            <h3 className="font-bold mb-4 text-sm uppercase text-gray-500">My Roster ({roster.length})</h3>
+                            <h3 className="font-bold mb-4 text-sm uppercase text-gray-500">{t('myRoster')} ({roster.length})</h3>
                             {roster.length === 0 ? (
                                 <div className="text-center text-gray-500 mt-10">No players found.</div>
                             ) : (
@@ -428,7 +429,7 @@ export default function LineupPage() {
 
                         {/* Bench */}
                         <div>
-                            <h3 className="font-bold mb-3 text-sm uppercase text-gray-500">Bench (Panchina)</h3>
+                            <h3 className="font-bold mb-3 text-sm uppercase text-gray-500">{t('bench')}</h3>
                             <Card>
                                 <CardContent className="p-4">
                                     <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
@@ -449,46 +450,54 @@ export default function LineupPage() {
                             </Card>
                         </div>
 
-                        <Button className="w-full size-lg font-bold" onClick={handleSubmit} disabled={loading}>
-                            {loading ? 'Saving...' : 'Submit Lineup'}
-                        </Button>
+                        <TapScale>
+                            <Button className="w-full size-lg font-bold" onClick={handleSubmit} disabled={loading}>
+                                {loading ? t('loading') : t('saveLineup')}
+                            </Button>
+                        </TapScale>
                     </div>
 
                     {/* RIGHT PANEL: DETAILS */}
                     <Card className="md:col-span-3 h-[400px] md:h-[800px] order-3">
                         <CardContent className="p-6">
-                            <h3 className="font-bold mb-6 text-sm uppercase text-gray-500">Player Details</h3>
+                            <h3 className="font-bold mb-6 text-sm uppercase text-gray-500">{t('playerDetails')}</h3>
                             {selectedRosterPlayer ? (
-                                <div className="flex flex-col items-center text-center space-y-4">
-                                    <Avatar className="w-24 h-24">
-                                        <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">
-                                            {selectedRosterPlayer.player.name.substring(0, 2).toUpperCase()}
-                                        </AvatarFallback>
-                                    </Avatar>
+                                <StaggerItem className="flex flex-col items-center text-center space-y-4">
+                                    <div className="w-24 h-24 relative flex items-center justify-center">
+                                        <TeamLogo teamName={selectedRosterPlayer.player.team_real} size={88} className="opacity-10 absolute inset-0 m-auto blur-sm" />
+                                        <Avatar className="w-24 h-24 z-10 border-4 border-white shadow-xl">
+                                            <AvatarFallback className="text-2xl font-bold bg-gradient-to-br from-slate-100 to-slate-200 text-slate-700">
+                                                {selectedRosterPlayer.player.name.substring(0, 2).toUpperCase()}
+                                            </AvatarFallback>
+                                        </Avatar>
+                                    </div>
 
                                     <div className="space-y-1">
                                         <h2 className="text-2xl font-bold">{selectedRosterPlayer.player.name}</h2>
-                                        <span className="text-muted-foreground">{selectedRosterPlayer.player.team_real}</span>
+                                        <div className="flex items-center justify-center gap-2">
+                                            <TeamLogo teamName={selectedRosterPlayer.player.team_real} size={16} />
+                                            <span className="text-muted-foreground">{selectedRosterPlayer.player.team_real}</span>
+                                        </div>
                                     </div>
 
                                     <Badge className="text-lg px-4 py-1">
-                                        {selectedRosterPlayer.player.role === 'P' ? 'Goalkeeper' : selectedRosterPlayer.player.role === 'D' ? 'Defender' : selectedRosterPlayer.player.role === 'C' ? 'Midfielder' : 'Forward'}
+                                        {selectedRosterPlayer.player.role}
                                     </Badge>
 
                                     <div className="grid grid-cols-2 gap-4 w-full pt-4">
                                         <div className="bg-gray-50 p-3 rounded text-center">
-                                            <div className="text-xs text-uppercase text-gray-500 mb-1">Price</div>
+                                            <div className="text-[10px] uppercase text-gray-500 mb-1">{t('price')}</div>
                                             <div className="font-mono font-bold text-lg">{selectedRosterPlayer.purchase_price}</div>
                                         </div>
                                         <div className="bg-gray-50 p-3 rounded text-center">
-                                            <div className="text-xs text-uppercase text-gray-500 mb-1">Status</div>
-                                            <div className="font-bold text-green-600">Active</div>
+                                            <div className="text-[10px] uppercase text-gray-500 mb-1">QT.</div>
+                                            <div className="font-bold text-gray-800">{selectedRosterPlayer.player.quotation || '-'}</div>
                                         </div>
                                     </div>
-                                </div>
+                                </StaggerItem>
                             ) : (
-                                <div className="h-full flex flex-col items-center justify-center text-gray-400 text-center">
-                                    <p>Select a player from the roster to view details.</p>
+                                <div className="h-full flex flex-col items-center justify-center text-gray-400 text-center text-sm">
+                                    <p>{t('selectPlayerDetails')}</p>
                                 </div>
                             )}
                         </CardContent>
@@ -496,23 +505,41 @@ export default function LineupPage() {
 
                     {/* PLAYER SELECTOR DIALOG */}
                     <Dialog open={!!openSelector} onOpenChange={(open) => !open && setOpenSelector(null)}>
-                        <DialogContent>
+                        <DialogContent className="sm:max-w-[425px]">
                             <DialogHeader>
-                                <DialogTitle>Select {openSelector?.role === 'P' ? 'Goalkeeper' : openSelector?.role === 'D' ? 'Defender' : openSelector?.role === 'C' ? 'Midfielder' : 'Forward'}</DialogTitle>
-                                <DialogDescription>Choose a player to insert</DialogDescription>
+                                <DialogTitle>{t('selectPlayer')} ({openSelector?.role})</DialogTitle>
+                                <DialogDescription>{t('choosePlayerInsert')}</DialogDescription>
                             </DialogHeader>
-                            <div className="grid gap-2 overflow-y-auto max-h-[60vh]">
+                            <StaggerList className="grid gap-2 overflow-y-auto max-h-[60vh] pr-2">
                                 {getAvailablePlayers(openSelector?.role).map((item) => (
-                                    <div key={item.id} onClick={() => handleSelectPlayer(item)} className="p-3 border rounded hover:bg-gray-100 cursor-pointer flex justify-between items-center group">
-                                        <div className="flex items-center gap-3">
-                                            <div className="font-bold text-sm bg-gray-100 w-6 h-6 flex items-center justify-center rounded-full text-gray-600">{item.player.role}</div>
-                                            <span className="font-bold">{item.player.name}</span>
+                                    <StaggerItem key={item.id} className="w-full">
+                                        <div
+                                            onClick={() => handleSelectPlayer(item)}
+                                            className={`p-3 border rounded-lg cursor-pointer flex justify-between items-center group
+                                                ${getRoleColor(item.player.role)} hover:shadow-md transition-all active:scale-95`}
+                                        >
+                                            <div className="flex items-center gap-3">
+                                                <div className="font-bold text-xs bg-white/50 w-6 h-6 flex items-center justify-center rounded-full border border-black/10">
+                                                    {item.player.role}
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span className="font-bold text-sm">{item.player.name}</span>
+                                                    <span className="text-[10px] opacity-70 flex items-center gap-1">
+                                                        Qt. {item.player.quotation || '-'}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-center gap-2">
+                                                <TeamLogo teamName={item.player.team_real} size={24} />
+                                            </div>
                                         </div>
-                                        <Badge variant="secondary">{item.player.team_real}</Badge>
-                                    </div>
+                                    </StaggerItem>
                                 ))}
-                                {getAvailablePlayers(openSelector?.role).length === 0 && <p className="text-center text-gray-500 py-4">No available players for this role.</p>}
-                            </div>
+                                {getAvailablePlayers(openSelector?.role).length === 0 && (
+                                    <p className="text-center text-gray-500 py-4 text-xs italic">{t('noPlayersAvailable')}</p>
+                                )}
+                            </StaggerList>
                         </DialogContent>
                     </Dialog>
 
@@ -532,4 +559,3 @@ export default function LineupPage() {
         </DndContext>
     );
 }
-

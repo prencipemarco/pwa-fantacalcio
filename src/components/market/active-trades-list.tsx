@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { RefreshCw, CheckCircle, XCircle, Trash2, ArrowRight } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { StaggerList, StaggerItem, TapScale } from '@/components/ui/motion-primitives';
 
 export function ActiveTradesList({ teamId }: { teamId: string }) {
     const { t } = useLanguage();
@@ -59,14 +60,13 @@ export function ActiveTradesList({ teamId }: { teamId: string }) {
         const isProposer = trade.proposer_team_id === teamId;
         const partnerName = isProposer ? trade.receiver.name : trade.proposer.name;
 
-        // Status Colors
         let statusColor = 'bg-gray-100 text-gray-800';
         if (trade.status === 'ACCEPTED') statusColor = 'bg-green-100 text-green-800';
         if (trade.status === 'REJECTED') statusColor = 'bg-red-100 text-red-800';
         if (trade.status === 'CANCELLED') statusColor = 'bg-slate-100 text-slate-800 line-through';
 
         return (
-            <div className="border rounded-lg p-3 bg-white shadow-sm mb-3">
+            <StaggerItem className="border rounded-lg p-3 bg-white shadow-sm mb-3">
                 <div className="flex justify-between items-center mb-2">
                     <div className="flex items-center gap-2">
                         <span className="font-bold text-sm">{isProposer ? 'To:' : 'From:'} {partnerName}</span>
@@ -114,22 +114,28 @@ export function ActiveTradesList({ teamId }: { teamId: string }) {
                 {trade.status === 'PENDING' && (
                     <div className="flex justify-end gap-2">
                         {isProposer ? (
-                            <Button size="sm" variant="outline" className="text-red-600 h-7 text-xs" onClick={() => handleCancel(trade.id)}>
-                                <Trash2 className="w-3 h-3 mr-1" /> {t('back')}
-                            </Button>
+                            <TapScale>
+                                <Button size="sm" variant="outline" className="text-red-600 h-7 text-xs" onClick={() => handleCancel(trade.id)}>
+                                    <Trash2 className="w-3 h-3 mr-1" /> {t('back')}
+                                </Button>
+                            </TapScale>
                         ) : (
                             <>
-                                <Button size="sm" variant="outline" className="text-red-600 h-7 text-xs" onClick={() => handleReject(trade.id)}>
-                                    <XCircle className="w-3 h-3 mr-1" /> {t('error')}
-                                </Button>
-                                <Button size="sm" className="bg-green-600 hover:bg-green-700 h-7 text-xs" onClick={() => handleAccept(trade.id)}>
-                                    <CheckCircle className="w-3 h-3 mr-1" /> {t('success')}
-                                </Button>
+                                <TapScale>
+                                    <Button size="sm" variant="outline" className="text-red-600 h-7 text-xs" onClick={() => handleReject(trade.id)}>
+                                        <XCircle className="w-3 h-3 mr-1" /> {t('error')}
+                                    </Button>
+                                </TapScale>
+                                <TapScale>
+                                    <Button size="sm" className="bg-green-600 hover:bg-green-700 h-7 text-xs" onClick={() => handleAccept(trade.id)}>
+                                        <CheckCircle className="w-3 h-3 mr-1" /> {t('success')}
+                                    </Button>
+                                </TapScale>
                             </>
                         )}
                     </div>
                 )}
-            </div>
+            </StaggerItem>
         );
     };
 
@@ -139,23 +145,25 @@ export function ActiveTradesList({ teamId }: { teamId: string }) {
     const received = trades.filter(t => t.receiver_team_id === teamId);
 
     return (
-        <div className="max-h-[60vh] overflow-y-auto">
+        <div className="max-h-[60vh] overflow-y-auto px-1">
             <div className="flex justify-end mb-2">
-                <Button variant="ghost" size="sm" className="h-6 w-6 p-0" onClick={loadTrades}><RefreshCw className="w-3 h-3" /></Button>
+                <TapScale>
+                    <Button variant="ghost" size="sm" className="h-6 w-6 p-0" onClick={loadTrades}><RefreshCw className="w-3 h-3" /></Button>
+                </TapScale>
             </div>
 
             {received.length > 0 && (
-                <div className="mb-4">
+                <StaggerList className="mb-4">
                     <h4 className="text-xs font-bold text-purple-600 uppercase mb-2">{t('receivedProposals')} ({received.length})</h4>
                     {received.map(t => <TradeCard key={t.id} trade={t} />)}
-                </div>
+                </StaggerList>
             )}
 
             {sent.length > 0 && (
-                <div>
+                <StaggerList>
                     <h4 className="text-xs font-bold text-blue-600 uppercase mb-2">{t('sentProposals')} ({sent.length})</h4>
                     {sent.map(t => <TradeCard key={t.id} trade={t} />)}
-                </div>
+                </StaggerList>
             )}
 
             {sent.length === 0 && received.length === 0 && (

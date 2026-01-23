@@ -9,8 +9,8 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Fantacalcio PWA",
-  description: "Manager for Fantacalcio",
+  title: "Fantacalcio",
+  description: "App manageriale per il Fantacalcio",
   manifest: "/manifest.json",
 };
 

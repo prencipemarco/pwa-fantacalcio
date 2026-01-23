@@ -6,107 +6,7 @@ type Language = 'en' | 'it';
 
 type Translations = {
     [key in Language]: {
-        welcome: string;
-        login: string;
-        signup: string;
-        myTeam: string;
-        market: string;
-        results: string;
-        adminDashboard: string;
-        adminAccess: string;
-        manageTeam: string;
-        loginToManage: string;
-        credits: string;
-        beta: string;
-        activeAuctions: string;
-        newAuction: string;
-        freeAgents: string;
-        searchPlayer: string;
-        startAuction: string;
-        bid: string;
-        noAuctions: string;
-        lineup: string;
-        bench: string;
-        saveLineup: string;
-        trade: string;
-        releasePlayer: string;
-        releaseDesc: string;
-        confirmRelease: string;
-        released: string;
-        proposeTrade: string;
-        myTrades: string;
-        back: string;
-        loading: string;
-        error: string;
-        success: string;
-        trades: string;
-        tradeProposals: string;
-        newTrade: string;
-        noTrades: string;
-        createTeamFirst: string;
-        noTeamMessage: string;
-        // Admin
-        dataImport: string;
-        dataImportDesc: string;
-        goToImports: string;
-        matchCalendar: string;
-        matchCalendarDesc: string;
-        manageCalendar: string;
-        teams: string;
-        teamsDesc: string;
-        manageTeams: string;
-        marketSettings: string;
-        marketSettingsDesc: string;
-        settings: string;
-        userManagement: string;
-        userManagementDesc: string;
-        manageUsers: string;
-        systemLogs: string;
-        systemLogsDesc: string;
-        // Trade Keys
-        selectPartner: string;
-        chooseOpponent: string;
-        selectTeam: string;
-        startTrade: string;
-        changePartner: string;
-        tradeProposal: string;
-        sendProposal: string;
-        myRoster: string;
-        myOffer: string;
-        theirOffer: string;
-        theirRoster: string;
-        requestCredits: string;
-        offerCredits: string;
-        nextMyOffer: string;
-        selectRequest: string;
-        selectOffer: string;
-        fromRoster: string;
-        matchRolesWarning: string;
-        reviewProposal: string;
-        youGive: string;
-        youGet: string;
-        confirmSend: string;
-        activeTrades: string;
-        receivedProposals: string;
-        sentProposals: string;
-        confirmTrade: string;
-        rejectTrade: string;
-        cancelTrade: string;
-        tradeSent: string;
-        tradeAccepted: string;
-        tradeRejected: string;
-        tradeCancelled: string;
-        emptyTrade: string;
-        roleMismatch: string;
-        // End Trade Keys
-        viewLogs: string;
-        systemUtilities: string;
-        devTools: string;
-        devToolsDesc: string;
-        dangerZone: string;
-        dangerZoneDesc: string;
-        coreManagement: string;
-        created: string;
+        [key: string]: string;
     };
 };
 
@@ -320,7 +220,7 @@ const translations: Translations = {
 interface LanguageContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
-    t: (key: keyof Translations['en']) => string;
+    t: (key: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -338,7 +238,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         localStorage.setItem('app-language', lang);
     };
 
-    const t = (key: keyof Translations['en']) => {
+    const t = (key: string) => {
         return translations[language][key] || key;
     };
 
