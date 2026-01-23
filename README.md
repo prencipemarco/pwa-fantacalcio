@@ -1,55 +1,70 @@
-# Fantacalcio PWA v0.1
+# FantaCalcio PWA ⚽️
 
-Fantacalcio Manager application built with Next.js 14 and Supabase.
+Manage your Fantacalcio team with this modern, mobile-first Progressive Web App (PWA).
 
-## 🚀 Main Features (v0.1)
+## 📱 Features
 
-### 👥 Team Management
-- **User Authentication**: Sign up/Login via Supabase Auth.
-- **Team Creation**: Users can create their own team with a secure password.
-- **Admin Dashboard**: Full control for administrators.
-    - **Parametric Seeder**: Generate N test teams for debugging.
-    - **Single Team Deletion**: Granular control to remove specific teams and cascading data.
-    - **Reset Tools**: Granular system reset (Market, Rosters, Logs, etc.).
-
-### 📅 Calendar & Fixtures
-- **Automated Generation**: Berger algorithm implementation.
-- **38 Matchdays**: Automatically loops fixtures to cover a full Serie A season style calendar.
-- **Table View**: Clear visualization of matches per day.
-- **Persisted State**: Fixtures are saved to database.
-
-### 🏆 League & Standings
-- **Automated Standings**: Real-time league table (Classifica).
-- **Points System**: 3 pts Win, 1 pt Draw, 0 Loss + Total Fantasy Points tie-breaker.
-- **Mobile Responsive**: Optimized view for small screens.
-
-### 💰 Market System
-- **Auction Mechanism**: Create and bid on players (English auction style).
-- **Free Agents (Listone)**: Browse and purchase available players.
-- **Advanced Trades**: 
-    - Proposal system (Offer vs Request).
-    - Multi-player swaps with Credit adjustments (Conguaglio).
-    - Strict role validation (e.g., must swap 1 Attacker for 1 Attacker).
-    - Distinct Desktop (4-Column) and Mobile (Wizard Step) UIs.
-- **Roster Management**: Release players for 50% refund.
-
-### ⚽ Competitive Features
-- **Lineup Builder**: Interactive pitch view to set formation (3-4-3, 4-4-2, etc.).
-- **Results Page**: View match outcomes (calculated vs upcoming).
-- **Team Locked Mode**: Password protection for team management.
-
-### 🌍 Internationalization
-- **Multi-language Support**: Full IT/EN translation.
-- **Smart Toggle**: Animated flag selector for language switching.
+*   **PWA Ready**: Installable on iOS (Add to Home Screen) and Android.
+*   **Team Management**: Set your lineup (3-4-3, 4-3-3, etc.), manage bench, and view player prices/stats.
+*   **Live Results**: View match results with calculated fantasy scores (Win/Draw/Loss badges).
+*   **Standings**: Stylish, interactive league table with podium visualization.
+*   **Transfer Market**:
+    *   **Auction System**: Create and bid on players (24h auctions).
+    *   **Trades**: Propose and accept trades with other users (Players + Credits).
+    *   **Free Agents**: Sign available players.
+*   **Matchday Reminder**: Countdown to lineup lock and Next Matchday info.
+*   **Admin Panel**: Manage market, auctions, and score calculation.
+*   **Dark Mode**: Fully supported system-wide dark mode.
+*   **Multi-language**: Italian 🇮🇹 and English 🇬🇧 support.
 
 ## 🛠 Tech Stack
-- **Frontend**: Next.js 14 (App Router), Tailwind CSS, Lucide React, Shadcn/UI.
-- **Backend**: Supabase (PostgreSQL, Auth, Edge Functions).
-- **Deployment**: Vercel (PWA support enabled).
 
-## 📦 Setup
+*   **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+*   **Database**: [Supabase](https://supabase.com/) (PostgreSQL)
+*   **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+*   **Icons**: [Lucide React](https://lucide.dev/)
+*   **Animations**: Framer Motion & Tailwind Animate
 
-1. Clone repository.
-2. `npm install`
-3. Set up `.env` with Supabase credentials.
-4. `npm run dev`
+## 🚀 Getting Started
+
+1.  **Clone the repo**
+    ```bash
+    git clone https://github.com/prencipemarco/pwa-fantacalcio.git
+    cd pwa-fantacalcio
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Environment Setup**
+    Create `.env.local` with your Supabase credentials:
+    ```env
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+    FOOTBALL_DATA_API_KEY=your_football_data_api_key (Optional)
+    ```
+
+4.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Build for Production**
+    ```bash
+    npm run build
+    npm start
+    ```
+
+## 📂 Project Structure
+
+See `PROJECT_DOCUMENTATION.md` for a deep dive into the code architecture.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the MIT License.

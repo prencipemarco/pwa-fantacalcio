@@ -29,6 +29,7 @@ const translations: Record<string, Translations> = {
 
         // Trades
         trades: 'Trades',
+        activeTrades: 'Active Trades',
         tradeProposals: 'Trade Proposals',
         newTrade: 'New Trade',
         noTrades: 'No active trade proposals.',
@@ -46,8 +47,24 @@ const translations: Record<string, Translations> = {
         error: 'Error',
         back: 'Back',
 
-        // Release
+        // Market Page (New)
+        transferMarket: 'Transfer Market',
+        credits: 'Credits',
+        activeAuctions: 'Active Auctions',
+        noAuctions: 'No active auctions.',
+        viewAuctions: 'View Auctions',
+        newAuction: 'New Auction',
+        startAuction: 'Start Auction', // Usually inside the modal
+        freeAgents: 'Free Agents',
+        browse: 'Browse',
         releasePlayer: 'Release Player',
+        releaseDesc: 'Release players to recover credits.',
+        manageSquad: 'Manage Squad',
+        createTeamFirst: 'Create Team First',
+        noTeamMessage: 'You need to create a team before accessing the market.',
+        createTeam: 'Create Team',
+
+        // Release
         releaseConfirm: 'Are you sure you want to release this player? You will recover',
         releasedSuccess: 'Player released successfully',
 
@@ -83,6 +100,8 @@ const translations: Record<string, Translations> = {
         draw: 'Draw',
         loss: 'Loss',
         vs: 'vs',
+        noTeam: 'No Team Found',
+        createTeamMessage: 'You need to create a team to see results.',
 
         // Lineup Page
         lineup: 'Lineup',
@@ -120,6 +139,7 @@ const translations: Record<string, Translations> = {
 
         // Trades
         trades: 'Scambi',
+        activeTrades: 'Scambi Attivi',
         tradeProposals: 'Proposte di Scambio',
         newTrade: 'Nuovo Scambio',
         noTrades: 'Nessuna proposta di scambio attiva.',
@@ -137,8 +157,24 @@ const translations: Record<string, Translations> = {
         error: 'Rifiuta',
         back: 'Indietro',
 
-        // Release
+        // Market Page (New)
+        transferMarket: 'Mercato',
+        credits: 'Crediti',
+        activeAuctions: 'Aste Attive',
+        noAuctions: 'Nessuna asta attiva.',
+        viewAuctions: 'Vedi Aste',
+        newAuction: 'Nuova Asta',
+        startAuction: 'Avvia Asta',
+        freeAgents: 'Svincolati',
+        browse: 'Sfoglia',
         releasePlayer: 'Taglia Giocatore',
+        releaseDesc: 'Taglia giocatori per recuperare crediti.',
+        manageSquad: 'Gestisci Rosa',
+        createTeamFirst: 'Crea Squadra',
+        noTeamMessage: 'Devi creare una squadra prima di accedere al mercato.',
+        createTeam: 'Crea Squadra',
+
+        // Release
         releaseConfirm: 'Sei sicuro di voler tagliare questo giocatore? Recupererai',
         releasedSuccess: 'Giocatore tagliato con successo',
 
@@ -174,6 +210,8 @@ const translations: Record<string, Translations> = {
         draw: 'Pareggio',
         loss: 'Sconfitta',
         vs: 'vs',
+        noTeam: 'Nessuna Squadra',
+        createTeamMessage: 'Devi creare una squadra per vedere i risultati.',
 
         // Lineup Page
         lineup: 'Formazione',
