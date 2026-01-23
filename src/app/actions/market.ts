@@ -223,3 +223,87 @@ export async function createTradeProposal(
 
     return { success: true };
 }
+
+export async function getMyTradeProposals(teamId: string) {
+    const supabase = await createClient();
+
+    // Fetch trades where I am proposer or receiver
+    const { data: trades } = await supabase.from('trade_proposals')
+        .select(`
+            *,
+            proposer:teams!proposer_team_id(id, name),
+            receiver:teams!receiver_team_id(id, name)
+        `)
+        .or(`proposer_team_id.eq.${teamId},receiver_team_id.eq.${teamId}`)
+        .order('created_at', { ascending: false });
+
+    return trades || [];
+}
+
+export async function cancelTradeProposal(tradeId: number) {
+    const supabase = await createClient();
+    const { error } = await supabase.from('trade_proposals').update({ status: 'CANCELLED' }).eq('id', tradeId);
+    if (error) return { success: false, error: error.message };
+    return { success: true };
+}
+
+export async function rejectTradeProposal(tradeId: number) {
+    const supabase = await createClient();
+    const { error } = await supabase.from('trade_proposals').update({ status: 'REJECTED' }).eq('id', tradeId);
+    if (error) return { success: false, error: error.message };
+    return { success: true };
+}
+
+export async function acceptTradeProposal(tradeId: number) {
+    const supabase = await createClient();
+
+    // 1. Fetch Trade Details
+    const { data: trade } = await supabase.from('trade_proposals').select('*').eq('id', tradeId).single();
+    if (!trade || trade.status !== 'PENDING') return { success: false, error: 'Trade not valid.' };
+
+    // 2. Transact
+    // We need to swap players and credits.
+    // Verify ownership again? Yes, strictly.
+
+    const { data: proposerTeam } = await supabase.from('teams').select('credits_left').eq('id', trade.proposer_team_id).single();
+    const { data: receiverTeam } = await supabase.from('teams').select('credits_left').eq('id', trade.receiver_team_id).single();
+
+    if (!proposerTeam || !receiverTeam) return { success: false, error: 'Teams not found.' };
+
+    if (proposerTeam.credits_left < trade.proposer_credits) return { success: false, error: 'Proposer has insufficient credits.' };
+    if (receiverTeam.credits_left < trade.receiver_credits) return { success: false, error: 'Receiver has insufficient credits.' };
+
+    // Perform Updates
+    // A. Swap Players
+    if (trade.proposer_player_ids.length > 0) {
+        const { error: pErr } = await supabase.from('rosters')
+            .update({ team_id: trade.receiver_team_id })
+            .in('player_id', trade.proposer_player_ids)
+            .eq('team_id', trade.proposer_team_id); // Security check
+        if (pErr) return { success: false, error: 'Failed to transfer proposer players.' };
+    }
+
+    if (trade.receiver_player_ids.length > 0) {
+        const { error: rErr } = await supabase.from('rosters')
+            .update({ team_id: trade.proposer_team_id })
+            .in('player_id', trade.receiver_player_ids)
+            .eq('team_id', trade.receiver_team_id);
+        if (rErr) return { success: false, error: 'Failed to transfer receiver players.' };
+    }
+
+    // B. Swap Credits
+    // Net flow: Proposer GIVES P_Credits, GETS R_Credits.
+    const proposerNet = trade.receiver_credits - trade.proposer_credits;
+    const receiverNet = trade.proposer_credits - trade.receiver_credits;
+
+    await supabase.from('teams').update({ credits_left: proposerTeam.credits_left + proposerNet }).eq('id', trade.proposer_team_id);
+    await supabase.from('teams').update({ credits_left: receiverTeam.credits_left + receiverNet }).eq('id', trade.receiver_team_id);
+
+    // C. Close Trade
+    await supabase.from('trade_proposals').update({ status: 'ACCEPTED' }).eq('id', tradeId);
+
+    const { data: user } = await supabase.auth.getUser();
+    await logEvent('TRADE_ACCEPTED', { tradeId }, user.user?.id);
+
+    return { success: true };
+}

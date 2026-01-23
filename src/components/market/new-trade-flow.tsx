@@ -6,22 +6,114 @@ import { createTradeProposal } from '@/app/actions/market';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Check, ArrowLeftRight } from 'lucide-react';
+import { Check, ArrowLeftRight, ArrowRight, Wallet, Shield, Users } from 'lucide-react';
+import { useMediaQuery } from '@/hooks/use-media-query';
+
+// --- HELPER COMPONENTS ---
+
+const RoleSummary = ({ roster }: { roster: any[] }) => {
+    const counts = { P: 0, D: 0, C: 0, A: 0 };
+    roster.forEach(p => {
+        const r = p.player.role as keyof typeof counts;
+        if (counts[r] !== undefined) counts[r]++;
+    });
+    return (
+        <div className="flex justify-around text-[10px] font-mono bg-black/5 p-1 border-b">
+            <span>P:<span className="font-bold">{counts.P}</span></span>
+            <span>D:<span className="font-bold">{counts.D}</span></span>
+            <span>C:<span className="font-bold">{counts.C}</span></span>
+            <span>A:<span className="font-bold">{counts.A}</span></span>
+        </div>
+    );
+};
+
+const PlayerList = ({
+    roster,
+    selectedIds,
+    onToggle,
+    title,
+    colorClass
+}: {
+    roster: any[],
+    selectedIds: number[],
+    onToggle: (p: any) => void,
+    title: string,
+    colorClass: string
+}) => (
+    <div className="flex flex-col border rounded-md overflow-hidden bg-white h-full shadow-sm">
+        <div className={`${colorClass} p-2 text-center text-xs font-bold uppercase tracking-wider`}>{title}</div>
+        <RoleSummary roster={roster} />
+        <div className="flex-1 overflow-y-auto p-1 space-y-1">
+            {roster.map(p => {
+                const isSelected = selectedIds.includes(p.player_id);
+                return (
+                    <div key={p.player_id}
+                        onClick={() => onToggle(p)}
+                        className={`p-2 rounded border text-xs cursor-pointer flex justify-between items-center transition-all
+                            ${isSelected ? 'bg-slate-800 text-white border-slate-900 shadow-md' : 'bg-white hover:bg-slate-50 border-slate-100'}`}
+                    >
+                        <span className="font-medium">{p.player.name}</span>
+                        {isSelected ? <Check className="w-3 h-3" /> : <span className="text-[10px] font-mono opacity-50">{p.player.role}</span>}
+                    </div>
+                );
+            })}
+        </div>
+    </div>
+);
+
+const OfferBox = ({
+    players,
+    credits,
+    onCreditsChange,
+    title
+}: {
+    players: any[],
+    credits: string,
+    onCreditsChange: (v: string) => void,
+    title: string
+}) => (
+    <div className="border border-dashed border-slate-300 rounded-lg p-3 flex flex-col h-full bg-slate-50/50">
+        <div className="text-[10px] font-bold text-slate-400 uppercase mb-2">{title} ({players.length})</div>
+        <div className="flex-1 overflow-y-auto space-y-1 mb-2">
+            {players.length === 0 && <div className="text-center text-slate-300 text-xs italic mt-4">No players selected</div>}
+            {players.map(p => (
+                <div key={p.player_id} className="text-xs font-medium bg-white px-2 py-1 rounded border shadow-sm flex justify-between">
+                    {p.player.name} <span className="text-[10px] text-gray-400">{p.player.role}</span>
+                </div>
+            ))}
+        </div>
+        <div className="mt-auto pt-2 border-t">
+            <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1 mb-1">
+                <Wallet className="w-3 h-3" /> Credits
+            </label>
+            <Input
+                type="number"
+                value={credits}
+                onChange={e => onCreditsChange(e.target.value)}
+                className="h-8 text-xs bg-white"
+                placeholder="0"
+                min="0"
+            />
+        </div>
+    </div>
+);
+
+// --- MAIN COMPONENT ---
 
 export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose: () => void }) {
-    const [step, setStep] = useState(1);
+    const isDesktop = useMediaQuery("(min-width: 768px)");
+
+    // State
+    const [step, setStep] = useState(1); // 1: Select Partner, 2: Trade Interface (Desktop) or Selection Steps (Mobile)
     const [teams, setTeams] = useState<any[]>([]);
     const [opponentId, setOpponentId] = useState<string>('');
 
-    // Rosters
     const [myRoster, setMyRoster] = useState<any[]>([]);
     const [theirRoster, setTheirRoster] = useState<any[]>([]);
 
-    // Selected for Trade
-    const [myOffer, setMyOffer] = useState<any[]>([]); // Players I give
-    const [theirOffer, setTheirOffer] = useState<any[]>([]); // Players I get
+    const [myOffer, setMyOffer] = useState<any[]>([]);
+    const [theirOffer, setTheirOffer] = useState<any[]>([]);
 
-    // Credits
     const [myCredits, setMyCredits] = useState<string>('0');
     const [theirCredits, setTheirCredits] = useState<string>('0');
 
@@ -30,78 +122,54 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
         getTeams().then(data => setTeams(data.filter((t: any) => t.id !== myTeamId)));
     }, [myTeamId]);
 
-    // Load Rosters when Opponent Selected
+    // Load Rosters
     useEffect(() => {
         if (opponentId) {
-            Promise.all([
-                getMyRoster(myTeamId),
-                getMyRoster(opponentId)
-            ]).then(([mine, theirs]) => {
-                setMyRoster(mine || []);
-                setTheirRoster(theirs || []);
-            });
+            Promise.all([getMyRoster(myTeamId), getMyRoster(opponentId)])
+                .then(([mine, theirs]) => {
+                    setMyRoster(mine || []);
+                    setTheirRoster(theirs || []);
+                });
         }
     }, [opponentId, myTeamId]);
 
-    const handleStage = (player: any, side: 'mine' | 'theirs') => {
-        if (side === 'mine') {
-            if (myOffer.find(p => p.player_id === player.player_id)) {
-                setMyOffer(myOffer.filter(p => p.player_id !== player.player_id)); // Unstage
-            } else {
-                setMyOffer([...myOffer, player]); // Stage
-            }
+    const handleToggle = (player: any, side: 'mine' | 'theirs') => {
+        const list = side === 'mine' ? myOffer : theirOffer;
+        const setList = side === 'mine' ? setMyOffer : setTheirOffer;
+
+        if (list.find(p => p.player_id === player.player_id)) {
+            setList(list.filter(p => p.player_id !== player.player_id));
         } else {
-            if (theirOffer.find(p => p.player_id === player.player_id)) {
-                setTheirOffer(theirOffer.filter(p => p.player_id !== player.player_id));
-            } else {
-                setTheirOffer([...theirOffer, player]);
-            }
+            setList([...list, player]);
         }
     };
 
-    const getRoleCounts = (roster: any[]) => {
-        const counts = { P: 0, D: 0, C: 0, A: 0 };
-        roster.forEach(p => {
-            const r = p.player.role as keyof typeof counts;
-            if (counts[r] !== undefined) counts[r]++;
-        });
-        return counts;
-    };
+    const validate = () => {
+        const getRoles = (list: any[]) => {
+            const r = { P: 0, D: 0, C: 0, A: 0 };
+            list.forEach(p => {
+                const role = p.player.role as keyof typeof r;
+                if (r[role] !== undefined) r[role]++;
+            });
+            return r;
+        };
 
-    const validateTrade = () => {
-        const myRoles = { P: 0, D: 0, C: 0, A: 0 };
-        myOffer.forEach(p => {
-            const r = p.player.role as keyof typeof myRoles;
-            if (myRoles[r] !== undefined) myRoles[r]++;
-        });
-
-        const theirRoles = { P: 0, D: 0, C: 0, A: 0 };
-        theirOffer.forEach(p => {
-            const r = p.player.role as keyof typeof theirRoles;
-            if (theirRoles[r] !== undefined) theirRoles[r]++;
-        });
+        const myRoles = getRoles(myOffer);
+        const theirRoles = getRoles(theirOffer);
 
         if (myRoles.P !== theirRoles.P) return "Must exchange same number of Goalkeepers.";
         if (myRoles.D !== theirRoles.D) return "Must exchange same number of Defenders.";
         if (myRoles.C !== theirRoles.C) return "Must exchange same number of Midfielders.";
         if (myRoles.A !== theirRoles.A) return "Must exchange same number of Forwards.";
 
-        const mCred = parseInt(myCredits) || 0;
-        const tCred = parseInt(theirCredits) || 0;
-
-        if (myOffer.length === 0 && theirOffer.length === 0 && mCred === 0 && tCred === 0) return "Empty trade.";
+        if (myOffer.length === 0 && theirOffer.length === 0 && parseInt(myCredits || '0') === 0 && parseInt(theirCredits || '0') === 0) return "Empty trade.";
 
         return null;
     };
 
     const handleSubmit = async () => {
-        const error = validateTrade();
-        if (error) {
-            alert(error);
-            return;
-        }
-
-        if (!opponentId) return;
+        const error = validate();
+        if (error) { alert(error); return; }
 
         const res = await createTradeProposal(
             myTeamId,
@@ -112,141 +180,195 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
             parseInt(theirCredits) || 0
         );
 
-        if (res.success) {
-            onClose();
-        } else {
-            alert(res.error);
-        }
+        if (res.success) onClose();
+        else alert(res.error);
     };
 
-    const RoleSummary = ({ roster }: { roster: any[] }) => {
-        const counts = getRoleCounts(roster);
-        return (
-            <div className="flex justify-around text-[10px] font-mono bg-black/5 p-1 border-b">
-                <span>P: <span className="font-bold">{counts.P}</span></span>
-                <span>D: <span className="font-bold">{counts.D}</span></span>
-                <span>C: <span className="font-bold">{counts.C}</span></span>
-                <span>A: <span className="font-bold">{counts.A}</span></span>
-            </div>
-        );
-    };
+    // --- RENDER ---
 
     if (step === 1) {
         return (
-            <div className="space-y-4">
-                <h3 className="font-bold">Select Trading Partner</h3>
+            <div className="space-y-6 py-4">
+                <div className="text-center space-y-2">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto text-blue-600">
+                        <Users className="w-6 h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg">Select Trading Partner</h3>
+                    <p className="text-xs text-gray-500">Choose a team to propose a trade to.</p>
+                </div>
+
                 <Select value={opponentId} onValueChange={setOpponentId}>
-                    <SelectTrigger><SelectValue placeholder="Select Team" /></SelectTrigger>
+                    <SelectTrigger className="w-full h-12"><SelectValue placeholder="Select Team" /></SelectTrigger>
                     <SelectContent>
                         {teams.map(t => <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>)}
                     </SelectContent>
                 </Select>
-                <div className="flex justify-end gap-2">
-                    <Button variant="outline" onClick={onClose}>Cancel</Button>
-                    <Button disabled={!opponentId} onClick={() => setStep(2)}>Next</Button>
+
+                <div className="flex justify-end gap-3 pt-4 border-t">
+                    <Button variant="ghost" onClick={onClose}>Cancel</Button>
+                    <Button disabled={!opponentId} onClick={() => setStep(2)} className="w-full sm:w-auto">
+                        Start Trade <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
                 </div>
             </div>
         );
     }
 
-    // Step 2: Trade Board
+    // DESKTOP LAYOUT (4 Columns)
+    if (isDesktop) {
+        const opponentName = teams.find(t => t.id === opponentId)?.name || 'Opponent';
+        return (
+            <div className="h-[80vh] flex flex-col">
+                <div className="flex justify-between items-center mb-4 pb-2 border-b">
+                    <Button variant="ghost" onClick={() => setStep(1)} size="sm">Change Partner</Button>
+                    <div className="font-bold text-lg">Trade Proposal</div>
+                    <Button onClick={handleSubmit}>Send Proposal</Button>
+                </div>
+
+                <div className="flex-1 grid grid-cols-4 gap-4 min-h-0">
+                    <PlayerList
+                        title="My Roster"
+                        roster={myRoster}
+                        selectedIds={myOffer.map(p => p.player_id)}
+                        onToggle={(p) => handleToggle(p, 'mine')}
+                        colorClass="bg-blue-100 text-blue-800"
+                    />
+
+                    <OfferBox
+                        title="My Offer"
+                        players={myOffer}
+                        credits={myCredits}
+                        onCreditsChange={setMyCredits}
+                    />
+
+                    <OfferBox
+                        title={`${opponentName}'s Offer`}
+                        players={theirOffer}
+                        credits={theirCredits}
+                        onCreditsChange={setTheirCredits}
+                    />
+
+                    <PlayerList
+                        title={`${opponentName}'s Roster`}
+                        roster={theirRoster}
+                        selectedIds={theirOffer.map(p => p.player_id)}
+                        onToggle={(p) => handleToggle(p, 'theirs')}
+                        colorClass="bg-purple-100 text-purple-800"
+                    />
+                </div>
+            </div>
+        );
+    }
+
+    // MOBILE LAYOUT (Stepper)
+    // Sub-steps for mobile: 2. Pick Theirs, 3. Pick Mine, 4. Review
+    const mobileStep = step; // reusing step variable, but logically: 2=Theirs, 3=Mine, 4=Review
+    const setMobileStep = setStep;
+
+    const opponentName = teams.find(t => t.id === opponentId)?.name || 'Opponent';
+
     return (
-        <div className="h-[80vh] flex flex-col">
-            <div className="flex justify-between items-center mb-2 border-b pb-2">
-                <Button variant="ghost" size="sm" onClick={() => setStep(1)}>change partner</Button>
-                <span className="font-bold font-mono text-xs">TRADE PROPOSAL</span>
-                <Button size="sm" onClick={handleSubmit}>Send</Button>
+        <div className="h-[80vh] flex flex-col relative">
+            {/* Header Steps */}
+            <div className="flex justify-between mb-4 px-1">
+                {[2, 3, 4].map(s => (
+                    <div key={s} className={`h-1 flex-1 mx-1 rounded-full ${s <= mobileStep ? 'bg-blue-600' : 'bg-gray-200'}`} />
+                ))}
             </div>
 
-            {/* Split View */}
-            <div className="flex-1 grid grid-cols-2 gap-2 overflow-hidden min-h-0">
-                {/* MY SIDE */}
-                <div className="flex flex-col border rounded-md overflow-hidden bg-slate-50">
-                    <div className="bg-blue-100 p-2 text-center text-xs font-bold text-blue-800">My Setup</div>
-                    <RoleSummary roster={myRoster} />
-                    <div className="flex-1 overflow-y-auto p-1 space-y-1">
-                        {myRoster.map(p => {
-                            const isSelected = myOffer.find(o => o.player_id === p.player_id);
-                            return (
-                                <div key={p.player_id}
-                                    onClick={() => handleStage(p, 'mine')}
-                                    className={`p-2 rounded border text-xs cursor-pointer flex justify-between items-center
-                                        ${isSelected ? 'bg-blue-600 text-white border-blue-700' : 'bg-white hover:bg-white/50'}`}>
-                                    <span>{p.player.name}</span>
-                                    {isSelected && <Check className="w-3 h-3" />}
-                                    {!isSelected && <span className="text-[10px] opacity-50">{p.player.role}</span>}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
+            <div className="flex-1 overflow-hidden flex flex-col">
+                {mobileStep === 2 && (
+                    <>
+                        <div className="text-center mb-2">
+                            <h4 className="font-bold">Select Players to Request</h4>
+                            <p className="text-xs text-gray-500">From {opponentName}'s Roster</p>
+                        </div>
+                        <div className="flex-1 overflow-y-auto mb-2">
+                            <PlayerList
+                                title={`${opponentName} Roster`}
+                                roster={theirRoster}
+                                selectedIds={theirOffer.map(p => p.player_id)}
+                                onToggle={(p) => handleToggle(p, 'theirs')}
+                                colorClass="bg-purple-100 text-purple-800"
+                            />
+                        </div>
+                        <div className="p-2 border rounded bg-gray-50 mb-2">
+                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">Request Credits (Optional)</div>
+                            <Input
+                                type="number"
+                                value={theirCredits}
+                                onChange={e => setTheirCredits(e.target.value)}
+                                className="bg-white h-9"
+                                placeholder="0"
+                            />
+                        </div>
+                        <Button className="w-full mt-2" onClick={() => setMobileStep(3)}>Next: My Offer</Button>
+                    </>
+                )}
 
-                {/* THEIR SIDE */}
-                <div className="flex flex-col border rounded-md overflow-hidden bg-slate-50">
-                    <div className="bg-purple-100 p-2 text-center text-xs font-bold text-purple-800">Opponent Setup</div>
-                    <RoleSummary roster={theirRoster} />
-                    <div className="flex-1 overflow-y-auto p-1 space-y-1">
-                        {theirRoster.map(p => {
-                            const isSelected = theirOffer.find(o => o.player_id === p.player_id);
-                            return (
-                                <div key={p.player_id}
-                                    onClick={() => handleStage(p, 'theirs')}
-                                    className={`p-2 rounded border text-xs cursor-pointer flex justify-between items-center
-                                        ${isSelected ? 'bg-purple-600 text-white border-purple-700' : 'bg-white hover:bg-white/50'}`}>
-                                    <span>{p.player.name}</span>
-                                    {isSelected && <Check className="w-3 h-3" />}
-                                    {!isSelected && <span className="text-[10px] opacity-50">{p.player.role}</span>}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </div>
+                {mobileStep === 3 && (
+                    <>
+                        <div className="text-center mb-2">
+                            <h4 className="font-bold">Select Players to Offer</h4>
+                            <p className="text-xs text-gray-500">From My Roster</p>
+                        </div>
+                        {/* Requirement Hint */}
+                        <div className="bg-yellow-50 p-2 text-xs mb-2 border border-yellow-200 rounded text-yellow-800 flex items-center gap-2">
+                            <Shield className="w-4 h-4" />
+                            <span>You requested: {theirOffer.length} players. Match roles!</span>
+                        </div>
+                        <div className="flex-1 overflow-y-auto mb-2">
+                            <PlayerList
+                                title="My Roster"
+                                roster={myRoster}
+                                selectedIds={myOffer.map(p => p.player_id)}
+                                onToggle={(p) => handleToggle(p, 'mine')}
+                                colorClass="bg-blue-100 text-blue-800"
+                            />
+                        </div>
+                        <div className="p-2 border rounded bg-gray-50 mb-2">
+                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">Offer Credits (Optional)</div>
+                            <Input
+                                type="number"
+                                value={myCredits}
+                                onChange={e => setMyCredits(e.target.value)}
+                                className="bg-white h-9"
+                                placeholder="0"
+                            />
+                        </div>
+                        <div className="flex gap-2 mt-2">
+                            <Button variant="outline" className="flex-1" onClick={() => setMobileStep(2)}>Back</Button>
+                            <Button className="flex-1" onClick={() => setMobileStep(4)}>Review</Button>
+                        </div>
+                    </>
+                )}
 
-            {/* SUMMARY & CREDITS AREA */}
-            <div className="border-t mt-2 flex flex-col gap-2 pt-2 bg-gray-50 flex-shrink-0">
-                {/* Players Staged */}
-                <div className="flex gap-2 h-24">
-                    <div className="flex-1 border border-dashed border-blue-300 rounded p-2 overflow-y-auto relative">
-                        <div className="text-[10px] text-blue-500 font-bold mb-1 sticky top-0 bg-gray-50">OFFERING ({myOffer.length})</div>
-                        {myOffer.map(p => <div key={p.player_id} className="text-xs truncate">{p.player.name}</div>)}
-                    </div>
+                {mobileStep === 4 && (
+                    <div className="flex flex-col h-full">
+                        <h4 className="font-bold text-center mb-4">Review Proposal</h4>
 
-                    <div className="flex items-center justify-center text-gray-400">
-                        <ArrowLeftRight />
-                    </div>
+                        <div className="flex-1 overflow-y-auto space-y-4">
+                            <OfferBox
+                                title="You Give"
+                                players={myOffer}
+                                credits={myCredits}
+                                onCreditsChange={setMyCredits}
+                            />
+                            <div className="flex justify-center"><ArrowLeftRight className="text-gray-400" /></div>
+                            <OfferBox
+                                title={`${opponentName} Gives`}
+                                players={theirOffer}
+                                credits={theirCredits}
+                                onCreditsChange={setTheirCredits}
+                            />
+                        </div>
 
-                    <div className="flex-1 border border-dashed border-purple-300 rounded p-2 overflow-y-auto relative">
-                        <div className="text-[10px] text-purple-500 font-bold mb-1 sticky top-0 bg-gray-50">REQUESTING ({theirOffer.length})</div>
-                        {theirOffer.map(p => <div key={p.player_id} className="text-xs truncate">{p.player.name}</div>)}
+                        <div className="mt-4 pt-4 border-t flex gap-2">
+                            <Button variant="outline" className="flex-1" onClick={() => setMobileStep(3)}>Back</Button>
+                            <Button className="flex-[2]" onClick={handleSubmit}>Confirm & Send</Button>
+                        </div>
                     </div>
-                </div>
-
-                {/* Credits Input */}
-                <div className="grid grid-cols-2 gap-2 pb-2 px-1">
-                    <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-bold text-gray-500 uppercase">Credits to Include</label>
-                        <Input
-                            type="number"
-                            value={myCredits}
-                            onChange={e => setMyCredits(e.target.value)}
-                            className="h-8 text-xs bg-white"
-                            placeholder="0"
-                            min="0"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-bold text-gray-500 uppercase">Credits to Request</label>
-                        <Input
-                            type="number"
-                            value={theirCredits}
-                            onChange={e => setTheirCredits(e.target.value)}
-                            className="h-8 text-xs bg-white"
-                            placeholder="0"
-                            min="0"
-                        />
-                    </div>
-                </div>
+                )}
             </div>
         </div>
     );
