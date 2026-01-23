@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
-import { LanguageToggle } from '@/components/language-toggle';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { LogoutButton } from '@/components/logout-button';
 import { MatchdayReminder } from '@/components/matchday-reminder';
+import { SettingsDialog } from '@/components/settings-dialog';
 
 // Inner component to use the hook
 function InnerHome({ user }: { user: any }) {
@@ -15,33 +15,27 @@ function InnerHome({ user }: { user: any }) {
         <>
             {/* Top Left: Logout (if user exists) */}
             {user && (
-                <div className="absolute top-4 left-4 z-10 w-full max-w-[calc(100%-80px)] md:max-w-none text-left md:text-center pointer-events-none">
-                    {/* Logout is absolute */}
-                </div>
-            )}
-
-            {user && (
                 <div className="absolute top-4 left-4 z-20">
                     <LogoutButton />
                 </div>
             )}
 
-            {/* Top Right: Language */}
+            {/* Top Right: Settings */}
             <div className="absolute top-4 right-4 z-20">
-                <LanguageToggle />
+                <SettingsDialog />
             </div>
 
-            <h1 className="text-5xl font-black mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <h1 className="text-5xl font-black mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 tracking-tighter">
                 FANTACALCIO
             </h1>
 
             {user ? (
                 <>
-                    <p className="text-gray-600 mb-6 animate-pulse">
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 animate-pulse">
                         {t('welcome')}, <span className="font-bold">{user.email?.split('@')[0]}</span>!
                     </p>
 
-                    {/* Width increased to max-w-2xl to fit the reminder content properly */}
+                    {/* Width increased to max-w-2xl */}
                     <div className="w-full max-w-2xl px-4 pointer-events-auto z-10">
                         <MatchdayReminder />
                     </div>
@@ -69,12 +63,6 @@ function InnerHome({ user }: { user: any }) {
                     </Link>
                 </div>
             )}
-
-            <div className="flex flex-col gap-4 w-full max-w-xs mt-8 border-t pt-8">
-                <Link href="/admin">
-                    <Button variant="ghost" size="sm" className="text-xs text-gray-400">{t('adminAccess')}</Button>
-                </Link>
-            </div>
 
             <div className="mt-12 text-center text-gray-400 text-xs">
                 <p>{t('beta')}</p>

@@ -20,6 +20,13 @@ const translations: Record<string, Translations> = {
         logout: 'Logout',
         loading: 'Loading...',
 
+        // Settings
+        settings: 'Settings',
+        theme: 'App Theme',
+        light: 'Light',
+        dark: 'Dark',
+        language: 'Language',
+
         // Trades
         trades: 'Trades',
         tradeProposals: 'Trade Proposals',
@@ -81,6 +88,13 @@ const translations: Record<string, Translations> = {
         logout: 'Esci',
         loading: 'Caricamento...',
 
+        // Settings
+        settings: 'Impostazioni',
+        theme: 'Tema App',
+        light: 'Chiaro',
+        dark: 'Scuro',
+        language: 'Lingua',
+
         // Trades
         trades: 'Scambi',
         tradeProposals: 'Proposte di Scambio',
@@ -131,18 +145,39 @@ const translations: Record<string, Translations> = {
     }
 };
 
-const LanguageContext = createContext<{ language: string; setLanguage: (lang: string) => void; t: (key: string) => string }>({
+const LanguageContext = createContext<{
+    language: string;
+    setLanguage: (lang: string) => void;
+    theme: string;
+    setTheme: (theme: string) => void;
+    t: (key: string) => string
+}>({
     language: 'it',
     setLanguage: () => { },
+    theme: 'light',
+    setTheme: () => { },
     t: (key) => key,
 });
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-    const [language, setLanguage] = useState('it'); // Default IT
+    const [language, setLanguage] = useState('it');
+    const [theme, setTheme] = useState('light');
 
     useEffect(() => {
-        const saved = localStorage.getItem('language');
-        if (saved) setLanguage(saved);
+        const savedLang = localStorage.getItem('language');
+        if (savedLang) setLanguage(savedLang);
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+            if (savedTheme === 'dark') document.documentElement.classList.add('dark');
+        } else {
+            // System preference?
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTheme('dark');
+                document.documentElement.classList.add('dark');
+            }
+        }
     }, []);
 
     const updateLanguage = (lang: string) => {
@@ -150,12 +185,22 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
         localStorage.setItem('language', lang);
     };
 
+    const updateTheme = (newTheme: string) => {
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        if (newTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    };
+
     const t = (key: string) => {
         return translations[language][key] || key;
     };
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage: updateLanguage, t }}>
+        <LanguageContext.Provider value={{ language, setLanguage: updateLanguage, theme, setTheme: updateTheme, t }}>
             {children}
         </LanguageContext.Provider>
     );

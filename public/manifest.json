@@ -1,11 +1,12 @@
 {
-    "name": "Fantacalcio PWA",
+    "name": "Fantacalcio",
     "short_name": "Fantacalcio",
     "description": "Minimalist Fantacalcio Manager",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "theme_color": "#ffffff",
+    "orientation": "portrait",
     "icons": [
         {
             "src": "/favicon.ico",
