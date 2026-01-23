@@ -29,12 +29,20 @@ type Translations = {
         bench: string;
         saveLineup: string;
         trade: string;
+        releasePlayer: string;
+        releaseDesc: string;
+        confirmRelease: string;
+        released: string;
         proposeTrade: string;
         myTrades: string;
         back: string;
         loading: string;
         error: string;
         success: string;
+        trades: string;
+        tradeProposals: string;
+        newTrade: string;
+        noTrades: string;
         createTeamFirst: string;
         noTeamMessage: string;
         // Admin
@@ -98,6 +106,14 @@ const translations: Translations = {
         error: 'Error',
         success: 'Success',
         createTeamFirst: 'Create Team First',
+        trades: 'Trades',
+        tradeProposals: 'Trade Proposals',
+        newTrade: 'New Trade',
+        noTrades: 'No active trades.',
+        releasePlayer: 'Release Players',
+        releaseDesc: 'Release owned players for 50% refund.',
+        confirmRelease: 'Confirm release? Refund: ',
+        released: 'Player released!',
         noTeamMessage: 'You need to create a team to access this section.',
         // Admin
         dataImport: 'Data Import',
@@ -130,7 +146,7 @@ const translations: Translations = {
         welcome: 'Bentornato',
         login: 'Accedi / Registrati',
         signup: 'Registrati',
-        myTeam: 'La Mia Squadra',
+        myTeam: 'Squadra',
         market: 'Mercato',
         results: 'Risultati',
         adminDashboard: 'Pannello Admin',
@@ -148,6 +164,14 @@ const translations: Translations = {
         noAuctions: 'Nessuna asta attiva al momento.',
         lineup: 'Formazione',
         bench: 'Panchina',
+        trades: 'Scambi',
+        tradeProposals: 'Proposte di Scambio',
+        newTrade: 'Nuovo Scambio',
+        noTrades: 'Nessuno scambio in corso.',
+        releasePlayer: 'Svincola Giocatori',
+        releaseDesc: 'Svincola giocatori per recuperare il 50% dei crediti.',
+        confirmRelease: 'Svincolare? Rimborso: ',
+        released: 'Giocatore svincolato!',
         saveLineup: 'Salva Formazione',
         trade: 'Scambi',
         proposeTrade: 'Proponi Scambio',

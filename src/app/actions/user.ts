@@ -135,12 +135,20 @@ export async function buyPlayer(teamId: string, playerId: number, price: number)
     return { success: true };
 }
 
-export async function searchPlayers(query: string = '') {
+export async function searchPlayers(query: string = '', filters?: { role?: string, team?: string }) {
     const supabase = await createClient();
-    let queryBuilder = supabase.from('players').select('*').order('quotation', { ascending: false }).limit(50);
+    let queryBuilder = supabase.from('players').select('*').order('quotation', { ascending: false }).limit(100);
 
     if (query) {
         queryBuilder = queryBuilder.ilike('name', `%${query}%`);
+    }
+
+    if (filters?.role && filters.role !== 'ALL') {
+        queryBuilder = queryBuilder.eq('role', filters.role);
+    }
+
+    if (filters?.team && filters.team !== 'ALL') {
+        queryBuilder = queryBuilder.eq('team_real', filters.team);
     }
 
     const { data } = await queryBuilder;
@@ -175,4 +183,10 @@ export async function verifyTeamPassword(teamId: string, password: string) {
 export async function checkTeamUnlocked(teamId: string) {
     const cookieStore = await cookies();
     return cookieStore.has(`team_unlocked_${teamId}`);
+}
+
+export async function getTeams() {
+    const supabase = await createClient();
+    const { data } = await supabase.from('teams').select('id, name');
+    return data || [];
 }

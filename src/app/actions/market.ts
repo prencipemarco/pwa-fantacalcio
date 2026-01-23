@@ -153,3 +153,73 @@ export async function getActiveAuctions() {
 
     return data || [];
 }
+
+export async function releasePlayer(teamId: string, playerId: number) {
+    const supabase = await createClient();
+
+    // 1. Check Ownership & Get Purchase Price
+    const { data: rosterEntry } = await supabase.from('rosters')
+        .select('purchase_price')
+        .eq('team_id', teamId)
+        .eq('player_id', playerId)
+        .single();
+
+    if (!rosterEntry) return { success: false, error: 'Player not owned.' };
+
+    const { data: team } = await supabase.from('teams').select('credits_left, user_id, name').eq('id', teamId).single();
+    if (!team) return { success: false, error: 'Team not found.' };
+
+    const { data: player } = await supabase.from('players').select('name').eq('id', playerId).single();
+
+    // 2. Calculate Refund (50% rounded up)
+    const refund = Math.ceil((rosterEntry.purchase_price || 0) / 2);
+
+    // 3. Remove from Roster
+    const { error: removeError } = await supabase.from('rosters').delete().eq('team_id', teamId).eq('player_id', playerId);
+    if (removeError) return { success: false, error: removeError.message };
+
+    // 4. Refund Credits
+    await supabase.from('teams').update({ credits_left: team.credits_left + refund }).eq('id', teamId);
+
+    // 5. Log
+    await logEvent('PLAYER_RELEASED', {
+        teamName: team.name,
+        playerName: player?.name,
+        refund
+    }, team.user_id);
+
+    return { success: true, refund };
+}
+
+export async function createTradeProposal(
+    proposerTeamId: string,
+    receiverTeamId: string,
+    proposerPlayerIds: number[],
+    receiverPlayerIds: number[],
+    proposerCredits: number,
+    receiverCredits: number
+) {
+    const supabase = await createClient();
+
+    // 1. Validate
+    if (proposerPlayerIds.length === 0 && receiverPlayerIds.length === 0 && proposerCredits === 0 && receiverCredits === 0) {
+        return { success: false, error: 'Empty trade.' };
+    }
+
+    const { error } = await supabase.from('trade_proposals').insert({
+        proposer_team_id: proposerTeamId,
+        receiver_team_id: receiverTeamId,
+        proposer_player_ids: proposerPlayerIds,
+        receiver_player_ids: receiverPlayerIds,
+        proposer_credits: proposerCredits,
+        receiver_credits: receiverCredits,
+        status: 'PENDING'
+    });
+
+    if (error) return { success: false, error: error.message };
+
+    const { data: user } = await supabase.auth.getUser();
+    await logEvent('TRADE_PROPOSED', { proposerTeamId, receiverTeamId, proposerCredits, receiverCredits }, user.user?.id);
+
+    return { success: true };
+}

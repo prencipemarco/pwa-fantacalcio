@@ -8,15 +8,19 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { Hammer, Users, ShoppingCart } from 'lucide-react';
 import { ActiveAuctionsList } from '@/components/market/active-auctions';
 import { FreeAgentsList } from '@/components/market/free-agents';
+import { ReleasePlayersList } from '@/components/market/release-players-list';
 import { CreateAuctionModal } from '@/components/market/create-auction-modal';
+import { TradesSection } from '@/components/market/trades-section';
 import { MarketSkeleton } from '@/components/skeletons';
+import { Hammer, Users, ShoppingCart, UserMinus } from 'lucide-react';
+
+import { NewTradeFlow } from '@/components/market/new-trade-flow';
 
 export default function MarketPage() {
     const { t } = useLanguage();
-    const [view, setView] = useState<'home' | 'free_agents' | 'active_auctions'>('home');
+    const [view, setView] = useState<'home' | 'free_agents' | 'active_auctions' | 'release' | 'new_trade'>('home');
     const [team, setTeam] = useState<any>(null);
     const [activeCount, setActiveCount] = useState(0);
     const supabase = createClient();
@@ -83,7 +87,7 @@ export default function MarketPage() {
                     </Card>
 
                     {/* OPTION 2: NEW AUCTION */}
-                    <Card className="cursor-pointer hover:bg-slate-50 border-orange-200 bg-orange-50">
+                    <Card className="hover:bg-slate-50 border-orange-200 bg-orange-50">
                         <CardHeader className="flex flex-row items-center justify-between pb-2">
                             <CardTitle className="text-lg">{t('newAuction')}</CardTitle>
                             <ShoppingCart className="h-6 w-6 text-orange-500" />
@@ -94,7 +98,25 @@ export default function MarketPage() {
                         </CardContent>
                     </Card>
 
-                    {/* OPTION 3: FREE AGENTS (OLD MARKET) */}
+                    {/* OPTION 3: TRADES */}
+                    <TradesSection teamId={team.id} onNewTrade={() => setView('new_trade')} />
+
+                    {/* OPTION 4: RELEASE PLAYERS */}
+                    <Card
+                        className="cursor-pointer hover:bg-slate-50 border-red-200 bg-red-50"
+                        onClick={() => setView('release')}
+                    >
+                        <CardHeader className="flex flex-row items-center justify-between pb-2">
+                            <CardTitle className="text-lg">{t('releasePlayer')}</CardTitle>
+                            <UserMinus className="h-6 w-6 text-red-500" />
+                        </CardHeader>
+                        <CardContent>
+                            <CardDescription>{t('releaseDesc')}</CardDescription>
+                            <Button variant="outline" className="w-full mt-4 border-red-200 text-red-700 hover:bg-red-100 hover:text-red-800">Manage Squad</Button>
+                        </CardContent>
+                    </Card>
+
+                    {/* OPTION 5: FREE AGENTS (OLD MARKET) */}
                     <Card
                         className="cursor-pointer hover:bg-slate-50 border-gray-200"
                         onClick={() => setView('free_agents')}
@@ -117,6 +139,14 @@ export default function MarketPage() {
 
             {view === 'free_agents' && (
                 <FreeAgentsList onBack={() => setView('home')} teamId={team.id} refreshCredits={refreshTeam} />
+            )}
+
+            {view === 'release' && (
+                <ReleasePlayersList onBack={() => setView('home')} teamId={team.id} refreshCredits={refreshTeam} />
+            )}
+
+            {view === 'new_trade' && (
+                <NewTradeFlow myTeamId={team.id} onClose={() => setView('home')} />
             )}
         </div>
     );
