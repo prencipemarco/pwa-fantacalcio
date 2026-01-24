@@ -54,6 +54,13 @@ export function PushNotificationManager() {
                     if (sub) {
                         setSubscription(sub);
                         setIsSubscribed(true);
+
+                        // RESYNC: Ensure server has this subscription
+                        fetch('/api/push/subscribe', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(sub)
+                        }).catch(e => console.error('Sync failed', e));
                     }
                 });
             }).catch(err => {
