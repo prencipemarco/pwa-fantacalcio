@@ -28,56 +28,67 @@ export function SettingsDialog() {
                 <div className="flex flex-col gap-6 py-4">
                     {/* Theme Section */}
                     <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider">{t('theme')}</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                            <Button
-                                variant={theme === 'light' ? 'default' : 'outline'}
+                        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('theme')}</h4>
+                        <div className="flex bg-gray-100 dark:bg-zinc-800 p-1 rounded-lg">
+                            <button
                                 onClick={() => setTheme('light')}
-                                className="flex items-center gap-2 justify-center"
+                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-all ${theme === 'light'
+                                        ? 'bg-white text-gray-900 shadow-sm'
+                                        : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-200'
+                                    }`}
                             >
                                 <Sun className="w-4 h-4" />
                                 {t('light')}
-                            </Button>
-                            <Button
-                                variant={theme === 'dark' ? 'default' : 'outline'}
+                            </button>
+                            <button
                                 onClick={() => setTheme('dark')}
-                                className="flex items-center gap-2 justify-center"
+                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-all ${theme === 'dark'
+                                        ? 'bg-slate-700 text-white shadow-sm'
+                                        : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-200'
+                                    }`}
                             >
                                 <Moon className="w-4 h-4" />
                                 {t('dark')}
-                            </Button>
+                            </button>
                         </div>
                     </div>
 
                     {/* Notifications Section */}
                     <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider">Notifications</h4>
-                        <div className="flex items-center justify-between bg-gray-50 dark:bg-zinc-800 p-3 rounded-lg">
-                            <span className="text-sm">Enable Push Notifications</span>
+                        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Notifications</h4>
+                        <div className="flex items-center justify-between bg-gray-50 dark:bg-zinc-800/50 p-4 rounded-xl border border-gray-100 dark:border-zinc-800">
+                            <div className="flex flex-col">
+                                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{t('enablePush') || 'Enable Push Notifications'}</span>
+                                <span className="text-[10px] text-gray-500">Receive alerts for auctions and trades.</span>
+                            </div>
                             <PushNotificationManager />
                         </div>
                     </div>
 
                     {/* Language Section */}
                     <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider">{t('language')}</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                            <Button
-                                variant={language === 'it' ? 'default' : 'outline'}
+                        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('language')}</h4>
+                        <div className="flex bg-gray-100 dark:bg-zinc-800 p-1 rounded-lg">
+                            <button
                                 onClick={() => setLanguage('it')}
-                                className="flex items-center gap-2 justify-center"
+                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-all ${language === 'it'
+                                        ? 'bg-white text-gray-900 shadow-sm'
+                                        : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-200'
+                                    }`}
                             >
-                                <span className="text-lg">🇮🇹</span>
+                                <span className="text-lg leading-none">🇮🇹</span>
                                 Italiano
-                            </Button>
-                            <Button
-                                variant={language === 'en' ? 'default' : 'outline'}
+                            </button>
+                            <button
                                 onClick={() => setLanguage('en')}
-                                className="flex items-center gap-2 justify-center"
+                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-all ${language === 'en'
+                                        ? 'bg-white text-gray-900 shadow-sm'
+                                        : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-200'
+                                    }`}
                             >
-                                <span className="text-lg">🇬🇧</span>
+                                <span className="text-lg leading-none">🇬🇧</span>
                                 English
-                            </Button>
+                            </button>
                         </div>
                     </div>
 

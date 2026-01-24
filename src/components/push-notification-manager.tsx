@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Switch } from '@/components/ui/switch';
 import { Bell, BellOff } from 'lucide-react';
 
 const urlBase64ToUint8Array = (base64String: string) => {
@@ -96,30 +97,36 @@ export function PushNotificationManager() {
         setIsSubscribed(false);
     };
 
+    const handleCheckedChange = async (checked: boolean) => {
+        if (checked) {
+            await subscribe();
+        } else {
+            await unsubscribe();
+        }
+    };
+
     if (errorMessage) {
         return <div className="text-xs text-red-400">{errorMessage}</div>;
     }
 
     if (isIOS && !isStandalone) {
-        return <div className="text-xs text-orange-500 font-medium">Add to Home Screen to enable notifications.</div>;
+        return <div className="text-xs text-orange-500 font-medium">Add to Home Screen</div>;
     }
 
     if (!registration) {
-        return <div className="text-xs text-gray-400">Initializing...</div>;
+        return <div className="text-xs text-gray-400">Loading...</div>;
     }
 
     return (
-        <div className="flex flex-col items-end gap-1">
-            <Button
-                variant="ghost"
-                size="icon"
-                onClick={isSubscribed ? unsubscribe : subscribe}
-                className={isSubscribed ? 'text-blue-500 bg-blue-50' : 'text-gray-400'}
-                title={isSubscribed ? "Disable Notifications" : "Enable Notifications"}
-            >
-                {isSubscribed ? <Bell className="w-5 h-5" /> : <BellOff className="w-5 h-5" />}
-            </Button>
-            {isSubscribed && <span className="text-[10px] text-green-600 font-medium">Active</span>}
+        <div className="flex items-center gap-2">
+            <Switch
+                checked={isSubscribed}
+                onCheckedChange={handleCheckedChange}
+                aria-label="Toggle notifications"
+            />
+            <span className={`text-[10px] font-medium ${isSubscribed ? 'text-green-600' : 'text-gray-400'}`}>
+                {isSubscribed ? 'Active' : 'Inactive'}
+            </span>
         </div>
     );
 }
