@@ -115,7 +115,7 @@ const translations: Record<string, Translations> = {
         noPlayersAvailable: 'No players available for this role',
         saveLineup: 'Save Lineup',
         lineupIncomplete: 'Your lineup is incomplete. Select 11 players.',
-        lineupSaved: 'Lineup saved successfully!'
+        lineupSaved: 'Lineup saved successfully!',
         // Admin Dashboard
         adminDashboard: 'Admin Dashboard',
         coreManagement: 'Core Management',
