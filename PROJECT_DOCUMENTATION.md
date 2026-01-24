@@ -1,4 +1,4 @@
-# 📚 Fantacalcio PWA - Comprehensive Documentation
+    # 📚 Fantacalcio PWA - Comprehensive Documentation
 
 This document provides a detailed overview of the Fantacalcio PWA codebase, explaining the architecture, folder structure, and key implementation details.
 
@@ -37,7 +37,7 @@ Contains server-side logic. Next.js 14 allows calling these functions directly f
 
 *   **`user.ts`**: Fetch user profile, team ID, and roster.
 *   **`team.ts`**: Save lineups, manage roster.
-*   **`market.ts`**: Handle auctions (create, bid), trades, and free agent signings.
+*   **`market.ts`**: handle auctions (create, bid), trades, and free agent signings.
 *   **`standings.ts`**: Calculate and fetch the league table.
 *   **`results.ts`**: Fetch match fixtures and history.
 *   **`football-data.ts`**: Integration with external APIs for real match scheduling.
@@ -81,7 +81,7 @@ The app is designed to be installed on mobile devices.
 ### 3. Transfer Market
 A complex section handled in `src/app/team/market/page.tsx`.
 *   **Auctions**: Users can open auctions for players. Other users bid credits. The highest bid after 24h wins (logic often requires a cron job or admin trigger, currently manual closing supported in Admin).
-*   **Trades**: Users propose direct swaps (Player A + Credits <-> Player B).
+*   **Trades**: Users propose direct swaps. Support for multi-player trades + credit balancing.
 *   **Release**: Users can cut players to refund credits (default 50% or full value depending on config).
 
 ### 4. Lineup Builder (`src/app/team/lineup/page.tsx`)
@@ -96,33 +96,37 @@ Uses `@dnd-kit/core` for drag-and-drop.
 
 ---
 
+## 🗄 Database Schema (Supabase)
+
 ### User & Teams
-*   **`users`**: Handled by Supabase Auth (in the `auth` schema). Linked to public data via `teams`.
+*   **`users`**: Public profile table linked to Supabase Auth.
+    *   `id` (UUID): Primary Key, references `auth.users(id)`.
+    *   `email` (Text): Mirror of the auth email.
 *   **`teams`**: The core entity for a user's fantasy team.
     *   `id` (UUID): Primary Key.
-    *   `user_id` (UUID): References `auth.users`.
+    *   `user_id` (UUID): References `auth.users` (or `public.users` via trigger).
     *   `name` (Text): Team name (e.g., "Real Madrid").
-    *   `credits_left` (Int): Currency balance for market operations (Default: 1000).
-    *   `league_id` (UUID): Logic separation for multiple leagues (optional).
+    *   `credits_left` (Int): Currency balance.
+    *   `league_id` (UUID): Logic separation for multiple leagues.
+    *   `password` (Text): Optional team-specific password.
 
 ### Players & Rosters
 *   **`players`**: The comprehensive list of real-world Serie A players.
     *   `id` (BigInt): External ID from the data provider.
     *   `name` (Text): e.g., "Lautaro Martinez".
     *   `role` (Text): 'P' (GK), 'D' (DEF), 'C' (MID), 'A' (FWD).
-    *   `team_real` (Text): Current Serie A club (e.g., "Inter").
+    *   `team_real` (Text): Current Serie A club.
     *   `quotation` (Int): Current market value.
 *   **`rosters`**: The link table defining ownership.
     *   `team_id` (UUID): Owner team.
     *   `player_id` (BigInt): Owned player.
     *   `purchase_price` (Int): Cost paid to acquire.
-    *   *Constraint*: A player can only be in one roster per league (handled by logic, potentially unique constraint).
 
 ### Competition (Lineups & Results)
 *   **`fixtures`**: The schedule of matches between Fantasy Teams.
     *   `matchday` (Int): 1-38.
     *   `home_team_id` / `away_team_id`: The competing teams.
-    *   `home_goals` / `away_goals`: Calculated fantasy score (e.g. 72.5 -> 2 goals).
+    *   `home_goals` / `away_goals`: Calculated fantasy score.
     *   `calculated` (Boolean): True if the match has been processed.
 *   **`lineups`**: Formations submitted by users for a specific matchday.
     *   `module` (Text): e.g., "3-4-3".
@@ -130,8 +134,8 @@ Uses `@dnd-kit/core` for drag-and-drop.
     *   `lineup_id`: Reference to parent formation.
     *   `player_id`: The player selected.
     *   `is_starter` (Boolean): Starter vs Bench.
-    *   `bench_order` (Int): Priority for substitutions (1, 2, 3...).
-*   **`match_stats`**: The raw performance data (Votes, Goals, Assists) imported weekly to calculate scores.
+    *   `bench_order` (Int): 0 for starters, 1+ for bench priority.
+*   **`match_stats`**: The raw performance data (Votes, Goals, Assists).
 
 ### Market
 *   **`auctions`**: Active bidding wars.
@@ -140,16 +144,18 @@ Uses `@dnd-kit/core` for drag-and-drop.
     *   `current_price` (Int): Current bid amount.
     *   `end_time` (Timestamp): When the auction closes.
     *   `status`: 'OPEN' or 'CLOSED'.
-*   **`trade_proposals`**: Direct p2p exchanges.
-    *   `proposer_team_id` / `receiver_team_id`: Who is trading.
-    *   `proposer_player_id` / `receiver_player_id`: The swap assets.
-    *   `credits_offer` (Int): Balancing cash (can be negative/positive depending on logic, here explicitly "offer").
-    *   `status`: 'PENDING', 'ACCEPTED', 'REJECTED'.
+*   **`trade_proposals`**: Direct p2p exchanges supporting Multi-Player + Credits trades.
+    *   `proposer_team_id` / `receiver_team_id`: The two teams involved.
+    *   `proposer_player_ids` (`BIGINT[]`): Array of player IDs offered by the proposer.
+    *   `receiver_player_ids` (`BIGINT[]`): Array of player IDs requested from the receiver.
+    *   `proposer_credits` (Int): Cash offered by proposer.
+    *   `receiver_credits` (Int): Cash requested from receiver.
+    *   `status`: 'PENDING', 'ACCEPTED', 'REJECTED', 'CANCELLED'.
 
 ### System
 *   **`leagues`**: Configuration for the tournament (Name).
-*   **`settings`**: Key-Value store for global configs (e.g., `auction_duration_hours`, `market_open_hour`).
-*   **`logs`**: Audit trail for Admin actions (e.g., "Market closed", "Scores calculated").
+*   **`settings`**: Key-Value store for global configs (e.g. `auction_duration_hours`).
+*   **`logs`**: Audit trail for Admin actions (jsonb details).
 
 ---
 

@@ -2,7 +2,8 @@
 
 import { createClient } from '@/utils/supabase/server';
 import { logEvent } from './admin';
-import { addMinutes, isAfter, isBefore, addSeconds, setHours, startOfDay, endOfDay } from 'date-fns';
+import { addMinutes } from 'date-fns';
+import { sendPushNotification } from '@/utils/notifications';
 
 // --- SETTINGS HELPERS ---
 async function getSettings() {
@@ -59,6 +60,11 @@ export async function createAuction(playerId: number, startPrice: number) {
     if (error) return { success: false, error: error.message };
 
     await logEvent('AUCTION_STARTED', { playerId, startPrice }, user.id);
+
+    // NOTIFICATION: New Auction
+    const { data: player } = await supabase.from('players').select('name').eq('id', playerId).single();
+    await sendPushNotification(null, 'New Auction!', `Bidding started for ${player?.name || 'a player'}`);
+
     return { success: true };
 }
 
@@ -94,8 +100,7 @@ export async function placeBid(auctionId: number, bidAmount: number) {
         newEndTime = addMinutes(newEndTime, snippetExtension);
     }
 
-    // 4. Refund Previous Winner (Logic: Credits were deducted? Let's assume we DEDUCT on bid)
-    // If we deduct on bid, we must refund the previous winner.
+    // 4. Refund Previous Winner
     if (auction.current_winner_team_id) {
         const { data: prevWinner } = await supabase.from('teams').select('credits_left').eq('id', auction.current_winner_team_id).single();
         if (prevWinner) {
@@ -136,7 +141,6 @@ export async function resolveAuction(auctionId: number) {
         });
         await logEvent('AUCTION_WON', { auctionId, teamId: auction.current_winner_team_id, price: auction.current_price });
     } else {
-        // No bids? Auction expires.
         await logEvent('AUCTION_EXPIRED', { auctionId });
     }
 
@@ -221,13 +225,18 @@ export async function createTradeProposal(
     const { data: user } = await supabase.auth.getUser();
     await logEvent('TRADE_PROPOSED', { proposerTeamId, receiverTeamId, proposerCredits, receiverCredits }, user.user?.id);
 
+    // NOTIFICATION: New Trade
+    const { data: receiverTeam } = await supabase.from('teams').select('user_id').eq('id', receiverTeamId).single();
+    if (receiverTeam) {
+        await sendPushNotification([receiverTeam.user_id], 'New Trade Proposal', 'You have received a new trade offer!');
+    }
+
     return { success: true };
 }
 
 export async function getMyTradeProposals(teamId: string) {
     const supabase = await createClient();
 
-    // Fetch trades where I am proposer or receiver
     const { data: trades } = await supabase.from('trade_proposals')
         .select(`
             *,
@@ -257,13 +266,8 @@ export async function rejectTradeProposal(tradeId: number) {
 export async function acceptTradeProposal(tradeId: number) {
     const supabase = await createClient();
 
-    // 1. Fetch Trade Details
     const { data: trade } = await supabase.from('trade_proposals').select('*').eq('id', tradeId).single();
     if (!trade || trade.status !== 'PENDING') return { success: false, error: 'Trade not valid.' };
-
-    // 2. Transact
-    // We need to swap players and credits.
-    // Verify ownership again? Yes, strictly.
 
     const { data: proposerTeam } = await supabase.from('teams').select('credits_left').eq('id', trade.proposer_team_id).single();
     const { data: receiverTeam } = await supabase.from('teams').select('credits_left').eq('id', trade.receiver_team_id).single();
@@ -273,13 +277,12 @@ export async function acceptTradeProposal(tradeId: number) {
     if (proposerTeam.credits_left < trade.proposer_credits) return { success: false, error: 'Proposer has insufficient credits.' };
     if (receiverTeam.credits_left < trade.receiver_credits) return { success: false, error: 'Receiver has insufficient credits.' };
 
-    // Perform Updates
-    // A. Swap Players
+    // Swap Players
     if (trade.proposer_player_ids.length > 0) {
         const { error: pErr } = await supabase.from('rosters')
             .update({ team_id: trade.receiver_team_id })
             .in('player_id', trade.proposer_player_ids)
-            .eq('team_id', trade.proposer_team_id); // Security check
+            .eq('team_id', trade.proposer_team_id);
         if (pErr) return { success: false, error: 'Failed to transfer proposer players.' };
     }
 
@@ -291,15 +294,13 @@ export async function acceptTradeProposal(tradeId: number) {
         if (rErr) return { success: false, error: 'Failed to transfer receiver players.' };
     }
 
-    // B. Swap Credits
-    // Net flow: Proposer GIVES P_Credits, GETS R_Credits.
+    // Swap Credits
     const proposerNet = trade.receiver_credits - trade.proposer_credits;
     const receiverNet = trade.proposer_credits - trade.receiver_credits;
 
     await supabase.from('teams').update({ credits_left: proposerTeam.credits_left + proposerNet }).eq('id', trade.proposer_team_id);
     await supabase.from('teams').update({ credits_left: receiverTeam.credits_left + receiverNet }).eq('id', trade.receiver_team_id);
 
-    // C. Close Trade
     await supabase.from('trade_proposals').update({ status: 'ACCEPTED' }).eq('id', tradeId);
 
     const { data: user } = await supabase.auth.getUser();

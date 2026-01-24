@@ -3,8 +3,9 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Settings, Moon, Sun, Globe, Shield, User } from 'lucide-react';
+import { Settings, Moon, Sun, Shield } from 'lucide-react';
 import Link from 'next/link';
+import { PushNotificationManager } from '@/components/push-notification-manager';
 
 export function SettingsDialog() {
     const { language, setLanguage, theme, setTheme, t } = useLanguage();
@@ -45,6 +46,15 @@ export function SettingsDialog() {
                                 <Moon className="w-4 h-4" />
                                 {t('dark')}
                             </Button>
+                        </div>
+                    </div>
+
+                    {/* Notifications Section */}
+                    <div className="space-y-3">
+                        <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider">Notifications</h4>
+                        <div className="flex items-center justify-between bg-gray-50 dark:bg-zinc-800 p-3 rounded-lg">
+                            <span className="text-sm">Enable Push Notifications</span>
+                            <PushNotificationManager />
                         </div>
                     </div>
 
