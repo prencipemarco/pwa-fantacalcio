@@ -7,13 +7,10 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use experimental.turbo as per recent docs, but error suggested 'turbopack'.
-  // We'll try to silence it by providing an empty experimental config at least.
-  experimental: {
-    turbo: {
-      // Empty config to acknowledge turbopack usage
-    }
-  }
+  // Silence Turbopack error by adding empty config at root level as suggested by error logs.
+  // Use ts-ignore because local NextConfig types might not have this property yet.
+  // @ts-ignore
+  turbopack: {}
 };
 
 module.exports = withPWA(nextConfig);
