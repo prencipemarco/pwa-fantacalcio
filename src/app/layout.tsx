@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { BottomNav } from "@/components/bottom-nav";
 import { SplashScreen } from "@/components/splash-screen";
+import { SwipeNavigator } from "@/components/swipe-navigator";
 
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
@@ -27,7 +28,9 @@ export default function RootLayout({
         <LanguageProvider>
           <SplashScreen />
           <div className="pb-20">
-            {children}
+            <SwipeNavigator>
+              {children}
+            </SwipeNavigator>
           </div>
           <BottomNav />
           <SpeedInsights />
