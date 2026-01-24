@@ -35,29 +35,40 @@ export function PushNotificationManager() {
         setIsStandalone(standalone);
 
         if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-            // Explicitly try to register to ensure scope and existence
-            // We use /sw.js which next-pwa generates (and imports push-worker.js)
+            // 1. Kick off registration explicitly (next-pwa handling is disabled)
             navigator.serviceWorker.register('/sw.js')
-                .then(reg => {
-                    setRegistration(reg);
-                    reg.pushManager.getSubscription().then(sub => {
-                        if (sub) {
-                            setSubscription(sub);
-                            setIsSubscribed(true);
-                        }
-                    });
-                })
                 .catch(err => {
-                    console.error('SW Registration Failed:', err);
-                    setErrorMessage(`SW Error: ${err.message}`);
+                    console.error('SW Register Error:', err);
+                    setErrorMessage(`SW Register Error: ${err.message}`);
                 });
+
+            // 2. Wait for the Service Worker to be ACTIVE (Ready)
+            // This promise resolves only when the SW is active and controlling the page.
+            navigator.serviceWorker.ready.then(reg => {
+                console.log('SW Ready:', reg);
+                setRegistration(reg);
+
+                // check existing subscription
+                reg.pushManager.getSubscription().then(sub => {
+                    if (sub) {
+                        setSubscription(sub);
+                        setIsSubscribed(true);
+                    }
+                });
+            }).catch(err => {
+                console.error('SW Ready Error:', err);
+                setErrorMessage(`SW Ready Error: ${err.message}`);
+            });
         } else {
             setErrorMessage('Not Supported');
         }
     }, []);
 
     const subscribe = async () => {
-        if (!registration) return;
+        if (!registration) {
+            alert('Service Worker not ready yet. Please wait or reload.');
+            return;
+        }
         try {
             const sub = await registration.pushManager.subscribe({
                 userVisibleOnly: true,
@@ -94,7 +105,7 @@ export function PushNotificationManager() {
     }
 
     if (!registration) {
-        return <div className="text-xs text-gray-400">Loading...</div>;
+        return <div className="text-xs text-gray-400">Initializing...</div>;
     }
 
     return (
