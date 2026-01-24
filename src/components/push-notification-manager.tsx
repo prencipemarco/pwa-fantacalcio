@@ -26,7 +26,7 @@ export function PushNotificationManager() {
     const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null);
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && 'serviceWorker' in navigator && (window as any).workbox !== undefined) {
+        if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
             // run only in browser
             navigator.serviceWorker.ready.then(reg => {
                 setRegistration(reg);
