@@ -49,7 +49,7 @@ export function PushNotificationManager() {
                 })
                 .catch(err => {
                     console.error('SW Registration Failed:', err);
-                    setErrorMessage('SW Error');
+                    setErrorMessage(`SW Error: ${err.message}`);
                 });
         } else {
             setErrorMessage('Not Supported');
