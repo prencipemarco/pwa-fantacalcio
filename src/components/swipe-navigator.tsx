@@ -21,6 +21,21 @@ export function SwipeNavigator({ children }: { children: React.ReactNode }) {
         return <>{children}</>;
     }
 
+    // Prefetch adjacent routes for instant swipe transition
+    useEffect(() => {
+        const currentIndex = ROUTES.indexOf(pathname);
+        if (currentIndex !== -1) {
+            // Prefetch Next
+            if (currentIndex < ROUTES.length - 1) {
+                router.prefetch(ROUTES[currentIndex + 1]);
+            }
+            // Prefetch Prev
+            if (currentIndex > 0) {
+                router.prefetch(ROUTES[currentIndex - 1]);
+            }
+        }
+    }, [pathname, router]);
+
     const onTouchStart = (e: React.TouchEvent) => {
         touchStart.current = {
             x: e.targetTouches[0].clientX,

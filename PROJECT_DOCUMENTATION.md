@@ -162,8 +162,8 @@ Uses `@dnd-kit/core` for drag-and-drop.
 ## 🚀 Future Improvements
 
 *   **Live Scoring**: Integrate an API to auto-calculate fantasy scores during games.
-*   **Push Notifications**: Notify users just before lineup lock or when outbid in auctions.
-*   **Mobile Gestures**: Enhanced swipe actions for navigation.
+*   **Push Notifications**: Notify users just before lineup lock or when outbid in auctions.(done)
+*   **Mobile Gestures**: Enhanced swipe actions for navigation.(done - check for improvements)
 
 ---
 
