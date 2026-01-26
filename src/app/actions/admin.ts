@@ -393,8 +393,197 @@ export async function deleteTeam(teamId: string) {
         await logEvent('DELETE_TEAM', { teamId, timestamp: new Date() });
         return { success: true };
 
+        // ... existing code
     } catch (error: any) {
         console.error('Delete team error:', error);
         return { success: false, error: error.message };
+    }
+}
+
+export async function forceCloneLineup(teamId: string, targetMatchday: number, sourceMatchday: number) {
+    const supabase = await createClient();
+
+    try {
+        // 1. Get Source Lineup
+        // We need to find the fixture ID for the source matchday or just query by Matchday if we store it?
+        // Lineups are linked to Fixtures. We need to find the fixture for THIS team in Source Matchday.
+
+        // Find Source Fixture for this team
+        const { data: sourceFixture } = await supabase.from('fixtures')
+            .select('id')
+            .eq('matchday', sourceMatchday)
+            .or(`home_team_id.eq.${teamId},away_team_id.eq.${teamId}`)
+            .single();
+
+        if (!sourceFixture) return { success: false, error: `No match found for Team in MD ${sourceMatchday}` };
+
+        const { data: sourceLineup } = await supabase.from('lineups')
+            .select('id, module')
+            .eq('team_id', teamId)
+            .eq('fixture_id', sourceFixture.id)
+            .single();
+
+        if (!sourceLineup) return { success: false, error: `No lineup found for MD ${sourceMatchday}` };
+
+        // 2. Find Target Fixture
+        const { data: targetFixture } = await supabase.from('fixtures')
+            .select('id')
+            .eq('matchday', targetMatchday)
+            .or(`home_team_id.eq.${teamId},away_team_id.eq.${teamId}`)
+            .single();
+
+        if (!targetFixture) return { success: false, error: `No match found for Team in MD ${targetMatchday}` };
+
+        // 3. Upsert Target Lineup (Overwrite if exists)
+        const { data: newLineup, error: lineupError } = await supabase.from('lineups')
+            .upsert({
+                team_id: teamId,
+                fixture_id: targetFixture.id,
+                module: sourceLineup.module,
+                is_submitted: true
+            }, { onConflict: 'team_id, fixture_id' }) // Ensure one lineup per fixture
+            .select()
+            .single();
+
+        if (lineupError) throw lineupError;
+
+        // 4. Copy Players
+        // First get source players
+        const { data: sourcePlayers } = await supabase.from('lineup_players')
+            .select('player_id, is_starter, position_index, role')
+            .eq('lineup_id', sourceLineup.id);
+
+        if (!sourcePlayers || sourcePlayers.length === 0) return { success: false, error: 'Source lineup is empty' };
+
+        // Delete existing players in target (if any)
+        await supabase.from('lineup_players').delete().eq('lineup_id', newLineup.id);
+
+        // Insert new players
+        const newPlayers = sourcePlayers.map(p => ({
+            lineup_id: newLineup.id,
+            player_id: p.player_id,
+            is_starter: p.is_starter,
+            position_index: p.position_index,
+            role: p.role
+        }));
+
+        const { error: playersError } = await supabase.from('lineup_players').insert(newPlayers);
+        if (playersError) throw playersError;
+
+        await logEvent('FORCE_LINEUP_CLONE', { teamId, targetMatchday, sourceMatchday }, 'ADMIN');
+        return { success: true };
+
+        // ... existing code
+    } catch (e: any) {
+        console.error('Force Clone Error:', e);
+        return { success: false, error: e.message };
+    }
+}
+
+export async function forceImportLineupFromCSV(teamId: string, matchday: number, csvContent: string) {
+    const supabase = await createClient();
+
+    try {
+        // 1. Parse CSV
+        const lines = csvContent.trim().split('\n');
+        const players: { name: string; role: string }[] = [];
+
+        for (const line of lines) {
+            const parts = line.split(';');
+            if (parts.length >= 2) {
+                players.push({
+                    role: parts[0].trim().toUpperCase(),
+                    name: parts[1].trim()
+                });
+            } else if (parts.length === 1 && parts[0].trim()) {
+                // Try to support just Name if Role missing? 
+                // User said "Role;Name", let's stick to that but be robust.
+                players.push({ role: '?', name: parts[0].trim() });
+            }
+        }
+
+        if (players.length === 0) return { success: false, error: 'CSV is empty or invalid format' };
+
+        // 2. Resolve Players to IDs
+        const resolvedPlayers: { id: string; name: string; role: string }[] = [];
+        const notFound: string[] = [];
+
+        // Determine Match ID first to fail fast
+        const { data: fixture } = await supabase.from('fixtures')
+            .select('id')
+            .eq('matchday', matchday)
+            .or(`home_team_id.eq.${teamId},away_team_id.eq.${teamId}`)
+            .single();
+
+        if (!fixture) return { success: false, error: `No match found for Team in MD ${matchday}` };
+
+        // Find module? We can infer from role counts or default to 3-4-3 if unknown.
+        // Actually, let's just use 3-4-3 or whatever fits the roles.
+        // Or just let the system handle it properly.
+
+        for (const p of players) {
+            // Fuzzy search? or Exact case-insensitive?
+            const { data: dbPlayer } = await supabase.from('players')
+                .select('id, name, role')
+                .ilike('name', p.name) // Exact match case-insensitive
+                .single();
+
+            if (dbPlayer) {
+                resolvedPlayers.push({
+                    id: dbPlayer.id,
+                    name: dbPlayer.name,
+                    role: dbPlayer.role // Trust DB role over CSV role? Yes.
+                });
+            } else {
+                // Try fuzzy? Or just report error
+                notFound.push(p.name);
+            }
+        }
+
+        if (notFound.length > 0) {
+            return { success: false, error: `Players not found: ${notFound.join(', ')}` };
+        }
+
+        // 3. Upsert Lineup
+        // Infer module: count D, C, A among starters (first 11)
+        const starters = resolvedPlayers.slice(0, 11);
+        const ds = starters.filter(p => p.role === 'D').length;
+        const cs = starters.filter(p => p.role === 'C').length;
+        const as = starters.filter(p => p.role === 'A').length;
+        const module = `${ds}-${cs}-${as}`;
+
+        const { data: newLineup, error: lineupError } = await supabase.from('lineups')
+            .upsert({
+                team_id: teamId,
+                fixture_id: fixture.id,
+                module: module,
+                is_submitted: true
+            }, { onConflict: 'team_id, fixture_id' })
+            .select()
+            .single();
+
+        if (lineupError) throw lineupError;
+
+        // 4. Insert Players
+        // Delete existing
+        await supabase.from('lineup_players').delete().eq('lineup_id', newLineup.id);
+
+        const newDetails = resolvedPlayers.map((p, i) => ({
+            lineup_id: newLineup.id,
+            player_id: p.id,
+            is_starter: i < 11,
+            position_index: i < 11 ? i : i - 11, // Starters 0-10, Bench 0-N
+            role: p.role
+        }));
+
+        const { error: playersError } = await supabase.from('lineup_players').insert(newDetails);
+        if (playersError) throw playersError;
+
+        await logEvent('FORCE_LINEUP_CSV', { teamId, matchday, playerCount: resolvedPlayers.length }, 'ADMIN');
+        return { success: true };
+
+    } catch (e: any) {
+        console.error('Force CSV Error:', e);
+        return { success: false, error: e.message };
     }
 }
