@@ -16,18 +16,25 @@ import { Hammer, Users, ShoppingCart, UserMinus } from 'lucide-react';
 import { NewTradeFlow } from '@/components/market/new-trade-flow';
 import Link from 'next/link';
 
+import { LoadingPage } from '@/components/loading-spinner';
+
 export default function MarketPage() {
     const { t } = useLanguage();
     const [view, setView] = useState<'home' | 'free_agents' | 'active_auctions' | 'release' | 'new_trade'>('home');
     const [team, setTeam] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
     const [activeCount, setActiveCount] = useState(0);
     const supabase = createClient();
 
     const refreshTeam = async () => {
-        const { data: session } = await supabase.auth.getSession();
-        if (session.session) {
-            const t = await getMyTeam(session.session.user.id);
-            setTeam(t);
+        try {
+            const { data: session } = await supabase.auth.getSession();
+            if (session.session) {
+                const t = await getMyTeam(session.session.user.id);
+                setTeam(t);
+            }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -38,6 +45,14 @@ export default function MarketPage() {
             setActiveCount(count || 0);
         });
     }, [view]);
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center py-24">
+                <LoadingPage />
+            </div>
+        );
+    }
 
     if (!team) return (
         <div className="p-8 text-center pt-24 container mx-auto">
@@ -50,7 +65,7 @@ export default function MarketPage() {
     );
 
     return (
-        <div className="container mx-auto p-4 max-w-2xl pb-24 pt-20">
+        <div className="container mx-auto p-4 max-w-2xl pb-24 pt-4">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('transferMarket')}</h1>
                 <div className="text-right bg-green-50 dark:bg-green-900/30 p-2 rounded-lg border border-green-200 dark:border-green-800">
