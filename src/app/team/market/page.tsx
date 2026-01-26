@@ -98,10 +98,10 @@ function MarketContent() {
     );
 
     return (
-        <div className="container mx-auto p-4 max-w-4xl pb-24 pt-6 space-y-6">
+        <div className="container mx-auto p-4 max-w-4xl pb-24 pt-4 space-y-4">
 
             {/* Header with Credits */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-[60px] md:top-0 z-30 bg-background/80 backdrop-blur-lg pb-4 md:pb-0 border-b md:border-none">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-0 z-30 bg-background/95 backdrop-blur-lg pb-2 pt-2 border-b md:border-none shadow-sm md:shadow-none -mx-4 px-4 md:mx-0 md:px-0">
                 <div>
                     <h1 className="text-3xl font-black tracking-tight text-primary">Mercato</h1>
                     <p className="text-muted-foreground text-sm">Gestisci la tua rosa e partecipa alle aste.</p>

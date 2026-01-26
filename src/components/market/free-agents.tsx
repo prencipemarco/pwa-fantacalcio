@@ -77,13 +77,13 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
             {error && <Alert variant="destructive"><AlertTitle>Errore</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
             {success && <Alert className="bg-green-50 border-green-500"><AlertTitle>Successo</AlertTitle><AlertDescription>{success}</AlertDescription></Alert>}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {results.map((player) => (
-                    <Card key={player.id} className="hover:border-primary/50 transition-colors">
-                        <CardContent className="p-3 flex justify-between items-center">
-                            <div className="flex items-center gap-3">
+                    <Card key={player.id} className="hover:border-primary/50 transition-colors shadow-sm">
+                        <CardContent className="p-2.5 flex justify-between items-center">
+                            <div className="flex items-center gap-2.5">
                                 {/* Role Badge */}
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-sm
+                                <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm text-white shadow-sm shrink-0
                                     ${player.role === 'P' ? 'bg-orange-500' :
                                         player.role === 'D' ? 'bg-green-600' :
                                             player.role === 'C' ? 'bg-blue-600' : 'bg-red-600'
@@ -91,9 +91,9 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
                                     {player.role}
                                 </div>
 
-                                <div className="flex flex-col">
-                                    <span className="font-bold text-lg leading-tight">{player.name}</span>
-                                    <span className="text-sm text-muted-foreground uppercase font-semibold tracking-wider">
+                                <div className="flex flex-col min-w-0">
+                                    <span className="font-bold text-[15px] leading-tight truncate pr-1">{player.name}</span>
+                                    <span className="text-[11px] text-muted-foreground uppercase font-bold tracking-wider truncate">
                                         {player.team_real} • Qt. {player.quotation}
                                     </span>
                                 </div>
@@ -103,7 +103,7 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
                                 size="sm"
                                 onClick={() => handleStartAuction(player)}
                                 disabled={buyingId === player.id}
-                                className="rounded-full w-10 h-10 p-0 shadow-md"
+                                className="rounded-full w-9 h-9 p-0 shadow-sm shrink-0"
                             >
                                 {buyingId === player.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-5 h-5" />}
                             </Button>

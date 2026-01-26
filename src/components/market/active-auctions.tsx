@@ -64,25 +64,25 @@ export function ActiveAuctionsList({ onBack, teamId, refreshCredits }: { onBack:
                 const minBid = a.current_price + 1;
 
                 return (
-                    <Card key={a.id} className={`border-2 transition-all ${isWinning ? 'border-green-500 bg-green-50/10 dark:bg-green-900/10' : 'border-transparent hover:border-primary/50'}`}>
-                        <CardContent className="p-4">
+                    <Card key={a.id} className={`border transition-all shadow-sm ${isWinning ? 'border-green-500 bg-green-50/10 dark:bg-green-900/10' : 'border-border hover:border-primary/50'}`}>
+                        <CardContent className="p-3">
                             {/* Header: Player Info & Timer */}
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="flex items-center gap-3">
-                                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white shadow-sm
+                            <div className="flex justify-between items-start mb-3">
+                                <div className="flex items-center gap-2.5">
+                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white shadow-sm shrink-0
                                         ${a.player.role === 'P' ? 'bg-orange-500' :
                                             a.player.role === 'D' ? 'bg-green-600' :
                                                 a.player.role === 'C' ? 'bg-blue-600' : 'bg-red-600'
                                         }`}>
                                         {a.player.role}
                                     </div>
-                                    <div>
-                                        <div className="font-bold text-lg leading-tight">{a.player.name}</div>
-                                        <div className="text-xs text-muted-foreground">{a.player.team_real}</div>
+                                    <div className="flex flex-col min-w-0">
+                                        <div className="font-bold text-[15px] leading-tight truncate">{a.player.name}</div>
+                                        <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">{a.player.team_real}</div>
                                     </div>
                                 </div>
 
-                                <Badge variant={isWinning ? "default" : "outline"} className={`h-8 px-3 font-mono text-sm ${isWinning ? 'bg-green-600 hover:bg-green-600' : ''}`}>
+                                <Badge variant={isWinning ? "default" : "outline"} className={`h-7 px-2 font-mono text-[11px] ${isWinning ? 'bg-green-600 hover:bg-green-600' : ''}`}>
                                     <AuctionTimer endTime={a.end_time} />
                                 </Badge>
                             </div>
