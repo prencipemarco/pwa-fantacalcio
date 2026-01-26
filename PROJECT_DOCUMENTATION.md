@@ -162,8 +162,15 @@ Uses `@dnd-kit/core` for drag-and-drop.
 ## 🚀 Future Improvements
 
 *   **Live Scoring**: Integrate an API to auto-calculate fantasy scores during games.
-*   **Push Notifications**: Notify users just before lineup lock or when outbid in auctions.(done)
-*   **Mobile Gestures**: Enhanced swipe actions for navigation.(done - check for improvements)
+*   **Mobile Gestures**: Enhanced swipe actions for navigation. (Done)
+
+## 📋 Changelog
+
+### v0.2.0 - UI Polish & Auction System (Current)
+*   **Navigation**: Implemented native swipe gestures for main tabs.
+*   **Auctions**: Added live countdown timer, improved creation logic (creator = initial bidder), and "You Won" push notifications.
+*   **Settings**: Redesigned with switches and segmented controls.
+*   **Fixes**: Solved "Sent to 0 devices" push bug and various UI layout issues.(done - check for improvements)
 
 ---
 
