@@ -17,12 +17,12 @@ export function SwipeNavigator({ children }: { children: React.ReactNode }) {
     const touchStart = useRef<{ x: number, y: number } | null>(null);
 
     // Don't enable on Admin pages
-    if (pathname.startsWith('/admin')) {
-        return <>{children}</>;
-    }
+    const isAdmin = pathname.startsWith('/admin');
 
     // Prefetch adjacent routes for instant swipe transition
     useEffect(() => {
+        if (isAdmin) return;
+
         const currentIndex = ROUTES.indexOf(pathname);
         if (currentIndex !== -1) {
             // Prefetch Next
@@ -37,8 +37,8 @@ export function SwipeNavigator({ children }: { children: React.ReactNode }) {
     }, [pathname, router]);
 
     const onTouchStart = (e: React.TouchEvent) => {
-        // Stop swipe if inside a modal or blocked element
-        if ((e.target as HTMLElement).closest('.stop-swipe-nav')) {
+        // Stop swipe if inside a modal or blocked element OR if on admin pages
+        if (isAdmin || (e.target as HTMLElement).closest('.stop-swipe-nav')) {
             return;
         }
 
