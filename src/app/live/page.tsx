@@ -6,6 +6,8 @@ import { getMyTeam } from '@/app/actions/user';
 import { createClient } from '@/utils/supabase/client';
 import { useEffect } from 'react';
 import { LoadingPage } from '@/components/loading-spinner'; // Reusing spinner if available
+import { SerieALive } from '@/components/live/serie-a-live';
+import { FantaLiveMatch } from '@/components/live/fanta-live-match';
 
 export default function LivePage() {
     const [activeTab, setActiveTab] = useState<'serie_a' | 'match'>('match');
@@ -25,25 +27,26 @@ export default function LivePage() {
         init();
     }, []);
 
-    if (loading) return <div className="h-screen flex items-center justify-center bg-stone-950 text-white">Loading Live...</div>;
+    if (loading) return (
+        <div className="min-h-screen bg-gray-50 dark:bg-stone-950 flex items-center justify-center">
+            <LoadingPage />
+        </div>
+    );
 
     return (
-        <div className="min-h-screen bg-stone-950 text-stone-100 pb-20">
+        <div className="min-h-screen bg-gray-50 dark:bg-stone-950 text-gray-900 dark:text-stone-100 pb-20 transition-colors duration-300">
             {/* Header / Status Bar */}
-            <header className="bg-stone-900 border-b border-stone-800 p-4 flex justify-between items-center sticky top-0 z-40">
+            <header className="bg-white dark:bg-stone-900 border-b border-gray-200 dark:border-stone-800 p-4 flex justify-between items-center sticky top-0 z-40 shadow-sm">
                 <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
                     <span className="font-bold tracking-wider text-sm">LIVE</span>
                 </div>
-                <div className="text-xs text-stone-400 font-mono">
+                <div className="text-xs text-gray-500 dark:text-stone-400 font-mono">
                     GIORNATA 22
                 </div>
             </header>
 
-            import {SerieALive} from '@/components/live/serie-a-live';
-            import {FantaLiveMatch} from '@/components/live/fanta-live-match';
 
-            // ... (in container)
 
             {/* Main Content Area */}
             <main className="container mx-auto max-w-lg p-4">

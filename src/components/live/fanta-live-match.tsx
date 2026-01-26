@@ -27,7 +27,7 @@ export function FantaLiveMatch({ teamId }: FantaLiveMatchProps) {
         fetchLineup();
     }, [teamId]);
 
-    if (loading) return <div className="text-center py-10 text-stone-500">Caricamento formazione...</div>;
+    if (loading) return <div className="text-center py-10 text-gray-500 dark:text-stone-500">Caricamento formazione...</div>;
 
     if (!lineup) return (
         <div className="text-center py-10">

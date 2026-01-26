@@ -14,13 +14,13 @@ export function LiveNavbar({ currentTab, onTabChange }: LiveNavbarProps) {
     const router = useRouter();
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 border-t bg-stone-900 border-stone-800 text-white shadow-lg z-50 pb-safe transition-colors duration-300">
+        <div className="fixed bottom-0 left-0 right-0 border-t bg-white dark:bg-zinc-950 border-gray-200 dark:border-zinc-800 text-gray-900 dark:text-white shadow-[0_-1px_3px_rgba(0,0,0,0.1)] dark:shadow-none z-50 pb-safe transition-colors duration-300">
             <div className="flex justify-around items-center h-16">
 
                 {/* 1. HOME (Back) */}
                 <button
                     onClick={() => router.push('/')}
-                    className="flex flex-col items-center p-2 text-stone-400 hover:text-white transition-colors"
+                    className="flex flex-col items-center p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                     <Home size={24} />
                     <span className="text-[10px] mt-1 font-bold">Home</span>
@@ -29,7 +29,7 @@ export function LiveNavbar({ currentTab, onTabChange }: LiveNavbarProps) {
                 {/* 2. LIVE MATCH (Fanta) */}
                 <button
                     onClick={() => onTabChange('match')}
-                    className={`flex flex-col items-center p-2 transition-colors ${currentTab === 'match' ? 'text-green-400' : 'text-stone-400'}`}
+                    className={`flex flex-col items-center p-2 transition-colors ${currentTab === 'match' ? 'text-green-600 dark:text-green-400' : 'text-gray-400 dark:text-gray-400'}`}
                 >
                     <Shield size={24} className={currentTab === 'match' ? 'fill-current' : ''} />
                     <span className="text-[10px] mt-1 font-bold">Partita</span>
@@ -38,7 +38,7 @@ export function LiveNavbar({ currentTab, onTabChange }: LiveNavbarProps) {
                 {/* 3. SERIE A */}
                 <button
                     onClick={() => onTabChange('serie_a')}
-                    className={`flex flex-col items-center p-2 transition-colors ${currentTab === 'serie_a' ? 'text-blue-400' : 'text-stone-400'}`}
+                    className={`flex flex-col items-center p-2 transition-colors ${currentTab === 'serie_a' ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400 dark:text-gray-400'}`}
                 >
                     <List size={24} />
                     <span className="text-[10px] mt-1 font-bold">Serie A</span>
