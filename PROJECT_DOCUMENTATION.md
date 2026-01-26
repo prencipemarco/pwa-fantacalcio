@@ -1,177 +1,153 @@
-# 📚 Fantacalcio PWA - Comprehensive Documentation
+# 📚 Fantacalcio PWA - Documentazione Completa
 
-This document provides a detailed overview of the Fantacalcio PWA codebase, explaining the architecture, folder structure, and key implementation details.
+Questo documento fornisce una panoramica dettagliata del codice della PWA Fantacalcio, spiegando l'architettura, la struttura delle cartelle e i dettagli chiave dell'implementazione.
 
 ---
 
-## 🏗 Architecture Overview
+## 🏗 Panoramica Architettura
 
-The application is built using **Next.js 14** with the **App Router** architecture. It leverages Server Actions for backend logic (Supabase interactions) and Client Components for interactive UI.
+L'applicazione è costruita usando **Next.js 14** con architettura **App Router**. Sfrutta le Server Actions per la logica backend (interazioni Supabase) e i Client Components per l'interfaccia interattiva.
 
 *   **Frontend**: React (Next.js), Tailwind CSS, Lucide Icons, Shadcn UI.
 *   **Backend**: Supabase (PostgreSQL, Auth).
-*   **State Management**: React Context (`LanguageContext` for global settings) + React State.
-*   **PWA**: configured via `manifest.json` and `src/app/layout.tsx`.
+*   **Gestione Stato**: React Context (`LanguageContext` per impostazioni globali) + React State.
+*   **PWA**: configurata via `manifest.json` e `src/app/layout.tsx`.
 
 ---
 
-## 📂 Folder Structure
+## 📂 Struttura Cartelle
 
 ### `src/app` (App Router)
-Contains the pages and routes of the application.
+Contiene le pagine e le rotte dell'applicazione.
 
-*   **`layout.tsx`**: The main wrapper. Handles the PWA `SplashScreen`, `LanguageProvider`, and bottom navigation (`BottomNav`).
-*   **`page.tsx`**: The Home Page. Shows the `MatchdayReminder` and main dashboard.
-*   **`globals.css`**: Global styles, including Tailwind directives and CSS variables for **Dark/Light Mode**.
-*   **`login/`**: Login page (Supabase Auth).
-*   **`standings/`**: League table page. Animated and responsive.
-*   **`admin/`**: Admin dashboard for calculating scores and managing the market.
-*   **`team/`**: User-specific team pages.
-    *   **`create/`**: Wizard to create a new team.
-    *   **`lineup/`**: Drag-and-drop interface to set the formation.
-    *   **`market/`**: Transfer market hub (Auctions, Trades, Free Agents).
-    *   **`results/`**: Match history timeline.
+*   **`layout.tsx`**: Wrapper principale. Gestisce la PWA `SplashScreen`, il `LanguageProvider` e la navigazione inferiore (`BottomNav`).
+*   **`page.tsx`**: Home Page. Mostra il `MatchdayReminder` e la dashboard principale.
+*   **`globals.css`**: Stili globali, incluse direttive Tailwind e variabili CSS per **Dark/Light Mode**.
+*   **`login/`**: Pagina log (Supabase Auth).
+*   **`standings/`**: Pagina classifica. Animata e responsive.
+*   **`admin/`**: Dashboard amministratore per calcolare punteggi e gestire il mercato.
+*   **`teams/`**: **[NUOVO]** Lista di tutte le squadre avversarie con rose espandibili.
+*   **`team/`**: Pagine specifiche della squadra utente.
+    *   **`create/`**: Wizard per creare una nuova squadra.
+    *   **`lineup/`**: Interfaccia Drag-and-drop per schierare la formazione.
+    *   **`market/`**: Hub mercato trasferimenti (Aste, Scambi, Svincolati).
+    *   **`results/`**: Timeline storico partite.
 
 ### `src/app/actions` (Server Actions)
-Contains server-side logic. Next.js 14 allows calling these functions directly from Client Components.
+Contiene la logica lato server. Next.js 14 permette di chiamare queste funzioni direttamente dai Client Components.
 
-*   **`user.ts`**: Fetch user profile, team ID, and roster.
-*   **`team.ts`**: Save lineups, manage roster.
-*   **`market.ts`**: handle auctions (create, bid), trades, and free agent signings.
-*   **`standings.ts`**: Calculate and fetch the league table.
-*   **`results.ts`**: Fetch match fixtures and history.
-*   **`football-data.ts`**: Integration with external APIs for real match scheduling.
+*   **`user.ts`**: Recupero profilo utente, ID squadra e rosa.
+*   **`team.ts`**: Salvataggio formazioni, gestione rosa.
+*   **`market.ts`**: Gestione aste (crea, offri), scambi e acquisto svincolati.
+*   **`standings.ts`**: Calcolo e recupero classifica.
+*   **`results.ts`**: Recupero calendario e storico partite.
+*   **`football-data.ts`**: Integrazione API esterne per orari reali partite.
 
-### `src/components` (UI Components)
-Reusable UI blocks.
+### `src/components` (Componenti UI)
+Blocchi UI riutilizzabili.
 
-*   **`ui/`**: Core primitives (Buttons, Cards, Modals) from **shadcn/ui**.
-*   **`home/`**: Components specific to the home dashboard.
-*   **`market/`**: Complex market components (`ActiveAuctionsList`, `CreateAuctionModal`, `TradesSection`).
-*   **`team-logo.tsx`**: Utility component to render team badges (SVG/PNG) with fallback.
-*   **`podium.tsx`**: (Legacy/Removed) Visual podium for standings.
-*   **`bottom-nav.tsx`**: Mobile-first bottom navigation bar.
-*   **`settings-dialog.tsx`**: Modal for changing Language and Theme.
+*   **`ui/`**: Primitive core (Bottoni, Card, Modali) da **shadcn/ui**.
+*   **`home/`**: Componenti specifici dashboard (Bottoni rapidi).
+*   **`market/`**: Componenti complessi mercato (`ActiveAuctionsList`, `CreateAuctionModal`, `TradesSection`).
+*   **`team-logo.tsx`**: Utility per renderizzare stemmi squadre (SVG/PNG) con fallback.
+*   **`bottom-nav.tsx`**: Barra navigazione mobile-first.
+*   **`swipe-navigator.tsx`**: Gestore gesture swipe per navigazione tab (Logica intelligente Stop-Propagation).
+*   **`settings-dialog.tsx`**: Modale per cambio Lingua e Tema.
 
-### `src/contexts` (Global State)
+### `src/contexts` (Stato Globale)
 *   **`LanguageContext.tsx`**:
-    *   Manages **Translations** (IT/EN dictionary).
-    *   Manages **Theme** (Dark/Light). Toggles the `.dark` class on the HTML root.
+    *   Gestisce **Traduzioni** (Dizionario IT/EN).
+    *   Gestisce **Tema** (Dark/Light). Attiva la classe `.dark` sulla root HTML.
 
 ### `public`
-Static assets.
-*   **`manifest.json`**: Critical for PWA. Defines app name, icons, and theme colors.
-*   **`teams/`**: Folder containing SVGs/PNGs for Serie A team logos.
+Asset statici.
+*   **`manifest.json`**: Critico per PWA. Definisce nome app, icone e colori tema.
+*   **`teams/`**: Cartella contenente SVG/PNG per loghi squadre Serie A.
 
 ---
 
-## 🔑 Key Features & Implementation
+## 🔑 Funzionalità Chiave & Implementazione
 
 ### 1. Progressive Web App (PWA)
-The app is designed to be installed on mobile devices.
-*   **Manifest**: Configured `display: standalone` to hide the browser URL bar.
-*   **Splash Screen**: Custom component (`src/components/splash-screen.tsx`) that shows a logo on launch while the app hydrates.
-*   **Viewport**: `user-scalable=no` meta tag to prevent zooming and feel native.
+L'app è progettata per essere installata su dispostivi mobili.
+*   **Manifest**: Configurato `display: standalone` per nascondere la barra URL.
+*   **Splash Screen**: Componente custom (`src/components/splash-screen.tsx`) mostrato all'avvio durante l'idratazione.
+*   **Viewport**: Meta tag `user-scalable=no` per prevenire zoom e dare feeling nativo.
 
-### 2. Localization & Theming
-*   **Provider**: Wraps the entire app in `src/app/layout.tsx`.
-*   **Storage**: Persists user preference for Language ('it'/'en') and Theme ('light'/'dark') in `localStorage`.
-*   **Usage**: Components use the hook: `const { t, theme } = useLanguage();`.
+### 2. Localizzazione & Temi
+*   **Provider**: Avvolge l'intera app in `src/app/layout.tsx`.
+*   **Storage**: Salva preferenze Lingua ('it'/'en') e Tema ('light'/'dark') nel `localStorage`.
+*   **Uso**: I componenti usano l'hook: `const { t, theme } = useLanguage();`.
 
-### 3. Transfer Market
-A complex section handled in `src/app/team/market/page.tsx`.
-*   **Auctions**: Users can open auctions for players. Other users bid credits. The highest bid after 24h wins (logic often requires a cron job or admin trigger, currently manual closing supported in Admin).
-*   **Trades**: Users propose direct swaps. Support for multi-player trades + credit balancing.
-*   **Release**: Users can cut players to refund credits (default 50% or full value depending on config).
+### 3. Mercato Trasferimenti
+Una sezione complessa gestita in `src/app/team/market/page.tsx`.
+*   **Aste**: Gli utenti aprono aste per giocatori. Altri utenti offrono crediti. Offerta più alta dopo 24h vince. Include **Timer Live** e notifiche push al vincitore.
+*   **Scambi**: Utenti propongono scambi diretti. Supporto per scambi multi-giocatore + bilanciamento crediti.
+*   **Svincolati**: Visualizzazione lista giocatori liberi (Listone) con filtri rapidi.
+*   **Taglio**: Utenti possono tagliare giocatori per recuperare crediti.
 
-### 4. Lineup Builder (`src/app/team/lineup/page.tsx`)
-Uses `@dnd-kit/core` for drag-and-drop.
-*   **Logic**: Users drag players from "My Roster" (Left Panel) to the "Pitch" (Center) or "Bench".
-*   **Validation**: Ensures 11 players and valid roles per module (e.g., 3-4-3).
-*   **Persistence**: Saves to Supabase `lineups` table linked to the specific `matchday`.
+### 4. Gestore Formazione (`src/app/team/lineup/page.tsx`)
+Usa `@dnd-kit/core` per drag-and-drop.
+*   **Logica**: Utenti trascinano giocatori da "La Mia Rosa" (Pannello SX) al "Campo" (Centro) o "Panchina".
+*   **Validazione**: Assicura 11 giocatori e ruoli validi per modulo (es. 3-4-3).
+*   **Persistenza**: Salva su tabella Supabase `lineups` collegata alla giornata specifica.
 
-### 5. Results & Standings
-*   **Standings**: Calculated dynamically based on match results. Tracks Points, GF (Goals For), GA (Goals Against).
-*   **Results**: Displayed as a timeline with color-coded badges (Green/Yellow/Red). Uses a server action to resolve opponent names for clarity.
-
----
-
-## 🗄 Database Schema (Supabase)
-
-### User & Teams
-*   **`users`**: Public profile table linked to Supabase Auth.
-    *   `id` (UUID): Primary Key, references `auth.users(id)`.
-    *   `email` (Text): Mirror of the auth email.
-*   **`teams`**: The core entity for a user's fantasy team.
-    *   `id` (UUID): Primary Key.
-    *   `user_id` (UUID): References `auth.users` (or `public.users` via trigger).
-    *   `name` (Text): Team name (e.g., "Real Madrid").
-    *   `credits_left` (Int): Currency balance.
-    *   `league_id` (UUID): Logic separation for multiple leagues.
-    *   `password` (Text): Optional team-specific password.
-
-### Players & Rosters
-*   **`players`**: The comprehensive list of real-world Serie A players.
-    *   `id` (BigInt): External ID from the data provider.
-    *   `name` (Text): e.g., "Lautaro Martinez".
-    *   `role` (Text): 'P' (GK), 'D' (DEF), 'C' (MID), 'A' (FWD).
-    *   `team_real` (Text): Current Serie A club.
-    *   `quotation` (Int): Current market value.
-*   **`rosters`**: The link table defining ownership.
-    *   `team_id` (UUID): Owner team.
-    *   `player_id` (BigInt): Owned player.
-    *   `purchase_price` (Int): Cost paid to acquire.
-
-### Competition (Lineups & Results)
-*   **`fixtures`**: The schedule of matches between Fantasy Teams.
-    *   `matchday` (Int): 1-38.
-    *   `home_team_id` / `away_team_id`: The competing teams.
-    *   `home_goals` / `away_goals`: Calculated fantasy score.
-    *   `calculated` (Boolean): True if the match has been processed.
-*   **`lineups`**: Formations submitted by users for a specific matchday.
-    *   `module` (Text): e.g., "3-4-3".
-*   **`lineup_players`**: Detail of the lineup.
-    *   `lineup_id`: Reference to parent formation.
-    *   `player_id`: The player selected.
-    *   `is_starter` (Boolean): Starter vs Bench.
-    *   `bench_order` (Int): 0 for starters, 1+ for bench priority.
-*   **`match_stats`**: The raw performance data (Votes, Goals, Assists).
-
-### Market
-*   **`auctions`**: Active bidding wars.
-    *   `player_id`: The player being auctioned.
-    *   `current_winner_team_id`: Highest bidder.
-    *   `current_price` (Int): Current bid amount.
-    *   `end_time` (Timestamp): When the auction closes.
-    *   `status`: 'OPEN' or 'CLOSED'.
-*   **`trade_proposals`**: Direct p2p exchanges supporting Multi-Player + Credits trades.
-    *   `proposer_team_id` / `receiver_team_id`: The two teams involved.
-    *   `proposer_player_ids` (`BIGINT[]`): Array of player IDs offered by the proposer.
-    *   `receiver_player_ids` (`BIGINT[]`): Array of player IDs requested from the receiver.
-    *   `proposer_credits` (Int): Cash offered by proposer.
-    *   `receiver_credits` (Int): Cash requested from receiver.
-    *   `status`: 'PENDING', 'ACCEPTED', 'REJECTED', 'CANCELLED'.
-
-### System
-*   **`leagues`**: Configuration for the tournament (Name).
-*   **`settings`**: Key-Value store for global configs (e.g. `auction_duration_hours`).
-*   **`logs`**: Audit trail for Admin actions (jsonb details).
+### 5. Risultati & Classifica
+*   **Classifica**: Calcolata dinamicamente dai risultati. Traccia Punti, GF (Gol Fatti), GS (Gol Subiti).
+*   **Risultati**: Visualizzati come timeline con badge colorati (Verde/Giallo/Rosso).
 
 ---
 
-## 🚀 Future Improvements
+## 🗄 Schema Database (Supabase)
 
-*   **Live Scoring**: Integrate an API to auto-calculate fantasy scores during games.
-*   **Mobile Gestures**: Enhanced swipe actions for navigation. (Done)
+### Utenti & Squadre
+*   **`users`**: Profilo pubblico collegato a Supabase Auth.
+*   **`teams`**: Entità core per la squadra fanta dell'utente.
+    *   `credits_left` (Int): Bilancio valuta.
+    *   `league_id`: Separazione logica leghe.
 
-## 📋 Changelog
+### Giocatori & Rose
+*   **`players`**: Lista completa giocatori Serie A reali.
+    *   `quotation` (Int): Valore di mercato attuale.
+*   **`rosters`**: Tabella di collegamento definente la proprietà.
+    *   `purchase_price` (Int): Costo pagato per acquisto.
 
-### v0.2.0 - UI Polish & Auction System (Current)
-*   **Navigation**: Implemented native swipe gestures for main tabs.
-*   **Auctions**: Added live countdown timer, improved creation logic (creator = initial bidder), and "You Won" push notifications.
-*   **Settings**: Redesigned with switches and segmented controls.
-*   **Fixes**: Solved "Sent to 0 devices" push bug and various UI layout issues.(done - check for improvements)
+### Competizione
+*   **`fixtures`**: Calendario partite tra Fanta Squadre.
+*   **`lineups`**: Formazioni inviate.
+*   **`match_stats`**: Dati performance grezzi (Voti, Gol, Assist).
+
+### Mercato
+*   **`auctions`**: Aste attive.
+    *   `current_winner_team_id`: Miglior offerente attuale.
+    *   `end_time` (Timestamp): Chiusura asta.
+*   **`trade_proposals`**: Scambi P2P diretti con supporto crediti.
+
+### Sistema
+*   **`push_subscriptions`**: Endpoint notifiche WebPush degli utenti.
+*   **`settings`**: Store chiave-valore per config globali (es. `auction_duration_hours`).
+*   **`logs`**: Audit trail azioni Admin.
 
 ---
 
-*Documentation generated on 2026-01-23.*
+## 🚀 Miglioramenti Futuri
+
+*   **Live Scoring**: Integrare API per calcolo voti live durante le partite.
+
+## 📋 Changelog (Registro Modifiche)
+
+### v0.2.1 - Teams, Hotfixes & UI Reset (Attuale)
+*   **Swipe Navigation Fix**: Risolto bug che attivava lo swipe cambio pagina interagendo con le modali (es. Nuova Asta).
+*   **Pagina Squadre**: Nuova sezione `/teams` per visualizzare tutte le rose avversarie.
+*   **Home Redesign**: Nuovi pulsanti rapidi per accesso diretto a "La Mia Rosa", "Listone Svincolati" e "Tutte le Squadre".
+*   **Deep Linking**: Il pulsante "Listone" apre direttamente il mercato sula scheda Svincolati.
+
+### v0.2.0 - UI Polish & Auction System
+*   **Navigazione**: Implementate gesture swipe native tra i tab principali.
+*   **Aste**: Aggiunto timer countdown live, logica creazione migliorata (creatore = primo offerente) e notifiche push "Hai Vinto".
+*   **Impostazioni**: Ridisegnate con switch e controlli segmentati.
+*   **Fix**: Risolto bug push "Sent to 0 devices" e vari layout fix.
+
+---
+
+*Documentazione aggiornata al 26/01/2026.*
