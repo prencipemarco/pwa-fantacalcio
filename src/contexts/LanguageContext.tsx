@@ -155,7 +155,7 @@ const translations: Record<string, Translations> = {
     },
     it: {
         welcome: 'Benvenuto',
-        myTeam: 'La Mia Rosa',
+        myTeam: 'Rosa',
         market: 'Mercato',
         results: 'Risultati',
         standings: 'Classifica',
