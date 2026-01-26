@@ -74,9 +74,29 @@ export default function AdminUsersPage() {
 
                         <div>
                             {user.hasTeam ? (
-                                <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                                    Team: {user.teamName}
-                                </Badge>
+                                <>
+                                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                                        Team: {user.teamName}
+                                    </Badge>
+                                    <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        className="ml-2 text-red-500 hover:text-red-700 hover:bg-red-50"
+                                        onClick={async () => {
+                                            if (confirm(`Delete user AND team "${user.teamName}"? This is irreversible.`)) {
+                                                const { deleteUser } = await import('@/app/actions/admin-users');
+                                                const res = await deleteUser(user.id);
+                                                if (res.success) {
+                                                    loadUsers();
+                                                } else {
+                                                    alert('Error: ' + res.error);
+                                                }
+                                            }
+                                        }}
+                                    >
+                                        Delete
+                                    </Button>
+                                </>
                             ) : (
                                 <div>
                                     {selectedUser === user.id ? (
@@ -95,9 +115,28 @@ export default function AdminUsersPage() {
                                             </Button>
                                         </div>
                                     ) : (
-                                        <Button size="sm" onClick={() => { setSelectedUser(user.id); setTeamName(''); }}>
-                                            Create Team
-                                        </Button>
+                                        <div className="flex gap-2">
+                                            <Button size="sm" onClick={() => { setSelectedUser(user.id); setTeamName(''); }}>
+                                                Create Team
+                                            </Button>
+                                            <Button
+                                                size="sm"
+                                                variant="destructive"
+                                                onClick={async () => {
+                                                    if (confirm('Are you sure you want to delete this user? This cannot be undone.')) {
+                                                        const { deleteUser } = await import('@/app/actions/admin-users');
+                                                        const res = await deleteUser(user.id);
+                                                        if (res.success) {
+                                                            loadUsers();
+                                                        } else {
+                                                            alert('Error deleting user: ' + res.error);
+                                                        }
+                                                    }
+                                                }}
+                                            >
+                                                Delete User
+                                            </Button>
+                                        </div>
                                     )}
                                 </div>
                             )}

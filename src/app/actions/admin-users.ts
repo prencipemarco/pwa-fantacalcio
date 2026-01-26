@@ -78,3 +78,26 @@ async function getLeagueId(supabase: any) {
     const { data: newL } = await supabase.from('leagues').insert({ name: 'Serie A' }).select('id').single();
     return newL?.id;
 }
+
+export async function deleteUser(userId: string) {
+    try {
+        const adminSupabase = createAdminClient();
+        const supabase = await createClient();
+
+        // 1. Check/Delete Team first (Clean up data)
+        const { data: team } = await supabase.from('teams').select('id').eq('user_id', userId).single();
+        if (team) {
+            const { deleteTeam } = await import('@/app/actions/admin');
+            await deleteTeam(team.id);
+        }
+
+        // 2. Delete User from Auth
+        const { error } = await adminSupabase.auth.admin.deleteUser(userId);
+        if (error) throw error;
+
+        return { success: true };
+    } catch (e: any) {
+        console.error('Delete User Error:', e);
+        return { success: false, error: e.message };
+    }
+}
