@@ -53,8 +53,11 @@ const TEAM_NAME_MAPPING: Record<string, string> = {
     'como 1907': 'como',
     'ac pisa 1909': 'pisa',
     'us salernitana 1919': 'salernitana',
+    'salernitana': 'salernitana', // normalized fallback
     'us sassuolo calcio': 'sassuolo',
+    'u.s. sassuolo': 'sassuolo',
     'us cremonese': 'cremonese',
+    'u.s. cremonese': 'cremonese',
     'frosinone calcio': 'frosinone',
     'fc empoli': 'empoli'
 };

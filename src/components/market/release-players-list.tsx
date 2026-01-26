@@ -49,7 +49,6 @@ export function ReleasePlayersList({ onBack, teamId, refreshCredits }: { onBack:
     return (
         <div className="space-y-4">
             <div className="flex items-center gap-2 mb-4">
-                <Button variant="ghost" size="sm" onClick={onBack}><ArrowLeft className="w-4 h-4 mr-1" /> {t('back')}</Button>
                 <h2 className="text-xl font-bold">{t('releasePlayer')}</h2>
             </div>
 

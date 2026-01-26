@@ -31,6 +31,7 @@ function MarketContent() {
     const [team, setTeam] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [activeCount, setActiveCount] = useState(0);
+    const [activeRelease, setActiveRelease] = useState(false); // Collapsed by default
     const supabase = createClient();
 
     const refreshTeam = async () => {
@@ -181,18 +182,27 @@ function MarketContent() {
                 <TabsContent value="my_team" className="space-y-6 focus-visible:outline-none">
                     <div className="grid gap-6">
                         <section>
-                            <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                                <UserMinus className="w-5 h-5 text-red-500" /> Svincola Giocatori
+                            <h3
+                                className="text-lg font-bold mb-3 flex items-center justify-between gap-2 cursor-pointer bg-card p-4 rounded-xl border border-border/50 shadow-sm hover:border-primary/30 transition-all"
+                                onClick={() => setActiveRelease(!activeRelease)}
+                            >
+                                <span className="flex items-center gap-2">
+                                    <UserMinus className="w-5 h-5 text-red-500" /> Svincola Giocatori
+                                </span>
+                                <span className={`mr-1 transition-transform duration-200 ${activeRelease ? 'rotate-180' : ''}`}>▼</span>
                             </h3>
-                            <Card>
-                                <CardContent className="p-4">
-                                    <ReleasePlayersList onBack={() => { }} teamId={team.id} refreshCredits={refreshTeam} />
-                                </CardContent>
-                            </Card>
+
+                            <div className={`transition-all duration-300 overflow-hidden ${activeRelease ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                <Card className="border-red-100 dark:border-red-900/30">
+                                    <CardContent className="p-4">
+                                        <ReleasePlayersList onBack={() => { }} teamId={team.id} refreshCredits={refreshTeam} />
+                                    </CardContent>
+                                </Card>
+                            </div>
                         </section>
 
                         <section>
-                            <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+                            <h3 className="text-lg font-bold mb-3 flex items-center gap-2 px-1 text-primary">
                                 <RefreshCcw className="w-5 h-5 text-blue-500" /> Scambi
                             </h3>
                             <TradesSection teamId={team.id} onNewTrade={() => setActiveTab('new_trade')} />

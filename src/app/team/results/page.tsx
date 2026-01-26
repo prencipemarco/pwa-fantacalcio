@@ -133,7 +133,7 @@ export default function ResultsPage() {
                                                         <>
                                                             <div className="flex items-center gap-1.5 text-2xl font-bold text-foreground leading-none">
                                                                 <span>{f.homeGoals}</span>
-                                                                <span className="text-muted-foreground/30 text-lg">-</span>
+                                                                <span className="text-muted-foreground/60 text-xl font-black px-1 border-b-2 border-transparent">:</span>
                                                                 <span>{f.awayGoals}</span>
                                                             </div>
                                                             <div className={cn(
