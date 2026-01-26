@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { getNextSerieAMatch } from '@/app/actions/football-data';
 import { Card, CardContent } from '@/components/ui/card';
@@ -46,27 +47,29 @@ export function MatchdayReminder() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8 w-full"
             >
-                <Card className="border-l-4 border-l-blue-500 bg-blue-50 shadow-md">
-                    <CardContent className="p-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-                        <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-                            <div className="p-3 rounded-full shrink-0 bg-blue-200 text-blue-700 animate-pulse">
-                                <PlayCircle className="w-8 h-8 md:w-6 md:h-6" />
+                <Link href="/live">
+                    <Card className="border-l-4 border-l-blue-500 bg-blue-50 shadow-md cursor-pointer hover:bg-blue-100 transition-colors">
+                        <CardContent className="p-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+                                <div className="p-3 rounded-full shrink-0 bg-blue-200 text-blue-700 animate-pulse">
+                                    <PlayCircle className="w-8 h-8 md:w-6 md:h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-gray-900 text-lg md:text-xl">
+                                        {t('matchday')} {data.matchday} {t('inProgress') || 'in Corso'}
+                                    </h3>
+                                    <p className="text-sm text-blue-700 font-medium">
+                                        {t('lineupsLocked') || 'Formazioni Chiuse'}
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className="font-bold text-gray-900 text-lg md:text-xl">
-                                    {t('matchday')} {data.matchday} {t('inProgress') || 'in Corso'}
-                                </h3>
-                                <p className="text-sm text-blue-700 font-medium">
-                                    {t('lineupsLocked') || 'Formazioni Chiuse'}
-                                </p>
-                            </div>
-                        </div>
 
-                        <div className="bg-white/60 p-2 rounded px-4 border border-blue-200">
-                            <span className="font-black text-blue-800 tracking-widest">LIVE</span>
-                        </div>
-                    </CardContent>
-                </Card>
+                            <div className="bg-white/60 p-2 rounded px-4 border border-blue-200">
+                                <span className="font-black text-blue-800 tracking-widest">LIVE</span>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Link>
             </motion.div>
         );
     }

@@ -136,6 +136,13 @@ Usa `@dnd-kit/core` per drag-and-drop.
 
 ## 📋 Changelog (Registro Modifiche)
 
+### v0.3.0 - Live Feature (In Planning)
+*   **Backup**: Creata copia di sicurezza in `/archivio`.
+*   **Live Mode**: Progettazione "Live Match".
+    *   Visualizzazione partite Serie A in tempo reale (API Eventi).
+    *   Calcolo Voti Live: Base 6 + Bonus/Malus basati su eventi reali (Gol, Assist, Cartellini).
+    *   Nuova UI dedicata con navigazione personalizzata.
+
 ### v0.2.2 - Security, Market Refactor & Polishing
 *   **Sicurezza**: Implementata protezione globale delle rotte via Middleware. Gli utenti non loggati vengono reindirizzati al login. La barra di navigazione è nascosta nella pagina di login.
 *   **Mercato 2.0**: La creazione Asta ora avviene in una pagina dedicata (non più modale) per correggere i problemi con la tastiera mobile.

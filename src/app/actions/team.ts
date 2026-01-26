@@ -78,3 +78,37 @@ export async function saveLineup(teamId: string, matchday: number, matchdayDate:
         return { success: false, error: error.message };
     }
 }
+
+export async function getLineup(teamId: string, matchday: number) {
+    const supabase = await createClient();
+
+    // 1. Get Fixture
+    const { data: fixture } = await supabase
+        .from('fixtures')
+        .select('id')
+        .eq('matchday', matchday)
+        .or(`home_team_id.eq.${teamId},away_team_id.eq.${teamId}`)
+        .maybeSingle(); // Use maybeSingle to avoid 406 Error
+
+    if (!fixture) return { success: false, error: 'No fixture found' };
+
+    // 2. Get Lineup
+    const { data: lineup } = await supabase
+        .from('lineups')
+        .select(`
+            id, module,
+            lineup_players (
+                is_starter, bench_order,
+                player: players (
+                    id, name, role, team_real, quotation
+                )
+            )
+        `)
+        .eq('team_id', teamId)
+        .eq('fixture_id', fixture.id)
+        .maybeSingle();
+
+    if (!lineup) return { success: false, error: 'Lineup not set' };
+
+    return { success: true, data: lineup };
+}
