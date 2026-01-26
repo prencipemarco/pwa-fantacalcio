@@ -10,6 +10,12 @@ import { ActiveAuctionsList } from '@/components/market/active-auctions';
 import { FreeAgentsList } from '@/components/market/free-agents';
 import { ReleasePlayersList } from '@/components/market/release-players-list';
 import { CreateAuctionScreen } from '@/components/market/create-auction-screen';
+import { TradesSection } from '@/components/market/trades-section';
+import { NewTradeFlow } from '@/components/market/new-trade-flow';
+import { Hammer, Users, ShoppingCart, UserMinus } from 'lucide-react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { LoadingPage } from '@/components/loading-spinner';
 
 export default function MarketPage() {
     const { t } = useLanguage();

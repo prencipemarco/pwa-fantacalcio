@@ -9,7 +9,7 @@ export function BottomNav() {
     const pathname = usePathname();
     const { t } = useLanguage();
 
-    if (pathname.startsWith('/admin')) return null;
+    if (pathname.startsWith('/admin') || pathname === '/login') return null;
 
     const isActive = (path: string) => pathname === path;
 

@@ -136,6 +136,14 @@ Usa `@dnd-kit/core` per drag-and-drop.
 
 ## 📋 Changelog (Registro Modifiche)
 
+### v0.2.2 - Security, Market Refactor & Polishing
+*   **Sicurezza**: Implementata protezione globale delle rotte via Middleware. Gli utenti non loggati vengono reindirizzati al login. La barra di navigazione è nascosta nella pagina di login.
+*   **Mercato 2.0**: La creazione Asta ora avviene in una pagina dedicata (non più modale) per correggere i problemi con la tastiera mobile.
+*   **Filtri Ricerca**: La ricerca giocatori ora esclude automaticamente i giocatori già presenti in altre rose o in aste attive.
+*   **UI Formazione**: Semplificato il design del "pallino" giocatore nel campo: rimosso il logo squadra, aggiunto badge ruolo per maggiore chiarezza.
+*   **Admin Fix**: Risolto crash critico causato da impostazioni lingua non valide.
+*   **Bugfix**: Corretto swipe accidentale nella creazione scambi.
+
 ### v0.2.1 - Teams, Hotfixes & UI Reset (Attuale)
 *   **Swipe Navigation Fix**: Risolto bug che attivava lo swipe cambio pagina interagendo con le modali (es. Nuova Asta).
 *   **Pagina Squadre**: Nuova sezione `/teams` per visualizzare tutte le rose avversarie.
