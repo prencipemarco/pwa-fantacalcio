@@ -14,6 +14,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { useLanguage } from '@/contexts/LanguageContext';
 import { TeamLogo } from '@/components/team-logo';
 import { PageTransition, StaggerList, StaggerItem, TapScale } from '@/components/ui/motion-primitives';
+import { cn } from '@/lib/utils';
 
 // --- Constants & Helpers ---
 
@@ -43,11 +44,11 @@ const BENCH_STRUCTURE = [
 
 const getRoleColor = (role: string) => {
     switch (role) {
-        case 'P': return 'bg-yellow-100/50 text-yellow-700 border-yellow-200';
-        case 'D': return 'bg-green-100/50 text-green-700 border-green-200';
-        case 'C': return 'bg-blue-100/50 text-blue-700 border-blue-200';
-        case 'A': return 'bg-red-100/50 text-red-700 border-red-200';
-        default: return 'bg-gray-100 text-gray-700';
+        case 'P': return 'bg-amber-100 text-amber-900 border-amber-200 dark:bg-amber-900/30 dark:text-amber-100 dark:border-amber-800';
+        case 'D': return 'bg-emerald-100 text-emerald-900 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-100 dark:border-emerald-800';
+        case 'C': return 'bg-blue-100 text-blue-900 border-blue-200 dark:bg-blue-900/30 dark:text-blue-100 dark:border-blue-800';
+        case 'A': return 'bg-rose-100 text-rose-900 border-rose-200 dark:bg-rose-900/30 dark:text-rose-100 dark:border-rose-800';
+        default: return 'bg-muted text-muted-foreground';
     }
 };
 
@@ -64,10 +65,21 @@ function DraggablePlayer({ player, isSelected }: { player: any, isSelected: bool
             ref={setNodeRef}
             {...listeners}
             {...attributes}
-            className={`text-xs md:text-sm p-2 rounded cursor-grab active:cursor-grabbing flex justify-between items-center hover:bg-gray-50 transition-colors border ${isSelected ? 'bg-blue-50 border-blue-200' : 'border-transparent'} ${isDragging ? 'opacity-50' : ''}`}
+            className={cn(
+                "relative flex items-center justify-between p-2.5 rounded-lg border transition-all cursor-grab active:cursor-grabbing touch-none select-none",
+                isSelected
+                    ? "bg-primary/10 border-primary shadow-[0_0_0_1px_rgba(var(--primary),1)]"
+                    : "bg-card hover:bg-accent/50 hover:border-accent-foreground/30 border-border",
+                isDragging && "opacity-40 grayscale scale-95",
+            )}
         >
-            <span className="truncate font-medium max-w-[100px]">{player.player.name}</span>
-            <TeamLogo teamName={player.player.team_real} size={16} />
+            <div className="flex items-center gap-2 overflow-hidden">
+                <Badge variant="outline" className={cn("text-[10px] w-5 h-5 flex items-center justify-center p-0 shrink-0", getRoleColor(player.player.role))}>
+                    {player.player.role}
+                </Badge>
+                <span className="truncate font-medium text-xs sm:text-sm">{player.player.name}</span>
+            </div>
+            <TeamLogo teamName={player.player.team_real} size={18} />
         </div>
     );
 }
@@ -79,38 +91,37 @@ function DroppableSlot({ id, role, currentItem, onRemove, onClick }: { id: strin
     });
 
     return (
-        <div ref={setNodeRef} className="relative cursor-pointer" onClick={onClick}>
+        <div ref={setNodeRef} className="relative cursor-pointer group" onClick={onClick}>
             <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all shadow-md
-                ${currentItem
-                        ? 'bg-white border-white text-black'
+                className={cn(
+                    "w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-sm backdrop-blur-md",
+                    currentItem
+                        ? "bg-white/95 border-white text-slate-900 shadow-md"
                         : isOver
-                            ? 'bg-green-400/80 border-white scale-110' // Highlight on hover
-                            : 'bg-black/40 border-white text-white hover:bg-black/60'
-                    }`}
+                            ? "bg-primary/80 border-white scale-110 shadow-[0_0_15px_rgba(255,255,255,0.5)]" // Highlight drop zone
+                            : "bg-black/30 border-white/20 text-white/50 hover:bg-black/50 hover:border-white/40"
+                )}
             >
                 {currentItem ? (
-                    <div className="flex flex-col items-center">
-                        <span className="font-bold text-xs overflow-hidden truncate px-1 max-w-full leading-tight">{currentItem.player.name.substring(0, 8)}</span>
+                    <div className="flex flex-col items-center w-full">
+                        <span className="font-bold text-[10px] md:text-xs overflow-hidden truncate px-1 max-w-full leading-tight text-center">
+                            {currentItem.player.name.split(' ').pop()?.substring(0, 9)}
+                        </span>
                         <div
-                            className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] cursor-pointer hover:bg-red-600 shadow-sm"
+                            className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground rounded-full w-4 h-4 flex items-center justify-center text-[10px] cursor-pointer hover:scale-110 shadow-sm transition-transform"
                             onClick={(e) => { e.stopPropagation(); onRemove(); }}
                         >
                             ×
                         </div>
                     </div>
                 ) : (
-                    <span className="text-xl font-bold">+</span>
+                    <span className="text-sm font-bold opacity-50">{role}</span>
                 )}
             </div>
             {currentItem && (
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white/90 text-black text-[9px] px-1.5 py-px rounded-full shadow border border-gray-200 font-bold">
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white shadow-sm text-slate-900 text-[9px] px-1.5 py-0.5 rounded-sm font-bold border border-slate-200 flex items-center gap-1 whitespace-nowrap z-10">
+                    <TeamLogo teamName={currentItem.player.team_real} size={10} />
                     {currentItem.player.role}
-                </div>
-            )}
-            {!currentItem && (
-                <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-white/80 font-mono bg-black/20 px-1 rounded">
-                    {role}
                 </div>
             )}
         </div>
@@ -126,31 +137,37 @@ function DroppableBenchSlot({ index, role, currentItem, onRemove, onClick }: { i
     return (
         <div ref={setNodeRef} className="flex flex-col items-center gap-1">
             <Button
-                variant="outline"
-                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center p-0 border-dashed transition-all
-                ${currentItem
-                        ? 'border-solid border-blue-500 bg-blue-50 text-blue-900'
+                variant="ghost"
+                className={cn(
+                    "w-11 h-11 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center p-0 border-2 border-dashed transition-all relative",
+                    currentItem
+                        ? "border-solid border-border bg-card shadow-sm text-foreground hover:bg-accent"
                         : isOver
-                            ? 'border-solid border-green-500 bg-green-50 scale-105'
-                            : 'text-gray-400'
-                    }`}
+                            ? "border-primary bg-primary/5 scale-105"
+                            : "border-muted text-muted-foreground/30 hover:border-muted-foreground/50 hover:bg-muted/20"
+                )}
                 onClick={onClick}
             >
                 {currentItem ? (
-                    <div className="relative w-full h-full flex items-center justify-center">
-                        <span className="font-bold text-[9px] overflow-hidden truncate px-1 max-w-full">{currentItem.player.name.substring(0, 3)}</span>
+                    <div className="relative w-full h-full flex flex-col items-center justify-center p-1">
+                        <span className="font-bold text-[9px] sm:text-[10px] leading-tight overflow-hidden text-center w-full truncate">
+                            {currentItem.player.name.split(' ').pop()?.substring(0, 9)}
+                        </span>
+                        <Badge variant="secondary" className="text-[8px] h-3 px-1 mt-0.5 opacity-70">
+                            {role}
+                        </Badge>
                         <div
-                            className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-3.5 h-3.5 flex items-center justify-center text-[8px] cursor-pointer hover:bg-red-600"
+                            className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground rounded-full w-4 h-4 flex items-center justify-center text-[10px] cursor-pointer hover:scale-110 shadow-sm"
                             onClick={(e) => { e.stopPropagation(); onRemove(); }}
                         >
                             ×
                         </div>
                     </div>
                 ) : (
-                    <span className="text-xs font-mono">{role}</span>
+                    <span className="text-xs font-bold font-mono">{role}</span>
                 )}
             </Button>
-            <span className="text-[10px] text-gray-500 font-mono">{index + 1}</span>
+            <span className="text-[9px] text-muted-foreground font-mono">{index + 1}</span>
         </div>
     );
 }
@@ -374,25 +391,30 @@ export default function LineupPage() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
 
                     {/* LEFT PANEL: ROSTER */}
-                    <Card className="md:col-span-3 h-[600px] md:h-[800px] flex flex-col order-2 md:order-1">
-                        <CardContent className="p-4 flex-1 overflow-y-auto">
-                            <h3 className="font-bold mb-4 text-sm uppercase text-gray-500">{t('myRoster')} ({roster.length})</h3>
+                    <Card className="md:col-span-3 h-[600px] md:h-[800px] flex flex-col order-2 md:order-1 border-0 shadow-none bg-transparent md:bg-card md:border md:shadow-sm">
+                        <CardContent className="p-0 md:p-4 flex-1 overflow-y-auto">
+                            <h3 className="font-bold mb-4 text-sm uppercase text-muted-foreground hidden md:block">{t('myRoster')} ({roster.length})</h3>
                             {roster.length === 0 ? (
-                                <div className="text-center text-gray-500 mt-10">No players found.</div>
+                                <div className="text-center text-muted-foreground mt-10 text-sm">No players found.</div>
                             ) : (
-                                ['A', 'C', 'D', 'P'].map(role => (
-                                    <div key={role} className="mb-4">
-                                        <h4 className="font-bold text-xs bg-gray-100 p-1 rounded mb-2 text-center text-gray-700">{role === 'P' ? 'GK' : role === 'D' ? 'DEF' : role === 'C' ? 'MID' : 'FWD'}</h4>
-                                        <div className="space-y-1">
+                                ['P', 'D', 'C', 'A'].map(role => (
+                                    <div key={role} className="mb-6">
+                                        <div className="flex items-center gap-2 mb-3 px-1">
+                                            <Badge variant="secondary" className="font-bold text-xs rounded-md">
+                                                {role === 'P' ? 'GK' : role === 'D' ? 'DEF' : role === 'C' ? 'MID' : 'FWD'}
+                                            </Badge>
+                                            <div className="h-px bg-border flex-1"></div>
+                                        </div>
+                                        <div className="space-y-2">
                                             {groupedRoster[role]?.map((item: any) => {
                                                 const isUsed = Object.values(lineup).some((p: any) => p.player.id === item.player.id) || bench.some(p => p?.player.id === item.player.id);
                                                 return (
-                                                    <div key={item.id} onClick={() => setSelectedRosterPlayer(item)} className={isUsed ? 'opacity-50 grayscale' : ''}>
+                                                    <div key={item.id} onClick={() => setSelectedRosterPlayer(item)} className={cn("transition-all", isUsed ? 'opacity-40 grayscale pointer-events-none' : '')}>
                                                         <DraggablePlayer player={item} isSelected={selectedRosterPlayer?.id === item.id} />
                                                     </div>
                                                 );
                                             })}
-                                            {(!groupedRoster[role] || groupedRoster[role].length === 0) && <p className="text-[9px] text-gray-300 text-center">Empty</p>}
+                                            {(!groupedRoster[role] || groupedRoster[role].length === 0) && <p className="text-[10px] text-muted-foreground text-center py-2 italic">No players</p>}
                                         </div>
                                     </div>
                                 ))
@@ -403,17 +425,27 @@ export default function LineupPage() {
                     {/* CENTER PANEL: PITCH & BENCH */}
                     <div className="md:col-span-6 flex flex-col gap-6 order-1 md:order-2">
                         {/* Pitch */}
-                        <div className="relative w-full aspect-[3/4] bg-green-600 rounded-xl shadow-inner border-2 border-green-800 overflow-hidden">
-                            {/* Pitch markings */}
-                            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/30 -translate-y-1/2"></div>
-                            <div className="absolute top-1/2 left-1/2 w-20 h-20 border-2 border-white/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="absolute top-0 left-1/4 w-1/2 h-16 border-b-2 border-l-2 border-r-2 border-white/30 bg-transparent"></div>
-                            <div className="absolute bottom-0 left-1/4 w-1/2 h-16 border-t-2 border-l-2 border-r-2 border-white/30 bg-transparent"></div>
+                        <div className="relative w-full aspect-[3/4] rounded-xl shadow-xl overflow-hidden touch-none select-none bg-gradient-to-b from-emerald-600 to-emerald-700 border-4 border-white/20">
+                            {/* Pitch Texture Overlay */}
+                            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-100/30 via-transparent to-transparent pointer-events-none"></div>
+
+                            {/* Pitch Markings */}
+                            <div className="absolute top-[5%] bottom-[5%] left-[5%] right-[5%] border-2 border-white/40 opacity-80 rounded-sm pointer-events-none"></div>
+                            <div className="absolute top-1/2 left-[5%] right-[5%] h-px bg-white/40 -translate-y-1/2 pointer-events-none"></div>
+                            <div className="absolute top-1/2 left-1/2 w-24 h-24 border-2 border-white/40 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+                            {/* Penalty Areas */}
+                            <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-1/2 h-24 border-b-2 border-l-2 border-r-2 border-white/40 bg-white/5 pointer-events-none"></div>
+                            <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-1/2 h-24 border-t-2 border-l-2 border-r-2 border-white/40 bg-white/5 pointer-events-none"></div>
+
+                            {/* Goal Areas */}
+                            <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-1/4 h-10 border-b-2 border-l-2 border-r-2 border-white/40 pointer-events-none"></div>
+                            <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-1/4 h-10 border-t-2 border-l-2 border-r-2 border-white/40 pointer-events-none"></div>
 
                             {formation.map((pos, index) => (
                                 <div
                                     key={index}
-                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+                                    className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10"
                                     style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
                                 >
                                     <DroppableSlot
@@ -460,43 +492,46 @@ export default function LineupPage() {
                     {/* RIGHT PANEL: DETAILS */}
                     <Card className="md:col-span-3 h-[400px] md:h-[800px] order-3">
                         <CardContent className="p-6">
-                            <h3 className="font-bold mb-6 text-sm uppercase text-gray-500">{t('playerDetails')}</h3>
+                            <h3 className="font-bold mb-6 text-sm uppercase text-muted-foreground">{t('playerDetails')}</h3>
                             {selectedRosterPlayer ? (
-                                <StaggerItem className="flex flex-col items-center text-center space-y-4">
-                                    <div className="w-24 h-24 relative flex items-center justify-center">
-                                        <TeamLogo teamName={selectedRosterPlayer.player.team_real} size={88} className="opacity-10 absolute inset-0 m-auto blur-sm" />
-                                        <Avatar className="w-24 h-24 z-10 border-4 border-white shadow-xl">
-                                            <AvatarFallback className="text-2xl font-bold bg-gradient-to-br from-slate-100 to-slate-200 text-slate-700">
+                                <StaggerItem className="flex flex-col items-center text-center space-y-6">
+                                    <div className="w-28 h-28 relative flex items-center justify-center">
+                                        <TeamLogo teamName={selectedRosterPlayer.player.team_real} size={100} className="opacity-10 absolute inset-0 m-auto blur-sm scale-110" />
+                                        <Avatar className="w-24 h-24 z-10 border-4 border-card shadow-2xl">
+                                            <AvatarFallback className="text-3xl font-bold bg-gradient-to-br from-muted to-muted/50 text-foreground">
                                                 {selectedRosterPlayer.player.name.substring(0, 2).toUpperCase()}
                                             </AvatarFallback>
                                         </Avatar>
                                     </div>
 
-                                    <div className="space-y-1">
-                                        <h2 className="text-2xl font-bold">{selectedRosterPlayer.player.name}</h2>
+                                    <div className="space-y-2">
+                                        <h2 className="text-2xl font-bold leading-tight">{selectedRosterPlayer.player.name}</h2>
                                         <div className="flex items-center justify-center gap-2">
-                                            <TeamLogo teamName={selectedRosterPlayer.player.team_real} size={16} />
-                                            <span className="text-muted-foreground">{selectedRosterPlayer.player.team_real}</span>
+                                            <TeamLogo teamName={selectedRosterPlayer.player.team_real} size={20} />
+                                            <span className="text-muted-foreground font-medium">{selectedRosterPlayer.player.team_real}</span>
                                         </div>
                                     </div>
 
-                                    <Badge className="text-lg px-4 py-1">
+                                    <Badge variant="outline" className={cn("text-lg px-6 py-1.5 rounded-full shadow-sm", getRoleColor(selectedRosterPlayer.player.role))}>
                                         {selectedRosterPlayer.player.role}
                                     </Badge>
 
-                                    <div className="grid grid-cols-2 gap-4 w-full pt-4">
-                                        <div className="bg-gray-50 p-3 rounded text-center">
-                                            <div className="text-[10px] uppercase text-gray-500 mb-1">{t('price')}</div>
-                                            <div className="font-mono font-bold text-lg">{selectedRosterPlayer.purchase_price}</div>
+                                    <div className="grid grid-cols-2 gap-4 w-full pt-6">
+                                        <div className="bg-muted/50 p-4 rounded-xl text-center border border-border/50">
+                                            <div className="text-[10px] uppercase text-muted-foreground mb-1 tracking-wider">{t('price')}</div>
+                                            <div className="font-mono font-bold text-2xl text-primary">{selectedRosterPlayer.purchase_price}</div>
                                         </div>
-                                        <div className="bg-gray-50 p-3 rounded text-center">
-                                            <div className="text-[10px] uppercase text-gray-500 mb-1">QT.</div>
-                                            <div className="font-bold text-gray-800">{selectedRosterPlayer.player.quotation || '-'}</div>
+                                        <div className="bg-muted/50 p-4 rounded-xl text-center border border-border/50">
+                                            <div className="text-[10px] uppercase text-muted-foreground mb-1 tracking-wider">QT.</div>
+                                            <div className="font-bold text-lg">{selectedRosterPlayer.player.quotation || '-'}</div>
                                         </div>
                                     </div>
                                 </StaggerItem>
                             ) : (
-                                <div className="h-full flex flex-col items-center justify-center text-gray-400 text-center text-sm">
+                                <div className="h-full flex flex-col items-center justify-center text-muted-foreground text-center text-sm space-y-4 opacity-50">
+                                    <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
+                                        <span className="text-3xl">👤</span>
+                                    </div>
                                     <p>{t('selectPlayerDetails')}</p>
                                 </div>
                             )}
@@ -505,39 +540,69 @@ export default function LineupPage() {
 
                     {/* PLAYER SELECTOR DIALOG */}
                     <Dialog open={!!openSelector} onOpenChange={(open) => !open && setOpenSelector(null)}>
-                        <DialogContent className="sm:max-w-[425px]">
-                            <DialogHeader>
-                                <DialogTitle>{t('selectPlayer')} ({openSelector?.role})</DialogTitle>
+                        <DialogContent className="sm:max-w-md p-0 overflow-hidden gap-0">
+                            <DialogHeader className="p-6 pb-2">
+                                <DialogTitle className="flex items-center gap-2 text-xl">
+                                    {t('selectPlayer')}
+                                    <Badge variant="outline" className="text-base px-2 py-0.5 ml-2">
+                                        {openSelector?.role === 'P' ? 'GK' : openSelector?.role === 'D' ? 'DEF' : openSelector?.role === 'C' ? 'MID' : 'FWD'}
+                                    </Badge>
+                                </DialogTitle>
                                 <DialogDescription>{t('choosePlayerInsert')}</DialogDescription>
                             </DialogHeader>
-                            <StaggerList className="grid gap-2 overflow-y-auto max-h-[60vh] pr-2">
+                            <div className="px-6 py-2">
+                                <div className="relative">
+                                    <input
+                                        type="text"
+                                        placeholder="Search..."
+                                        className="w-full bg-muted/50 border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
+                                    />
+                                </div>
+                            </div>
+                            <StaggerList className="flex flex-col gap-1 overflow-y-auto max-h-[50vh] p-4 pt-0">
                                 {getAvailablePlayers(openSelector?.role).map((item) => (
                                     <StaggerItem key={item.id} className="w-full">
                                         <div
                                             onClick={() => handleSelectPlayer(item)}
-                                            className={`p-3 border rounded-lg cursor-pointer flex justify-between items-center group
-                                                ${getRoleColor(item.player.role)} hover:shadow-md transition-all active:scale-95`}
+                                            className={cn(
+                                                "p-3 rounded-lg cursor-pointer flex justify-between items-center group transition-all border border-transparent hover:border-border hover:bg-muted/40 active:scale-[0.98]",
+                                                getRoleColor(item.player.role).replace('bg-', 'bg-opacity-10 ').replace('text-', 'text-opacity-90 ')
+                                            )}
                                         >
                                             <div className="flex items-center gap-3">
-                                                <div className="font-bold text-xs bg-white/50 w-6 h-6 flex items-center justify-center rounded-full border border-black/10">
+                                                <div className={cn(
+                                                    "font-bold text-xs w-8 h-8 flex items-center justify-center rounded-full border shadow-sm",
+                                                    getRoleColor(item.player.role)
+                                                )}>
                                                     {item.player.role}
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <span className="font-bold text-sm">{item.player.name}</span>
-                                                    <span className="text-[10px] opacity-70 flex items-center gap-1">
-                                                        Qt. {item.player.quotation || '-'}
-                                                    </span>
+                                                    <span className="font-bold text-sm text-foreground">{item.player.name}</span>
+                                                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                                                        <span className="font-mono">Qt. {item.player.quotation}</span>
+                                                        <span>•</span>
+                                                        <span className="uppercase">{item.player.team_real}</span>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div className="flex items-center gap-2">
-                                                <TeamLogo teamName={item.player.team_real} size={24} />
+                                            <div className="flex items-center gap-3">
+                                                <TeamLogo teamName={item.player.team_real} size={32} />
+                                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0 rounded-full">
+                                                    <span className="sr-only">Select</span>
+                                                    <span className="text-xl">+</span>
+                                                </Button>
                                             </div>
                                         </div>
+                                        <div className="h-px bg-border/40 mx-2" />
                                     </StaggerItem>
                                 ))}
                                 {getAvailablePlayers(openSelector?.role).length === 0 && (
-                                    <p className="text-center text-gray-500 py-4 text-xs italic">{t('noPlayersAvailable')}</p>
+                                    <div className="text-center py-8 opacity-50 flex flex-col items-center">
+                                        <span className="text-4xl mb-2">🤷‍♂️</span>
+                                        <p className="text-sm font-medium">{t('noPlayersAvailable')}</p>
+                                        <p className="text-xs text-muted-foreground">Try removing a player from the lineup first.</p>
+                                    </div>
                                 )}
                             </StaggerList>
                         </DialogContent>

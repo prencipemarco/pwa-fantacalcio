@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import { getMyTeamId } from '@/app/actions/user';
 import { getTeamResults, MatchResult } from '@/app/actions/results';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ResultsSkeleton } from '@/components/skeletons';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
-import { CalendarIcon, Trophy, Ban, Minus } from 'lucide-react';
+import { CalendarIcon, ChevronRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { StaggerList, StaggerItem } from '@/components/ui/motion-primitives';
 
 export default function ResultsPage() {
     const { t } = useLanguage();
@@ -28,119 +29,161 @@ export default function ResultsPage() {
             }
 
             const data = await getTeamResults(teamData.id);
-            setResults(data);
+            // Sort by matchday ASCENDING (1 to 38)
+            const sorted = data.sort((a, b) => a.matchday - b.matchday);
+            setResults(sorted);
             setLoading(false);
+
+            // Find current matchday (first uncalculated or last calculated)
+            // Strategy: Find first match that is NOT calculated (upcoming). If all calculated, take last.
+            const upcomingIndex = sorted.findIndex(m => !m.calculated);
+            const targetIndex = upcomingIndex >= 0 ? upcomingIndex : sorted.length - 1;
+
+            // Scroll to that element after a brief delay to ensure rendering
+            if (targetIndex >= 0) {
+                setTimeout(() => {
+                    const element = document.getElementById(`match-card-${sorted[targetIndex].id}`);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            }
         };
         load();
     }, []);
 
-    if (loading) return <div className="p-4 container mx-auto max-w-2xl pt-20"><ResultsSkeleton /></div>;
+    if (loading) {
+        return (
+            <div className="container mx-auto max-w-[600px] pt-24 pb-24 px-4 space-y-4">
+                <div className="flex justify-center mb-8"><Skeleton className="h-8 w-48 rounded" /></div>
+                {[1, 2, 3].map(i => <Skeleton key={i} className="h-28 w-full rounded-2xl" />)}
+            </div>
+        );
+    }
 
     if (!hasTeam) return (
-        <div className="p-8 text-center pt-24 container mx-auto max-w-md">
+        <div className="p-8 text-center pt-32 container mx-auto max-w-md">
             <h2 className="text-xl font-bold mb-4">{t('noTeam')}</h2>
-            <p className="text-gray-500 mb-6">{t('createTeamMessage')}</p>
-            <Button asChild className="bg-blue-600 text-white w-full">
+            <p className="text-muted-foreground mb-6">{t('createTeamMessage')}</p>
+            <Button asChild className="w-full">
                 <Link href="/team/create">{t('createTeam')}</Link>
             </Button>
         </div>
     );
 
     return (
-        <div className="container mx-auto p-4 max-w-2xl pt-20 pb-24">
-            {/* Matches Standings Minimal Header */}
-            <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                    {t('matchResults')}
-                </h1>
+        <div className="min-h-screen pb-24 bg-background">
+            {/* Header (No longer sticky) */}
+            <div className="bg-background/80 backdrop-blur-md border-b border-border/40 py-5">
+                <div className="container mx-auto px-4 max-w-[600px]">
+                    <h1 className="text-left font-bold text-2xl md:text-[28px] text-foreground">
+                        {t('matchResults')}
+                    </h1>
+                </div>
             </div>
 
-            <div className="space-y-4">
-                {results.map((f) => {
-                    const myGoals = f.isHome ? f.homeGoals : f.awayGoals;
-                    const theirGoals = f.isHome ? f.awayGoals : f.homeGoals;
+            <div className="container mx-auto px-4 max-w-[600px] pt-4">
+                <StaggerList className="space-y-3">
+                    {results.map((f) => {
+                        const myGoals = f.isHome ? f.homeGoals : f.awayGoals;
+                        const theirGoals = f.isHome ? f.awayGoals : f.homeGoals;
+                        const isWin = myGoals > theirGoals;
+                        const isLoss = myGoals < theirGoals;
+                        const isDraw = f.calculated && myGoals === theirGoals;
 
-                    let resultType = 'upcoming';
-                    // Dark mode friendly colors
-                    let statusColor = 'bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800';
-                    let StatusIcon = CalendarIcon;
-
-                    if (f.calculated) {
-                        if (myGoals > theirGoals) {
-                            resultType = 'win';
-                            statusColor = 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-900';
-                            StatusIcon = Trophy;
-                        } else if (myGoals < theirGoals) {
-                            resultType = 'loss';
-                            statusColor = 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-900';
-                            StatusIcon = Ban;
-                        } else {
-                            resultType = 'draw';
-                            statusColor = 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-900';
-                            StatusIcon = Minus;
+                        // Border accent based on result (if played)
+                        let borderLeftClass = "border-l-[4px] border-l-transparent";
+                        if (f.calculated) {
+                            if (isWin) borderLeftClass = "border-l-[4px] border-l-emerald-500";
+                            else if (isLoss) borderLeftClass = "border-l-[4px] border-l-destructive";
+                            else borderLeftClass = "border-l-[4px] border-l-gray-400";
                         }
-                    }
 
-                    return (
-                        <Link href={`/team/results/${f.id}`} key={f.id} className="block group">
-                            <Card className={`border shadow-sm group-hover:shadow-md transition-all ${statusColor}`}>
-                                <CardContent className="p-4 flex items-center justify-between">
-                                    {/* Left: Matchday & Status */}
-                                    <div className="flex flex-col gap-1 w-20 shrink-0 border-r pr-4 border-gray-200/50 dark:border-white/10">
-                                        <span className="text-[10px] uppercase text-gray-400 font-bold tracking-wider">{t('matchday')}</span>
-                                        <span className="text-2xl font-black text-gray-700 dark:text-gray-200">{f.matchday}</span>
-                                    </div>
-
-                                    {/* Center: Teams & Score */}
-                                    <div className="flex-1 flex flex-col items-center justify-center px-2">
-                                        {/* Opponent Name */}
-                                        <div className="flex items-center gap-2 mb-2 w-full justify-between">
-                                            <div className="flex flex-col items-start w-1/3">
-                                                <span className="text-[10px] text-gray-400 font-bold uppercase">{f.isHome ? 'Home' : 'Away'}</span>
-                                                <span className="font-bold text-sm text-gray-900 dark:text-gray-100 truncate w-full text-left">
-                                                    {f.isHome ? t('myTeam') : f.opponentName}
-                                                </span>
+                        return (
+                            <StaggerItem key={f.id} className="w-full" id={`match-card-${f.id}`}>
+                                <Link href={`/team/results/${f.id}`} className="block group">
+                                    <Card className={cn(
+                                        "rounded-2xl border transition-all hover:-translate-y-0.5 hover:shadow-lg cursor-pointer overflow-hidden",
+                                        "bg-card group-hover:border-primary/20",
+                                        borderLeftClass
+                                    )}>
+                                        <CardContent className="p-4 md:p-5 flex items-center gap-4">
+                                            {/* Left: Matchday */}
+                                            <div className="flex flex-col items-start w-[50px] shrink-0 border-r border-border/40 mr-1">
+                                                <span className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase mb-0.5">{t('day')}</span>
+                                                <span className="text-3xl font-bold text-foreground leading-none">{f.matchday}</span>
                                             </div>
 
-                                            <div className={`px-3 py-1 rounded font-mono font-black text-lg min-w-[60px] text-center ${f.calculated ? 'bg-white dark:bg-zinc-800 shadow-sm ring-1 ring-gray-100 dark:ring-zinc-700' : 'text-gray-400 bg-gray-100/50 dark:bg-zinc-800/50'}`}>
-                                                {f.calculated ? `${f.homeGoals} - ${f.awayGoals}` : 'VS'}
+                                            {/* Center: Matchup */}
+                                            <div className="flex-1 flex items-center justify-between">
+                                                {/* Home Team */}
+                                                <div className="flex-1 flex flex-col items-end text-right pr-2">
+                                                    <span className="text-[10px] uppercase text-muted-foreground font-semibold mb-0.5">Home</span>
+                                                    <span className={cn(
+                                                        "text-base md:text-[16px] truncate max-w-[100px] sm:max-w-none leading-tight",
+                                                        f.isHome ? "font-bold text-[#4169E1]" : "font-semibold text-foreground"
+                                                    )}>
+                                                        {f.isHome ? t('myTeam') : f.opponentName}
+                                                    </span>
+                                                </div>
+
+                                                {/* VS or Score */}
+                                                <div className="flex flex-col items-center justify-center min-w-[60px] relative z-10">
+                                                    {f.calculated ? (
+                                                        <>
+                                                            <div className="flex items-center gap-1.5 text-2xl font-bold text-foreground leading-none">
+                                                                <span>{f.homeGoals}</span>
+                                                                <span className="text-muted-foreground/30 text-lg">-</span>
+                                                                <span>{f.awayGoals}</span>
+                                                            </div>
+                                                            <div className={cn(
+                                                                "mt-1.5 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold border",
+                                                                isWin ? "bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400" :
+                                                                    isLoss ? "bg-red-100 text-red-700 border-red-200 dark:bg-red-900/30 dark:text-red-400" :
+                                                                        "bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-800 dark:text-gray-300"
+                                                            )}>
+                                                                {isWin ? 'V' : isLoss ? 'P' : 'N'}
+                                                            </div>
+                                                        </>
+                                                    ) : (
+                                                        <span className="text-lg font-bold text-muted-foreground/40">VS</span>
+                                                    )}
+                                                </div>
+
+                                                {/* Away Team */}
+                                                <div className="flex-1 flex flex-col items-start text-left pl-2">
+                                                    <span className="text-[10px] uppercase text-muted-foreground font-semibold mb-0.5">Away</span>
+                                                    <span className={cn(
+                                                        "text-base md:text-[16px] truncate max-w-[100px] sm:max-w-none leading-tight",
+                                                        !f.isHome ? "font-bold text-[#4169E1]" : "font-semibold text-foreground"
+                                                    )}>
+                                                        {!f.isHome ? t('myTeam') : f.opponentName}
+                                                    </span>
+                                                </div>
                                             </div>
 
-                                            <div className="flex flex-col items-end w-1/3">
-                                                <span className="text-[10px] text-gray-400 font-bold uppercase">{f.isHome ? 'Away' : 'Home'}</span>
-                                                <span className="font-bold text-sm text-gray-900 dark:text-gray-100 truncate w-full text-right">
-                                                    {f.isHome ? f.opponentName : t('myTeam')}
-                                                </span>
+                                            {/* Right: Icon */}
+                                            <div className="flex items-center gap-1 pl-2 text-muted-foreground/40 group-hover:text-primary/60 transition-colors">
+                                                {!f.calculated && <CalendarIcon className="w-5 h-5 text-muted-foreground/30" />}
+                                                <ChevronRight className="w-5 h-5" />
                                             </div>
-                                        </div>
-                                    </div>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
+                            </StaggerItem>
+                        );
+                    })}
 
-                                    {/* Right: Result Badge */}
-                                    <div className="w-8 flex justify-center items-center pl-2">
-                                        {f.calculated ? (
-                                            <div className={`p-2 rounded-full ${resultType === 'win' ? 'text-green-600 bg-green-100 dark:bg-green-900 dark:text-green-400' :
-                                                    resultType === 'loss' ? 'text-red-600 bg-red-100 dark:bg-red-900 dark:text-red-400' :
-                                                        'text-yellow-600 bg-yellow-100 dark:bg-yellow-900 dark:text-yellow-400'
-                                                }`}>
-                                                <StatusIcon className="w-4 h-4" />
-                                            </div>
-                                        ) : (
-                                            <div className="p-2 rounded-full text-gray-400 bg-gray-100 dark:bg-zinc-800">
-                                                <CalendarIcon className="w-4 h-4" />
-                                            </div>
-                                        )}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </Link>
-                    );
-                })}
-
-                {results.length === 0 && (
-                    <div className="text-center py-12 text-gray-400">
-                        <p>{t('noGames')}</p>
-                    </div>
-                )}
+                    {results.length === 0 && (
+                        <div className="flex flex-col items-center justify-center text-center py-24 space-y-4">
+                            <div className="w-20 h-20 rounded-full bg-muted/30 flex items-center justify-center mb-2">
+                                <CalendarIcon className="w-10 h-10 text-muted-foreground/40" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-foreground">{t('noGames')}</h3>
+                            <p className="text-muted-foreground text-sm max-w-[200px]">Matches will appear here once the season starts.</p>
+                        </div>
+                    )}
+                </StaggerList>
             </div>
         </div>
     );

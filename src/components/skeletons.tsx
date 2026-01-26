@@ -19,21 +19,10 @@ export function MarketSkeleton() {
 
 export function ResultsSkeleton() {
     return (
-        <div className="space-y-6 p-4">
-            <Skeleton className="h-8 w-48 mx-auto" />
-
-            {[1, 2, 3].map((i) => (
-                <div key={i} className="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
-                    <div className="flex items-center gap-2">
-                        <Skeleton className="w-10 h-10 rounded-full" />
-                        <Skeleton className="w-20 h-4" />
-                    </div>
-                    <Skeleton className="w-8 h-6" />
-                    <div className="flex items-center gap-2">
-                        <Skeleton className="w-20 h-4" />
-                        <Skeleton className="w-10 h-10 rounded-full" />
-                    </div>
-                </div>
+        <div className="container mx-auto max-w-[600px] pt-24 pb-24 px-4 space-y-4">
+            <div className="flex justify-center mb-8"><Skeleton className="h-8 w-48 rounded" /></div>
+            {[1, 2, 3, 4].map((i) => (
+                <Skeleton key={i} className="h-28 w-full rounded-2xl" />
             ))}
         </div>
     )

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
 
 // --- Page Transition ---
 export const PageTransition = ({ children, className }: { children: React.ReactNode, className?: string }) => (
@@ -36,13 +36,14 @@ export const StaggerList = ({ children, className }: { children: React.ReactNode
 );
 
 // --- Staggered Item ---
-export const StaggerItem = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+export const StaggerItem = ({ children, className, ...props }: { children: React.ReactNode, className?: string } & HTMLMotionProps<"div">) => (
     <motion.div
         variants={{
             hidden: { opacity: 0, scale: 0.95, y: 10 },
             show: { opacity: 1, scale: 1, y: 0 }
         }}
         className={className}
+        {...props}
     >
         {children}
     </motion.div>

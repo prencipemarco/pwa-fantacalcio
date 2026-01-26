@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { searchPlayers, buyPlayer } from '@/app/actions/user';
+import { searchPlayers } from '@/app/actions/user';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { ArrowLeft } from 'lucide-react';
+import { Plus, Search, Loader2 } from 'lucide-react';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -50,8 +50,6 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
         if (res.success) {
             setSuccess(`Asta avviata per ${player.name}!`);
             refreshCredits();
-            // Optional: wait a bit then go back?
-            setTimeout(() => onBack(), 1000);
         } else {
             setError(res.error || 'Errore durante creazione asta.');
         }
@@ -60,48 +58,71 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
 
     return (
         <div className="space-y-4">
-            <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold">{t('freeAgents') || 'Svincolati'}</h2>
-                <Button variant="ghost" size="sm" onClick={onBack}>
-                    <ArrowLeft className="w-4 h-4 mr-1" /> {t('back')}
-                </Button>
-            </div>
 
-            <div className="flex gap-2">
-                <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t('searchPlayer')} />
-                <Button onClick={() => handleSearch(query)} disabled={loading}>{t('search')}</Button>
+            {/* Search Bar */}
+            <div className="flex gap-2 relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Cerca giocatore (es. Lautaro)..."
+                    className="pl-9 h-12 bg-card text-lg"
+                    onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
+                />
+                <Button onClick={() => handleSearch(query)} disabled={loading} size="lg" className="w-24">
+                    {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : t('search')}
+                </Button>
             </div>
 
             {error && <Alert variant="destructive"><AlertTitle>Errore</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
             {success && <Alert className="bg-green-50 border-green-500"><AlertTitle>Successo</AlertTitle><AlertDescription>{success}</AlertDescription></Alert>}
 
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {results.map((player) => (
-                    <Card key={player.id}>
-                        <CardContent className="p-4 flex justify-between items-center">
-                            <div>
-                                <div className="flex items-center gap-2">
-                                    <span className="font-bold">{player.name}</span>
-                                    <Badge className={`w-5 h-5 p-0 flex items-center justify-center text-[10px] ${player.role === 'P' ? 'bg-orange-100 text-orange-700' :
-                                        player.role === 'D' ? 'bg-green-100 text-green-700' :
-                                            player.role === 'C' ? 'bg-blue-100 text-blue-700' : 'bg-red-100 text-red-700'
-                                        }`}>{player.role}</Badge>
+                    <Card key={player.id} className="hover:border-primary/50 transition-colors">
+                        <CardContent className="p-3 flex justify-between items-center">
+                            <div className="flex items-center gap-3">
+                                {/* Role Badge */}
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-sm
+                                    ${player.role === 'P' ? 'bg-orange-500' :
+                                        player.role === 'D' ? 'bg-green-600' :
+                                            player.role === 'C' ? 'bg-blue-600' : 'bg-red-600'
+                                    }`}>
+                                    {player.role}
                                 </div>
-                                <p className="text-sm text-gray-500">{player.team_real} - Qt. {player.quotation}</p>
+
+                                <div className="flex flex-col">
+                                    <span className="font-bold text-lg leading-tight">{player.name}</span>
+                                    <span className="text-sm text-muted-foreground uppercase font-semibold tracking-wider">
+                                        {player.team_real} • Qt. {player.quotation}
+                                    </span>
+                                </div>
                             </div>
+
                             <Button
                                 size="sm"
                                 onClick={() => handleStartAuction(player)}
                                 disabled={buyingId === player.id}
-                                variant="secondary"
+                                className="rounded-full w-10 h-10 p-0 shadow-md"
                             >
-                                Asta ({player.quotation})
+                                {buyingId === player.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-5 h-5" />}
                             </Button>
                         </CardContent>
                     </Card>
                 ))}
-                {results.length === 0 && !loading && <p className="text-center text-gray-400 py-8">Nessun giocatore trovato.</p>}
             </div>
+
+            {results.length === 0 && !loading && (
+                <div className="text-center py-12">
+                    <p className="text-muted-foreground">Nessun giocatore trovato.</p>
+                </div>
+            )}
+
+            {loading && results.length === 0 && (
+                <div className="flex justify-center py-12">
+                    <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                </div>
+            )}
         </div>
     );
 }
