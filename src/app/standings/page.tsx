@@ -139,7 +139,7 @@ export default function StandingsPage() {
                                                             )}>
                                                                 {team.teamName}
                                                             </span>
-                                                            {isMe && <span className="text-[10px] text-[#4169E1]/80 font-semibold uppercase tracking-wider md:hidden">Rosa</span>}
+                                                            {isMe && <span className="text-[10px] text-[#4169E1]/80 font-semibold uppercase tracking-wider md:hidden">La Mia Rosa</span>}
                                                         </div>
                                                     </div>
                                                 </TableCell>
