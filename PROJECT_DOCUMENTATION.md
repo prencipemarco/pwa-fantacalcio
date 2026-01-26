@@ -1,4 +1,4 @@
-    # 📚 Fantacalcio PWA - Comprehensive Documentation
+# 📚 Fantacalcio PWA - Comprehensive Documentation
 
 This document provides a detailed overview of the Fantacalcio PWA codebase, explaining the architecture, folder structure, and key implementation details.
 

@@ -18,9 +18,16 @@ import Link from 'next/link';
 
 import { LoadingPage } from '@/components/loading-spinner';
 
+import { useSearchParams } from 'next/navigation';
+
 export default function MarketPage() {
     const { t } = useLanguage();
-    const [view, setView] = useState<'home' | 'free_agents' | 'active_auctions' | 'release' | 'new_trade'>('home');
+    const searchParams = useSearchParams();
+    const initialView = searchParams.get('view') as any;
+
+    const [view, setView] = useState<'home' | 'free_agents' | 'active_auctions' | 'release' | 'new_trade'>(
+        (initialView && ['free_agents', 'active_auctions'].includes(initialView)) ? initialView : 'home'
+    );
     const [team, setTeam] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [activeCount, setActiveCount] = useState(0);

@@ -42,13 +42,21 @@ function InnerHome({ user }: { user: any }) {
 
                     <div className="flex flex-col gap-4 w-full max-w-xs">
                         <Link href="/team/lineup">
-                            <Button size="lg" className="w-full font-bold text-lg">{t('myTeam')}</Button>
+                            <Button size="lg" className="w-full font-bold text-lg bg-black hover:bg-gray-800 text-white dark:bg-white dark:text-black dark:hover:bg-gray-200">
+                                {t('myTeam')}
+                            </Button>
                         </Link>
-                        <Link href="/team/market">
-                            <Button variant="secondary" size="lg" className="w-full">{t('market')}</Button>
+
+                        <Link href="/team/market?view=free_agents">
+                            <Button variant="outline" size="lg" className="w-full font-semibold border-2">
+                                {t('freeAgents') || 'Listone'}
+                            </Button>
                         </Link>
-                        <Link href="/team/results">
-                            <Button variant="outline" size="lg" className="w-full">{t('results')}</Button>
+
+                        <Link href="/teams">
+                            <Button variant="outline" size="lg" className="w-full font-semibold border-2">
+                                Tutte le Squadre
+                            </Button>
                         </Link>
                         <Link href="/standings">
                             <Button variant="outline" size="lg" className="w-full">{t('standings')}</Button>

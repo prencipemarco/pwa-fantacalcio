@@ -49,7 +49,7 @@ export function CreateAuctionModal({ onAuctionCreated }: { onAuctionCreated: () 
             <DialogTrigger asChild>
                 <Button className="w-full mt-4 bg-orange-600 hover:bg-orange-700">{t('startAuction')}</Button>
             </DialogTrigger>
-            <DialogContent className="max-w-md h-[80vh] flex flex-col">
+            <DialogContent className="max-w-md h-[80vh] flex flex-col stop-swipe-nav">
                 <DialogHeader>
                     <DialogTitle>{t('newAuction')}</DialogTitle>
                     <DialogDescription>Cerca giocatore per avviare l'asta (Base 1 CR).</DialogDescription>

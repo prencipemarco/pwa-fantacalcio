@@ -37,6 +37,11 @@ export function SwipeNavigator({ children }: { children: React.ReactNode }) {
     }, [pathname, router]);
 
     const onTouchStart = (e: React.TouchEvent) => {
+        // Stop swipe if inside a modal or blocked element
+        if ((e.target as HTMLElement).closest('.stop-swipe-nav')) {
+            return;
+        }
+
         touchStart.current = {
             x: e.targetTouches[0].clientX,
             y: e.targetTouches[0].clientY
