@@ -353,7 +353,8 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     };
 
     const t = (key: string) => {
-        return translations[language][key] || key;
+        const dict = translations[language] || translations['it'];
+        return dict?.[key] || key;
     };
 
     return (

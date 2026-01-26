@@ -104,8 +104,8 @@ function DroppableSlot({ id, role, currentItem, onRemove, onClick }: { id: strin
                 )}
             </div>
             {currentItem && (
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded shadow whitespace-nowrap flex items-center gap-1">
-                    <TeamLogo teamName={currentItem.player.team_real} size={12} className="inline brightness-0 invert" />
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white/90 text-black text-[9px] px-1.5 py-px rounded-full shadow border border-gray-200 font-bold">
+                    {currentItem.player.role}
                 </div>
             )}
             {!currentItem && (
