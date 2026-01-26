@@ -28,6 +28,7 @@ export async function importRosters(rosters: RosterImport[]) {
 
     const dbRosters = [];
     const errors = [];
+    const teamSpending: Record<string, number> = {};
 
     for (const r of rosters) {
         const team = teams.find(t => t.name.toLowerCase().trim() === r.team_name.toLowerCase().trim());
@@ -39,6 +40,10 @@ export async function importRosters(rosters: RosterImport[]) {
                 player_id: player.id,
                 purchase_price: r.price
             });
+
+            // Track spending
+            if (!teamSpending[team.id]) teamSpending[team.id] = 0;
+            teamSpending[team.id] += r.price;
         } else {
             errors.push(`Could not match: ${r.team_name} - ${r.player_name}`);
         }
@@ -50,6 +55,17 @@ export async function importRosters(rosters: RosterImport[]) {
             .upsert(dbRosters, { onConflict: 'team_id, player_id' });
 
         if (error) return { success: false, error: error.message, details: errors };
+
+        // Deduct credits from teams
+        for (const [teamId, spent] of Object.entries(teamSpending)) {
+            // Fetch current to ensure atomic-ish update (Supabase doesn't have straight decrement via JS client easily without RPC, but read-write is ok for admin)
+            const { data: t } = await supabase.from('teams').select('credits_left').eq('id', teamId).single();
+            if (t) {
+                await supabase.from('teams').update({
+                    credits_left: t.credits_left - spent
+                }).eq('id', teamId);
+            }
+        }
     }
 
     return { success: true, count: dbRosters.length, errors };
