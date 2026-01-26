@@ -135,8 +135,20 @@ export async function buyPlayer(teamId: string, playerId: number, price: number)
     return { success: true };
 }
 
-export async function searchPlayers(query: string = '', filters?: { role?: string, team?: string }) {
+export async function searchPlayers(query: string = '', filters?: { role?: string, team?: string }, excludeTaken: boolean = false) {
     const supabase = await createClient();
+
+    let excludedIds: number[] = [];
+    if (excludeTaken) {
+        // 1. Get Owned Players
+        const { data: rosterData } = await supabase.from('rosters').select('player_id');
+        if (rosterData) excludedIds.push(...rosterData.map(r => r.player_id));
+
+        // 2. Get Active Auctions
+        const { data: auctionData } = await supabase.from('auctions').select('player_id').eq('status', 'OPEN');
+        if (auctionData) excludedIds.push(...auctionData.map(a => a.player_id));
+    }
+
     let queryBuilder = supabase.from('players').select('*').order('quotation', { ascending: false }).limit(100);
 
     if (query) {
@@ -149,6 +161,10 @@ export async function searchPlayers(query: string = '', filters?: { role?: strin
 
     if (filters?.team && filters.team !== 'ALL') {
         queryBuilder = queryBuilder.eq('team_real', filters.team);
+    }
+
+    if (excludedIds.length > 0) {
+        queryBuilder = queryBuilder.not('id', 'in', `(${excludedIds.join(',')})`);
     }
 
     const { data } = await queryBuilder;

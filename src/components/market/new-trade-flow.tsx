@@ -275,7 +275,7 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
     const setMobileStep = setStep;
 
     return (
-        <div className="h-[80vh] flex flex-col relative">
+        <div className="h-[80vh] flex flex-col relative stop-swipe-nav">
             {/* Header Steps */}
             <div className="flex justify-between mb-4 px-1">
                 {[2, 3, 4].map(s => (

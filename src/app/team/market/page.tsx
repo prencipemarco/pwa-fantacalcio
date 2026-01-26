@@ -9,23 +9,14 @@ import { Button } from '@/components/ui/button';
 import { ActiveAuctionsList } from '@/components/market/active-auctions';
 import { FreeAgentsList } from '@/components/market/free-agents';
 import { ReleasePlayersList } from '@/components/market/release-players-list';
-import { CreateAuctionModal } from '@/components/market/create-auction-modal';
-import { TradesSection } from '@/components/market/trades-section';
-import { Hammer, Users, ShoppingCart, UserMinus } from 'lucide-react';
-
-import { NewTradeFlow } from '@/components/market/new-trade-flow';
-import Link from 'next/link';
-
-import { LoadingPage } from '@/components/loading-spinner';
-
-import { useSearchParams } from 'next/navigation';
+import { CreateAuctionScreen } from '@/components/market/create-auction-screen';
 
 export default function MarketPage() {
     const { t } = useLanguage();
     const searchParams = useSearchParams();
     const initialView = searchParams.get('view') as any;
 
-    const [view, setView] = useState<'home' | 'free_agents' | 'active_auctions' | 'release' | 'new_trade'>(
+    const [view, setView] = useState<'home' | 'free_agents' | 'active_auctions' | 'release' | 'new_trade' | 'new_auction'>(
         (initialView && ['free_agents', 'active_auctions'].includes(initialView)) ? initialView : 'home'
     );
     const [team, setTeam] = useState<any>(null);
@@ -106,14 +97,17 @@ export default function MarketPage() {
                     </Card>
 
                     {/* OPTION 2: NEW AUCTION */}
-                    <Card className="hover:shadow-md transition-all border-orange-200 dark:border-orange-900 bg-orange-50 dark:bg-orange-950/30">
+                    <Card
+                        className="cursor-pointer hover:shadow-md transition-all border-orange-200 dark:border-orange-900 bg-orange-50 dark:bg-orange-950/30"
+                        onClick={() => setView('new_auction')}
+                    >
                         <CardHeader className="flex flex-row items-center justify-between pb-2">
                             <CardTitle className="text-lg dark:text-white">{t('newAuction')}</CardTitle>
                             <ShoppingCart className="h-6 w-6 text-orange-500 dark:text-orange-400" />
                         </CardHeader>
                         <CardContent>
                             <CardDescription className="dark:text-gray-400">24h</CardDescription>
-                            <CreateAuctionModal onAuctionCreated={() => setView('active_auctions')} />
+                            <Button className="w-full mt-4 bg-orange-600 hover:bg-orange-700">{t('startAuction')}</Button>
                         </CardContent>
                     </Card>
 
@@ -154,6 +148,10 @@ export default function MarketPage() {
 
             {view === 'active_auctions' && (
                 <ActiveAuctionsList onBack={() => setView('home')} teamId={team.id} refreshCredits={refreshTeam} />
+            )}
+
+            {view === 'new_auction' && (
+                <CreateAuctionScreen onBack={() => setView('home')} onAuctionCreated={() => setView('active_auctions')} />
             )}
 
             {view === 'free_agents' && (
