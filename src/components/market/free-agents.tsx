@@ -15,6 +15,7 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
     const { t } = useLanguage();
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<any[]>([]);
+    const [roster, setRoster] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
     const [buyingId, setBuyingId] = useState<number | null>(null);
     const [error, setError] = useState<string | null>(null);
@@ -24,7 +25,11 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
     // Initial load
     useEffect(() => {
         handleSearch('');
-    }, []);
+        // Load roster for limits check
+        import('@/app/actions/user').then(mod => {
+            mod.getMyRoster(teamId).then(data => setRoster(data || []));
+        });
+    }, [teamId]);
 
     const handleSearch = async (q: string) => {
         setLoading(true);
@@ -44,9 +49,20 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
     };
 
     const handleStartAuction = async (player: any) => {
-        setBuyingId(player.id);
         setError(null);
         setSuccess(null);
+
+        // Check Limits
+        const LIMITS: Record<string, number> = { 'P': 3, 'D': 8, 'C': 8, 'A': 6 };
+        const role = player.role;
+        const currentCount = roster.filter((r: any) => r.player.role === role).length;
+
+        if (currentCount >= LIMITS[role]) {
+            setError(`Hai già raggiunto il limite per il ruolo ${role} (${currentCount}/${LIMITS[role]}). Taglia un giocatore prima.`);
+            return;
+        }
+
+        setBuyingId(player.id);
         const price = player.quotation || 1;
 
         if (!confirm(`Avviare asta per ${player.name} a ${price} crediti?`)) {
