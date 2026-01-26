@@ -110,5 +110,14 @@ export async function getLineup(teamId: string, matchday: number) {
 
     if (!lineup) return { success: false, error: 'Lineup not set' };
 
+    // ... existing code
     return { success: true, data: lineup };
+}
+
+export async function getUserTeam(userId: string) {
+    const supabase = await createClient();
+    if (!userId) return null;
+
+    const { data: team } = await supabase.from('teams').select('*').eq('user_id', userId).single();
+    return team;
 }
