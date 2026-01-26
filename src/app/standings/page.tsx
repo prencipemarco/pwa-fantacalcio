@@ -75,26 +75,42 @@ export default function StandingsPage() {
                                         const isMe = team.teamId === myTeamId;
                                         const rank = index + 1;
 
-                                        // Rank Styles
-                                        let rankBadge = null;
+                                        // Rank Styles - Borders & Backgrounds
+                                        let borderLeft = "border-l-4 border-l-transparent";
+                                        let rowBg = "bg-card hover:bg-muted/30";
+                                        let rankColor = "text-muted-foreground";
+
                                         if (rank === 1) {
-                                            rankBadge = "bg-gradient-to-br from-amber-300 to-amber-500 text-white shadow-sm";
+                                            borderLeft = "border-l-4 border-l-amber-400"; // Gold
+                                            rowBg = "bg-gradient-to-r from-amber-50/40 to-background dark:from-amber-900/10 dark:to-background";
+                                            rankColor = "text-amber-600 dark:text-amber-400";
                                         } else if (rank === 2) {
-                                            rankBadge = "bg-slate-400 text-white";
+                                            borderLeft = "border-l-4 border-l-slate-400"; // Silver
+                                            rowBg = "bg-gradient-to-r from-slate-50/40 to-background dark:from-slate-900/10 dark:to-background";
+                                            rankColor = "text-slate-500 dark:text-slate-400";
                                         } else if (rank === 3) {
-                                            rankBadge = "bg-[#CD7F32] text-white";
+                                            borderLeft = "border-l-4 border-l-[#CD7F32]"; // Bronze
+                                            rowBg = "bg-gradient-to-r from-orange-50/40 to-background dark:from-orange-900/10 dark:to-background";
+                                            rankColor = "text-[#CD7F32] dark:text-orange-400";
                                         }
 
-                                        // Row Styles
-                                        let rowBg = "bg-card hover:bg-muted/30";
-                                        let borderLeft = "border-l-4 border-l-transparent";
+                                        // "My Team" Highlight (Overridden or blended?)
+                                        // Let's make "IsMe" have a specific blue highlight, but if top 3, keep the left border of the rank?
+                                        // User wants "Cornice del giocatore relativa alla posizione". 
+                                        // Let's keep Rank Border as priority for Top 3, but use Blue formatting for Text/Avatar if IsMe?
+                                        // Or if IsMe is Top 1, it should probably be Gold bordered but maybe Blue background?
+                                        // Let's prioritize Rank Border.
 
                                         if (isMe) {
-                                            rowBg = "bg-gradient-to-r from-blue-50/80 to-background dark:from-blue-900/10 dark:to-background";
-                                            borderLeft = "border-l-4 border-l-[#4169E1]";
-                                        } else if (rank === 1) {
-                                            borderLeft = "border-l-4 border-l-amber-400";
-                                            rowBg = "bg-gradient-to-r from-amber-50/50 to-background dark:from-amber-900/10 dark:to-background";
+                                            // Ensure contrast. If I am 1st, Gold border is cooler than Blue border.
+                                            // But let's add a subtle blue tint if not top 3, or maybe modify background if isMe?
+                                            if (rank > 3) {
+                                                borderLeft = "border-l-4 border-l-[#4169E1]";
+                                                rowBg = "bg-gradient-to-r from-blue-50/80 to-background dark:from-blue-900/10 dark:to-background";
+                                            } else {
+                                                // I am top 3. Keep rank border, but maybe add slight blue mix?
+                                                // Let's stick to Rank visuals as primary for Table. My Team is highlighted by Avatar border anyway.
+                                            }
                                         }
 
                                         return (
@@ -108,13 +124,7 @@ export default function StandingsPage() {
                                                 {/* Rank & Border Accent */}
                                                 <TableCell className={cn("text-center p-0 relative", borderLeft)}>
                                                     <div className="flex items-center justify-center h-full w-full">
-                                                        {rank <= 3 ? (
-                                                            <div className={cn("w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm", rankBadge)}>
-                                                                {rank}
-                                                            </div>
-                                                        ) : (
-                                                            <span className="font-bold text-lg text-foreground/80">{rank}</span>
-                                                        )}
+                                                        <span className={cn("font-black text-lg", rankColor)}>{rank}</span>
                                                     </div>
                                                 </TableCell>
 
