@@ -82,3 +82,135 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
         return { found: false, error: 'Fetch failed' };
     }
 }
+
+export type LiveMatch = {
+    id: number;
+    homeTeam: string;
+    awayTeam: string;
+    homeScore: number | null;
+    awayScore: number | null;
+    minute: string | number; // 'FT', 'HT', or minute
+    status: 'SCHEDULED' | 'LIVE' | 'PAUSED' | 'FINISHED';
+    events: any[]; // Likely empty for free tier
+};
+
+export async function getLiveMatches(): Promise<LiveMatch[]> {
+    if (!API_TOKEN) {
+        console.warn('Missing API Key for Live Matches');
+        return [];
+    }
+
+    try {
+        // 1. Determine Current Matchday
+        const nextRes = await fetch(`${API_URL}?status=SCHEDULED&limit=1`, {
+            headers: { 'X-Auth-Token': API_TOKEN },
+            next: { revalidate: 600 } // Cache 10m
+        });
+
+        if (!nextRes.ok) return [];
+        const nextData = await nextRes.json();
+
+        // If no scheduled matches, maybe season ended? 
+        if (!nextData.matches || nextData.matches.length === 0) {
+            return [];
+        }
+
+        const targetMatchday = nextData.matches[0].matchday;
+
+        // 2. Fetch ALL matches for this matchday
+        const mdRes = await fetch(`${API_URL}?matchday=${targetMatchday}`, {
+            headers: { 'X-Auth-Token': API_TOKEN },
+            next: { revalidate: 60 } // Cache 60s for "Live" feel
+        });
+
+        if (!mdRes.ok) return [];
+        const mdData = await mdRes.json();
+
+        if (!mdData.matches) return [];
+
+        // 3. Map to UI format
+        return mdData.matches.map((m: any) => {
+            let status: 'SCHEDULED' | 'LIVE' | 'PAUSED' | 'FINISHED' = 'SCHEDULED';
+            let minute: string | number = 0;
+
+            if (m.status === 'IN_PLAY') {
+                status = 'LIVE';
+                minute = "LIVE";
+            } else if (m.status === 'PAUSED' || m.status === 'HALFTIME') {
+                status = 'PAUSED';
+                minute = 'HT';
+            } else if (m.status === 'FINISHED') {
+                status = 'FINISHED';
+                minute = 'FT';
+            } else {
+                status = 'SCHEDULED';
+                minute = 0;
+            }
+
+            return {
+                id: m.id,
+                homeTeam: m.homeTeam.name,
+                awayTeam: m.awayTeam.name,
+                homeScore: m.score.fullTime.home ?? m.score.halfTime.home ?? 0,
+                awayScore: m.score.fullTime.away ?? m.score.halfTime.away ?? 0, // Fallback logic
+                status,
+                minute,
+                events: [] // No events in free tier list
+            };
+        });
+
+    } catch (e) {
+        console.error('getLiveMatches error', e);
+        return [];
+    }
+}
+
+export async function getMatchDetails(matchId: number): Promise<any[]> {
+    if (!API_TOKEN) return [];
+
+    try {
+        // Fetch single match details which usually includes scorers
+        const res = await fetch(`${API_URL.replace(/competitions\/SA\/matches/, `matches/${matchId}`)}`, {
+            headers: { 'X-Auth-Token': API_TOKEN },
+            next: { revalidate: 60 }
+        });
+
+        if (!res.ok) return [];
+        const data = await res.json();
+
+        let events: any[] = [];
+
+        // Map goals
+        if (data.goals) {
+            data.goals.forEach((g: any) => {
+                events.push({
+                    minute: g.minute,
+                    type: 'GOAL',
+                    playerName: g.scorer.name,
+                    team: g.team.name
+                });
+            });
+        }
+
+        // Map bookings (if available)
+        if (data.bookings) {
+            data.bookings.forEach((b: any) => {
+                events.push({
+                    minute: b.minute,
+                    type: b.card === 'RED_CARD' ? 'RED_CARD' : 'YELLOW_CARD',
+                    playerName: b.player.name,
+                    team: b.team.name
+                });
+            });
+        }
+
+        // Sort by minute
+        events.sort((a, b) => a.minute - b.minute);
+
+        return events;
+
+    } catch (e) {
+        console.error('getMatchDetails error', e);
+        return [];
+    }
+}
