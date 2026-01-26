@@ -82,8 +82,8 @@ export function ActiveAuctionsList({ onBack, teamId, refreshCredits }: { onBack:
                                     </div>
                                 </div>
 
-                                <Badge variant={isWinning ? "default" : "outline"} className={`h-7 px-2 font-mono text-[11px] ${isWinning ? 'bg-green-600 hover:bg-green-600' : ''}`}>
-                                    <AuctionTimer endTime={a.end_time} />
+                                <Badge variant={isWinning ? "default" : "outline"} className={`h-7 px-2 font-mono text-[11px] ${isWinning ? 'bg-green-600 hover:bg-green-600 text-white' : 'text-orange-600 border-orange-200'}`}>
+                                    <AuctionTimer endTime={a.end_time} className={isWinning ? 'text-white' : undefined} />
                                 </Badge>
                             </div>
 

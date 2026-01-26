@@ -550,15 +550,7 @@ export default function LineupPage() {
                                 </DialogTitle>
                                 <DialogDescription>{t('choosePlayerInsert')}</DialogDescription>
                             </DialogHeader>
-                            <div className="px-6 py-2">
-                                <div className="relative">
-                                    <input
-                                        type="text"
-                                        placeholder="Search..."
-                                        className="w-full bg-muted/50 border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
-                                    />
-                                </div>
-                            </div>
+
                             <StaggerList className="flex flex-col gap-1 overflow-y-auto max-h-[50vh] p-4 pt-0">
                                 {getAvailablePlayers(openSelector?.role).map((item) => (
                                     <StaggerItem key={item.id} className="w-full">

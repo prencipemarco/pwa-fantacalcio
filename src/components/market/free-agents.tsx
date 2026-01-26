@@ -19,6 +19,7 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
     const [buyingId, setBuyingId] = useState<number | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
+    const [showFilters, setShowFilters] = useState(false);
 
     // Initial load
     useEffect(() => {
@@ -28,7 +29,16 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
     const handleSearch = async (q: string) => {
         setLoading(true);
         // Exclude taken players = true
-        const res = await searchPlayers(q, undefined, true);
+        let res = await searchPlayers(q, undefined, true);
+
+        // Custom Sort: Role (P, D, C, A) then Name
+        const roleOrder: Record<string, number> = { 'P': 1, 'D': 2, 'C': 3, 'A': 4 };
+        res = res.sort((a, b) => {
+            const roleDiff = (roleOrder[a.role] || 99) - (roleOrder[b.role] || 99);
+            if (roleDiff !== 0) return roleDiff;
+            return a.name.localeCompare(b.name);
+        });
+
         setResults(res);
         setLoading(false);
     };
@@ -59,19 +69,41 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
     return (
         <div className="space-y-4">
 
-            {/* Search Bar */}
-            <div className="flex gap-2 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Cerca giocatore (es. Lautaro)..."
-                    className="pl-9 h-12 bg-card text-lg"
-                    onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
-                />
-                <Button onClick={() => handleSearch(query)} disabled={loading} size="lg" className="w-24">
-                    {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : t('search')}
-                </Button>
+            {/* Search Bar & Filters */}
+            <div className="flex flex-col gap-3">
+                <div className="flex gap-2 relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Input
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Cerca giocatore (es. Lautaro)..."
+                        className="pl-9 h-12 bg-card text-lg"
+                        onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
+                    />
+                    <Button onClick={() => handleSearch(query)} disabled={loading} size="lg" className="w-24">
+                        {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : t('search')}
+                    </Button>
+                </div>
+
+                <div className="flex justify-end">
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-primary hover:bg-primary/5 hover:text-primary gap-1.5 h-8 px-3"
+                        onClick={() => setShowFilters(!showFilters)}
+                    >
+                        <span className="text-sm font-medium">Filtri Avanzati</span>
+                        {showFilters ? <span className="rotate-180 transition-transform">▲</span> : <span className="transition-transform">▼</span>}
+                    </Button>
+                </div>
+
+                {showFilters && (
+                    <div className="bg-muted/40 p-4 rounded-xl border border-border/50 animate-in slide-in-from-top-2 fade-in duration-200">
+                        <div className="text-sm text-muted-foreground text-center italic">
+                            Filtri aggiuntivi in arrivo... (Ruolo, Squadra, Quotazione)
+                        </div>
+                    </div>
+                )}
             </div>
 
             {error && <Alert variant="destructive"><AlertTitle>Errore</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}

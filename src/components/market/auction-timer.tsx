@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-export function AuctionTimer({ endTime }: { endTime: string }) {
+export function AuctionTimer({ endTime, className }: { endTime: string, className?: string }) {
     const [timeLeft, setTimeLeft] = useState('');
     const [isUrgent, setIsUrgent] = useState(false);
 
@@ -37,7 +37,7 @@ export function AuctionTimer({ endTime }: { endTime: string }) {
     }, [endTime]);
 
     return (
-        <span className={`font-mono font-bold ${isUrgent ? 'text-red-600 animate-pulse' : 'text-orange-600'}`}>
+        <span className={`font-mono font-bold ${isUrgent ? 'animate-pulse' : ''} ${className}`}>
             {timeLeft}
         </span>
     );
