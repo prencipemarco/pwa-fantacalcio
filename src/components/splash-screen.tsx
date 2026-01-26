@@ -68,17 +68,17 @@ export function SplashScreen() {
                                 transition={{ delay: 0.4, duration: 0.6 }}
                                 className="text-4xl font-black tracking-tight text-foreground bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400"
                             >
-                                FantaCalcio
+                                Fantacalcio
                             </motion.h1>
 
-                            <motion.p
+                            {/*<motion.p
                                 initial={{ y: 10, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.6, duration: 0.6 }}
                                 className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em]"
                             >
                                 Progressive Web App
-                            </motion.p>
+                            </motion.p>*/}
                         </div>
 
                         {/* Loading Indicator */}
