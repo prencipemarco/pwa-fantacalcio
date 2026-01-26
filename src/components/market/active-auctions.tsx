@@ -6,8 +6,8 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { formatDistanceToNow } from 'date-fns';
 import { Timer, ArrowLeft, ArrowUp } from 'lucide-react';
+import { AuctionTimer } from './auction-timer';
 
 export function ActiveAuctionsList({ onBack, teamId, refreshCredits }: { onBack: () => void, teamId: string, refreshCredits: () => void }) {
     const [auctions, setAuctions] = useState<any[]>([]);
@@ -76,9 +76,9 @@ export function ActiveAuctionsList({ onBack, teamId, refreshCredits }: { onBack:
                             </div>
 
                             <div className="flex justify-between items-center text-sm mb-4 bg-slate-50 p-2 rounded">
-                                <div className="flex items-center gap-1 text-orange-600 font-medium">
-                                    <Timer className="w-4 h-4" />
-                                    {formatDistanceToNow(timeLeft, { addSuffix: true })}
+                                <div className="flex items-center gap-1 font-medium">
+                                    <Timer className="w-4 h-4 text-gray-500" />
+                                    <AuctionTimer endTime={a.end_time} />
                                 </div>
                                 <div className="text-gray-600">
                                     Winner: {a.winner ? <span className="font-bold">{a.winner.name}</span> : 'None'}

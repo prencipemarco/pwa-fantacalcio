@@ -39,31 +39,45 @@ export async function createAuction(playerId: number, startPrice: number) {
         return { success: false, error: `Market is closed. Open from ${openHour}:00 to ${closeHour}:00.` };
     }
 
-    // 2. Check Player Availability (Not in Roster, Not in Active Auction)
+    // 2. Fetch Creator Team & Check Credits
+    const { data: myTeam } = await supabase.from('teams').select('id, credits_left').eq('user_id', user.id).single();
+    if (!myTeam) return { success: false, error: 'Team not found.' };
+
+    if (myTeam.credits_left < startPrice) return { success: false, error: 'Not enough credits for starting price.' };
+
+    // 3. Check Player Availability
     const { data: existingRoster } = await supabase.from('rosters').select('id').eq('player_id', playerId).single();
     if (existingRoster) return { success: false, error: 'Player already owned.' };
 
     const { data: activeAuction } = await supabase.from('auctions').select('id').eq('player_id', playerId).eq('status', 'OPEN').single();
     if (activeAuction) return { success: false, error: 'Auction already active for this player.' };
 
-    // 3. Create Auction
+    // 4. Deduct Credits (Initial Bid)
+    await supabase.from('teams').update({ credits_left: myTeam.credits_left - startPrice }).eq('id', myTeam.id);
+
+    // 5. Create Auction
     const durationHours = parseInt(settings.auction_duration_hours || '24');
     const endTime = addMinutes(now, durationHours * 60);
 
     const { error } = await supabase.from('auctions').insert({
         player_id: playerId,
         current_price: startPrice,
+        current_winner_team_id: myTeam.id, // Creator is initial winner
         end_time: endTime.toISOString(),
         status: 'OPEN'
     });
 
-    if (error) return { success: false, error: error.message };
+    if (error) {
+        // Rollback credits if insert fails (basic compensation)
+        await supabase.from('teams').update({ credits_left: myTeam.credits_left }).eq('id', myTeam.id);
+        return { success: false, error: error.message };
+    }
 
     await logEvent('AUCTION_STARTED', { playerId, startPrice }, user.id);
 
     // NOTIFICATION: New Auction
     const { data: player } = await supabase.from('players').select('name').eq('id', playerId).single();
-    await sendPushNotification(null, 'New Auction!', `Bidding started for ${player?.name || 'a player'}`);
+    await sendPushNotification(null, 'New Auction! 🔨', `Bidding started for ${player?.name || 'a player'}`);
 
     return { success: true };
 }
@@ -140,6 +154,18 @@ export async function resolveAuction(auctionId: number) {
             purchase_price: auction.current_price
         });
         await logEvent('AUCTION_WON', { auctionId, teamId: auction.current_winner_team_id, price: auction.current_price });
+
+        // NOTIFICATION: Winner
+        const { data: winnerTeam } = await supabase.from('teams').select('user_id').eq('id', auction.current_winner_team_id).single();
+        const { data: player } = await supabase.from('players').select('name').eq('id', auction.player_id).single();
+
+        if (winnerTeam) {
+            await sendPushNotification(
+                [winnerTeam.user_id],
+                'Auction Won! 🏆',
+                `You won ${player?.name || 'player'} for ${auction.current_price} credits!`
+            );
+        }
     } else {
         await logEvent('AUCTION_EXPIRED', { auctionId });
     }
