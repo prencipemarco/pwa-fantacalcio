@@ -102,73 +102,76 @@ export default function ResultsPage() {
                         return (
                             <StaggerItem key={f.id} className="w-full" id={`match-card-${f.id}`}>
                                 <Link href={`/team/results/${f.id}`} className="block group">
-                                    <Card className={cn(
-                                        "rounded-2xl border transition-all hover:-translate-y-0.5 hover:shadow-lg cursor-pointer overflow-hidden",
-                                        "bg-card group-hover:border-primary/20",
-                                        borderLeftClass
+                                    <div className={cn(
+                                        "relative flex items-center py-2.5 px-1 md:py-3 transition-colors rounded-lg",
+                                        "border-b border-border/40 last:border-0",
+                                        "hover:bg-muted/30"
                                     )}>
-                                        <CardContent className="p-4 md:p-5 flex items-center gap-4">
-                                            {/* Left: Matchday */}
-                                            <div className="flex flex-col items-start w-[50px] shrink-0 border-r border-border/40 mr-1">
-                                                <span className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase mb-0.5">{t('day')}</span>
-                                                <span className="text-3xl font-bold text-foreground leading-none">{f.matchday}</span>
+                                        {/* Status Indicator Bar (Left) */}
+                                        <div className={cn(
+                                            "absolute left-0 top-1/2 -translate-y-1/2 h-8 w-1 rounded-r-full opacity-70",
+                                            f.calculated && isWin ? "bg-emerald-500" :
+                                                f.calculated && isLoss ? "bg-red-500" :
+                                                    f.calculated ? "bg-gray-400" : "bg-transparent"
+                                        )} />
+
+                                        {/* Day Number (Left) */}
+                                        <div className="flex flex-col w-[60px] shrink-0 items-center justify-center pl-2">
+                                            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-0.5">DAY</span>
+                                            <span className="text-2xl font-black text-foreground leading-none">{f.matchday}</span>
+                                        </div>
+
+                                        {/* Match Content (Center) */}
+                                        <div className="flex-1 flex items-center justify-between px-2 md:px-6">
+                                            {/* Home Team */}
+                                            <div className="flex-1 text-right flex flex-col justify-center">
+                                                <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mb-0.5 lg:hidden">Home</span>
+                                                <span className={cn(
+                                                    "text-sm md:text-base leading-tight truncate",
+                                                    f.isHome ? "font-bold text-[#4169E1]" : "font-medium text-foreground"
+                                                )}>
+                                                    {f.isHome ? t('myTeam') : f.opponentName}
+                                                </span>
                                             </div>
 
-                                            {/* Center: Matchup */}
-                                            <div className="flex-1 flex items-center justify-between">
-                                                {/* Home Team */}
-                                                <div className="flex-1 flex flex-col items-end text-right pr-2">
-                                                    <span className="text-[10px] uppercase text-muted-foreground font-semibold mb-0.5">Home</span>
-                                                    <span className={cn(
-                                                        "text-base md:text-[16px] truncate max-w-[100px] sm:max-w-none leading-tight",
-                                                        f.isHome ? "font-bold text-[#4169E1]" : "font-semibold text-foreground"
-                                                    )}>
-                                                        {f.isHome ? t('myTeam') : f.opponentName}
-                                                    </span>
-                                                </div>
-
-                                                {/* VS or Score */}
-                                                <div className="flex flex-col items-center justify-center min-w-[60px] relative z-10">
-                                                    {f.calculated ? (
-                                                        <>
-                                                            <div className="flex items-center gap-1.5 text-2xl font-bold text-foreground leading-none">
-                                                                <span>{f.homeGoals}</span>
-                                                                <span className="text-muted-foreground/60 text-xl font-black px-1 border-b-2 border-transparent">:</span>
-                                                                <span>{f.awayGoals}</span>
-                                                            </div>
-                                                            <div className={cn(
-                                                                "mt-1.5 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold border",
-                                                                isWin ? "bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400" :
-                                                                    isLoss ? "bg-red-100 text-red-700 border-red-200 dark:bg-red-900/30 dark:text-red-400" :
-                                                                        "bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-800 dark:text-gray-300"
-                                                            )}>
-                                                                {isWin ? 'V' : isLoss ? 'P' : 'N'}
-                                                            </div>
-                                                        </>
-                                                    ) : (
-                                                        <span className="text-lg font-bold text-muted-foreground/40">VS</span>
-                                                    )}
-                                                </div>
-
-                                                {/* Away Team */}
-                                                <div className="flex-1 flex flex-col items-start text-left pl-2">
-                                                    <span className="text-[10px] uppercase text-muted-foreground font-semibold mb-0.5">Away</span>
-                                                    <span className={cn(
-                                                        "text-base md:text-[16px] truncate max-w-[100px] sm:max-w-none leading-tight",
-                                                        !f.isHome ? "font-bold text-[#4169E1]" : "font-semibold text-foreground"
-                                                    )}>
-                                                        {!f.isHome ? t('myTeam') : f.opponentName}
-                                                    </span>
-                                                </div>
+                                            {/* VS / Score */}
+                                            <div className="mx-2 md:mx-6 flex flex-col items-center justify-center min-w-[50px]">
+                                                {f.calculated ? (
+                                                    <div className="flex flex-col items-center">
+                                                        <div className="text-lg md:text-xl font-bold tracking-tighter leading-none">
+                                                            {f.homeGoals}-{f.awayGoals}
+                                                        </div>
+                                                        <span className={cn(
+                                                            "text-[9px] font-bold uppercase mt-0.5 px-1.5 py-px rounded-sm border",
+                                                            isWin ? "text-emerald-600 bg-emerald-50 border-emerald-100 dark:bg-emerald-950/30 dark:border-emerald-900 dark:text-emerald-400" :
+                                                                isLoss ? "text-red-600 bg-red-50 border-red-100 dark:bg-red-950/30 dark:border-red-900 dark:text-red-400" :
+                                                                    "text-gray-500 bg-gray-50 border-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                                                        )}>
+                                                            {isWin ? 'WIN' : isLoss ? 'LOSE' : 'DRAW'}
+                                                        </span>
+                                                    </div>
+                                                ) : (
+                                                    <span className="text-xs font-bold text-muted-foreground/30">VS</span>
+                                                )}
                                             </div>
 
-                                            {/* Right: Icon */}
-                                            <div className="flex items-center gap-1 pl-2 text-muted-foreground/40 group-hover:text-primary/60 transition-colors">
-                                                {!f.calculated && <CalendarIcon className="w-5 h-5 text-muted-foreground/30" />}
-                                                <ChevronRight className="w-5 h-5" />
+                                            {/* Away Team */}
+                                            <div className="flex-1 text-left flex flex-col justify-center">
+                                                <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mb-0.5 lg:hidden">Away</span>
+                                                <span className={cn(
+                                                    "text-sm md:text-base leading-tight truncate",
+                                                    !f.isHome ? "font-bold text-[#4169E1]" : "font-medium text-foreground"
+                                                )}>
+                                                    {!f.isHome ? t('myTeam') : f.opponentName}
+                                                </span>
                                             </div>
-                                        </CardContent>
-                                    </Card>
+                                        </div>
+
+                                        {/* Icon (Right) */}
+                                        <div className="pr-2 text-muted-foreground/30 group-hover:text-muted-foreground/60 transition-colors">
+                                            {!f.calculated ? <CalendarIcon className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                                        </div>
+                                    </div>
                                 </Link>
                             </StaggerItem>
                         );
