@@ -8,7 +8,7 @@ import { MatchdayReminder } from '@/components/matchday-reminder';
 import { SettingsDialog } from '@/components/settings-dialog';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shirt, ShoppingBag, Trophy, Users, Shield, ArrowRight } from 'lucide-react';
+import { Shirt, ShoppingBag, Trophy, Users, Shield, ArrowRight, Plus } from 'lucide-react';
 
 function InnerHome({ user, team }: { user: any, team: any }) {
     const { t } = useLanguage();
@@ -49,8 +49,30 @@ function InnerHome({ user, team }: { user: any, team: any }) {
                 <div className="md:col-span-8 space-y-6">
                     <MatchdayReminder />
 
-                    {/* Only show if user has team */}
-                    {team && (
+                    {/* Team Status Section */}
+                    {user && !team ? (
+                        // Case 1: User Logged in BUT No Team -> Show Create CTA
+                        <Card className="border-2 border-dashed border-primary/50 bg-primary/5">
+                            <CardContent className="flex flex-col items-center justify-center p-8 md:p-12 text-center space-y-6 mt-6">
+                                <div className="p-4 bg-primary/10 rounded-full animate-pulse">
+                                    <Shield className="h-12 w-12 text-primary" />
+                                </div>
+                                <div className="space-y-2">
+                                    <h3 className="text-2xl font-bold">Crea la tua Squadra!</h3>
+                                    <p className="text-muted-foreground max-w-sm mx-auto">
+                                        Non hai ancora una rosa attiva. Inizia subito creando il tuo team per partecipare al Fantacalcio.
+                                    </p>
+                                </div>
+                                <Link href="/team/create">
+                                    <Button size="lg" className="h-14 px-8 text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                                        <Plus className="mr-2 h-6 w-6" />
+                                        Crea Nuova Rosa
+                                    </Button>
+                                </Link>
+                            </CardContent>
+                        </Card>
+                    ) : team ? (
+                        // Case 2: User has Team -> Show Team Management
                         <Card className="border-none shadow-md bg-gradient-to-br from-primary/5 to-primary/10 overflow-hidden relative">
                             <div className="absolute top-0 right-0 p-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
@@ -82,7 +104,7 @@ function InnerHome({ user, team }: { user: any, team: any }) {
                                 </div>
                             </CardContent>
                         </Card>
-                    )}
+                    ) : null}
                 </div>
 
                 {/* Sidebar Widgets (4 cols) */}
