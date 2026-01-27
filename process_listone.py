@@ -72,6 +72,7 @@ def process_data():
             quotation = 1
 
         is_owned = False
+        is_owned = False
         if fanta_team:
             is_owned = True
             teams_found.add(fanta_team)
@@ -82,30 +83,29 @@ def process_data():
                 'Player Name': name,
                 'Price': purchase_price
             })
-        else:
-            # Svincolati: id,role,name,team,quotation
-            # Use Quotation here
-            svincolati.append({
-                'id': p_id,
-                'role': role,
-                'name': name,
-                'team': real_team,
-                'quotation': quotation
-            })
+        
+        # ALWAYS add to Svincolati (Master List)
+        svincolati.append({
+            'id': p_id,
+            'role': role,
+            'name': name,
+            'team': real_team,
+            'quotation': quotation
+        })
 
-    # Save Rosters
-    print(f"Saving {len(rosters)} players to rosters...")
-    df_rosters = pd.DataFrame(rosters)
-    if not df_rosters.empty:
-        df_rosters = df_rosters[['Team Name', 'Player Name', 'Price']]
-        # Sort by Team Name then Player Name
-        df_rosters.sort_values(by=['Team Name', 'Player Name'], inplace=True)
-        df_rosters.to_csv(OUTPUT_ROSTERS, sep=';', index=False)
-    else:
-        print("Warning: No roster players found!")
+    # Save Rosters (DISABLED to protect manual edits)
+    # print(f"Saving {len(rosters)} players to rosters...")
+    # df_rosters = pd.DataFrame(rosters)
+    # if not df_rosters.empty:
+    #     df_rosters = df_rosters[['Team Name', 'Player Name', 'Price']]
+    #     # Sort by Team Name then Player Name
+    #     df_rosters.sort_values(by=['Team Name', 'Player Name'], inplace=True)
+    #     df_rosters.to_csv(OUTPUT_ROSTERS, sep=';', index=False)
+    # else:
+    #     print("Warning: No roster players found!")
 
     # Save Svincolati
-    print(f"Saving {len(svincolati)} players to svincolati...")
+    print(f"Saving {len(svincolati)} players to svincolati (Complete List)...")
     df_svincolati = pd.DataFrame(svincolati)
     if not df_svincolati.empty:
         df_svincolati = df_svincolati[['id', 'role', 'name', 'team', 'quotation']]

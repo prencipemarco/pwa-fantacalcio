@@ -47,7 +47,24 @@ export default function AllTeamsPage() {
                 `)
                 .order('name');
 
-            if (data) setTeams(data as any);
+            if (data) {
+                const roleOrder: { [key: string]: number } = { 'P': 0, 'D': 1, 'C': 2, 'A': 3 };
+
+                const sortedTeams = data.map((team: any) => ({
+                    ...team,
+                    rosters: team.rosters.sort((a: any, b: any) => {
+                        const roleA = a.player?.role || '';
+                        const roleB = b.player?.role || '';
+                        // Sort by Role Priority
+                        if (roleOrder[roleA] !== roleOrder[roleB]) {
+                            return (roleOrder[roleA] ?? 99) - (roleOrder[roleB] ?? 99);
+                        }
+                        // Sort by Name if same role
+                        return (a.player?.name || '').localeCompare(b.player?.name || '');
+                    })
+                }));
+                setTeams(sortedTeams);
+            }
             setLoading(false);
         };
 
