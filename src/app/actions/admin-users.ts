@@ -15,18 +15,15 @@ export type UserDTO = {
 export async function getUsersList(): Promise<{ success: boolean, users?: UserDTO[], error?: string }> {
     try {
         const adminSupabase = createAdminClient();
-        const supabase = await createClient(); // Normal client for Teams query
+        const supabase = await createClient(); 
 
-        // 1. Get All Users
         const { data: { users }, error } = await adminSupabase.auth.admin.listUsers();
         if (error) return { success: false, error: error.message };
 
-        // 2. Get All Teams
         const { data: teams } = await supabase.from('teams').select('user_id, name');
         const teamMap = new Map();
         teams?.forEach(t => teamMap.set(t.user_id, t.name));
 
-        // 3. Map
         const userList: UserDTO[] = users.map(u => ({
             id: u.id,
             email: u.email || 'No Email',
@@ -43,7 +40,6 @@ export async function getUsersList(): Promise<{ success: boolean, users?: UserDT
 
 export async function createTeamForUser(userId: string, teamName: string) {
     const supabase = await createClient();
-    // Check if team exists
     const { data: existing } = await supabase.from('teams').select('id').eq('user_id', userId).single();
     if (existing) return { success: false, error: 'User already has a team.' };
 
@@ -66,7 +62,6 @@ export async function createTeamForUser(userId: string, teamName: string) {
 async function getLeagueId(supabase: any) {
     const { data } = await supabase.from('leagues').select('id').limit(1).single();
     if (data) return data.id;
-    // create one
     const { data: newL } = await supabase.from('leagues').insert({ name: 'Serie A' }).select('id').single();
     return newL?.id;
 }
@@ -83,7 +78,7 @@ export async function deleteUser(userId: string) {
 
         if (team) {
             const teamId = team.id;
-            progress = `Cleaning Team Data ${teamId}`;
+            progress = 'Cleaning Team Data ' + teamId;
 
             // A. Lineups (Cascade via lineups)
             const { data: lineups } = await adminSupabase.from('lineups').select('id').eq('team_id', teamId);
@@ -102,26 +97,19 @@ export async function deleteUser(userId: string) {
             // D. Auctions (Winner reset)
             await adminSupabase.from('auctions').update({ current_winner_team_id: null }).eq('current_winner_team_id', teamId);
             // D2. Auctions (Created by team)
-            await adminSupabase.from('auctions').delete().eq('team_id', teamId); // If column exists? Need to check schema? 
-            // Warning: earlier grep didn't show team_id in insert for auctions, but deleteTeam had it.
-            // Let's assume deleteTeam was correct about 'auctions'.delete().eq('team_id', teamId).
-            // Actually, wait, createAuction uses insert({ player_id, ... }). 
-            // Does it have team_id? 
-            // If deleteTeam had it, I'll trust it. If not, worst case it throws or ignores?
-            // Safer: try/catch this specific one or check table? 
-            // Let's assume standard deleteTeam logic was correct.
+            await adminSupabase.from('auctions').delete().eq('team_id', teamId); 
 
             // E. Fixtures (Unlink)
             await adminSupabase.from('fixtures').update({ home_team_id: null }).eq('home_team_id', teamId);
             await adminSupabase.from('fixtures').update({ away_team_id: null }).eq('away_team_id', teamId);
 
             // F. Delete Team
-            progress = `Deleting Team Row ${teamId}`;
+            progress = 'Deleting Team Row ' + teamId;
             const { error: teamDelError } = await adminSupabase.from('teams').delete().eq('id', teamId);
-            if (teamDelError) throw new Error(`Team Delete Failed: ${teamDelError.message}`);
+            if (teamDelError) throw new Error('Team Delete Failed: ' + teamDelError.message);
         } else {
-            // Fallback: Delete any orphan team with this user_id
-            await adminSupabase.from('teams').delete().eq('user_id', userId);
+             // Fallback: Delete any orphan team with this user_id
+             await adminSupabase.from('teams').delete().eq('user_id', userId);
         }
 
         // 2. Clean up User-linked data (Service Role)
@@ -129,16 +117,18 @@ export async function deleteUser(userId: string) {
             'push_subscriptions',
             'logs',
             'notifications',
-            'profiles'
+            'profiles',
+            'users' // distinct from auth.users, usually public.users
         ];
 
         for (const table of tablesToClean) {
-            progress = `Cleaning ${table} (Admin)`;
+            progress = 'Cleaning ' + table + ' (Admin)';
             try {
-                // We don't check error here as table might not exist
-                await adminSupabase.from(table).delete().eq(table === 'profiles' ? 'id' : 'user_id', userId);
+                // Determine ID column: 'users' and 'profiles' use 'id', others use 'user_id'
+                const idColumn = (table === 'profiles' || table === 'users') ? 'id' : 'user_id';
+                await adminSupabase.from(table).delete().eq(idColumn, userId);
             } catch (err) {
-                // Ignore
+                 // Ignore
             }
         }
 
@@ -147,14 +137,14 @@ export async function deleteUser(userId: string) {
         const { error } = await adminSupabase.auth.admin.deleteUser(userId);
 
         if (error) {
-            progress = `Auth Delete Failed: ${error.message}`;
+            progress = 'Auth Delete Failed: ' + error.message;
             console.error('Auth Delete Error Details:', error);
             throw error;
         }
 
         return { success: true };
     } catch (e: any) {
-        console.error(`Delete User Failed at [${progress}]:`, e);
-        return { success: false, error: `Failed at ${progress}: ${e.message || JSON.stringify(e)}` };
+        console.error('Delete User Failed at [' + progress + ']:', e);
+        return { success: false, error: 'Failed at ' + progress + ': ' + (e.message || JSON.stringify(e)) };
     }
 }
