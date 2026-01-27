@@ -122,42 +122,42 @@ export default function StandingsPage() {
                                                 )}
                                             >
                                                 {/* Rank & Border Accent */}
-                                                <TableCell className={cn("text-center p-0 relative", borderLeft)}>
+                                                <TableCell className={cn("text-center p-0 relative w-[40px] md:w-[60px]", borderLeft)}>
                                                     <div className="flex items-center justify-center h-full w-full">
-                                                        <span className={cn("font-black text-lg", rankColor)}>{rank}</span>
+                                                        <span className={cn("font-black text-sm md:text-lg", rankColor)}>{rank}</span>
                                                     </div>
                                                 </TableCell>
 
                                                 {/* Team */}
-                                                <TableCell className="pl-4 py-3">
-                                                    <div className="flex items-center gap-3">
+                                                <TableCell className="pl-2 md:pl-4 py-3">
+                                                    <div className="flex items-center gap-2 md:gap-3">
                                                         <Avatar className={cn(
-                                                            "w-9 h-9 md:w-10 md:h-10 border-2",
+                                                            "w-7 h-7 md:w-10 md:h-10 border-2 flex-shrink-0",
                                                             isMe ? "border-blue-500" : "border-transparent bg-muted"
                                                         )}>
                                                             <AvatarFallback className={cn(
-                                                                "font-bold text-sm",
+                                                                "font-bold text-[10px] md:text-sm",
                                                                 isMe ? "bg-[#4169E1] text-white" : "bg-muted text-muted-foreground"
                                                             )}>
                                                                 {team.teamName.substring(0, 2).toUpperCase()}
                                                             </AvatarFallback>
                                                         </Avatar>
-                                                        <div className="flex flex-col">
+                                                        <div className="flex flex-col min-w-0">
                                                             <span className={cn(
-                                                                "font-bold text-sm md:text-[16px] truncate max-w-[140px] md:max-w-[300px]",
+                                                                "font-bold text-xs md:text-[16px] truncate max-w-[100px] md:max-w-[300px]",
                                                                 isMe ? "text-[#4169E1]" : "text-foreground"
                                                             )}>
                                                                 {team.teamName}
                                                             </span>
-                                                            {isMe && <span className="text-[10px] text-[#4169E1]/80 font-semibold uppercase tracking-wider md:hidden">La Mia Rosa</span>}
+                                                            {isMe && <span className="text-[9px] text-[#4169E1]/80 font-semibold uppercase tracking-wider md:hidden truncate">Tu</span>}
                                                         </div>
                                                     </div>
                                                 </TableCell>
 
                                                 {/* Points */}
-                                                <TableCell className="text-center p-2">
-                                                    <div className="inline-flex items-center justify-center w-[50px] h-[36px] bg-[#F0F9FF] dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800/50">
-                                                        <span className="font-bold text-xl md:text-2xl text-foreground dark:text-blue-100">{team.points}</span>
+                                                <TableCell className="text-center p-1 md:p-2">
+                                                    <div className="inline-flex items-center justify-center w-[36px] h-[28px] md:w-[50px] md:h-[36px] bg-[#F0F9FF] dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800/50">
+                                                        <span className="font-bold text-sm md:text-2xl text-foreground dark:text-blue-100">{team.points}</span>
                                                     </div>
                                                 </TableCell>
 
@@ -171,9 +171,9 @@ export default function StandingsPage() {
                                                 <TableCell className="text-center text-[13px] font-medium text-muted-foreground/70 hidden md:table-cell">{team.goalsAgainst}</TableCell>
 
                                                 {/* Total Fantasy Points */}
-                                                <TableCell className="text-right pr-5 py-3">
-                                                    <div className="inline-flex items-center justify-center px-3 py-1.5 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/20 rounded-lg min-w-[70px]">
-                                                        <span className="font-bold text-base md:text-lg text-[#4169E1] dark:text-blue-400 font-mono">
+                                                <TableCell className="text-right pr-3 md:pr-5 py-3">
+                                                    <div className="inline-flex items-center justify-center px-2 py-1 md:px-3 md:py-1.5 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/20 rounded-lg min-w-[50px] md:min-w-[70px]">
+                                                        <span className="font-bold text-xs md:text-lg text-[#4169E1] dark:text-blue-400 font-mono">
                                                             {team.totalFantasyPoints.toFixed(1)}
                                                         </span>
                                                     </div>
