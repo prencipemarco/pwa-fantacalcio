@@ -42,20 +42,12 @@ export async function getUsersList(): Promise<{ success: boolean, users?: UserDT
 }
 
 export async function createTeamForUser(userId: string, teamName: string) {
-    const supabase = await createClient(); // We can use normal client if RLS allows specific INSERT? 
-    // Actually, creating a team usually requires being THAT user in RLS.
-    // Admin override: we might need to use adminSupabase to insert into 'teams' if RLS blocks us.
-    // Let's assume we can use Service Role for insertion to bypass RLS "auth.uid() = user_id".
-
+    const supabase = await createClient(); 
     // Check if team exists
     const { data: existing } = await supabase.from('teams').select('id').eq('user_id', userId).single();
     if (existing) return { success: false, error: 'User already has a team.' };
 
     const adminSupabase = createAdminClient();
-
-    // Default password for Admin created teams? Or let user set it?
-    // Let's set a default '123456' and tell them to change it, or just null?
-    // User creation flow uses specific password.
 
     const hashedPassword = await hash('123456', 10);
 
@@ -80,31 +72,48 @@ async function getLeagueId(supabase: any) {
 }
 
 export async function deleteUser(userId: string) {
-    try {
-        const adminSupabase = createAdminClient();
-        const supabase = await createClient();
+    const adminSupabase = createAdminClient();
+    const supabase = await createClient();
 
-        // 1. Check/Delete Team first (Clean up data)
-        const { data: team } = await supabase.from('teams').select('id').eq('user_id', userId).single();
+    try {
+        // 1. Check/Delete Team first
+        const { data: team } = await supabase.from('teams').select('id').eq('user_id', userId).maybeSingle();
         if (team) {
             const { deleteTeam } = await import('@/app/actions/admin');
             await deleteTeam(team.id);
+        } else {
+            // Even if no team found, try to delete ANY team with this user_id
+            await supabase.from('teams').delete().eq('user_id', userId);
         }
 
-        // 2. Clean up other User-linked data
-        // Push Subscriptions
-        await supabase.from('push_subscriptions').delete().eq('user_id', userId);
+        // 2. Clean up User-linked data (Explicitly specific tables)
+        const tablesToClean = [
+            'push_subscriptions', 
+            'logs', 
+            'notifications', 
+            'profiles'
+        ];
 
-        // Logs
-        await supabase.from('logs').delete().eq('user_id', userId);
+        for (const table of tablesToClean) {
+            try {
+                const { error: cleanError } = await supabase.from(table).delete().eq(table === 'profiles' ? 'id' : 'user_id', userId);
+                if (cleanError) console.warn('Cleanup ' + table + ' warning:', cleanError.message);
+            } catch (err) {
+                // Ignore
+            }
+        }
 
         // 3. Delete User from Auth
         const { error } = await adminSupabase.auth.admin.deleteUser(userId);
-        if (error) throw error;
+        
+        if (error) {
+            console.error('Auth Delete Error Details:', error);
+            throw error;
+        }
 
         return { success: true };
     } catch (e: any) {
-        console.error('Delete User Error:', e);
-        return { success: false, error: e.message };
+        console.error('Delete User Logic Failed:', e);
+        return { success: false, error: e.message || JSON.stringify(e) };
     }
 }
