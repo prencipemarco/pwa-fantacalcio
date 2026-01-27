@@ -69,7 +69,7 @@ export default function AllTeamsPage() {
                 {teams.map(team => (
                     <Card key={team.id} className="overflow-hidden">
                         <div
-                            className="p-4 flex justify-between items-center cursor-pointer bg-white dark:bg-zinc-900 transition-colors hover:bg-gray-50 dark:hover:bg-zinc-800"
+                            className="p-3 flex justify-between items-center cursor-pointer bg-white dark:bg-zinc-900 transition-colors hover:bg-gray-50 dark:hover:bg-zinc-800"
                             onClick={() => setExpandedTeamId(expandedTeamId === team.id ? null : team.id)}
                         >
                             <div className="flex flex-col">
@@ -89,8 +89,8 @@ export default function AllTeamsPage() {
                                             <div key={r.player.id} className="flex justify-between items-center text-sm border-b border-gray-100 last:border-0 pb-1">
                                                 <div className="flex items-center gap-2">
                                                     <span className={`font-bold w-6 ${r.player.role === 'P' ? 'text-orange-500' :
-                                                            r.player.role === 'D' ? 'text-green-600' :
-                                                                r.player.role === 'C' ? 'text-blue-600' : 'text-red-600'
+                                                        r.player.role === 'D' ? 'text-green-600' :
+                                                            r.player.role === 'C' ? 'text-blue-600' : 'text-red-600'
                                                         }`}>{r.player.role}</span>
                                                     <span>{r.player.name}</span>
                                                     <span className="text-xs text-gray-400 capitalize">({r.player.team_real.toLowerCase()})</span>
