@@ -1,0 +1,435 @@
+id,role,name,team,quotation
+7183,A,Aboukhlal,Torino,3
+7127,A,Addai,Como,11
+6207,A,Almqvist,Parma,3
+5845,A,Alvarez A.,Sassuolo,2
+7264,A,Ambrosino,Napoli,2
+7277,A,Arena A.,Roma,1
+7027,A,Azon,Como,1
+7262,A,Balentien,Milan,1
+6001,A,Banda,Lecce,11
+7161,A,Bayo V.,Udinese,3
+441,A,Belotti,Cagliari,8
+6409,A,Beltran L.,Fiorentina,6
+6667,A,Benedyczak,Parma,8
+7152,A,Bonfanti N.,Pisa,1
+6243,A,Borrelli,Cagliari,13
+6653,A,Bravo,Udinese,4
+6213,A,Brenner,Udinese,3
+7171,A,Buffon L.,Pisa,1
+7249,A,Buksa,Udinese,8
+4436,A,Cambiaghi,Bologna,17
+6439,A,Cheddira,Lecce,7
+4923,A,Colombo,Genoa,14
+2155,A,Cutrone,Parma,6
+5512,A,De Luca,Cremonese,3
+5672,A,Dia,Lazio,5
+5471,A,Djuric,Parma,2
+6895,A,Dominguez B.,Bologna,5
+7316,A,Durosinmi,Pisa,15
+647,A,Dzeko,Fiorentina,3
+6822,A,Ekhator,Genoa,10
+5506,A,Ekuban,Genoa,11
+7213,A,Frigan,Parma,1
+2678,A,Fullkrug,Milan,14
+6657,A,Gabrielloni,Como,1
+4179,A,Gonzalez N.,Juventus,11
+7272,A,Gueye,Udinese,2
+785,A,Immobile,Bologna,4
+7309,A,Isaac,Verona,2
+5496,A,Johnsen,Cremonese,7
+6459,A,Karlsson,Bologna,3
+2762,A,Kouamè,Fiorentina,1
+7128,A,Kuhn,Como,6
+7153,A,Lind,Pisa,4
+5297,A,Luvumbo,Cagliari,3
+5585,A,Malen,Roma,15
+6836,A,Meister,Pisa,8
+2012,A,Milik,Juventus,1
+313,A,Morata,Como,3
+5455,A,Moreo,Pisa,18
+7158,A,Moro L.,Sassuolo,2
+6630,A,Mosquera,Verona,7
+6555,A,Moumbagna,Cremonese,2
+6205,A,Mulattieri,Sassuolo,5
+7001,A,N'Dri,Lecce,10
+7134,A,Nasti,Cremonese,1
+6145,A,Ngonge,Torino,9
+6827,A,Njie,Torino,6
+6556,A,Noslin,Lazio,11
+6227,A,Okafor,Milan,4
+5515,A,Okereke,Cremonese,1
+247,A,Pavoletti,Cagliari,1
+2489,A,Pedro,Lazio,7
+1842,A,Pierini,Sassuolo,2
+6635,A,Pizarro,Udinese,1
+4371,A,Raspadori,Atalanta,16
+7313,A,Ratkov,Lazio,14
+6644,A,Rocha Livramento,Verona,3
+2475,A,Sanchez,Udinese,6
+6159,A,Sarr A.,Verona,6
+7159,A,Skjellerup,Sassuolo,1
+6380,A,Solomon,Fiorentina,7
+7252,A,Stulic,Lecce,7
+5918,A,Sulemana K.,Atalanta,11
+6628,A,Taremi,Inter,4
+2369,A,Thauvin,Udinese,16
+6229,A,Tourè E.,Atalanta,7
+7317,A,Trepy,Cagliari,1
+6981,A,Vaz,Roma,10
+6164,A,Vitinha O.,Genoa,12
+2841,A,Vlahovic,Juventus,14
+4870,C,Adopo,Cagliari,7
+6677,C,Adzic,Juventus,3
+5784,C,Aebischer,Pisa,5
+6593,C,Akinsanmiro,Pisa,6
+5286,C,Akpa Akpro,Verona,2
+7010,C,Al-Musrati,Verona,3
+2553,C,Alli,Como,1
+6889,C,Anjorin,Torino,2
+7151,C,Arena,Pisa,1
+5719,C,Asllani,Torino,2
+2670,C,Bailey,Roma,8
+5823,C,Baldanzi,Genoa,6
+5674,C,Basic,Lazio,13
+6191,C,Belahyane,Lazio,3
+6015,C,Berisha M.,Lecce,12
+184,C,Bernardeschi,Bologna,5
+7028,C,Bernede,Verona,9
+5516,C,Bianco,Fiorentina,1
+6219,C,Boloca,Sassuolo,2
+5992,C,Bondo,Cremonese,7
+6656,C,Braunoder,Como,1
+4947,C,Brescianini,Fiorentina,10
+5036,C,Caqueret,Como,13
+6106,C,Carboni V.,Genoa,4
+5863,C,Castagnetti,Cremonese,3
+333,C,Cataldi,Lazio,12
+4856,C,Chukwueze,Milan,4
+6618,C,Cissè A.,Verona,1
+7132,C,Collocolo,Cremonese,2
+4677,C,Cornet,Genoa,2
+5504,C,Coulibaly L.,Lecce,13
+7276,C,Cremaschi,Parma,1
+1871,C,Deiola,Cagliari,6
+6274,C,Diouf,Inter,2
+4911,C,Douglas Luiz,Juventus,3
+6684,C,Ekkelenkamp,Udinese,12
+6271,C,El Aynaoui,Roma,4
+6225,C,El Azzouzi,Bologna,3
+795,C,El Shaarawy,Roma,7
+6020,C,Ellertsson,Genoa,11
+4479,C,Elmas,Napoli,5
+6676,C,Engelhardt,Como,2
+5290,C,Estevez,Parma,5
+6206,C,Fabbian,Fiorentina,8
+6815,C,Fadera,Sassuolo,11
+4465,C,Fagioli,Fiorentina,8
+6010,C,Fazzini,Fiorentina,2
+6640,C,Felici,Cagliari,12
+5858,C,Ferguson,Bologna,6
+6506,C,Fini,Genoa,2
+7319,C,Fofana Sa.,Lecce,1
+2848,C,Frattesi,Inter,3
+5791,C,Frendrup,Genoa,9
+788,C,Freuler,Bologna,5
+4364,C,Gaetano,Cagliari,14
+801,C,Gagliardini,Verona,8
+7318,C,Gandelman,Lecce,7
+4930,C,Ghion,Sassuolo,4
+6170,C,Gineitis,Torino,4
+7248,C,Gorter,Lecce,2
+27,C,Grassi,Cremonese,5
+6722,C,Gronbaek,Genoa,2
+4186,C,Guendouzi,Lazio,13
+5651,C,Harrison,Fiorentina,10
+5872,C,Helgason,Lecce,2
+7147,C,Hojholt,Pisa,1
+7157,C,Iannoni,Sassuolo,5
+5007,C,Ilic,Torino,3
+6005,C,Ilkhan,Torino,2
+7203,C,Jashari,Milan,3
+6410,C,Kaba,Lecce,3
+6680,C,Karlstrom,Udinese,10
+2117,C,Kastanos,Verona,1
+6898,C,Keita M.,Parma,8
+4711,C,Kostic,Juventus,13
+2334,C,Leris,Pisa,11
+6678,C,Liberali,Milan,1
+6246,C,Lipani,Sassuolo,4
+7165,C,Liteta,Cagliari,1
+7254,C,Lorran,Pisa,7
+5850,C,Lovric,Udinese,3
+7331,C,Loyola,Pisa,7
+5301,C,Luis Henrique,Inter,6
+4896,C,Maldini,Atalanta,3
+5457,C,Maleh,Lecce,4
+4427,C,Malinovskyi,Genoa,14
+5393,C,Man,Parma,11
+6645,C,Marchwinski,Lecce,1
+7149,C,Marin M.,Pisa,4
+6917,C,Masini,Genoa,5
+2528,C,Matic,Sassuolo,10
+1976,C,Mazzitelli,Cagliari,11
+4973,C,McKennie,Juventus,14
+4970,C,Messias,Genoa,6
+7208,C,Miller L.,Udinese,3
+5813,C,Miretti,Juventus,10
+6054,C,Moro N.,Bologna,8
+5295,C,Musah,Atalanta,5
+6294,C,Ndour,Fiorentina,6
+5564,C,Ndoye,Bologna,19
+7322,C,Ngom,Lecce,1
+5540,C,Niasse,Verona,5
+4349,C,Nicolussi Caviglia,Fiorentina,3
+6538,C,Onana J.,Genoa,2
+6984,C,Ondrejka,Parma,5
+5824,C,Pafundi,Udinese,1
+6481,C,Payero,Cremonese,7
+6151,C,Perrone,Como,16
+7145,C,Piccinini G.,Pisa,5
+5857,C,Pickel,Cremonese,2
+6549,C,Pierotti,Lecce,6
+6633,C,Pierret,Lecce,1
+7198,C,Piotrowski,Udinese,8
+6190,C,Pisilli,Roma,6
+5298,C,Pobega,Bologna,11
+6424,C,Prati,Cagliari,6
+6222,C,Rafia,Lecce,1
+6394,C,Ramadani,Lecce,5
+6804,C,Richardson,Fiorentina,2
+5788,C,Sabiri,Fiorentina,2
+7246,C,Sala A.,Lecce,1
+7177,C,Santiago,Verona,1
+6528,C,Sarmiento J.,Cremonese,3
+6458,C,Serdar,Verona,11
+4284,C,Sergi Roberto,Como,3
+7209,C,Sorensen O.,Parma,6
+5561,C,Stengs,Pisa,1
+4486,C,Strefezza,Como,14
+6024,C,Sulemana I.,Cagliari,2
+6486,C,Suslov,Verona,1
+4890,C,Tameze,Torino,4
+7314,C,Taylor K.,Lazio,13
+6634,C,Tete Morente,Lecce,3
+4404,C,Thorsby,Genoa,14
+2274,C,Valoti,Cremonese,1
+181,C,Vecino,Lazio,6
+6980,C,Venturino,Roma,1
+7223,C,Vergara,Napoli,2
+5735,C,Volpato,Sassuolo,12
+5610,C,Vranckx,Sassuolo,2
+7150,C,Vural,Pisa,2
+4662,C,Weah,Juventus,7
+2842,C,Zanimacchia,Cremonese,5
+6212,C,Zarraga,Udinese,2
+5998,C,Zerbin,Cremonese,6
+5761,C,Zhegrova,Juventus,9
+6885,D,Abdulhamid,Roma,1
+513,D,Acerbi,Inter,6
+6916,D,Ahanor,Atalanta,6
+388,D,Albiol,Pisa,3
+7143,D,Angori,Pisa,9
+7312,D,Arizala,Udinese,1
+7211,D,Athekame,Milan,3
+6231,D,Azzi,Cremonese,3
+5353,D,Balogh,Parma,3
+6013,D,Barbieri,Cremonese,9
+7220,D,Belghali,Verona,10
+7253,D,Bella-Kotchap,Verona,4
+7219,D,Bernasconi,Atalanta,8
+5820,D,Bertola,Udinese,6
+6202,D,Beukema,Napoli,7
+612,D,Bianchetti,Cremonese,6
+6444,D,Bonfanti,Pisa,2
+7325,D,Bozhinov,Pisa,2
+5532,D,Bradaric,Verona,5
+7255,D,Britschgi,Parma,7
+6039,D,Cabal,Juventus,10
+2745,D,Calabresi,Pisa,5
+6985,D,Candè,Sassuolo,2
+7139,D,Canestrelli,Pisa,5
+5498,D,Casale,Bologna,2
+1891,D,Ceccherini,Cremonese,2
+7222,D,Cham,Verona,2
+6663,D,Circati,Parma,9
+7140,D,Coppola F.,Pisa,2
+6665,D,Coulibaly W.,Sassuolo,1
+487,D,De Silvestri,Bologna,2
+322,D,De Vrij,Inter,4
+6826,D,Dembelè A.,Torino,1
+7196,D,Denoon,Pisa,1
+5406,D,Di Pardo,Cagliari,2
+4137,D,Diego Carlos,Como,7
+787,D,Djimsiti,Atalanta,6
+6230,D,Dossena,Cagliari,1
+5994,D,Ebosse,Verona,2
+6047,D,Ehizibue,Udinese,3
+4982,D,Erlic,Bologna,3
+7142,D,Esteves T.,Pisa,1
+6870,D,Faye,Cremonese,2
+7130,D,Folino,Cremonese,7
+7069,D,Fortini,Fiorentina,6
+6639,D,Frese,Verona,6
+4502,D,Gallo,Lecce,8
+6632,D,Gaspar K.,Lecce,4
+6631,D,Ghilardi,Roma,4
+6533,D,Giannetti L.,Udinese,3
+5899,D,Gigot,Lazio,1
+5324,D,Godfrey,Atalanta,1
+6537,D,Goglichidze,Udinese,2
+418,D,Goldaniga,Como,1
+5427,D,Gutierrez,Napoli,3
+6821,D,Hainaut,Parma,2
+7212,D,Heggem,Bologna,8
+7326,D,Helland,Bologna,3
+4807,D,Hermoso,Roma,10
+140,D,Hysaj,Lazio,1
+7125,D,Idrissi R.,Cagliari,8
+6672,D,Idzes,Sassuolo,8
+6551,D,Ilic M.,Bologna,1
+5010,D,Ismajli,Torino,6
+6944,D,Jack,Como,2
+6883,D,Jean,Lecce,1
+6531,D,Jimenez A.,Milan,5
+7175,D,Joao Mario,Juventus,2
+256,D,Juan Jesus,Napoli,3
+4263,D,Kabasele,Udinese,12
+5555,D,Kamara H.,Udinese,5
+6893,D,Kempf,Como,16
+2640,D,Kolasinac,Atalanta,4
+7238,D,Kouadio,Fiorentina,1
+7136,D,Kouassi,Lecce,1
+4495,D,Kumbulla,Roma,2
+6351,D,Lamptey,Fiorentina,1
+4385,D,Lazaro,Torino,6
+2263,D,Lazzari,Lazio,4
+6887,D,Leoni,Parma,7
+2006,D,Lirola,Verona,4
+6965,D,Lovik,Parma,2
+393,D,Luperto,Cagliari,9
+2653,D,Lykogiannis,Bologna,2
+6660,D,Marcandalli,Genoa,7
+6809,D,Marianucci,Napoli,2
+2593,D,Martin,Genoa,14
+2188,D,Marusic,Lazio,7
+4904,D,Marì,Fiorentina,2
+49,D,Masina,Torino,2
+6411,D,Mateus Lusuardi,Pisa,2
+5481,D,Mazzocchi,Napoli,2
+7170,D,Mbambi,Pisa,1
+6189,D,Missori,Sassuolo,2
+5435,D,Moreno Alb.,Como,10
+7155,D,Muharemovic,Sassuolo,8
+7182,D,Ndaba,Lecce,3
+7202,D,Ndiaye,Parma,1
+7018,D,Nelsson,Verona,4
+5156,D,Nkounkou,Torino,2
+6814,D,Norton-Cuffy,Genoa,8
+5701,D,Obert,Cagliari,5
+7329,D,Obrador,Torino,6
+7154,D,Odenthal,Sassuolo,1
+7271,D,Odogu,Milan,1
+5750,D,Ostigard,Genoa,15
+6977,D,Otoa,Genoa,2
+6992,D,Oyegoke,Verona,1
+6874,D,Palacios T.,Inter,1
+6925,D,Palma,Udinese,2
+327,D,Patric,Lazio,1
+4177,D,Pavard,Inter,8
+6431,D,Paz Y.,Sassuolo,1
+6426,D,Pedersen,Torino,4
+2728,D,Pellegrini Lu.,Lazio,5
+7164,D,Perez M.,Lecce,1
+770,D,Pezzella Giu.,Cremonese,4
+7156,D,Pieragnolo,Sassuolo,1
+5603,D,Pongracic,Fiorentina,4
+6066,D,Posch,Como,9
+7012,D,Provstgaard,Lazio,3
+5891,D,Quagliata,Cremonese,1
+5860,D,Ravanelli,Cremonese,2
+6986,D,Rensch,Roma,5
+7268,D,Rodriguez Ju.,Cagliari,3
+2279,D,Romagna,Sassuolo,1
+6803,D,Rouhi,Juventus,1
+294,D,Rugani,Juventus,2
+6900,D,Rui Modesto,Udinese,1
+7141,D,Rus,Pisa,2
+791,D,Sabelli,Genoa,2
+7020,D,Salah-Eddine,Roma,4
+6802,D,Savona,Juventus,3
+6041,D,Schuurs,Torino,1
+2847,D,Sernicola,Cremonese,1
+7240,D,Siebert,Lecce,3
+7011,D,Slotsager,Verona,4
+7014,D,Smolcic I.,Como,4
+6480,D,Tchatchoua,Verona,8
+7336,D,Tchoca,Torino,2
+5812,D,Terracciano F.,Cremonese,11
+6055,D,Thiaw,Milan,4
+6989,D,Tiago Gabriel,Lecce,9
+7235,D,Troilo,Parma,2
+5168,D,Tsimikas,Roma,4
+6894,D,Unai Nunez,Verona,4
+5307,D,Valenti,Parma,6
+6957,D,Valentini N.,Verona,3
+6896,D,Van Der Brempt,Como,2
+6990,D,Veiga D.,Lecce,5
+6636,D,Veroli,Cagliari,1
+5718,D,Viti,Fiorentina,2
+6245,D,Vogliacco,Genoa,3
+4374,D,Walukiewicz,Sassuolo,6
+6464,D,Wieteska,Cagliari,1
+5527,D,Zanoli,Udinese,11
+4461,D,Zappa,Cagliari,7
+7335,D,Zatterstrom,Genoa,4
+6211,D,Zemura,Udinese,3
+7260,D,Ziolkowski,Roma,4
+7274,D,Zè Pedro,Cagliari,2
+761,P,Audero,Cremonese,15
+7332,P,Bijlow,Genoa,10
+7042,P,Calligaris,Inter,1
+7261,P,Cavlina,Como,1
+6403,P,Christensen O.,Fiorentina,1
+4929,P,Ciocci,Cagliari,1
+6662,P,Corvi,Parma,11
+216,P,Donnarumma An.,Torino,1
+7285,P,Ferrante,Napoli,1
+2401,P,Fruchtl,Lecce,1
+6417,P,Furlanetto,Lazio,1
+5135,P,Guaita,Parma,3
+7179,P,Israel,Torino,2
+158,P,Lezzerini,Fiorentina,1
+6184,P,Martinelli T.,Fiorentina,1
+4957,P,Montipò,Verona,9
+6505,P,Nava,Cremonese,1
+2271,P,Nicolas,Pisa,1
+7185,P,Nunziante,Udinese,1
+6462,P,Okoye,Udinese,11
+543,P,Padelli,Udinese,4
+5320,P,Paleari,Torino,8
+511,P,Perilli,Verona,3
+7172,P,Pessina Mas.,Bologna,1
+1930,P,Pinsoglio,Juventus,1
+6210,P,Popa,Torino,1
+3,P,Radunovic,Cagliari,1
+2722,P,Ravaglia F.,Bologna,10
+5338,P,Rinaldi,Parma,3
+2297,P,Rossi F.,Atalanta,1
+4518,P,Russo A.,Sassuolo,1
+6523,P,Samooja,Lecce,1
+2127,P,Satalino,Sassuolo,1
+6842,P,Sava,Udinese,1
+574,P,Scuffet,Pisa,2
+2861,P,Semper,Pisa,9
+6650,P,Sherri,Cagliari,1
+6991,P,Siegrist,Genoa,1
+2211,P,Silvestri,Cremonese,1
+219,P,Sommariva,Genoa,1
+7236,P,Toniolo,Verona,1
+7301,P,Tornqvist,Como,1
+6813,P,Torriani,Milan,1
+4867,P,Turati,Sassuolo,1
+6125,P,Vasquez D.,Roma,1
+2809,P,Vigorito,Como,1
+7169,P,Zelezny,Roma,1
