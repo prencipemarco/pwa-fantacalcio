@@ -74,14 +74,18 @@ async function getLeagueId(supabase: any) {
 export async function deleteUser(userId: string) {
     const adminSupabase = createAdminClient();
     const supabase = await createClient();
+    let progress = 'Start';
 
     try {
+        progress = 'Checking Team';
         // 1. Check/Delete Team first
         const { data: team } = await supabase.from('teams').select('id').eq('user_id', userId).maybeSingle();
         if (team) {
+            progress = 'Deleting Team ' + team.id;
             const { deleteTeam } = await import('@/app/actions/admin');
             await deleteTeam(team.id);
         } else {
+            progress = 'Force Deleting Team (No ID)';
             // Even if no team found, try to delete ANY team with this user_id
             await supabase.from('teams').delete().eq('user_id', userId);
         }
@@ -91,10 +95,11 @@ export async function deleteUser(userId: string) {
             'push_subscriptions', 
             'logs', 
             'notifications', 
-            'profiles'
+            'profiles' 
         ];
 
         for (const table of tablesToClean) {
+            progress = 'Cleaning ' + table;
             try {
                 const { error: cleanError } = await supabase.from(table).delete().eq(table === 'profiles' ? 'id' : 'user_id', userId);
                 if (cleanError) console.warn('Cleanup ' + table + ' warning:', cleanError.message);
@@ -103,17 +108,19 @@ export async function deleteUser(userId: string) {
             }
         }
 
+        progress = 'Deleting Auth User';
         // 3. Delete User from Auth
         const { error } = await adminSupabase.auth.admin.deleteUser(userId);
         
         if (error) {
+            progress = 'Auth Delete Failed: ' + error.message;
             console.error('Auth Delete Error Details:', error);
             throw error;
         }
 
         return { success: true };
     } catch (e: any) {
-        console.error('Delete User Logic Failed:', e);
-        return { success: false, error: e.message || JSON.stringify(e) };
+        console.error('Delete User Failed at [' + progress + ']:', e);
+        return { success: false, error: 'Failed at ' + progress + ': ' + (e.message || JSON.stringify(e)) };
     }
 }
