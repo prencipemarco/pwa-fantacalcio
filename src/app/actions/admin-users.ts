@@ -91,7 +91,14 @@ export async function deleteUser(userId: string) {
             await deleteTeam(team.id);
         }
 
-        // 2. Delete User from Auth
+        // 2. Clean up other User-linked data
+        // Push Subscriptions
+        await supabase.from('push_subscriptions').delete().eq('user_id', userId);
+
+        // Logs
+        await supabase.from('logs').delete().eq('user_id', userId);
+
+        // 3. Delete User from Auth
         const { error } = await adminSupabase.auth.admin.deleteUser(userId);
         if (error) throw error;
 

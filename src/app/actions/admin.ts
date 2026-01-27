@@ -401,7 +401,13 @@ export async function deleteTeam(teamId: string) {
         await supabase.from('fixtures').update({ home_team_id: null }).eq('home_team_id', teamId);
         await supabase.from('fixtures').update({ away_team_id: null }).eq('away_team_id', teamId);
 
-        // 6. Delete Team
+        // 6. Push Subscriptions (Linked to User ID, but good to clean if we have it? No, deleteUser handles User ID stuff. 
+        // But what if tables link to Team ID?
+        // Check Markets / Bids?
+        // Auctions where team is CREATOR?
+        await supabase.from('auctions').delete().eq('team_id', teamId); // Delete created auctions
+
+        // 7. Delete Team
         const { error } = await supabase.from('teams').delete().eq('id', teamId);
 
         if (error) throw error;

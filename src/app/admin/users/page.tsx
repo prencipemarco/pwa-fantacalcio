@@ -1,149 +1,40 @@
-'use client';
+import { getUsersList } from '@/app/actions/admin-users';
+import { UserManagement } from '@/components/admin/user-management';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { ShieldX } from 'lucide-react';
 
-import { useState, useEffect } from 'react';
-import { getUsersList, createTeamForUser, UserDTO } from '@/app/actions/admin-users';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardTitle, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Loader2 } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+// Force dynamic rendering to ensure fresh data on load
+export const dynamic = 'force-dynamic';
 
-export default function AdminUsersPage() {
-    const { t } = useLanguage();
-    const [users, setUsers] = useState<UserDTO[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+export default async function AdminUsersPage() {
+    const { success, users, error } = await getUsersList();
 
-    // Form State
-    const [selectedUser, setSelectedUser] = useState<string | null>(null);
-    const [teamName, setTeamName] = useState('');
-    const [creating, setCreating] = useState(false);
-
-    const loadUsers = async () => {
-        setLoading(true);
-        const res = await getUsersList();
-        if (res.success && res.users) {
-            setUsers(res.users);
-        } else {
-            setError(res.error || 'Failed to load users');
-        }
-        setLoading(false);
-    };
-
-    useEffect(() => {
-        loadUsers();
-    }, []);
-
-    const handleCreateTeam = async (userId: string) => {
-        if (!teamName) return;
-        setCreating(true);
-        const res = await createTeamForUser(userId, teamName);
-        if (res.success) {
-            alert('Team created! Password: "123456"');
-            setTeamName('');
-            setSelectedUser(null);
-            loadUsers();
-        } else {
-            alert(res.error);
-        }
-        setCreating(false);
-    };
+    if (!success || !users) {
+        return (
+            <div className="container mx-auto p-8 max-w-5xl">
+                <Alert variant="destructive">
+                    <ShieldX className="h-4 w-4" />
+                    <AlertTitle>Error Loading Users</AlertTitle>
+                    <AlertDescription>
+                        {error || 'Failed to fetch user list from Supabase.'}
+                        <br />
+                        Please check your Service Role Key configuration.
+                    </AlertDescription>
+                </Alert>
+            </div>
+        );
+    }
 
     return (
-        <div className="container mx-auto p-4 max-w-4xl">
-            <h1 className="text-2xl font-bold mb-6">User Management</h1>
-
-            {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded mb-4">
-                    <strong>Error:</strong> {error}
-                    <p className="text-sm mt-1">Ensure SUPABASE_SERVICE_ROLE_KEY is set in .env</p>
-                </div>
-            )}
-
-            {loading && <div className="flex justify-center p-8"><Loader2 className="animate-spin" /></div>}
-
-            <div className="space-y-4">
-                {!loading && users.map(user => (
-                    <Card key={user.id} className="flex justify-between items-center p-4">
-                        <div>
-                            <div className="font-bold">{user.email}</div>
-                            <div className="text-xs text-gray-500 font-mono">{user.id}</div>
-                            <div className="text-xs text-gray-400">Joined: {new Date(user.created_at).toLocaleDateString()}</div>
-                        </div>
-
-                        <div>
-                            {user.hasTeam ? (
-                                <>
-                                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                                        Team: {user.teamName}
-                                    </Badge>
-                                    <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        className="ml-2 text-red-500 hover:text-red-700 hover:bg-red-50"
-                                        onClick={async () => {
-                                            if (confirm(`Delete user AND team "${user.teamName}"? This is irreversible.`)) {
-                                                const { deleteUser } = await import('@/app/actions/admin-users');
-                                                const res = await deleteUser(user.id);
-                                                if (res.success) {
-                                                    loadUsers();
-                                                } else {
-                                                    alert('Error: ' + res.error);
-                                                }
-                                            }
-                                        }}
-                                    >
-                                        Delete
-                                    </Button>
-                                </>
-                            ) : (
-                                <div>
-                                    {selectedUser === user.id ? (
-                                        <div className="flex gap-2 items-center">
-                                            <Input
-                                                placeholder="Team Name"
-                                                value={teamName}
-                                                onChange={e => setTeamName(e.target.value)}
-                                                className="w-40 h-8"
-                                            />
-                                            <Button size="sm" onClick={() => handleCreateTeam(user.id)} disabled={creating}>
-                                                Save
-                                            </Button>
-                                            <Button size="sm" variant="ghost" onClick={() => setSelectedUser(null)}>
-                                                Cancel
-                                            </Button>
-                                        </div>
-                                    ) : (
-                                        <div className="flex gap-2">
-                                            <Button size="sm" onClick={() => { setSelectedUser(user.id); setTeamName(''); }}>
-                                                Create Team
-                                            </Button>
-                                            <Button
-                                                size="sm"
-                                                variant="destructive"
-                                                onClick={async () => {
-                                                    if (confirm('Are you sure you want to delete this user? This cannot be undone.')) {
-                                                        const { deleteUser } = await import('@/app/actions/admin-users');
-                                                        const res = await deleteUser(user.id);
-                                                        if (res.success) {
-                                                            loadUsers();
-                                                        } else {
-                                                            alert('Error deleting user: ' + res.error);
-                                                        }
-                                                    }
-                                                }}
-                                            >
-                                                Delete User
-                                            </Button>
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    </Card>
-                ))}
+        <div className="container mx-auto p-4 md:p-8 max-w-6xl">
+            <div className="mb-8">
+                <h1 className="text-3xl font-bold tracking-tight text-foreground">User Management</h1>
+                <p className="text-muted-foreground mt-1">
+                    Manage active users, monitor team status, and handle account administration.
+                </p>
             </div>
+
+            <UserManagement initialUsers={users} />
         </div>
     );
 }
