@@ -10,7 +10,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { Shirt, ShoppingBag, Trophy, Users, Shield, ArrowRight, Plus } from 'lucide-react';
 
-function InnerHome({ user, team }: { user: any, team: any }) {
+import { TeamStanding } from '@/app/actions/standings';
+
+function InnerHome({ user, team, standings }: { user: any, team: any, standings: TeamStanding[] }) {
     const { t } = useLanguage();
 
     return (
@@ -43,17 +45,16 @@ function InnerHome({ user, team }: { user: any, team: any }) {
             )}
 
             {/* Main Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
 
-                {/* Hero / Reminder Widget (Full Width or 8 cols) */}
-                <div className="md:col-span-8 space-y-6">
+                {/* Left Column: reminder + CTA/Team (8 cols) */}
+                <div className="md:col-span-8 flex flex-col gap-6">
                     <MatchdayReminder />
 
                     {/* Team Status Section */}
                     {user && !team ? (
-                        // Case 1: User Logged in BUT No Team -> Show Create CTA
-                        <Card className="border-2 border-dashed border-primary/50 bg-primary/5">
-                            <CardContent className="flex flex-col items-center justify-center p-8 md:p-12 text-center space-y-6 mt-6">
+                        <Card className="border-2 border-dashed border-primary/50 bg-primary/5 flex-grow">
+                            <CardContent className="flex flex-col items-center justify-center p-8 md:p-12 text-center space-y-6 h-full">
                                 <div className="p-4 bg-primary/10 rounded-full animate-pulse">
                                     <Shield className="h-12 w-12 text-primary" />
                                 </div>
@@ -72,8 +73,7 @@ function InnerHome({ user, team }: { user: any, team: any }) {
                             </CardContent>
                         </Card>
                     ) : team ? (
-                        // Case 2: User has Team -> Show Team Management
-                        <Card className="border-none shadow-md bg-gradient-to-br from-primary/5 to-primary/10 overflow-hidden relative">
+                        <Card className="border-none shadow-md bg-gradient-to-br from-primary/5 to-primary/10 overflow-hidden relative flex-grow">
                             <div className="absolute top-0 right-0 p-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                             <CardHeader>
@@ -107,67 +107,99 @@ function InnerHome({ user, team }: { user: any, team: any }) {
                     ) : null}
                 </div>
 
-                {/* Sidebar Widgets (4 cols) */}
-                <div className="md:col-span-4 space-y-4">
-
-                    {/* Quick Access */}
-                    <Card>
-                        <CardHeader className="pb-3">
+                {/* Right Column: Explore + Mini Standings (4 cols) - FULL HEIGHT */}
+                <div className="md:col-span-4 flex flex-col h-full">
+                    <Card className="flex flex-col h-full border-2 border-slate-100 dark:border-slate-800 shadow-sm">
+                        <CardHeader className="pb-3 flex-shrink-0">
                             <CardTitle className="text-base">Esplora</CardTitle>
                         </CardHeader>
-                        <CardContent className="grid gap-2">
-                            <Link href="/standings">
-                                <Button variant="ghost" className="w-full justify-between h-12 hover:bg-muted/50">
-                                    <span className="flex items-center gap-2">
-                                        <div className="p-1.5 bg-yellow-100 dark:bg-yellow-900/30 rounded-md text-yellow-600">
-                                            <Trophy className="h-4 w-4" />
-                                        </div>
-                                        {t('standings')}
-                                    </span>
-                                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                                </Button>
-                            </Link>
-                            <Link href="/teams">
-                                <Button variant="ghost" className="w-full justify-between h-12 hover:bg-muted/50">
-                                    <span className="flex items-center gap-2">
-                                        <div className="p-1.5 bg-purple-100 dark:bg-purple-900/30 rounded-md text-purple-600">
-                                            <Users className="h-4 w-4" />
-                                        </div>
-                                        Tutte le Squadre
-                                    </span>
-                                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                                </Button>
-                            </Link>
-                            <Link href="/team/market?view=free_agents">
-                                <Button variant="ghost" className="w-full justify-between h-12 hover:bg-muted/50">
-                                    <span className="flex items-center gap-2">
-                                        <div className="p-1.5 bg-green-100 dark:bg-green-900/30 rounded-md text-green-600">
-                                            <Users className="h-4 w-4" />
-                                        </div>
-                                        {t('freeAgents') || 'Listone'}
-                                    </span>
-                                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                                </Button>
-                            </Link>
+                        <CardContent className="flex flex-col gap-4 flex-grow">
+                            {/* Navigation Links */}
+                            <div className="space-y-2 flex-shrink-0">
+                                <Link href="/standings">
+                                    <Button variant="ghost" className="w-full justify-between h-12 hover:bg-muted/50 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                        <span className="flex items-center gap-3">
+                                            <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg text-yellow-600">
+                                                <Trophy className="h-4 w-4" />
+                                            </div>
+                                            <span className="font-medium text-sm">{t('standings')}</span>
+                                        </span>
+                                        <ArrowRight className="h-4 w-4 text-muted-foreground/50" />
+                                    </Button>
+                                </Link>
+                                <Link href="/teams">
+                                    <Button variant="ghost" className="w-full justify-between h-12 hover:bg-muted/50 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                        <span className="flex items-center gap-3">
+                                            <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600">
+                                                <Users className="h-4 w-4" />
+                                            </div>
+                                            <span className="font-medium text-sm">Tutte le Squadre</span>
+                                        </span>
+                                        <ArrowRight className="h-4 w-4 text-muted-foreground/50" />
+                                    </Button>
+                                </Link>
+                                <Link href="/team/market?view=free_agents">
+                                    <Button variant="ghost" className="w-full justify-between h-12 hover:bg-muted/50 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                        <span className="flex items-center gap-3">
+                                            <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600">
+                                                <Users className="h-4 w-4" />
+                                            </div>
+                                            <span className="font-medium text-sm">{t('freeAgents') || 'Listone'}</span>
+                                        </span>
+                                        <ArrowRight className="h-4 w-4 text-muted-foreground/50" />
+                                    </Button>
+                                </Link>
+                            </div>
+
+                            {/* Mini Standings Table - Fills remaining space */}
+                            <div className="mt-auto pt-4 border-t w-full flex-grow flex flex-col">
+                                {standings.length > 0 ? (
+                                    <div className="flex flex-col gap-1 w-full bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3 border h-full overflow-hidden">
+                                        {standings.slice(0, 5).map((s, i) => (
+                                            <div key={s.teamId} className="flex items-center justify-between text-xs py-2 px-2 border-b last:border-0 border-slate-100 dark:border-slate-800">
+                                                <div className="flex items-center gap-3">
+                                                    <span className={`font-bold w-4 text-center ${i === 0 ? 'text-yellow-500' : 'text-muted-foreground'}`}>
+                                                        {i + 1}
+                                                    </span>
+                                                    <div className="flex flex-col">
+                                                        <span className="font-medium truncate max-w-[100px]">{s.teamName}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="font-bold tabular-nums text-slate-700 dark:text-slate-300">
+                                                    {s.points} <span className="text-[10px] text-muted-foreground font-normal">pt</span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                        {standings.length > 5 && (
+                                            <Link href="/standings" className="text-[10px] text-center text-muted-foreground hover:text-primary mt-auto pt-2 block">
+                                                Vedi tutti ({standings.length})
+                                            </Link>
+                                        )}
+                                    </div>
+                                ) : (
+                                    <div className="h-24 flex items-center justify-center text-xs text-muted-foreground bg-slate-50 dark:bg-slate-900/50 rounded-xl">
+                                        Nessuna classifica
+                                    </div>
+                                )}
+                            </div>
                         </CardContent>
                     </Card>
 
-                    {/* Admin? (Could check role if we had one, for now checking email or just showing it logic) */}
-                    {/* Assuming we just link to Admin via /teams for now as done before, or add dedicated Admin Widget if we detect admin */}
-
                     {!user && (
-                        <Card className="bg-primary/5 border-primary/20">
-                            <CardContent className="p-6 text-center space-y-4">
-                                <Shield className="w-10 h-10 mx-auto text-primary" />
-                                <div>
-                                    <h3 className="font-bold text-lg">{t('loginToManage')}</h3>
-                                    <p className="text-sm text-muted-foreground">Accedi per creare la tua squadra.</p>
-                                </div>
-                                <Link href="/login" className="block">
-                                    <Button className="w-full">{t('login')}</Button>
-                                </Link>
-                            </CardContent>
-                        </Card>
+                        <div className="mt-4">
+                            <Card className="bg-primary/5 border-primary/20">
+                                <CardContent className="p-6 text-center space-y-4">
+                                    <Shield className="w-10 h-10 mx-auto text-primary" />
+                                    <div>
+                                        <h3 className="font-bold text-lg">{t('loginToManage')}</h3>
+                                        <p className="text-sm text-muted-foreground">Accedi per creare la tua squadra.</p>
+                                    </div>
+                                    <Link href="/login" className="block">
+                                        <Button className="w-full">{t('login')}</Button>
+                                    </Link>
+                                </CardContent>
+                            </Card>
+                        </div>
                     )}
                 </div>
             </div>
@@ -179,8 +211,8 @@ function InnerHome({ user, team }: { user: any, team: any }) {
     );
 }
 
-export function HomeContent({ user, team }: { user: any, team?: any }) {
+export function HomeContent({ user, team, standings = [] }: { user: any, team?: any, standings?: TeamStanding[] }) {
     return (
-        <InnerHome user={user} team={team} />
+        <InnerHome user={user} team={team} standings={standings} />
     );
 }
