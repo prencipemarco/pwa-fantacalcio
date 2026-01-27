@@ -15,7 +15,7 @@ export type UserDTO = {
 export async function getUsersList(): Promise<{ success: boolean, users?: UserDTO[], error?: string }> {
     try {
         const adminSupabase = createAdminClient();
-        const supabase = await createClient(); 
+        const supabase = await createClient();
 
         const { data: { users }, error } = await adminSupabase.auth.admin.listUsers();
         if (error) return { success: false, error: error.message };
@@ -59,6 +59,25 @@ export async function createTeamForUser(userId: string, teamName: string) {
     return { success: true };
 }
 
+export async function createUser(email: string, password: string = '123456') {
+    const adminSupabase = createAdminClient();
+
+    const { data, error } = await adminSupabase.auth.admin.createUser({
+        email: email,
+        password: password,
+        email_confirm: true // Force verified
+    });
+
+    if (error) {
+        return { success: false, error: error.message };
+    }
+
+    // Trigger usually handles public.users, but we can verify or log?
+    // Let's assume trigger works as per users_sync.sql
+
+    return { success: true, user: data.user };
+}
+
 async function getLeagueId(supabase: any) {
     const { data } = await supabase.from('leagues').select('id').limit(1).single();
     if (data) return data.id;
@@ -97,7 +116,7 @@ export async function deleteUser(userId: string) {
             // D. Auctions (Winner reset)
             await adminSupabase.from('auctions').update({ current_winner_team_id: null }).eq('current_winner_team_id', teamId);
             // D2. Auctions (Created by team)
-            await adminSupabase.from('auctions').delete().eq('team_id', teamId); 
+            await adminSupabase.from('auctions').delete().eq('team_id', teamId);
 
             // E. Fixtures (Unlink)
             await adminSupabase.from('fixtures').update({ home_team_id: null }).eq('home_team_id', teamId);
@@ -108,8 +127,8 @@ export async function deleteUser(userId: string) {
             const { error: teamDelError } = await adminSupabase.from('teams').delete().eq('id', teamId);
             if (teamDelError) throw new Error('Team Delete Failed: ' + teamDelError.message);
         } else {
-             // Fallback: Delete any orphan team with this user_id
-             await adminSupabase.from('teams').delete().eq('user_id', userId);
+            // Fallback: Delete any orphan team with this user_id
+            await adminSupabase.from('teams').delete().eq('user_id', userId);
         }
 
         // 2. Clean up User-linked data (Service Role)
@@ -128,7 +147,7 @@ export async function deleteUser(userId: string) {
                 const idColumn = (table === 'profiles' || table === 'users') ? 'id' : 'user_id';
                 await adminSupabase.from(table).delete().eq(idColumn, userId);
             } catch (err) {
-                 // Ignore
+                // Ignore
             }
         }
 

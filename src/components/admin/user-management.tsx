@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { UserDTO, createTeamForUser, deleteUser } from '@/app/actions/admin-users';
+import { UserDTO, createTeamForUser, deleteUser, createUser } from '@/app/actions/admin-users';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search, MoreVertical, Calendar, Mail, ShieldAlert, User, CheckCircle2, XCircle, Plus, Trash2 } from 'lucide-react';
+import { Search, MoreVertical, Calendar, Mail, ShieldAlert, User, CheckCircle2, XCircle, Plus, Trash2, UserPlus, Users } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -27,6 +27,12 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
     // Action States
     const [isDeleting, setIsDeleting] = useState<string | null>(null);
     const [isCreatingTeam, setIsCreatingTeam] = useState<string | null>(null);
+    const [isCreatingUser, setIsCreatingUser] = useState(false);
+
+    // New User Form
+    const [newUserEmail, setNewUserEmail] = useState('');
+    const [newUserPassword, setNewUserPassword] = useState('123456');
+
     const [newTeamName, setNewTeamName] = useState('');
     const [actionLoading, setActionLoading] = useState(false);
 
@@ -74,14 +80,53 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
         const res = await createTeamForUser(userId, newTeamName);
         if (res.success) {
             alert(`Team "${newTeamName}" created! Default password: "123456"`);
-            // Optimistic update or reload? Let's reload to be safe or just update local
-            setUsers(prev => prev.map(u => u.id === userId ? { ...u, hasTeam: true, teamName: newTeamName } : u));
-            setIsCreatingTeam(null);
-            setNewTeamName('');
+            // Optimistic update - actually requires refresh to get team details or complex state update
+            // For now simple refresh is safest or just set hasTeam
+            window.location.reload();
         } else {
             alert(res.error);
         }
         setActionLoading(false);
+    };
+
+    const handleCreateUser = async () => {
+        if (!newUserEmail.trim()) return;
+        setActionLoading(true);
+        const res = await createUser(newUserEmail, newUserPassword);
+        if (res.success) {
+            alert('User created successfully!');
+            setNewUserEmail('');
+            setNewUserPassword('123456');
+            setIsCreatingUser(false);
+            window.location.reload();
+        } else {
+            alert('Error: ' + res.error);
+        }
+        setActionLoading(false);
+    };
+
+    const handleBulkSeed = async () => {
+        if (!confirm('This will create the default list of users (giuseppe_prencipe@gmail.com, etc) with password "123456". Continue?')) return;
+
+        setActionLoading(true);
+        const defaults = [
+            'giuseppe_prencipe', 'tommaso_maratea', 'paolo_totaro',
+            'raffaele_makumba', 'nicola_azzarone', 'leonardo_armillotta',
+            'enrico_palumbo', 'prencipe_marco'
+        ];
+
+        let successCount = 0;
+        let errors = [];
+
+        for (const name of defaults) {
+            const email = `${name}@gmail.com`; // Assuming nomenclature
+            const res = await createUser(email, '123456');
+            if (res.success) successCount++;
+            else errors.push(`${name}: ${res.error}`);
+        }
+
+        alert(`Batch Complete: ${successCount} created. ${errors.length} errors.\n${errors.join('\n')}`);
+        window.location.reload();
     };
 
     return (
@@ -98,7 +143,7 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
                     />
                 </div>
 
-                <div className="flex items-center gap-2 w-full md:w-auto">
+                <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
                     <Select value={sortOrder} onValueChange={(v: any) => setSortOrder(v)}>
                         <SelectTrigger className="w-[180px] bg-card">
                             <SelectValue placeholder="Sort by" />
@@ -109,6 +154,16 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
                             <SelectItem value="email">Email (A-Z)</SelectItem>
                         </SelectContent>
                     </Select>
+
+                    <Button variant="outline" onClick={handleBulkSeed} disabled={actionLoading} title="Seed Default Users">
+                        <Users className="h-4 w-4 mr-2" />
+                        Bulk Seed
+                    </Button>
+
+                    <Button onClick={() => setIsCreatingUser(true)} disabled={actionLoading}>
+                        <UserPlus className="h-4 w-4 mr-2" />
+                        Add User
+                    </Button>
                 </div>
             </div>
 
@@ -228,6 +283,43 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
                     )}
                 </AnimatePresence>
             </div>
+
+            {/* Create User Dialog */}
+            <Dialog open={isCreatingUser} onOpenChange={setIsCreatingUser}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Add New User</DialogTitle>
+                        <DialogDescription>
+                            Create a pre-verified user account. They can login immediately with these credentials.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4 py-4">
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium">Email Address</label>
+                            <Input
+                                placeholder="name@example.com"
+                                value={newUserEmail}
+                                onChange={(e) => setNewUserEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium">Password</label>
+                            <Input
+                                type="text"
+                                value={newUserPassword}
+                                onChange={(e) => setNewUserPassword(e.target.value)}
+                            />
+                            <p className="text-xs text-muted-foreground">Default recommended: 123456</p>
+                        </div>
+                    </div>
+                    <DialogFooter>
+                        <Button variant="outline" onClick={() => setIsCreatingUser(false)}>Cancel</Button>
+                        <Button onClick={handleCreateUser} disabled={actionLoading}>
+                            {actionLoading ? 'Creating (Verified)...' : 'Create User'}
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
 
             {/* Create Team Dialog */}
             <Dialog open={!!isCreatingTeam} onOpenChange={(open) => !open && setIsCreatingTeam(null)}>
