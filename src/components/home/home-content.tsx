@@ -78,51 +78,47 @@ function InnerHome({ user, team, standings }: { user: any, team: any, standings:
                         </CardContent>
                     </Card>
 
-                    {/* Team Status Section - EXPANDED */}
+                    {/* Team Status Section - COMPACT REFACTOR */}
                     {user && !team ? (
-                        <Card className="border-2 border-dashed border-primary/50 bg-primary/5 flex-grow min-h-[300px]">
-                            <CardContent className="flex flex-col items-center justify-center p-8 md:p-12 text-center space-y-6 h-full">
-                                <div className="p-4 bg-primary/10 rounded-full animate-pulse">
-                                    <Shield className="h-12 w-12 text-primary" />
+                        <Card className="border-2 border-dashed border-primary/50 bg-primary/5 flex-grow">
+                            <CardContent className="flex flex-col items-center justify-center p-6 md:p-8 text-center space-y-4 h-full">
+                                <div className="p-3 bg-primary/10 rounded-full animate-pulse">
+                                    <Shield className="h-8 w-8 text-primary" />
                                 </div>
-                                <div className="space-y-2">
-                                    <h3 className="text-2xl font-bold">Crea la tua Squadra!</h3>
-                                    <p className="text-muted-foreground max-w-sm mx-auto">
-                                        Non hai ancora una rosa attiva. Inizia subito creando il tuo team per partecipare al Fantacalcio.
+                                <div className="space-y-1">
+                                    <h3 className="text-xl font-bold">Crea la tua Squadra!</h3>
+                                    <p className="text-sm text-muted-foreground max-w-sm mx-auto">
+                                        Non hai ancora una rosa attiva.
                                     </p>
                                 </div>
                                 <Link href="/team/create">
-                                    <Button size="lg" className="h-14 px-8 text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
-                                        <Plus className="mr-2 h-6 w-6" />
-                                        Crea Nuova Rosa
+                                    <Button className="h-10 px-6 font-bold shadow-lg shadow-primary/20">
+                                        <Plus className="mr-2 h-4 w-4" />
+                                        Crea
                                     </Button>
                                 </Link>
                             </CardContent>
                         </Card>
                     ) : team ? (
-                        <Card className="border-none shadow-sm bg-slate-50 dark:bg-zinc-900/50 flex-grow flex flex-col min-h-[280px]">
-                            <CardHeader className="pb-2">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <CardTitle className="text-2xl md:text-3xl font-black tracking-tight">La Tua Squadra</CardTitle>
-                                        <CardDescription className="text-base mt-1">{team.credits_left} Crediti residui</CardDescription>
-                                    </div>
-                                    <Badge variant="outline" className="bg-background/80 backdrop-blur px-3 py-1 text-xs font-mono">
-                                        {user.email}
-                                    </Badge>
+                        <Card className="border-none shadow-sm bg-slate-50 dark:bg-zinc-900/50 flex-grow flex flex-col justify-center">
+                            <CardContent className="p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                                {/* Team Info */}
+                                <div className="flex-1 text-center md:text-left space-y-1">
+                                    <h3 className="text-2xl font-black tracking-tight">{t('myTeam')}</h3>
+                                    <p className="text-sm text-muted-foreground font-medium">{team.credits_left} Crediti residui • {user.email}</p>
                                 </div>
-                            </CardHeader>
-                            <CardContent className="mt-auto pt-4 pb-8 px-6 md:px-8 space-y-4">
-                                <div className="grid grid-cols-2 gap-4 h-20 md:h-24">
-                                    <Link href="/team/lineup" className="h-full">
-                                        <Button size="lg" className="w-full h-full text-xl font-bold shadow-lg shadow-blue-500/20 bg-[#4169E1] hover:bg-[#3151b5] rounded-2xl transition-all hover:scale-[1.02]">
-                                            <Shirt className="mr-3 h-6 w-6" />
+
+                                {/* Actions - Compact Row */}
+                                <div className="flex items-center gap-3 w-full md:w-auto">
+                                    <Link href="/team/lineup" className="flex-1 md:flex-none">
+                                        <Button size="lg" className="w-full md:w-32 h-12 text-base font-bold shadow-lg shadow-blue-500/20 bg-[#4169E1] hover:bg-[#3151b5] rounded-xl transition-all hover:scale-[1.02]">
+                                            <Shirt className="mr-2 h-5 w-5" />
                                             Rosa
                                         </Button>
                                     </Link>
-                                    <Link href="/team/market" className="h-full">
-                                        <Button variant="secondary" size="lg" className="w-full h-full text-xl font-bold bg-white dark:bg-zinc-800 text-[#4169E1] hover:bg-white/90 border border-slate-200 dark:border-slate-700 shadow-sm rounded-2xl transition-all hover:scale-[1.02]">
-                                            <ShoppingBag className="mr-3 h-6 w-6" />
+                                    <Link href="/team/market" className="flex-1 md:flex-none">
+                                        <Button variant="secondary" size="lg" className="w-full md:w-32 h-12 text-base font-bold bg-white dark:bg-zinc-800 text-[#4169E1] hover:bg-white/90 border border-slate-200 dark:border-slate-700 shadow-sm rounded-xl transition-all hover:scale-[1.02]">
+                                            <ShoppingBag className="mr-2 h-5 w-5" />
                                             Asta
                                         </Button>
                                     </Link>
@@ -138,7 +134,7 @@ function InnerHome({ user, team, standings }: { user: any, team: any, standings:
                         <CardHeader className="pb-4 pt-6 px-6">
                             <CardTitle className="text-lg font-bold">Esplora</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex flex-col gap-1 flex-grow px-4 pb-6">
+                        <CardContent className="flex flex-col gap-2 flex-grow px-4 pb-6 justify-center">
                             {/* Dashboard-style Menu Items */}
                             <Link href="/standings">
                                 <Button variant="ghost" className="w-full justify-between h-14 hover:bg-slate-50 dark:hover:bg-zinc-900 rounded-xl group transition-all">
@@ -176,38 +172,7 @@ function InnerHome({ user, team, standings }: { user: any, team: any, standings:
                                 </Button>
                             </Link>
 
-                            {/* Separator */}
-                            <div className="h-px bg-slate-100 dark:bg-zinc-800 my-4 mx-2" />
 
-                            {/* Mini Standings Table - Embed within White Card */}
-                            <div className="mt-2 flex-grow flex flex-col px-2">
-                                {standings.length > 0 ? (
-                                    <div className="flex flex-col gap-0 w-full bg-slate-50/50 dark:bg-zinc-900/30 rounded-2xl p-4 border border-slate-100 dark:border-zinc-800/50 h-full">
-                                        {standings.slice(0, 5).map((s, i) => (
-                                            <div key={s.teamId} className="flex items-center justify-between text-sm py-3 px-1 border-b last:border-0 border-slate-100 dark:border-zinc-800">
-                                                <div className="flex items-center gap-3">
-                                                    <span className={`font-black w-4 text-center text-xs ${i === 0 ? 'text-amber-500' : 'text-slate-400'}`}>
-                                                        {i + 1}
-                                                    </span>
-                                                    <div className="flex flex-col">
-                                                        <span className="font-semibold text-slate-700 dark:text-slate-300 truncate max-w-[110px]">{s.teamName}</span>
-                                                    </div>
-                                                </div>
-                                                <div className="font-bold tabular-nums text-slate-900 dark:text-white text-xs">
-                                                    {s.points} <span className="text-[10px] text-slate-400 font-normal">pt</span>
-                                                </div>
-                                            </div>
-                                        ))}
-                                        <Link href="/standings" className="text-xs text-center text-slate-400 hover:text-blue-600 mt-auto pt-3 font-medium transition-colors">
-                                            Vedi tutti ({standings.length})
-                                        </Link>
-                                    </div>
-                                ) : (
-                                    <div className="h-24 flex items-center justify-center text-xs text-muted-foreground bg-slate-50 dark:bg-slate-900/50 rounded-xl">
-                                        Nessuna classifica
-                                    </div>
-                                )}
-                            </div>
                         </CardContent>
                     </Card>
 
@@ -227,6 +192,59 @@ function InnerHome({ user, team, standings }: { user: any, team: any, standings:
                         </div>
                     )}
                 </div>
+            </div>
+
+            {/* Bottom Section: Standings (Full Width) */}
+            <div className="w-full">
+                <Card className="border-none shadow-sm bg-white dark:bg-zinc-950 overflow-hidden">
+                    <CardHeader className="pb-2 border-b border-slate-100 dark:border-zinc-800/50">
+                        <div className="flex items-center justify-between">
+                            <CardTitle className="text-xl font-bold">Classifica</CardTitle>
+                            <Link href="/standings" className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline">
+                                Vedi tutti
+                            </Link>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                        {standings.length > 0 ? (
+                            <div className="w-full overflow-x-auto">
+                                <table className="w-full text-sm text-left">
+                                    <thead className="text-xs text-muted-foreground uppercase bg-slate-50/50 dark:bg-zinc-900/50">
+                                        <tr>
+                                            <th className="px-6 py-3 font-semibold w-16">Pos</th>
+                                            <th className="px-6 py-3 font-semibold">Squadra</th>
+                                            <th className="px-6 py-3 font-semibold text-right">Punti</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {standings.slice(0, 5).map((s, i) => (
+                                            <tr key={s.teamId} className="border-b last:border-0 border-slate-100 dark:border-zinc-800 hover:bg-slate-50/50 dark:hover:bg-zinc-900/50 transition-colors">
+                                                <td className="px-6 py-4">
+                                                    <span className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold ${i === 0 ? 'bg-yellow-100 text-yellow-700' :
+                                                        i === 1 ? 'bg-slate-100 text-slate-700' :
+                                                            i === 2 ? 'bg-orange-100 text-orange-700' : 'text-slate-500'
+                                                        }`}>
+                                                        {i + 1}
+                                                    </span>
+                                                </td>
+                                                <td className="px-6 py-4 font-medium text-slate-900 dark:text-slate-100">
+                                                    {s.teamName}
+                                                </td>
+                                                <td className="px-6 py-4 text-right font-bold tabular-nums">
+                                                    {s.points}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ) : (
+                            <div className="h-32 flex items-center justify-center text-muted-foreground">
+                                Nessuna classifica disponibile
+                            </div>
+                        )}
+                    </CardContent>
+                </Card>
             </div>
 
             <div className="mt-12 text-center text-muted-foreground text-xs py-8 border-t">
