@@ -105,7 +105,10 @@ function InnerHome({ user, team, standings }: { user: any, team: any, standings:
                                 {/* Team Info */}
                                 <div className="flex-1 text-center md:text-left space-y-1">
                                     <h3 className="text-2xl font-black tracking-tight">{t('myTeam')}</h3>
-                                    <p className="text-sm text-muted-foreground font-medium">{team.credits_left} Crediti residui • {user.email}</p>
+                                    <div className="flex flex-col gap-0.5">
+                                        <p className="text-sm text-muted-foreground font-medium">{team.credits_left} Crediti residui</p>
+                                        <p className="text-xs text-muted-foreground/70 font-mono">{user.email}</p>
+                                    </div>
                                 </div>
 
                                 {/* Actions - Compact Row */}
