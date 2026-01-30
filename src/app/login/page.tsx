@@ -31,6 +31,19 @@ export default function UserLoginPage() {
             setError(error.message);
             setLoading(false);
         } else {
+            // Log successful login
+            const { data: { user } } = await supabase.auth.getUser();
+            try {
+                // Dynamic import to avoid potential circular/server issues during build if direct import is tricky, 
+                // but direct import of server action is standard.
+                const { logEvent } = await import('@/app/actions/admin');
+                if (user) {
+                    await logEvent('USER_LOGIN', { email }, user.id);
+                }
+            } catch (e) {
+                console.error('Failed to log login event:', e);
+            }
+
             router.refresh();
             router.push('/'); // Go home
         }
