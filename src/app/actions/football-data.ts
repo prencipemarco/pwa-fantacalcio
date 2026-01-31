@@ -58,7 +58,23 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
         // Priority 2: The closest Upcoming match (SCHEDULED)
         // Priority 3: If all finished (unlikely if step 1 found scheduled), show last finished? No, step 1 ensures we have scheduled.
 
-        const liveMatch = matches.find((m: any) => m.status === 'IN_PLAY' || m.status === 'PAUSED' || m.status === 'HALFTIME');
+        // 3. Logic:
+        // Priority 1: Any match IN_PLAY or PAUSED (Halftime)
+        // Priority 2: Any match that is SCHEDULED but the time has passed (within 2.5 hours) -> Treat as likely Live (API delay)
+        // Priority 3: The closest Upcoming match (SCHEDULED)
+
+        const now = new Date();
+
+        const liveMatch = matches.find((m: any) => {
+            const isLiveStatus = m.status === 'IN_PLAY' || m.status === 'PAUSED' || m.status === 'HALFTIME';
+
+            // Fallback for API delay: If Scheduled AND start time is in the past (but < 150 mins ago), treat as live
+            const matchTime = new Date(m.utcDate);
+            const minutesSinceStart = (now.getTime() - matchTime.getTime()) / (1000 * 60);
+            const isDelayedStart = m.status === 'SCHEDULED' && minutesSinceStart > 0 && minutesSinceStart < 150;
+
+            return isLiveStatus || isDelayedStart;
+        });
 
         if (liveMatch) {
             return {
@@ -72,7 +88,6 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
         }
 
         // No live match, find next scheduled
-        const now = new Date();
         const upcomingMatches = matches.filter((m: any) => m.status === 'SCHEDULED' || m.status === 'TIMED');
 
         // Sort by date ascending

@@ -216,6 +216,18 @@ function InnerHome({ user, team, standings, nextMatch }: { user: any, team: any,
                                 </Button>
                             </Link>
 
+                            <Link href="/team/results">
+                                <Button variant="ghost" className="w-full justify-between h-14 hover:bg-slate-50 dark:hover:bg-zinc-900 rounded-xl group transition-all">
+                                    <span className="flex items-center gap-4">
+                                        <div className="p-2 bg-blue-100/50 dark:bg-blue-900/20 rounded-lg text-blue-600 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/40 transition-colors">
+                                            <Calendar className="h-5 w-5" />
+                                        </div>
+                                        <span className="font-semibold text-base text-slate-700 dark:text-slate-300">Risultati</span>
+                                    </span>
+                                    <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-slate-500 transition-colors" />
+                                </Button>
+                            </Link>
+
 
                         </CardContent>
                     </Card>
