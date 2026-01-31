@@ -20,21 +20,19 @@ type MatchData = {
 
 export async function getNextSerieAMatch(): Promise<MatchData> {
     if (!API_TOKEN) {
-        // Fallback for dev/demo without key
         return { found: false, error: 'Missing API Key' };
     }
 
     try {
-        // 1. Find the next scheduled match (to identify the current/next matchday)
+        // 1. Get current scheduled/live matches (wide window to catch current matchday)
+        // We fetch matches for the current matchday essentially.
+        // First, find what the "scheduled" matchday is.
         const nextRes = await fetch(`${API_URL}?status=SCHEDULED&limit=1`, {
             headers: { 'X-Auth-Token': API_TOKEN },
-            next: { revalidate: 3600 } // Cache 1h
+            next: { revalidate: 3600 }
         });
 
-        if (!nextRes.ok) {
-            console.error('Football Data API Error:', nextRes.statusText);
-            return { found: false, error: 'API Error' };
-        }
+        if (!nextRes.ok) return { found: false, error: 'API Error' };
         const nextData = await nextRes.json();
 
         if (!nextData.matches || nextData.matches.length === 0) {
@@ -43,38 +41,64 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
 
         const targetMatchday = nextData.matches[0].matchday;
 
-        // 2. Fetch ALL matches for this matchday to find the *true* start time
-        // (The 'next' match might be the Sunday game, but MD started Friday)
+        // 2. Fetch ALL matches for this matchday
         const mdRes = await fetch(`${API_URL}?matchday=${targetMatchday}`, {
             headers: { 'X-Auth-Token': API_TOKEN },
-            next: { revalidate: 3600 }
+            next: { revalidate: 60 } // Short cache to catch live status updates
         });
 
         if (!mdRes.ok) return { found: false, error: 'API Error (MD)' };
         const mdData = await mdRes.json();
-
         const matches = mdData.matches;
+
         if (!matches || matches.length === 0) return { found: false };
 
-        // Sort by date to find the very first match of the round
-        matches.sort((a: any, b: any) => new Date(a.utcDate).getTime() - new Date(b.utcDate).getTime());
+        // 3. Logic:
+        // Priority 1: Any match IN_PLAY or PAUSED (Halftime)
+        // Priority 2: The closest Upcoming match (SCHEDULED)
+        // Priority 3: If all finished (unlikely if step 1 found scheduled), show last finished? No, step 1 ensures we have scheduled.
 
-        const firstMatch = matches[0];
-        const earliestKickoff = new Date(firstMatch.utcDate);
+        const liveMatch = matches.find((m: any) => m.status === 'IN_PLAY' || m.status === 'PAUSED' || m.status === 'HALFTIME');
+
+        if (liveMatch) {
+            return {
+                found: true,
+                matchday: targetMatchday,
+                kickoff: liveMatch.utcDate,
+                home: liveMatch.homeTeam.name,
+                away: liveMatch.awayTeam.name,
+                inProgress: true
+            };
+        }
+
+        // No live match, find next scheduled
         const now = new Date();
+        const upcomingMatches = matches.filter((m: any) => m.status === 'SCHEDULED' || m.status === 'TIMED');
 
-        // Check if the matchday has ALREADY started
-        // (If first match is in the past, or if any match is LIVE/FINISHED)
-        // Usually 'now > earliestKickoff' is enough.
-        const isStarted = now > earliestKickoff;
+        // Sort by date ascending
+        upcomingMatches.sort((a: any, b: any) => new Date(a.utcDate).getTime() - new Date(b.utcDate).getTime());
 
+        const nextMatch = upcomingMatches[0];
+
+        if (nextMatch) {
+            return {
+                found: true,
+                matchday: targetMatchday,
+                kickoff: nextMatch.utcDate,
+                home: nextMatch.homeTeam.name,
+                away: nextMatch.awayTeam.name,
+                inProgress: false
+            };
+        }
+
+        // Fallback: Default to first match of array if weird state
         return {
             found: true,
             matchday: targetMatchday,
-            kickoff: firstMatch.utcDate, // The TRUE start of the MD
-            home: firstMatch.homeTeam.name,
-            away: firstMatch.awayTeam.name,
-            inProgress: isStarted
+            kickoff: matches[0].utcDate,
+            home: matches[0].homeTeam.name,
+            away: matches[0].awayTeam.name,
+            inProgress: false
         };
 
     } catch (error) {

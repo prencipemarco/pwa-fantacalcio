@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { LogoutButton } from '@/components/logout-button';
 import { MatchdayReminder } from '@/components/matchday-reminder';
 import { SettingsDialog } from '@/components/settings-dialog';
+import { TeamLogo } from '@/components/team-logo';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shirt, ShoppingBag, Trophy, Users, Shield, ArrowRight, Plus, Calendar } from 'lucide-react';
@@ -76,8 +77,16 @@ function InnerHome({ user, team, standings, nextMatch }: { user: any, team: any,
                                                 </span>
                                             ) : `Prossima Giornata ${nextMatch.matchday}`}
                                         </h3>
-                                        <div className="font-bold text-base md:text-lg leading-tight">
-                                            {nextMatch.home} <span className="text-muted-foreground font-normal text-sm mx-1">vs</span> {nextMatch.away}
+                                        <div className="font-bold text-base md:text-lg leading-tight flex flex-wrap items-center gap-2">
+                                            <div className="flex items-center gap-2">
+                                                <TeamLogo teamName={nextMatch.home} size={24} />
+                                                <span>{nextMatch.home}</span>
+                                            </div>
+                                            <span className="text-muted-foreground font-normal text-sm">vs</span>
+                                            <div className="flex items-center gap-2">
+                                                <TeamLogo teamName={nextMatch.away} size={24} />
+                                                <span>{nextMatch.away}</span>
+                                            </div>
                                         </div>
                                         <div className="text-xs text-muted-foreground mt-1">
                                             Inizio <span className="font-medium text-foreground capitalize">
