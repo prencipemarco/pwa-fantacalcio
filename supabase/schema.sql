@@ -19,7 +19,6 @@ create table teams (
   user_id uuid references auth.users not null,
   league_id uuid references leagues,
   name text not null,
-  password text, -- Team-specific password
   credits_left int default 1000, -- Auction starts at 1000
   created_at timestamp with time zone default now()
 );

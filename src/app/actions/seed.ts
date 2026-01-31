@@ -39,8 +39,7 @@ export async function seedTeams(adminUserId: string, teamCount: number = 10) {
             name: name,
             user_id: adminUserId, // Link all to admin for testing
             credits_left: 500, // Test budget
-            league_id: leagueId,
-            password: '123'
+            league_id: leagueId
         });
     }
 

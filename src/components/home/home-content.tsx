@@ -12,7 +12,11 @@ import { Shirt, ShoppingBag, Trophy, Users, Shield, ArrowRight, Plus, Calendar }
 
 import { TeamStanding } from '@/app/actions/standings';
 
-function InnerHome({ user, team, standings }: { user: any, team: any, standings: TeamStanding[] }) {
+// Helper to format date
+import { format } from 'date-fns';
+import { it } from 'date-fns/locale';
+
+function InnerHome({ user, team, standings, nextMatch }: { user: any, team: any, standings: TeamStanding[], nextMatch?: any }) {
     const { t } = useLanguage();
 
     return (
@@ -50,33 +54,61 @@ function InnerHome({ user, team, standings }: { user: any, team: any, standings:
                 {/* Left Column: Match & Team (8 cols) */}
                 <div className="md:col-span-8 flex flex-col gap-6">
                     {/* Next Match - COMPACT VERSION */}
-                    <Card className="border-none shadow-sm bg-white dark:bg-zinc-950 overflow-hidden relative">
-                        {/* Green accent line on left */}
-                        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500 rounded-l-xl z-20" />
+                    {nextMatch && nextMatch.found ? (
+                        <Card className="border-none shadow-sm bg-white dark:bg-zinc-950 overflow-hidden relative">
+                            {/* Accent Line */}
+                            <div className={`absolute left-0 top-0 bottom-0 w-1.5 rounded-l-xl z-20 ${nextMatch.inProgress ? 'bg-red-500 animate-pulse' : 'bg-green-500'}`} />
 
-                        <CardContent className="p-4 md:p-6 flex flex-row items-center justify-between relative z-10">
-                            <div className="flex items-center gap-4 md:gap-6">
-                                <div className="p-3 bg-green-100 dark:bg-green-900/20 rounded-xl text-green-600 dark:text-green-400">
-                                    <Calendar className="h-6 w-6 md:h-8 md:w-8" />
-                                </div>
-                                <div>
-                                    <h3 className="text-sm uppercase tracking-wider text-muted-foreground font-semibold mb-0.5">Prossima Giornata 23</h3>
-                                    <div className="font-bold text-base md:text-lg">SS Lazio <span className="text-muted-foreground font-normal text-sm mx-1">vs</span> Genoa CFC</div>
-                                    <div className="text-xs text-muted-foreground mt-1">
-                                        Inizio <span className="font-medium text-foreground">ven 30 gen, 20:45</span>
+                            <CardContent className="p-4 md:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between relative z-10 gap-4">
+                                <div className="flex items-center gap-4 md:gap-6 w-full sm:w-auto">
+                                    <div className={`p-3 rounded-xl ${nextMatch.inProgress ? 'bg-red-100 dark:bg-red-900/20 text-red-600' : 'bg-green-100 dark:bg-green-900/20 text-green-600'}`}>
+                                        <Calendar className="h-6 w-6 md:h-8 md:w-8" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <h3 className="text-sm uppercase tracking-wider text-muted-foreground font-semibold mb-0.5 flex items-center gap-2">
+                                            {nextMatch.inProgress ? (
+                                                <span className="flex items-center gap-1 text-red-600 font-bold">
+                                                    <span className="relative flex h-2 w-2">
+                                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                                    </span>
+                                                    LIVE
+                                                </span>
+                                            ) : `Prossima Giornata ${nextMatch.matchday}`}
+                                        </h3>
+                                        <div className="font-bold text-base md:text-lg leading-tight">
+                                            {nextMatch.home} <span className="text-muted-foreground font-normal text-sm mx-1">vs</span> {nextMatch.away}
+                                        </div>
+                                        <div className="text-xs text-muted-foreground mt-1">
+                                            Inizio <span className="font-medium text-foreground capitalize">
+                                                {format(new Date(nextMatch.kickoff), "EEE d MMM, HH:mm", { locale: it })}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Countdown - Right Side */}
-                            <div className="text-right hidden sm:block">
-                                <div className="text-2xl md:text-3xl font-black tracking-tight leading-none mb-1">
-                                    79h 23m
-                                </div>
-                                <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Mancano</div>
-                            </div>
-                        </CardContent>
-                    </Card>
+                                {/* Countdown / Status - Visible on Mobile too now if needed */}
+                                {!nextMatch.inProgress && (
+                                    <div className="text-right sm:block w-full sm:w-auto mt-2 sm:mt-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-dashed border-slate-100 dark:border-zinc-800">
+                                        <div className="flex items-center justify-between sm:block">
+                                            <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground sm:hidden">Mancano</span>
+                                            <span className="text-xl md:text-3xl font-black tracking-tight leading-none">
+                                                {/* Countdown Logic could go here, for now just show static or calc difference */}
+                                                {/* Simplify for now to avoid complex client-side hydration issues with time */}
+                                                {/* We can show "PRESTO" or just hide exact time if too complex for now */}
+                                                {/* Let's just show text for now */}
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+                            </CardContent>
+                        </Card>
+                    ) : (
+                        <Card className="border-none shadow-sm bg-white dark:bg-zinc-950 p-6 flex items-center gap-4">
+                            <div className="p-3 bg-slate-100 rounded-xl text-slate-400"><Calendar className="h-6 w-6" /></div>
+                            <div><div className="font-bold">Nessuna partita in programma</div><div className="text-xs text-muted-foreground">Il campionato è in pausa o terminato.</div></div>
+                        </Card>
+                    )}
 
                     {/* Team Status Section - COMPACT REFACTOR */}
                     {user && !team ? (
@@ -257,8 +289,8 @@ function InnerHome({ user, team, standings }: { user: any, team: any, standings:
     );
 }
 
-export function HomeContent({ user, team, standings = [] }: { user: any, team?: any, standings?: TeamStanding[] }) {
+export function HomeContent({ user, team, standings = [], nextMatch }: { user: any, team?: any, standings?: TeamStanding[], nextMatch?: any }) {
     return (
-        <InnerHome user={user} team={team} standings={standings} />
+        <InnerHome user={user} team={team} standings={standings} nextMatch={nextMatch} />
     );
 }
