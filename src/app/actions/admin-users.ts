@@ -15,15 +15,18 @@ export type UserDTO = {
 export async function getUsersList(): Promise<{ success: boolean, users?: UserDTO[], error?: string }> {
     try {
         const adminSupabase = createAdminClient();
-        const supabase = await createClient();
+        const supabase = await createClient(); // Normal client for Teams query
 
+        // 1. Get All Users
         const { data: { users }, error } = await adminSupabase.auth.admin.listUsers();
         if (error) return { success: false, error: error.message };
 
+        // 2. Get All Teams
         const { data: teams } = await supabase.from('teams').select('user_id, name');
         const teamMap = new Map();
         teams?.forEach(t => teamMap.set(t.user_id, t.name));
 
+        // 3. Map
         const userList: UserDTO[] = users.map(u => ({
             id: u.id,
             email: u.email || 'No Email',
@@ -40,6 +43,7 @@ export async function getUsersList(): Promise<{ success: boolean, users?: UserDT
 
 export async function createTeamForUser(userId: string, teamName: string) {
     const supabase = await createClient();
+    // Check if team exists
     const { data: existing } = await supabase.from('teams').select('id').eq('user_id', userId).single();
     if (existing) return { success: false, error: 'User already has a team.' };
 
@@ -59,111 +63,56 @@ export async function createTeamForUser(userId: string, teamName: string) {
     return { success: true };
 }
 
-export async function createUser(email: string, password: string = '123456') {
-    const adminSupabase = createAdminClient();
-
-    const { data, error } = await adminSupabase.auth.admin.createUser({
-        email: email,
-        password: password,
-        email_confirm: true // Force verified
-    });
-
-    if (error) {
-        return { success: false, error: error.message };
-    }
-
-    // Trigger usually handles public.users, but we can verify or log?
-    // Let's assume trigger works as per users_sync.sql
-
-    return { success: true, user: data.user };
-}
-
 async function getLeagueId(supabase: any) {
     const { data } = await supabase.from('leagues').select('id').limit(1).single();
     if (data) return data.id;
+    // create one
     const { data: newL } = await supabase.from('leagues').insert({ name: 'Serie A' }).select('id').single();
     return newL?.id;
 }
 
 export async function deleteUser(userId: string) {
     const adminSupabase = createAdminClient();
-    // Use adminSupabase for EVERYTHING to bypass RLS and visibility issues
-    let progress = 'Start';
+    const supabase = await createClient();
 
     try {
-        progress = 'Checking Team (Admin)';
-        // 1. Get Team ID (Admin Level)
-        const { data: team } = await adminSupabase.from('teams').select('id').eq('user_id', userId).maybeSingle();
-
+        // 1. Check/Delete Team first
+        const { data: team } = await supabase.from('teams').select('id').eq('user_id', userId).maybeSingle();
         if (team) {
-            const teamId = team.id;
-            progress = 'Cleaning Team Data ' + teamId;
-
-            // A. Lineups (Cascade via lineups)
-            const { data: lineups } = await adminSupabase.from('lineups').select('id').eq('team_id', teamId);
-            if (lineups && lineups.length > 0) {
-                const lineupIds = lineups.map(l => l.id);
-                await adminSupabase.from('lineup_players').delete().in('lineup_id', lineupIds);
-                await adminSupabase.from('lineups').delete().in('id', lineupIds);
-            }
-
-            // B. Rosters
-            await adminSupabase.from('rosters').delete().eq('team_id', teamId);
-
-            // C. Trade Proposals
-            await adminSupabase.from('trade_proposals').delete().or(`proposer_team_id.eq.${teamId},receiver_team_id.eq.${teamId}`);
-
-            // D. Auctions (Winner reset)
-            await adminSupabase.from('auctions').update({ current_winner_team_id: null }).eq('current_winner_team_id', teamId);
-            // D2. Auctions (Created by team)
-            await adminSupabase.from('auctions').delete().eq('team_id', teamId);
-
-            // E. Fixtures (Unlink)
-            await adminSupabase.from('fixtures').update({ home_team_id: null }).eq('home_team_id', teamId);
-            await adminSupabase.from('fixtures').update({ away_team_id: null }).eq('away_team_id', teamId);
-
-            // F. Delete Team
-            progress = 'Deleting Team Row ' + teamId;
-            const { error: teamDelError } = await adminSupabase.from('teams').delete().eq('id', teamId);
-            if (teamDelError) throw new Error('Team Delete Failed: ' + teamDelError.message);
+            const { deleteTeam } = await import('@/app/actions/admin');
+            await deleteTeam(team.id);
         } else {
-            // Fallback: Delete any orphan team with this user_id
-            await adminSupabase.from('teams').delete().eq('user_id', userId);
+            // Even if no team found, try to delete ANY team with this user_id
+            await supabase.from('teams').delete().eq('user_id', userId);
         }
-
-        // 2. Clean up User-linked data (Service Role)
+        // 2. Clean up User-linked data (Explicitly specific tables)
         const tablesToClean = [
             'push_subscriptions',
             'logs',
             'notifications',
-            'profiles',
-            'users' // distinct from auth.users, usually public.users
+            'profiles'
         ];
 
         for (const table of tablesToClean) {
-            progress = 'Cleaning ' + table + ' (Admin)';
             try {
-                // Determine ID column: 'users' and 'profiles' use 'id', others use 'user_id'
-                const idColumn = (table === 'profiles' || table === 'users') ? 'id' : 'user_id';
-                await adminSupabase.from(table).delete().eq(idColumn, userId);
+                const { error: cleanError } = await supabase.from(table).delete().eq(table === 'profiles' ? 'id' : 'user_id', userId);
+                if (cleanError) console.warn('Cleanup ' + table + ' warning:', cleanError.message);
             } catch (err) {
                 // Ignore
             }
         }
 
-        progress = 'Deleting Auth User';
         // 3. Delete User from Auth
         const { error } = await adminSupabase.auth.admin.deleteUser(userId);
 
         if (error) {
-            progress = 'Auth Delete Failed: ' + error.message;
             console.error('Auth Delete Error Details:', error);
             throw error;
         }
 
         return { success: true };
     } catch (e: any) {
-        console.error('Delete User Failed at [' + progress + ']:', e);
-        return { success: false, error: 'Failed at ' + progress + ': ' + (e.message || JSON.stringify(e)) };
+        console.error('Delete User Logic Failed:', e);
+        return { success: false, error: e.message || JSON.stringify(e) };
     }
 }
