@@ -10,6 +10,62 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { ResultsSkeleton } from '@/components/skeletons';
 
+// ... imports
+
+// Helper functions defined outside component
+async function fetchTeamData(supabase: any, fixture: any, teamId: string) {
+    if (!teamId) return { players: [], total: 0 };
+
+    // Get Lineup
+    const { data: lineup } = await supabase.from('lineups').select('id').eq('fixture_id', fixture.id).eq('team_id', teamId).single();
+    if (!lineup) return { players: [], total: 0 };
+
+    // Get Players aka Starters
+    const { data: players } = await supabase.from('lineup_players')
+        .select(`
+            *,
+            player:players(name, role, team_real)
+        `)
+        .eq('lineup_id', lineup.id)
+        .eq('is_starter', true);
+
+    if (!players) return { players: [], total: 0 };
+
+    // Get Stats for these players for this Matchday
+    const playerIds = players.map((p: any) => p.player_id);
+    const { data: stats } = await supabase.from('match_stats')
+        .select('*')
+        .eq('matchday', fixture.matchday)
+        .in('player_id', playerIds);
+
+    // Map stats to players and Calculate Total
+    let totalTeamScore = 0;
+    const enrichedPlayers = players.map((p: any) => {
+        const stat = stats?.find((s: any) => s.player_id === p.player_id) || {};
+        const points = calculatePlayerTotal(stat);
+
+        if (stat.vote) totalTeamScore += points;
+
+        return { ...p, stats: stat, points };
+    });
+
+    return { players: enrichedPlayers, total: totalTeamScore };
+}
+
+function calculatePlayerTotal(stats: any) {
+    if (!stats || stats.vote === undefined) return 0;
+    let total = stats.vote;
+    total += ((stats.goals_for || 0) * 3);
+    total += ((stats.assists || 0) * 1);
+    total -= ((stats.yellow_cards || 0) * 0.5);
+    total -= ((stats.red_cards || 0) * 1);
+    total += ((stats.penalties_saved || 0) * 3);
+    total -= ((stats.penalties_missed || 0) * 3);
+    total -= ((stats.own_goals || 0) * 2);
+    total -= ((stats.goals_against || 0) * 1);
+    return Math.round(total * 2) / 2;
+}
+
 type MatchDetail = {
     fixture: any;
     homeTeam: any;
@@ -23,6 +79,7 @@ type MatchDetail = {
 };
 
 export default function MatchDetailsPage() {
+    // ... component implementation
     const params = useParams();
     const [loading, setLoading] = useState(true);
     const [match, setMatch] = useState<MatchDetail | null>(null);
