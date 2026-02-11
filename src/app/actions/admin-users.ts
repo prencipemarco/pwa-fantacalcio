@@ -12,6 +12,20 @@ export type UserDTO = {
     teamName?: string;
 };
 
+export async function createUser(email: string, password?: string) {
+    const adminSupabase = createAdminClient();
+
+    // Auto-confirm the user so they can login immediately
+    const { data, error } = await adminSupabase.auth.admin.createUser({
+        email,
+        password: password || '123456',
+        email_confirm: true
+    });
+
+    if (error) return { success: false, error: error.message };
+    return { success: true, user: data.user };
+}
+
 export async function getUsersList(): Promise<{ success: boolean, users?: UserDTO[], error?: string }> {
     try {
         const adminSupabase = createAdminClient();
