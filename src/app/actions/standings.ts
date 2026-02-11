@@ -13,13 +13,15 @@ export type TeamStanding = {
     goalsFor: number;
     goalsAgainst: number;
     totalFantasyPoints: number; // Sum of partial scores
+    logoUrl?: string | null;
+    logoConfig?: any;
 };
 
 export async function getStandings(): Promise<TeamStanding[]> {
     const supabase = await createClient();
 
     // 1. Fetch Teams
-    const { data: teams } = await supabase.from('teams').select('id, name');
+    const { data: teams } = await supabase.from('teams').select('id, name, logo_url, logo_config');
     if (!teams) return [];
 
     // Initialize Standings Map
@@ -35,7 +37,9 @@ export async function getStandings(): Promise<TeamStanding[]> {
             lost: 0,
             goalsFor: 0,
             goalsAgainst: 0,
-            totalFantasyPoints: 0
+            totalFantasyPoints: 0,
+            logoUrl: t.logo_url,
+            logoConfig: t.logo_config
         };
     });
 

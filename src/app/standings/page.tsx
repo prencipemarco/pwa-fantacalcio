@@ -9,6 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 import { Trophy } from 'lucide-react';
+import { TeamLogo } from '@/components/team-logo';
 
 export default function StandingsPage() {
     const { t } = useLanguage();
@@ -131,20 +132,20 @@ export default function StandingsPage() {
                                                 {/* Team */}
                                                 <TableCell className="pl-2 md:pl-4 py-3">
                                                     <div className="flex items-center gap-2 md:gap-3">
-                                                        <Avatar className={cn(
-                                                            "w-7 h-7 md:w-10 md:h-10 border-2 flex-shrink-0",
-                                                            isMe ? "border-blue-500" : "border-transparent bg-muted"
+                                                        <div className={cn(
+                                                            "relative rounded-full overflow-hidden flex-shrink-0",
+                                                            isMe ? "ring-2 ring-blue-500 ring-offset-2 ring-offset-background" : ""
                                                         )}>
-                                                            <AvatarFallback className={cn(
-                                                                "font-bold text-[10px] md:text-sm",
-                                                                isMe ? "bg-[#4169E1] text-white" : "bg-muted text-muted-foreground"
-                                                            )}>
-                                                                {team.teamName.substring(0, 2).toUpperCase()}
-                                                            </AvatarFallback>
-                                                        </Avatar>
+                                                            <TeamLogo
+                                                                teamName={team.teamName}
+                                                                logoUrl={team.logoUrl}
+                                                                logoConfig={team.logoConfig}
+                                                                size={32}
+                                                            />
+                                                        </div>
                                                         <div className="flex flex-col min-w-0">
                                                             <span className={cn(
-                                                                "font-bold text-xs md:text-[16px] truncate max-w-[100px] md:max-w-[300px]",
+                                                                "font-bold text-xs md:text-[16px] truncate max-w-[120px] md:max-w-[300px]",
                                                                 isMe ? "text-[#4169E1]" : "text-foreground"
                                                             )}>
                                                                 {team.teamName}

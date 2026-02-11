@@ -12,6 +12,11 @@ export type MatchResult = {
     awayGoals: number;
     calculated: boolean;
     date?: string; // If we had a date field
+    // Logos
+    homeTeamLogoUrl?: string | null;
+    homeTeamLogoConfig?: any;
+    awayTeamLogoUrl?: string | null;
+    awayTeamLogoConfig?: any;
 };
 
 export async function getTeamResults(teamId: string): Promise<MatchResult[]> {
@@ -31,18 +36,22 @@ export async function getTeamResults(teamId: string): Promise<MatchResult[]> {
 
     if (fixtures.length === 0) return [];
 
-    // 2. Fetch all teams to map names (optimization: could just fetch relevant ones, but there are few teams)
-    const { data: teams } = await supabase.from('teams').select('id, name');
+    // 2. Fetch all teams to map names AND logos
+    const { data: teams } = await supabase.from('teams').select('id, name, logo_url, logo_config');
 
     if (!teams) return [];
 
-    const teamMap = new Map(teams.map(t => [t.id, t.name]));
+    const teamMap = new Map(teams.map(t => [t.id, t]));
 
     // 3. Transform data
     return fixtures.map(f => {
         const isHome = f.home_team_id === teamId;
         const opponentId = isHome ? f.away_team_id : f.home_team_id;
-        const opponentName = teamMap.get(opponentId) || 'Unknown';
+        const opponent = teamMap.get(opponentId);
+        const opponentName = opponent?.name || 'Unknown';
+
+        const homeTeam = teamMap.get(f.home_team_id);
+        const awayTeam = teamMap.get(f.away_team_id);
 
         return {
             id: f.id,
@@ -54,6 +63,11 @@ export async function getTeamResults(teamId: string): Promise<MatchResult[]> {
             awayGoals: f.away_goals,
             calculated: f.calculated,
             // date: f.date 
+
+            homeTeamLogoUrl: homeTeam?.logo_url,
+            homeTeamLogoConfig: homeTeam?.logo_config,
+            awayTeamLogoUrl: awayTeam?.logo_url,
+            awayTeamLogoConfig: awayTeam?.logo_config,
         };
     });
 }
