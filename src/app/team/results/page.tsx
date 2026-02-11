@@ -127,13 +127,15 @@ export default function ResultsPage() {
                                 return (
                                     <StaggerItem key={f.id} className="w-full" id={`match-card-${f.id}`}>
                                         <Link href={`/team/results/${f.id}`} className="block group">
+
+                                            {/* --- DESKTOP VIEW (md+) --- */}
                                             <div className={cn(
-                                                "relative flex items-center py-4 px-3 transition-colors",
+                                                "hidden md:flex relative items-center py-4 px-4 transition-colors",
                                                 "border-b border-border/40",
                                                 index === results.length - 1 ? "border-0" : "",
                                                 "hover:bg-muted/30"
                                             )}>
-                                                {/* Status Indicator Bar (Left) */}
+                                                {/* Status Indicator */}
                                                 <div className={cn(
                                                     "absolute left-0 top-1/2 -translate-y-1/2 h-8 w-1 rounded-r-full opacity-70",
                                                     f.calculated && isWin ? "bg-emerald-500" :
@@ -141,81 +143,101 @@ export default function ResultsPage() {
                                                             f.calculated ? "bg-gray-400" : "bg-transparent"
                                                 )} />
 
-                                                {/* Day Number (Left) */}
-                                                <div className="flex flex-col w-[40px] md:w-[50px] shrink-0 items-center justify-center pl-2 border-r border-border/30 mr-3">
-                                                    <span className="text-[8px] md:text-[9px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-0.5">DAY</span>
-                                                    <span className="text-lg md:text-xl font-black text-foreground leading-none">{f.matchday}</span>
+                                                {/* Day */}
+                                                <div className="flex flex-col w-[60px] shrink-0 items-center justify-center border-r border-border/30 mr-4">
+                                                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">DAY</span>
+                                                    <span className="text-2xl font-black text-foreground leading-none">{f.matchday}</span>
                                                 </div>
 
-                                                {/* Match Content */}
-                                                <div className="flex-1 grid grid-cols-[1fr_auto_1fr] items-center gap-1 md:gap-3">
-                                                    {/* Home Team */}
-                                                    <div className="flex items-center justify-end gap-2 min-w-0">
-                                                        <span className={cn(
-                                                            "text-xs md:text-sm font-semibold leading-tight truncate text-right hidden sm:block",
-                                                            f.isHome ? "text-[#4169E1]" : "text-foreground"
-                                                        )}>
-                                                            {homeTeamName}
-                                                        </span>
-                                                        <div className="shrink-0">
-                                                            <TeamLogo
-                                                                teamName={homeTeamName}
-                                                                logoUrl={homeLogoUrl}
-                                                                logoConfig={homeLogoConfig}
-                                                                size={32}
-                                                            />
-                                                        </div>
+                                                {/* Match */}
+                                                <div className="flex-1 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+                                                    {/* Home */}
+                                                    <div className="flex items-center justify-end gap-3 z-10 transition-transform group-hover:translate-x-1">
+                                                        <span className={cn("text-sm font-bold truncate", f.isHome ? "text-primary" : "")}>{homeTeamName}</span>
+                                                        <TeamLogo teamName={homeTeamName} logoUrl={homeLogoUrl} logoConfig={homeLogoConfig} size={36} />
                                                     </div>
 
-                                                    {/* VS / Score */}
-                                                    <div className="flex flex-col items-center justify-center w-[40px] md:w-[60px]">
+                                                    {/* Score */}
+                                                    <div className="flex justify-center w-[80px]">
                                                         {f.calculated ? (
-                                                            <div className="flex flex-col items-center bg-muted/40 px-2 py-1 rounded-md border border-border/50">
-                                                                <div className="text-sm md:text-base font-bold tracking-tight leading-none whitespace-nowrap">
-                                                                    {f.homeGoals}-{f.awayGoals}
-                                                                </div>
+                                                            <div className="px-3 py-1 bg-muted/50 rounded-lg font-mono font-bold text-lg border border-border/50">
+                                                                {f.homeGoals} - {f.awayGoals}
                                                             </div>
                                                         ) : (
-                                                            <span className="text-[10px] font-bold text-muted-foreground/40 bg-muted/20 px-1.5 py-0.5 rounded">VS</span>
+                                                            <span className="text-xs font-bold text-muted-foreground/50 bg-muted/20 px-2 py-1 rounded">VS</span>
                                                         )}
                                                     </div>
 
-                                                    {/* Away Team */}
-                                                    <div className="flex items-center justify-start gap-2 min-w-0">
-                                                        <div className="shrink-0">
-                                                            <TeamLogo
-                                                                teamName={awayTeamName}
-                                                                logoUrl={awayLogoUrl}
-                                                                logoConfig={awayLogoConfig}
-                                                                size={32}
-                                                            />
+                                                    {/* Away */}
+                                                    <div className="flex items-center justify-start gap-3 z-10 transition-transform group-hover:-translate-x-1">
+                                                        <TeamLogo teamName={awayTeamName} logoUrl={awayLogoUrl} logoConfig={awayLogoConfig} size={36} />
+                                                        <span className={cn("text-sm font-bold truncate", !f.isHome ? "text-primary" : "")}>{awayTeamName}</span>
+                                                    </div>
+                                                </div>
+
+                                                <ChevronRight className="ml-4 h-5 w-5 text-muted-foreground/30" />
+                                            </div>
+
+
+                                            {/* --- MOBILE VIEW (md-hidden) --- */}
+                                            <div className={cn(
+                                                "md:hidden flex flex-col py-4 px-2 relative",
+                                                "border-b border-border/40",
+                                                index === results.length - 1 ? "border-0" : "",
+                                                "active:bg-muted/30 transition-colors"
+                                            )}>
+                                                {/* Status Strip */}
+                                                <div className={cn(
+                                                    "absolute left-0 top-4 bottom-4 w-1 rounded-r-full opacity-60",
+                                                    f.calculated && isWin ? "bg-emerald-500" :
+                                                        f.calculated && isLoss ? "bg-red-500" :
+                                                            f.calculated ? "bg-gray-300" : "bg-transparent"
+                                                )} />
+
+                                                <div className="text-[10px] text-center font-bold text-muted-foreground uppercase tracking-widest mb-3">
+                                                    Giornata {f.matchday}
+                                                </div>
+
+                                                <div className="flex items-center justify-between px-2">
+                                                    {/* Home */}
+                                                    <div className="flex flex-col items-center justify-start w-[35%] gap-2 text-center">
+                                                        <div className="relative">
+                                                            <TeamLogo teamName={homeTeamName} logoUrl={homeLogoUrl} logoConfig={homeLogoConfig} size={42} />
+                                                            {f.isHome && <div className="absolute -bottom-1 -right-1 h-3 w-3 bg-blue-500 rounded-full border-2 border-background" />}
                                                         </div>
-                                                        <span className={cn(
-                                                            "text-xs md:text-sm font-semibold leading-tight truncate text-left hidden sm:block",
-                                                            !f.isHome ? "text-[#4169E1]" : "text-foreground"
-                                                        )}>
+                                                        <span className={cn("text-[11px] font-bold leading-tight line-clamp-2", f.isHome ? "text-primary" : "")}>
+                                                            {homeTeamName}
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Score */}
+                                                    <div className="flex items-center justify-center w-[30%]">
+                                                        {f.calculated ? (
+                                                            <div className="flex items-center gap-1 font-black text-2xl text-foreground tracking-tighter">
+                                                                <span>{f.homeGoals}</span>
+                                                                <span className="text-muted-foreground/30 text-lg">-</span>
+                                                                <span>{f.awayGoals}</span>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="h-8 w-8 rounded-full bg-muted/40 flex items-center justify-center text-[10px] font-bold text-muted-foreground">
+                                                                VS
+                                                            </div>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Away */}
+                                                    <div className="flex flex-col items-center justify-start w-[35%] gap-2 text-center">
+                                                        <div className="relative">
+                                                            <TeamLogo teamName={awayTeamName} logoUrl={awayLogoUrl} logoConfig={awayLogoConfig} size={42} />
+                                                            {!f.isHome && <div className="absolute -bottom-1 -left-1 h-3 w-3 bg-blue-500 rounded-full border-2 border-background" />}
+                                                        </div>
+                                                        <span className={cn("text-[11px] font-bold leading-tight line-clamp-2", !f.isHome ? "text-primary" : "")}>
                                                             {awayTeamName}
                                                         </span>
                                                     </div>
                                                 </div>
-
-                                                {/* Names row for mobile (stacked below) - ONLY VISIBLE ON MOBILE */}
-                                                {/* Actually, let's keep it simple. If on mobile, maybe just show logos in center and names below? */}
-                                                {/* User said "mobile view is not right". Usually means names are cut off or layout breaks. */}
-                                                {/* Let's try to show names BELOW logos on mobile, or just rely on logos if known? */}
-                                                {/* Let's stick to the grid but allow names to be hidden on very small screens or make them stack? */}
-                                                {/* The previous code had truncating. Let's try to improve the layout. */}
-
-                                                {/* Icon (Right) */}
-                                                <div className="pl-2 text-muted-foreground/20 group-hover:text-muted-foreground/50 transition-colors">
-                                                    <ChevronRight className="w-4 h-4" />
-                                                </div>
                                             </div>
-                                            {/* Mobile Names Row - Optional enhancement for clarity */}
-                                            <div className="flex items-center justify-between px-10 pb-2 sm:hidden text-[10px] font-medium text-muted-foreground">
-                                                <span className={cn("truncate max-w-[45%]", f.isHome ? "text-primary font-bold" : "")}>{homeTeamName}</span>
-                                                <span className={cn("truncate max-w-[45%] text-right", !f.isHome ? "text-primary font-bold" : "")}>{awayTeamName}</span>
-                                            </div>
+
                                         </Link>
                                     </StaggerItem>
                                 );

@@ -13,6 +13,8 @@ type MatchData = {
     kickoff?: string; // ISO of the *first* match of the week
     home?: string;
     away?: string;
+    homeLogo?: string;
+    awayLogo?: string;
     inProgress?: boolean;
     error?: string;
     message?: string;
@@ -55,11 +57,6 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
 
         // 3. Logic:
         // Priority 1: Any match IN_PLAY or PAUSED (Halftime)
-        // Priority 2: The closest Upcoming match (SCHEDULED)
-        // Priority 3: If all finished (unlikely if step 1 found scheduled), show last finished? No, step 1 ensures we have scheduled.
-
-        // 3. Logic:
-        // Priority 1: Any match IN_PLAY or PAUSED (Halftime)
         // Priority 2: Any match that is SCHEDULED but the time has passed (within 2.5 hours) -> Treat as likely Live (API delay)
         // Priority 3: The closest Upcoming match (SCHEDULED)
 
@@ -83,6 +80,8 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
                 kickoff: liveMatch.utcDate,
                 home: liveMatch.homeTeam.name,
                 away: liveMatch.awayTeam.name,
+                homeLogo: liveMatch.homeTeam.crest,
+                awayLogo: liveMatch.awayTeam.crest,
                 inProgress: true
             };
         }
@@ -102,6 +101,8 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
                 kickoff: nextMatch.utcDate,
                 home: nextMatch.homeTeam.name,
                 away: nextMatch.awayTeam.name,
+                homeLogo: nextMatch.homeTeam.crest,
+                awayLogo: nextMatch.awayTeam.crest,
                 inProgress: false
             };
         }
@@ -113,6 +114,8 @@ export async function getNextSerieAMatch(): Promise<MatchData> {
             kickoff: matches[0].utcDate,
             home: matches[0].homeTeam.name,
             away: matches[0].awayTeam.name,
+            homeLogo: matches[0].homeTeam.crest,
+            awayLogo: matches[0].awayTeam.crest,
             inProgress: false
         };
 

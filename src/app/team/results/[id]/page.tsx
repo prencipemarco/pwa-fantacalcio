@@ -67,134 +67,92 @@ export default function MatchDetailsPage() {
     if (loading) return <ResultsSkeleton />;
     if (!match) return <div className="p-4">Match not found</div>;
 
+    // ... types and upper part remain ...
+
     return (
-        <div className="container mx-auto p-4 max-w-4xl pb-24">
-            <div className="mb-4">
-                <Button variant="ghost" size="sm" asChild>
+        <div className="container mx-auto max-w-lg min-h-screen bg-background pb-safe-offset-20">
+            {/* HEADER: Back & Title */}
+            <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-md border-b border-border/40 p-4 flex items-center justify-between">
+                <Button variant="ghost" size="icon" asChild className="-ml-2">
                     <Link href="/team/results">
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to Results
+                        <ArrowLeft className="h-5 w-5" />
                     </Link>
                 </Button>
+                <div className="font-bold text-lg">Dettaglio Partita</div>
+                <div className="w-9" /> {/* Spacer */}
             </div>
 
-            {/* SCOREBOARD */}
-            <Card className="mb-6 bg-slate-900 text-white border-none">
-                <CardContent className="p-6">
-                    <div className="flex justify-between items-center text-center">
-                        <div className="flex-1">
-                            <h2 className="text-xl font-bold truncate px-2">{match.homeTeam?.name || 'Ghost Team'}</h2>
-                            <div className="text-sm opacity-70">Total: {match.homeTotal.toFixed(1)}</div>
-                        </div>
-                        <div className="mx-4">
-                            <div className="text-5xl font-bold font-mono tracking-tighter">
-                                {match.homeGoals} - {match.awayGoals}
-                            </div>
-                            <div className="text-[10px] opacity-50 uppercase tracking-widest mt-1">
-                                Matchday {match.fixture.matchday}
-                            </div>
-                        </div>
-                        <div className="flex-1">
-                            <h2 className="text-xl font-bold truncate px-2">{match.awayTeam?.name || 'Ghost Team'}</h2>
-                            <div className="text-sm opacity-70">Total: {match.awayTotal.toFixed(1)}</div>
-                        </div>
+            {/* SCOREBOARD - Compact & Clean */}
+            <div className="bg-card py-6 px-4 mb-2 shadow-sm border-b border-border/40">
+                <div className="flex items-center justify-between max-w-md mx-auto">
+                    {/* Home */}
+                    <div className="flex flex-col items-center w-[30%] text-center">
+                        <span className="font-bold text-sm md:text-base leading-tight line-clamp-2 mb-1">{match.homeTeam?.name}</span>
+                        <span className="text-xs text-muted-foreground">Tot: {match.homeTotal.toFixed(1)}</span>
                     </div>
-                </CardContent>
-            </Card>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* HOME LINEUP */}
-                <TeamLineupColumn teamName={match.homeTeam?.name} players={match.homeLineup} total={match.homeTotal} />
+                    {/* Score */}
+                    <div className="flex flex-col items-center shrink-0">
+                        <div className="text-4xl font-black tracking-tighter text-foreground flex gap-1">
+                            <span>{match.homeGoals}</span>
+                            <span className="text-muted-foreground/30">-</span>
+                            <span>{match.awayGoals}</span>
+                        </div>
+                        <Badge variant="secondary" className="mt-1 text-[10px] uppercase tracking-wider font-bold h-5 px-1.5">
+                            Day {match.fixture.matchday}
+                        </Badge>
+                    </div>
 
-                {/* AWAY LINEUP */}
-                <TeamLineupColumn teamName={match.awayTeam?.name} players={match.awayLineup} total={match.awayTotal} />
+                    {/* Away */}
+                    <div className="flex flex-col items-center w-[30%] text-center">
+                        <span className="font-bold text-sm md:text-base leading-tight line-clamp-2 mb-1">{match.awayTeam?.name}</span>
+                        <span className="text-xs text-muted-foreground">Tot: {match.awayTotal.toFixed(1)}</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* LINEUPS - Tabs or Vertical Stack? Vertical Stack for now as per image logic (Home then Away or Side by Side on Desktop) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-4">
+                <TeamLineupColumn teamName={match.homeTeam?.name} players={match.homeLineup} total={match.homeTotal} color="blue" />
+                <div className="md:hidden h-px bg-border/50 mx-4" /> {/* Divider on mobile */}
+                <TeamLineupColumn teamName={match.awayTeam?.name} players={match.awayLineup} total={match.awayTotal} color="red" />
             </div>
         </div>
     );
 }
 
-async function fetchTeamData(supabase: any, fixture: any, teamId: string) {
-    if (!teamId) return { players: [], total: 0 };
+// ... fetchTeamData ...
 
-    // Get Lineup
-    const { data: lineup } = await supabase.from('lineups').select('id').eq('fixture_id', fixture.id).eq('team_id', teamId).single();
-    if (!lineup) return { players: [], total: 0 };
-
-    // Get Players aka Starters
-    const { data: players } = await supabase.from('lineup_players')
-        .select(`
-            *,
-            player:players(name, role, team_real)
-        `)
-        .eq('lineup_id', lineup.id)
-        .eq('is_starter', true);
-
-    if (!players) return { players: [], total: 0 };
-
-    // Get Stats for these players for this Matchday
-    const playerIds = players.map((p: any) => p.player_id);
-    const { data: stats } = await supabase.from('match_stats')
-        .select('*')
-        .eq('matchday', fixture.matchday)
-        .in('player_id', playerIds);
-
-    // Map stats to players and Calculate Total
-    let totalTeamScore = 0;
-    const enrichedPlayers = players.map((p: any) => {
-        const stat = stats?.find((s: any) => s.player_id === p.player_id) || {};
-        const points = calculatePlayerTotal(stat);
-
-        // Only add to team total if they have a vote? 
-        // Logic: if no vote, sub logic would apply. For MVP we assume starters played.
-        if (stat.vote) totalTeamScore += points;
-
-        return { ...p, stats: stat, points };
-    });
-
-    return { players: enrichedPlayers, total: totalTeamScore };
-}
-
-function calculatePlayerTotal(stats: any) {
-    if (!stats || stats.vote === undefined) return 0;
-    let total = stats.vote;
-    total += ((stats.goals_for || 0) * 3);
-    total += ((stats.assists || 0) * 1);
-    total -= ((stats.yellow_cards || 0) * 0.5);
-    total -= ((stats.red_cards || 0) * 1);
-    total += ((stats.penalties_saved || 0) * 3);
-    total -= ((stats.penalties_missed || 0) * 3);
-    total -= ((stats.own_goals || 0) * 2);
-    total -= ((stats.goals_against || 0) * 1);
-    return Math.round(total * 2) / 2;
-}
+// ... calculatePlayerTotal ...
 
 
-function TeamLineupColumn({ teamName, players, total }: { teamName: string, players: any[], total: number }) {
+function TeamLineupColumn({ teamName, players, total, color }: { teamName: string, players: any[], total: number, color: 'blue' | 'red' }) {
     const roleOrder: any = { 'P': 1, 'D': 2, 'C': 3, 'A': 4 };
     const sortedPlayers = [...players].sort((a, b) => {
         const roleA = a.player?.role || 'A';
         const roleB = b.player?.role || 'A';
+        // Sort by role P->D->C->A
         if (roleOrder[roleA] !== roleOrder[roleB]) return roleOrder[roleA] - roleOrder[roleB];
         return 0;
     });
 
+    const themeColor = color === 'blue' ? 'text-blue-600' : 'text-red-600';
+    const bgColor = color === 'blue' ? 'bg-blue-50 dark:bg-blue-900/10' : 'bg-red-50 dark:bg-red-900/10';
+
     return (
-        <Card>
-            <CardHeader className="py-3 bg-gray-50 border-b">
-                <CardTitle className="text-sm font-bold uppercase text-gray-500 text-center">{teamName || 'Empty Slot'}</CardTitle>
-            </CardHeader>
-            <CardContent className="p-0">
-                <div className="divide-y">
-                    {sortedPlayers.map((p) => (
-                        <PlayerRow key={p.id} player={p} />
-                    ))}
-                    {sortedPlayers.length === 0 && <p className="p-6 text-center text-sm text-gray-400 italic">No Lineup Available</p>}
-                </div>
-                <div className="p-4 bg-slate-50 border-t flex justify-between items-center font-bold text-slate-700">
-                    <span>Total Points</span>
-                    <span className="text-xl">{total.toFixed(1)}</span>
-                </div>
-            </CardContent>
-        </Card>
+        <div className="flex flex-col">
+            <div className={`p-3 mx-4 rounded-xl ${bgColor} flex justify-between items-center mb-2`}>
+                <span className={`font-bold text-sm uppercase tracking-wide ${themeColor}`}>{teamName}</span>
+                <span className={`font-black text-lg ${themeColor}`}>{total.toFixed(1)}</span>
+            </div>
+
+            <div className="flex flex-col">
+                {sortedPlayers.map((p) => (
+                    <PlayerRow key={p.id} player={p} />
+                ))}
+                {sortedPlayers.length === 0 && <p className="p-8 text-center text-sm text-muted-foreground italic">Formazione non disponibile</p>}
+            </div>
+        </div>
     );
 }
 
@@ -203,48 +161,67 @@ function PlayerRow({ player }: { player: any }) {
     const hasVote = stats.vote !== undefined;
     const totalPoints = player.points;
 
-    // Badge Colors
-    const roleColors: any = {
-        'P': 'bg-orange-100 text-orange-700 border-orange-200',
-        'D': 'bg-emerald-100 text-emerald-700 border-emerald-200',
-        'C': 'bg-blue-100 text-blue-700 border-blue-200',
-        'A': 'bg-rose-100 text-rose-700 border-rose-200'
+    // Role Config
+    const roleConfig: any = {
+        'P': { color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400', label: 'P' },
+        'D': { color: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400', label: 'D' },
+        'C': { color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400', label: 'C' },
+        'A': { color: 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400', label: 'A' }
     };
+    const roleStyle = roleConfig[player.player.role] || roleConfig['A'];
 
-    // Score Colors
-    let scoreColor = 'text-gray-400';
+    // FantaVote Color
+    let fantaVoteColor = 'text-muted-foreground';
+    let fantaVoteBg = 'bg-gray-100/50 dark:bg-gray-800/50';
+
     if (hasVote) {
-        if (totalPoints >= 10) scoreColor = 'text-purple-600 font-black';
-        else if (totalPoints >= 7) scoreColor = 'text-green-600 font-bold';
-        else if (totalPoints >= 6) scoreColor = 'text-blue-600 font-medium';
-        else scoreColor = 'text-red-500 font-medium';
+        if (totalPoints >= 10) { fantaVoteColor = 'text-purple-600 dark:text-purple-400 font-black'; fantaVoteBg = 'bg-purple-50 dark:bg-purple-900/20'; }
+        else if (totalPoints >= 7) { fantaVoteColor = 'text-emerald-600 dark:text-emerald-400 font-bold'; fantaVoteBg = 'bg-emerald-50 dark:bg-emerald-900/20'; }
+        else if (totalPoints >= 6) { fantaVoteColor = 'text-blue-600 dark:text-blue-400 font-bold'; fantaVoteBg = 'bg-blue-50 dark:bg-blue-900/20'; }
+        else if (totalPoints < 6) { fantaVoteColor = 'text-red-500 dark:text-red-400 font-bold'; fantaVoteBg = 'bg-red-50 dark:bg-red-900/20'; }
     }
 
     return (
-        <div className="flex items-center justify-between p-3 hover:bg-gray-50/80 transition-colors text-sm group">
+        <div className="flex items-center justify-between py-3 px-4 border-b border-border/30 last:border-0 hover:bg-muted/20 transition-colors">
+            {/* Left: Role + Name */}
             <div className="flex items-center gap-3 overflow-hidden">
-                <span className={`w-6 h-6 flex items-center justify-center text-[10px] font-bold rounded-md border ${roleColors[player.player.role] || 'bg-gray-100'}`}>
-                    {player.player.role}
-                </span>
-                <div className="flex flex-col">
-                    <span className="font-semibold text-gray-700 truncate max-w-[140px] leading-tight">{player.player.name}</span>
-                    <span className="text-[10px] text-gray-400 uppercase">{player.player.team_real}</span>
+                <div className={`w-6 h-6 shrink-0 rounded-full flex items-center justify-center text-[10px] font-bold ${roleStyle.color}`}>
+                    {roleStyle.label}
+                </div>
+                <div className="flex flex-col min-w-0">
+                    <span className="font-semibold text-sm text-foreground truncate">{player.player.name}</span>
+
+                    {/* Event Icons (Under name for compactness) */}
+                    <div className="flex items-center gap-1.5 mt-0.5">
+                        {stats.goals_for > 0 && (
+                            <div className="flex items-center gap-0.5" title="Gol">
+                                <span className="text-[10px]">⚽</span>
+                                {stats.goals_for > 1 && <span className="text-[9px] font-bold text-green-600">x{stats.goals_for}</span>}
+                            </div>
+                        )}
+                        {stats.assists > 0 && <span className="text-[9px] font-bold text-blue-500 bg-blue-50 px-1 rounded" title="Assist">+1</span>}
+                        {stats.yellow_cards > 0 && <div className="w-2 h-3 bg-yellow-400 rounded-[1px]" title="Ammonizione"></div>}
+                        {stats.red_cards > 0 && <div className="w-2 h-3 bg-red-500 rounded-[1px]" title="Espulsione"></div>}
+                        {stats.penalties_saved > 0 && <span className="text-[10px]" title="Rigore Parato">🧤</span>}
+                        {stats.goals_against > 0 && <span className="text-[9px] font-bold text-red-500" title="Gol Subiti">-{stats.goals_against}</span>}
+                    </div>
                 </div>
             </div>
 
-            <div className="flex items-center gap-2">
-                {/* Visual Indicators */}
-                {stats.goals_for > 0 && <Badge variant="outline" className="h-5 px-1 bg-green-50 text-green-600 border-green-200 gap-1">⚽ {stats.goals_for > 1 && stats.goals_for}</Badge>}
-                {stats.assists > 0 && <Badge variant="outline" className="h-5 px-1 bg-blue-50 text-blue-600 border-blue-200">+1</Badge>}
-                {(stats.yellow_cards > 0 || stats.red_cards > 0) && (
-                    <div className={`w-3 h-4 rounded-sm ${stats.red_cards ? 'bg-red-500' : 'bg-yellow-400'}`}></div>
-                )}
+            {/* Right: Vote | FantaVote */}
+            <div className="flex items-center gap-3">
+                <div className="flex flex-col items-center w-8">
+                    <span className="text-xs text-muted-foreground/50 font-medium uppercase tracking-tighter" style={{ fontSize: '0.6rem' }}>VOTO</span>
+                    <span className="text-sm font-medium text-muted-foreground">{hasVote ? stats.vote : '-'}</span>
+                </div>
 
-                <div className="flex items-center w-16 justify-end gap-3 font-mono border-l pl-3 ml-2">
-                    <span className="text-gray-400 text-xs">{hasVote ? stats.vote : '-'}</span>
-                    <span className={`text-base ${scoreColor}`}>{hasVote ? totalPoints : '-'}</span>
+                <div className={`flex flex-col items-center justify-center w-10 h-10 rounded-lg ${fantaVoteBg}`}>
+                    {/* <span className="text-[9px] font-bold opacity-50 uppercase mb-[1px]" style={{ fontSize: '0.55rem' }}>FV</span> */}
+                    <span className={`text-base ${fantaVoteColor}`}>{hasVote ? totalPoints : '-'}</span>
                 </div>
             </div>
         </div>
     );
 }
+
+// Ensure clean end of file
