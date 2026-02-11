@@ -9,9 +9,10 @@ import { SettingsDialog } from '@/components/settings-dialog';
 import { TeamLogo } from '@/components/team-logo';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shirt, ShoppingBag, Trophy, Users, Shield, ArrowRight, Plus, Calendar } from 'lucide-react';
+import { Shirt, ShoppingBag, Trophy, Users, Shield, ArrowRight, Plus, Calendar, Pencil } from 'lucide-react';
 
 import { TeamStanding } from '@/app/actions/standings';
+import { TeamLogoEditor } from '@/components/team-logo-editor';
 
 // Helper to format date
 import { format } from 'date-fns';
@@ -37,15 +38,50 @@ function InnerHome({ user, team, standings, nextMatch }: { user: any, team: any,
                 </div>
             </div>
 
-            {/* Welcome Message */}
+
+
+            {/* Welcome Message & Logo Customization */}
             {user && (
-                <div className="space-y-1">
-                    <h1 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">
-                        {t('welcome')}, <span className="text-primary">{team ? team.name : user.email?.split('@')[0]}</span>
-                    </h1>
-                    <p className="text-muted-foreground">
-                        {team ? 'Gestisci la tua rosa e schiera la formazione.' : 'Crea la tua squadra per iniziare.'}
-                    </p>
+                <div className="flex items-center gap-4">
+                    {/* Customizable Logo */}
+                    {team ? (
+                        <TeamLogoEditor
+                            teamId={team.id}
+                            teamName={team.name}
+                            initialLogoUrl={team.logo_url}
+                            initialLogoConfig={team.logo_config}
+                            trigger={
+                                <button className="relative group">
+                                    <div className="h-16 w-16 md:h-20 md:w-20 rounded-full shadow-lg overflow-hidden border-2 border-white dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-center transition-transform group-hover:scale-105">
+                                        <TeamLogo
+                                            teamName={team.name}
+                                            logoUrl={team.logo_url}
+                                            logoConfig={team.logo_config}
+                                            size={80}
+                                        />
+                                    </div>
+                                    <div className="absolute -bottom-1 -right-1 bg-white dark:bg-slate-800 p-1.5 rounded-full shadow border border-slate-200 dark:border-slate-700 text-slate-500 group-hover:text-primary transition-colors">
+                                        <div className="bg-slate-100 dark:bg-slate-900 p-1 rounded-full">
+                                            <Pencil className="h-3 w-3 md:h-4 md:w-4" />
+                                        </div>
+                                    </div>
+                                </button>
+                            }
+                        />
+                    ) : (
+                        <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center border-2 border-dashed border-slate-300 dark:border-slate-600">
+                            <Shield className="h-8 w-8 text-slate-300" />
+                        </div>
+                    )}
+
+                    <div className="space-y-1">
+                        <h1 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white">
+                            {t('welcome')}, <span className="text-primary">{team ? team.name : user.email?.split('@')[0]}</span>
+                        </h1>
+                        <p className="text-muted-foreground">
+                            {team ? 'Gestisci la tua rosa e schiera la formazione.' : 'Crea la tua squadra per iniziare.'}
+                        </p>
+                    </div>
                 </div>
             )}
 
