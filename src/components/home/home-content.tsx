@@ -18,7 +18,8 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
     const { t } = useLanguage();
 
     // Quick stats or next match info
-    const nextMatchDate = nextMatch ? new Date(nextMatch.date) : new Date();
+    // Quick stats or next match info
+    const nextMatchDate = nextMatch?.kickoff ? new Date(nextMatch.kickoff) : new Date();
     const formattedDate = format(nextMatchDate, 'EEE d MMM, HH:mm', { locale: it });
 
     return (
