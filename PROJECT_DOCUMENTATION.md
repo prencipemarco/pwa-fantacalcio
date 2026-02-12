@@ -167,11 +167,8 @@ Usa `@dnd-kit/core` per drag-and-drop.
 
 *Documentazione aggiornata al 26/01/2026.*
 
-### v0.2.3 - UI fixes & new features
-* Apertura app, immagini dei giocatori che ruotano verso il centro durante il caricamento dell'app, con al centro il logo della lega;
-
-* menu a tendina della prossima partita di serie A che mostra i minuti mancanti alla partita, se estesa mostra i loghi delle due squadre che si affronteranno, una volta esteso se cliccato porta alla pagina delle partite di serie A in calendario quella giornata;
-
-* inculde un file audio all'apertura dell'app, il file è audio  MP3 di 10 secondi massimo precaricato e parte in automatico, se l'utente non ha dato il consenso al browser per l'audio, non parte nulla, il file audio deve poter essere personalizzato tramite pannello admin, crea una sezione apposita per l'admin in cui caricare il file audio, il file audio deve essere in formato mp3 e deve essere di massimo 10 secondi, puo essere disattivato;
-
-* sala stampa, piccolo riquadro sala stampa dove i partecipanti possono fare dichiarazioni nei confronti di altre squadre presenti all'interno della lega, le dichiarazioni devono essere visibili a tutti i partecipanti e devono essere in ordine cronologico, vedi immagine 2 per la posizione 
+### v0.2.3 - UI Overhaul & Community Features (Attuale)
+*   **Intro Animation**: Nuova splash screen cinematica con loghi squadre orbitanti e audio personalizzabile.
+*   **Next Match Widget**: Card "Prossimo Turno" ridisegnata con conto alla rovescia espandibile e link al calendario.
+*   **Sala Stampa**: Nuova sezione in Home per messaggi e dichiarazioni tra presidenti (sviluppo community).
+*   **Audio System**: Supporto per file MP3 caricabili da Admin per l'intro dell'app.
