@@ -165,6 +165,17 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
     const nextMsg = () => setCurrentIdx((prev) => (prev + 1) % statements.length);
     const prevMsg = () => setCurrentIdx((prev) => (prev - 1 + statements.length) % statements.length);
 
+    // Auto-Scroll Logic
+    useEffect(() => {
+        if (statements.length <= 1) return;
+
+        const timer = setInterval(() => {
+            nextMsg();
+        }, 7000); // 7s auto-scroll
+
+        return () => clearInterval(timer);
+    }, [statements.length, currentIdx]); // Reset timer on manual interaction (optional, or just keeps going)
+
     const onDragEnd = (event: any, info: any) => {
         if (info.offset.x < -50) nextMsg(); // Swipe Left -> Next
         else if (info.offset.x > 50) prevMsg(); // Swipe Right -> Prev
@@ -174,7 +185,7 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
 
     return (
         <>
-            <Card className="border-red-500/20 shadow-sm overflow-hidden flex flex-col relative w-full">
+            <Card className="border-red-500/20 shadow-sm overflow-hidden flex flex-col relative w-full border-0 py-0 gap-0">
                 <div className="bg-red-50 dark:bg-red-900/10 border-b border-red-100 dark:border-red-900/20 p-2 px-3 flex items-center justify-between gap-2 h-10">
                     <div className="flex items-center gap-2">
                         <div className="bg-red-100 dark:bg-red-900/40 p-1 rounded-full">
@@ -205,6 +216,7 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                                 className="absolute inset-0 p-4 flex flex-col gap-3 w-full h-full cursor-grab active:cursor-grabbing"
                                 onPointerDown={(e) => e.stopPropagation()}
                                 onTouchStart={(e) => e.stopPropagation()}
+                            // Pause auto-scroll on hover/touch? (Optional, implies complex state)
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="shrink-0">

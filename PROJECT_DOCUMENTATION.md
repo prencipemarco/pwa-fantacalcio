@@ -181,6 +181,10 @@ Usa `@dnd-kit/core` per drag-and-drop.
         - **Home**: Margini ridotti, Tasto Logout (Door Icon) al posto dei crediti.
         - **Audio**: Autoplay forzato e UI meno intrusiva.
         - **Sala Stampa**: Refresh rate aumentato a 10s, visualizzazione immagini migliorata.
+    - **Refinements v3/v4**:
+        - **Layout**: Full width reale (rimosso container/padding su mobile).
+        - **Sala Stampa**: Auto-scroll (Carousel) ogni 7s.
+        - **UI**: Padding rimossi dalle card per recuperare spazio.
 
 *Documentazione aggiornata al 26/01/2026.*
 
