@@ -26,7 +26,7 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
 
     return (
         <div className="flex flex-col min-h-[100dvh] bg-background">
-            <div className="flex-1 p-2 pb-24 md:p-4 container mx-auto max-w-5xl">
+            <div className="flex-1 p-2 pb-24 md:p-4 w-full">
 
                 {/* 1. Compact Header */}
                 <header className="flex items-center justify-between mb-4">

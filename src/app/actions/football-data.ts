@@ -259,7 +259,7 @@ export async function getSerieACalendar(): Promise<any[]> {
     if (!API_TOKEN) return [];
 
     try {
-        const res = await fetch(`${API_URL}?season=2024`, { // Current Season
+        const res = await fetch(`${API_URL}?season=2025`, { // Next Season (25/26)
             headers: { 'X-Auth-Token': API_TOKEN },
             next: { revalidate: 3600 } // Cache 1h
         });
