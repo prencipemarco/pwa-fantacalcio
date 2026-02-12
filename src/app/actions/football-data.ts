@@ -247,12 +247,29 @@ export async function getMatchDetails(matchId: number): Promise<any[]> {
         }
 
         // Sort by minute
-        events.sort((a, b) => a.minute - b.minute);
-
         return events;
 
     } catch (e) {
         console.error('getMatchDetails error', e);
+        return [];
+    }
+}
+
+export async function getSerieACalendar(): Promise<any[]> {
+    if (!API_TOKEN) return [];
+
+    try {
+        const res = await fetch(`${API_URL}?season=2024`, { // Current Season
+            headers: { 'X-Auth-Token': API_TOKEN },
+            next: { revalidate: 3600 } // Cache 1h
+        });
+
+        if (!res.ok) return [];
+        const data = await res.json();
+        return data.matches || [];
+
+    } catch (e) {
+        console.error('getSerieACalendar error', e);
         return [];
     }
 }

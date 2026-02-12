@@ -69,7 +69,7 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
 
     useEffect(() => {
         fetchStatements();
-        const interval = setInterval(fetchStatements, 30000); // Poll every 30s
+        const interval = setInterval(fetchStatements, 10000); // Poll every 10s
 
         const channel = supabase
             .channel('public:press_statements')
@@ -225,8 +225,8 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
 
                                 <div className="flex-1 overflow-y-auto pr-1">
                                     {currentStatement.image_url && (
-                                        <div className="mb-2 rounded-lg overflow-hidden border border-border/50 max-h-[200px] flex justify-start">
-                                            <img src={currentStatement.image_url} alt="Allegato" className="object-cover h-full w-auto max-w-full" />
+                                        <div className="mb-2 rounded-lg overflow-hidden border border-border/50 max-h-[300px] flex justify-start">
+                                            <img src={currentStatement.image_url} alt="Allegato" className="object-contain h-full w-auto max-w-full" />
                                         </div>
                                     )}
                                     {currentStatement.content && (

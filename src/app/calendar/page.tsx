@@ -10,119 +10,118 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
 
+import { getSerieACalendar } from '@/app/actions/football-data';
+
 export default function CalendarPage() {
-    const [leagues, setLeagues] = useState<any[]>([]);
-    const [fixtures, setFixtures] = useState<any[]>([]);
-    const [teams, setTeams] = useState<any[]>([]);
+    const [matches, setMatches] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
-    const supabase = createClient();
 
     useEffect(() => {
         const init = async () => {
-            // 1. Fetch Leagues
-            const { data: leaguesData } = await supabase.from('leagues').select('*');
-            if (leaguesData) setLeagues(leaguesData);
+            const data = await getSerieACalendar();
+            setMatches(data);
+            setLoading(false);
 
-            // 2. Fetch Teams (for names)
-            const { data: teamsData } = await supabase.from('teams').select('id, name, logo_url');
-            if (teamsData) setTeams(teamsData);
-
-            // 3. Fetch Fixtures (Default to first league if exists)
-            if (leaguesData && leaguesData.length > 0) {
-                fetchFixtures(leaguesData[0].id);
-            } else {
-                setLoading(false);
+            // Scroll to current matchday
+            if (data.length > 0) {
+                // Find first unfinished match
+                const nextMatch = data.find((m: any) => m.status === 'SCHEDULED' || m.status === 'TIMED');
+                if (nextMatch) {
+                    setTimeout(() => {
+                        const el = document.getElementById(`matchday-${nextMatch.matchday}`);
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                }
             }
         };
         init();
     }, []);
 
-    const fetchFixtures = async (leagueId: string) => {
-        const { data } = await supabase.from('fixtures')
-            .select('*')
-            .eq('league_id', leagueId)
-            .order('matchday', { ascending: true });
-
-        if (data) setFixtures(data);
-        setLoading(false);
-    };
-
-    const getTeam = (id: string) => teams.find(t => t.id === id);
-
     // Group by Matchday
-    const groupedFixtures = fixtures.reduce((acc: any, fixture: any) => {
-        if (!acc[fixture.matchday]) acc[fixture.matchday] = [];
-        acc[fixture.matchday].push(fixture);
+    const groupedMatches = matches.reduce((acc: any, match: any) => {
+        if (!acc[match.matchday]) acc[match.matchday] = [];
+        acc[match.matchday].push(match);
         return acc;
     }, {});
 
     return (
         <div className="container mx-auto p-4 max-w-3xl min-h-screen pb-20">
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-6 sticky top-0 bg-background/95 backdrop-blur z-20 py-4 -mx-4 px-4 border-b">
                 <Link href="/">
                     <Button variant="ghost" size="icon">
                         <ArrowLeft className="h-5 w-5" />
                     </Button>
                 </Link>
-                <h1 className="text-2xl font-bold flex items-center gap-2">
-                    <CalendarIcon className="h-6 w-6" />
+                <h1 className="text-xl font-bold flex items-center gap-2">
+                    <CalendarIcon className="h-5 w-5" />
                     Calendario Serie A
                 </h1>
             </div>
 
             {loading ? (
-                <div className="text-center py-10">Caricamento calendario...</div>
+                <div className="text-center py-20 flex flex-col items-center gap-2 text-muted-foreground">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                    <p>Caricamento calendario...</p>
+                </div>
             ) : (
-                <div className="space-y-6">
-                    {Object.keys(groupedFixtures).map((matchday) => (
-                        <Card key={matchday} className="overflow-hidden border-none shadow-md">
-                            <CardHeader className="bg-primary/5 py-3 border-b">
-                                <CardTitle className="text-sm font-bold uppercase tracking-wider flex justify-between items-center text-primary">
-                                    <span>Giornata {matchday}</span>
-                                    {/* Placeholder for date if available in future */}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-0">
-                                <div className="divide-y">
-                                    {groupedFixtures[matchday].map((f: any) => {
-                                        const homeTeam = getTeam(f.home_team_id);
-                                        const awayTeam = getTeam(f.away_team_id);
+                <div className="space-y-8">
+                    {Object.keys(groupedMatches).map((matchday) => (
+                        <div key={matchday} id={`matchday-${matchday}`} className="scroll-mt-24">
+                            <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-3 px-1 sticky top-16 bg-background/95 backdrop-blur z-10 py-2">
+                                Giornata {matchday}
+                            </h3>
+                            <Card className="overflow-hidden border-none shadow-sm bg-card/50">
+                                <CardContent className="p-0">
+                                    <div className="divide-y divide-border/50">
+                                        {groupedMatches[matchday].map((m: any) => {
+                                            const isFinished = m.status === 'FINISHED';
+                                            const isLive = m.status === 'IN_PLAY' || m.status === 'PAUSED';
+                                            const score = isFinished || isLive
+                                                ? `${m.score.fullTime.home ?? m.score.halfTime.home ?? 0} - ${m.score.fullTime.away ?? m.score.halfTime.away ?? 0}`
+                                                : format(new Date(m.utcDate), 'HH:mm', { locale: it });
 
-                                        return (
-                                            <div key={f.id} className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 p-3 hover:bg-muted/30 transition-colors">
-                                                {/* Home */}
-                                                <div className="flex items-center gap-2 overflow-hidden">
-                                                    {homeTeam?.logo_url ? (
-                                                        <img src={homeTeam.logo_url} className="w-6 h-6 object-contain" alt={homeTeam.name} />
-                                                    ) : (
-                                                        <div className="w-6 h-6 bg-gray-200 rounded-full" />
-                                                    )}
-                                                    <span className="font-semibold text-sm truncate">{homeTeam?.name || 'TBD'}</span>
-                                                </div>
+                                            return (
+                                                <div key={m.id} className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 p-3 hover:bg-muted/30 transition-colors">
+                                                    {/* Home */}
+                                                    <div className="flex items-center gap-3 overflow-hidden justify-end text-right">
+                                                        <span className={`font-semibold text-xs md:text-sm truncate ${isLive ? 'text-red-600' : ''}`}>
+                                                            {m.homeTeam.shortName || m.homeTeam.name}
+                                                        </span>
+                                                        {m.homeTeam.crest ? (
+                                                            <img src={m.homeTeam.crest} className="w-6 h-6 object-contain" alt={m.homeTeam.name} />
+                                                        ) : (
+                                                            <div className="w-6 h-6 bg-gray-200 rounded-full" />
+                                                        )}
+                                                    </div>
 
-                                                {/* Score / VS */}
-                                                <div className="text-xs font-bold text-muted-foreground bg-muted px-2 py-1 rounded-full text-center min-w-[40px]">
-                                                    VS
-                                                </div>
+                                                    {/* Score / Time */}
+                                                    <div className={`text-xs font-bold px-2 py-1 rounded-md text-center min-w-[50px]
+                                                        ${isLive ? 'bg-red-100 text-red-600 animate-pulse' : 'bg-muted text-muted-foreground'}
+                                                    `}>
+                                                        {score}
+                                                    </div>
 
-                                                {/* Away */}
-                                                <div className="flex items-center justify-end gap-2 overflow-hidden text-right">
-                                                    <span className="font-semibold text-sm truncate">{awayTeam?.name || 'TBD'}</span>
-                                                    {awayTeam?.logo_url ? (
-                                                        <img src={awayTeam.logo_url} className="w-6 h-6 object-contain" alt={awayTeam.name} />
-                                                    ) : (
-                                                        <div className="w-6 h-6 bg-gray-200 rounded-full" />
-                                                    )}
+                                                    {/* Away */}
+                                                    <div className="flex items-center gap-3 overflow-hidden justify-start text-left">
+                                                        {m.awayTeam.crest ? (
+                                                            <img src={m.awayTeam.crest} className="w-6 h-6 object-contain" alt={m.awayTeam.name} />
+                                                        ) : (
+                                                            <div className="w-6 h-6 bg-gray-200 rounded-full" />
+                                                        )}
+                                                        <span className={`font-semibold text-xs md:text-sm truncate ${isLive ? 'text-red-600' : ''}`}>
+                                                            {m.awayTeam.shortName || m.awayTeam.name}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </CardContent>
-                        </Card>
+                                            );
+                                        })}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
                     ))}
 
-                    {fixtures.length === 0 && (
+                    {matches.length === 0 && (
                         <div className="text-center py-10 text-muted-foreground">
                             Nessun calendario disponibile.
                         </div>

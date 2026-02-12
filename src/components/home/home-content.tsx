@@ -26,11 +26,11 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
 
     return (
         <div className="flex flex-col min-h-[100dvh] bg-background">
-            <div className="flex-1 p-4 pb-24 md:p-8 container mx-auto max-w-5xl">
+            <div className="flex-1 p-2 pb-24 md:p-4 container mx-auto max-w-5xl">
 
                 {/* 1. Compact Header */}
-                <header className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-4">
+                <header className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
                         <div className="relative">
                             <TeamLogoEditor
                                 teamId={team?.id}
@@ -39,36 +39,31 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
                                 initialLogoConfig={team?.logo_config}
                                 trigger={
                                     <button className="relative group transition-transform hover:scale-105">
-                                        <div className="h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm">
+                                        <div className="h-12 w-12 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm">
                                             <TeamLogo
                                                 teamName={team?.name || 'My Team'}
                                                 logoUrl={team?.logo_url}
                                                 logoConfig={team?.logo_config}
-                                                size={56}
+                                                size={48}
                                             />
                                         </div>
-                                        <div className="absolute -bottom-1 -right-1 bg-background rounded-full p-1.5 shadow-sm border border-border text-primary">
-                                            <Pencil className="h-3 w-3" />
+                                        <div className="absolute -bottom-1 -right-1 bg-background rounded-full p-1 shadow-sm border border-border text-primary">
+                                            <Pencil className="h-2.5 w-2.5" />
                                         </div>
                                     </button>
                                 }
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Benvenuto</span>
-                            <h1 className="font-bold text-xl md:text-2xl leading-tight text-foreground truncate max-w-[200px] md:max-w-md">
+                            <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Benvenuto</span>
+                            <h1 className="font-bold text-lg leading-tight text-foreground truncate max-w-[180px]">
                                 {team ? team.name : user.email?.split('@')[0]}
                             </h1>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                        {team && (
-                            <div className="bg-primary/10 text-primary px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm font-bold flex items-center gap-1.5 border border-primary/20 shadow-sm">
-                                <span className="text-[10px] uppercase opacity-70">Cr.</span>
-                                {team.credits_left}
-                            </div>
-                        )}
+                    <div className="flex items-center gap-2">
+                        <LogoutButton />
                         <SettingsDialog />
                     </div>
                 </header>

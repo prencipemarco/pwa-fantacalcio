@@ -81,7 +81,7 @@ export function IntroSplash() {
                 transition={{ duration: 1.2, ease: "easeInOut" }}
                 onClick={toggleAudio} // Tap anywhere to toggle
             >
-                {audioUrl && <audio ref={audioRef} src={audioUrl} preload="auto" loop={false} playsInline />}
+                {audioUrl && <audio ref={audioRef} src={audioUrl} preload="auto" loop={false} playsInline autoPlay />}
 
                 {/* Audio Control Indicator */}
                 {audioUrl && (
@@ -112,10 +112,10 @@ export function IntroSplash() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute bottom-20 z-50 text-center pointer-events-none"
+                        className="absolute bottom-24 z-50 text-center pointer-events-none"
                     >
-                        <span className="text-xs text-muted-foreground font-medium bg-background/80 px-2 py-1 rounded-full uppercase tracking-widest border shadow-sm">
-                            Tap to Play
+                        <span className="text-[10px] text-muted-foreground/40 font-medium px-2 py-1 uppercase tracking-widest">
+                            Tap to Unmute
                         </span>
                     </motion.div>
                 )}

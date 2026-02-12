@@ -176,7 +176,11 @@ Usa `@dnd-kit/core` per drag-and-drop.
         - Mercato: Card giocatori ridotte.
         - Risultati: Giornata in grassetto.
         - Animazione App: Uscita più smooth.
-    - **Bug Fix**: Risolto problema salvataggio URL audio (tabella errata).
+    - **Refinements v2**:
+        - **Calendario**: Implementazione API reale Serie A (`football-data.org`).
+        - **Home**: Margini ridotti, Tasto Logout (Door Icon) al posto dei crediti.
+        - **Audio**: Autoplay forzato e UI meno intrusiva.
+        - **Sala Stampa**: Refresh rate aumentato a 10s, visualizzazione immagini migliorata.
 
 *Documentazione aggiornata al 26/01/2026.*
 
