@@ -83,28 +83,22 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
                         {/* 3. Primary Actions Grid */}
                         {team && (
                             <div className="grid grid-cols-2 gap-4">
-                                <Link href="/team/lineup" className="block group h-full">
-                                    <Card className="h-full p-6 flex flex-col justify-between hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer bg-gradient-to-br from-card to-blue-50/50 dark:to-blue-900/10 border-muted/60">
-                                        <div className="h-14 w-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
-                                            <Shirt className="h-7 w-7" />
+                                <Link href="/team/lineup" className="block group">
+                                    <div className="p-4 flex flex-col items-center justify-center gap-2 rounded-2xl border bg-card hover:border-primary/50 hover:shadow-md transition-all cursor-pointer h-32">
+                                        <div className="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                            <Shirt className="h-5 w-5" />
                                         </div>
-                                        <div>
-                                            <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">La Tua Rosa</h3>
-                                            <p className="text-sm text-muted-foreground mt-1">Gestisci formazione e titolari</p>
-                                        </div>
-                                    </Card>
+                                        <h3 className="font-bold text-sm text-center">Rosa</h3>
+                                    </div>
                                 </Link>
 
-                                <Link href="/market" className="block group h-full">
-                                    <Card className="h-full p-6 flex flex-col justify-between hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer bg-gradient-to-br from-card to-emerald-50/50 dark:to-emerald-900/10 border-muted/60">
-                                        <div className="h-14 w-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
-                                            <ShoppingBag className="h-7 w-7" />
+                                <Link href="/market" className="block group">
+                                    <div className="p-4 flex flex-col items-center justify-center gap-2 rounded-2xl border bg-card hover:border-primary/50 hover:shadow-md transition-all cursor-pointer h-32">
+                                        <div className="h-10 w-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                            <ShoppingBag className="h-5 w-5" />
                                         </div>
-                                        <div>
-                                            <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">Mercato</h3>
-                                            <p className="text-sm text-muted-foreground mt-1">Acquista svincolati e scambia</p>
-                                        </div>
-                                    </Card>
+                                        <h3 className="font-bold text-sm text-center">Mercato</h3>
+                                    </div>
                                 </Link>
                             </div>
                         )}

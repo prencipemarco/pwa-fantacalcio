@@ -77,9 +77,9 @@ export function IntroSplash() {
             <motion.div
                 className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
                 initial={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                onClick={toggleAudio} // Tap anywhere to try playing if blocked
+                exit={{ opacity: 0, filter: 'blur(10px)', scale: 1.1 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                onClick={toggleAudio} // Tap anywhere to toggle
             >
                 {audioUrl && <audio ref={audioRef} src={audioUrl} preload="auto" loop={false} playsInline />}
 
@@ -92,15 +92,30 @@ export function IntroSplash() {
                     </div>
                 )}
 
-                {/* Explicit Unmute Button (if blocked) */}
+                {/* Explicit Stop/Mute Hint (if playing) */}
+                {audioUrl && isPlaying && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute bottom-20 z-50 text-center pointer-events-none"
+                    >
+                        <span className="text-xs text-muted-foreground/50 font-medium px-2 py-1 rounded-full uppercase tracking-widest">
+                            Tap to Stop
+                        </span>
+                    </motion.div>
+                )}
+
+                {/* Explicit Play Hint (if halted) */}
                 {audioUrl && !isPlaying && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="absolute bottom-20 z-50 text-center"
+                        exit={{ opacity: 0 }}
+                        className="absolute bottom-20 z-50 text-center pointer-events-none"
                     >
                         <span className="text-xs text-muted-foreground font-medium bg-background/80 px-2 py-1 rounded-full uppercase tracking-widest border shadow-sm">
-                            Tap to Unmute
+                            Tap to Play
                         </span>
                     </motion.div>
                 )}

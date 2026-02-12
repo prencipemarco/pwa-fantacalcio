@@ -203,6 +203,8 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                                 dragElastic={0.2}
                                 onDragEnd={onDragEnd}
                                 className="absolute inset-0 p-4 flex flex-col gap-3 w-full h-full cursor-grab active:cursor-grabbing"
+                                onPointerDown={(e) => e.stopPropagation()}
+                                onTouchStart={(e) => e.stopPropagation()}
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="shrink-0">

@@ -170,6 +170,12 @@ Usa `@dnd-kit/core` per drag-and-drop.
     - Improved **Audio Autoplay** (Tap to Unmute button).
     - Tweaked **Press Room** UI (Arrows moved to bottom).
     - **Feature**: Aggiunto **Image Cropping** (ritaglio) per le foto della Sala Stampa.
+    - **Refinements**:
+        - Audio: Tap to Stop/Mute.
+        - Home Buttons: Nuovi tasti "Rosa" e "Mercato" compatti.
+        - Mercato: Card giocatori ridotte.
+        - Risultati: Giornata in grassetto.
+        - Animazione App: Uscita più smooth.
     - **Bug Fix**: Risolto problema salvataggio URL audio (tabella errata).
 
 *Documentazione aggiornata al 26/01/2026.*

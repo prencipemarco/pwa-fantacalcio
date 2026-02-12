@@ -194,7 +194,7 @@ export default function ResultsPage() {
                                                             f.calculated ? "bg-gray-300" : "bg-transparent"
                                                 )} />
 
-                                                <div className="text-[10px] text-center font-bold text-muted-foreground uppercase tracking-widest mb-3">
+                                                <div className="text-[10px] text-center font-black text-foreground uppercase tracking-widest mb-3">
                                                     Giornata {f.matchday}
                                                 </div>
 

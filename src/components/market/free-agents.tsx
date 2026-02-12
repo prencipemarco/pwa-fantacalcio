@@ -129,9 +129,9 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
                 {results.map((player) => (
                     <Card key={player.id} className="hover:border-primary/50 transition-colors shadow-sm">
                         <CardContent className="p-2.5 flex justify-between items-center">
-                            <div className="flex items-center gap-2.5">
+                            <div className="flex items-center gap-2">
                                 {/* Role Badge */}
-                                <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm text-white shadow-sm shrink-0
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0
                                     ${player.role === 'P' ? 'bg-orange-500' :
                                         player.role === 'D' ? 'bg-green-600' :
                                             player.role === 'C' ? 'bg-blue-600' : 'bg-red-600'
@@ -140,8 +140,8 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
                                 </div>
 
                                 <div className="flex flex-col min-w-0">
-                                    <span className="font-bold text-[15px] leading-tight truncate pr-1">{player.name}</span>
-                                    <span className="text-[11px] text-muted-foreground uppercase font-bold tracking-wider truncate">
+                                    <span className="font-bold text-sm leading-tight truncate pr-1">{player.name}</span>
+                                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider truncate">
                                         {player.team_real} • Qt. {player.quotation}
                                     </span>
                                 </div>
