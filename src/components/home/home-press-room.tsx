@@ -214,22 +214,19 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                 </div>
 
                 <div className="relative min-h-[140px] flex items-center justify-center bg-card overflow-hidden">
-                    <AnimatePresence mode="popLayout" initial={false}>
+                    <AnimatePresence mode="wait" initial={false}>
                         {statements.length > 0 && currentStatement ? (
                             <motion.div
                                 key={currentStatement.id}
-                                initial={{ opacity: 0, x: 100 }}
+                                initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -100 }}
-                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                exit={{ opacity: 0, x: -20 }}
+                                transition={{ duration: 0.3 }}
+                                className="w-full h-auto p-4 flex flex-col gap-3 min-h-[140px]"
                                 drag="x"
                                 dragConstraints={{ left: 0, right: 0 }}
-                                dragElastic={1} // Allow full movement
+                                dragElastic={1}
                                 onDragEnd={onDragEnd}
-                                className="absolute inset-0 p-4 flex flex-col gap-3 w-full h-full cursor-grab active:cursor-grabbing"
-                                onPointerDown={(e) => e.stopPropagation()}
-                                onTouchStart={(e) => e.stopPropagation()}
-                            // Pause auto-scroll on hover/touch? (Optional, implies complex state)
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="shrink-0">
@@ -248,10 +245,10 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                                     </div>
                                 </div>
 
-                                <div className="flex-1 overflow-y-auto pr-1">
+                                <div className="flex-1">
                                     {currentStatement.image_url && (
-                                        <div className="mb-2 rounded-lg overflow-hidden border border-border/50 max-h-[300px] flex justify-start">
-                                            <img src={currentStatement.image_url} alt="Allegato" className="object-contain h-full w-auto max-w-full" />
+                                        <div className="mb-2 rounded-lg overflow-hidden border border-border/50">
+                                            <img src={currentStatement.image_url} alt="Allegato" className="w-full h-auto object-cover max-h-[500px]" />
                                         </div>
                                     )}
                                     {currentStatement.content && (

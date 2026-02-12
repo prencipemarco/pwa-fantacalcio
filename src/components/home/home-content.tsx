@@ -74,19 +74,17 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
 
                     {/* 3. Inserisci Rosa Button (Replacing Risultati/Classifica) */}
                     <Link href="/team/lineup" className="block w-full group">
-                        <div className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:shadow-lg transition-all transform hover:scale-[1.01]">
+                        <div className="flex items-center justify-between p-4 rounded-xl bg-card border border-muted/60 hover:bg-secondary/40 hover:border-primary/20 transition-all shadow-sm">
                             <div className="flex items-center gap-4">
-                                <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                                    <Shirt className="h-6 w-6 text-white" />
+                                <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                                    <Shirt className="h-6 w-6" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="font-bold text-lg leading-tight">Inserisci Formazione</span>
-                                    <span className="text-xs text-blue-100 font-medium">Non dimenticare di schierare!</span>
+                                    <span className="font-bold text-lg leading-tight text-foreground">Inserisci Formazione</span>
+                                    <span className="text-xs text-muted-foreground font-medium">Non dimenticare di schierare!</span>
                                 </div>
                             </div>
-                            <div className="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
-                                <ChevronRight className="h-5 w-5 text-white" />
-                            </div>
+                            <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                         </div>
                     </Link>
 
