@@ -169,6 +169,7 @@ Usa `@dnd-kit/core` per drag-and-drop.
     - Added public **`/calendar`** page.
     - Improved **Audio Autoplay** (Tap to Unmute button).
     - Tweaked **Press Room** UI (Arrows moved to bottom).
+    - **Feature**: Aggiunto **Image Cropping** (ritaglio) per le foto della Sala Stampa.
     - **Bug Fix**: Risolto problema salvataggio URL audio (tabella errata).
 
 *Documentazione aggiornata al 26/01/2026.*
