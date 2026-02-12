@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { TeamLogo } from './team-logo';
+import { Volume2, VolumeX } from 'lucide-react';
 
 export function IntroSplash() {
     const [isVisible, setIsVisible] = useState(true);
@@ -11,6 +12,7 @@ export function IntroSplash() {
     const audioRef = useRef<HTMLAudioElement>(null);
     const supabase = createClient();
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect(() => {
         const init = async () => {
@@ -24,16 +26,10 @@ export function IntroSplash() {
                 setAudioUrl(settings.value);
             }
 
-            // 3. Play Audio
-            if (audioRef.current && settings?.value) {
-                audioRef.current.volume = 0.5;
-                audioRef.current.play().catch(e => console.log("Audio autoplay blocked", e));
-            }
-
             // 4. Dismiss after animation
             setTimeout(() => {
                 setIsVisible(false);
-            }, 5000); // 5s duration
+            }, 6000); // 6s duration
         };
 
         const hasShown = sessionStorage.getItem('intro-shown');
@@ -46,6 +42,34 @@ export function IntroSplash() {
 
     }, []);
 
+    // Try autoplay when audioUrl is set
+    useEffect(() => {
+        if (audioUrl && audioRef.current) {
+            audioRef.current.volume = 0.5;
+            const playPromise = audioRef.current.play();
+
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => setIsPlaying(true))
+                    .catch((error) => {
+                        console.log("Auto-play blocked:", error);
+                        setIsPlaying(false);
+                    });
+            }
+        }
+    }, [audioUrl]);
+
+    const toggleAudio = () => {
+        if (!audioRef.current) return;
+        if (isPlaying) {
+            audioRef.current.pause();
+            setIsPlaying(false);
+        } else {
+            audioRef.current.play();
+            setIsPlaying(true);
+        }
+    };
+
     if (!isVisible) return null;
 
     return (
@@ -55,11 +79,18 @@ export function IntroSplash() {
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.8 }}
+                onClick={toggleAudio} // Tap anywhere to try playing if blocked
             >
-                {/* Audio Element */}
-                {audioUrl && <audio ref={audioRef} src={audioUrl} preload="auto" />}
+                {audioUrl && <audio ref={audioRef} src={audioUrl} preload="auto" loop={false} />}
 
-                <div className="relative w-full h-full max-w-lg mx-auto overflow-hidden flex items-center justify-center">
+                {/* Audio Control Indicator */}
+                {audioUrl && (
+                    <div className="absolute top-4 right-4 z-50 text-muted-foreground/50 animate-pulse">
+                        {isPlaying ? <Volume2 className="h-6 w-6" /> : <VolumeX className="h-6 w-6" />}
+                    </div>
+                )}
+
+                <div className="relative w-full h-full max-w-lg mx-auto overflow-hidden flex items-center justify-center pointer-events-none">
 
                     {/* Central League Logo - ROUNDED & ROTATING */}
                     <motion.div
@@ -92,8 +123,6 @@ export function IntroSplash() {
                         const endRadius = 140; // Orbit radius
 
                         // Calculate keyframes for spiral effect
-                        // 0% -> Start Radius
-                        // 100% -> End Radius + Rotation
                         const keyframesX = [];
                         const keyframesY = [];
                         const steps = 60;
@@ -102,12 +131,6 @@ export function IntroSplash() {
                         for (let i = 0; i <= steps; i++) {
                             const t = i / steps; // 0 to 1
                             const currentRadius = startRadius - (t * (startRadius - endRadius)); // Linear approach
-                            const currentAngle = startAngle + (t * Math.PI * 2 * rotations); // Rotate clockwise? (Increase angle)
-
-                            // Clockwise: x = cos(angle), y = sin(angle). If angle increases, it rotates counter-clockwise.
-                            // To rotate clockwise, angle should decrease OR swap cos/sin logic.
-                            // Standard math: angle increases = counter-clockwise. 
-                            // So let's SUBTRACT rotation to go clockwise.
                             const clockwiseAngle = startAngle - (t * Math.PI * 2 * rotations);
 
                             keyframesX.push(Math.cos(clockwiseAngle) * currentRadius);
