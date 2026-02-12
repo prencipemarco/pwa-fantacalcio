@@ -63,99 +63,51 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <LogoutButton />
                         <SettingsDialog />
+                        <LogoutButton />
                     </div>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-                    {/* LEFT COLUMN (Mobile: Top, Desktop: Left 7/12) */}
-                    <div className="md:col-span-7 space-y-6">
+                <div className="space-y-6">
+                    {/* 2. Next Match Hero Card */}
+                    <NextMatchWidget nextMatch={nextMatch} />
 
-                        {/* 2. Next Match Hero Card */}
-                        <NextMatchWidget nextMatch={nextMatch} />
-
-                        {/* 3. Primary Actions Grid */}
-                        {team && (
-                            <div className="grid grid-cols-2 gap-4">
-                                <Link href="/team/lineup" className="block group">
-                                    <div className="p-4 flex flex-col items-center justify-center gap-2 rounded-2xl border bg-card hover:border-primary/50 hover:shadow-md transition-all cursor-pointer h-32">
-                                        <div className="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                            <Shirt className="h-5 w-5" />
-                                        </div>
-                                        <h3 className="font-bold text-sm text-center">Rosa</h3>
-                                    </div>
-                                </Link>
-
-                                <Link href="/market" className="block group">
-                                    <div className="p-4 flex flex-col items-center justify-center gap-2 rounded-2xl border bg-card hover:border-primary/50 hover:shadow-md transition-all cursor-pointer h-32">
-                                        <div className="h-10 w-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                            <ShoppingBag className="h-5 w-5" />
-                                        </div>
-                                        <h3 className="font-bold text-sm text-center">Mercato</h3>
-                                    </div>
-                                </Link>
+                    {/* 3. Inserisci Rosa Button (Replacing Risultati/Classifica) */}
+                    <Link href="/team/lineup" className="block w-full group">
+                        <div className="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:shadow-lg transition-all transform hover:scale-[1.01]">
+                            <div className="flex items-center gap-4">
+                                <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                                    <Shirt className="h-6 w-6 text-white" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="font-bold text-lg leading-tight">Inserisci Formazione</span>
+                                    <span className="text-xs text-blue-100 font-medium">Non dimenticare di schierare!</span>
+                                </div>
                             </div>
-                        )}
-                    </div>
-
-                    {/* RIGHT COLUMN (Mobile: Bottom, Desktop: Right 5/12) */}
-                    <div className="md:col-span-5 space-y-6">
-                        {/* 4. Secondary Features / Explore */}
-                        <div className="space-y-4">
-                            <h2 className="text-xs font-bold text-muted-foreground uppercase tracking-widest ml-1">Esplora</h2>
-
-                            <div className="grid gap-3">
-                                <Link href="/standings">
-                                    <div className="flex items-center justify-between p-4 rounded-2xl bg-card border border-muted/60 hover:bg-secondary/40 hover:border-primary/20 transition-all shadow-sm group">
-                                        <div className="flex items-center gap-4">
-                                            <div className="h-12 w-12 rounded-full bg-amber-100 dark:bg-amber-900/20 text-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform">
-                                                <Trophy className="h-5 w-5" />
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <span className="font-bold text-base text-foreground">Classifica</span>
-                                                <span className="text-xs text-muted-foreground">Vedi posizione in campionato</span>
-                                            </div>
-                                        </div>
-                                        <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                                    </div>
-                                </Link>
-
-                                <Link href="/team/results">
-                                    <div className="flex items-center justify-between p-4 rounded-2xl bg-card border border-muted/60 hover:bg-secondary/40 hover:border-primary/20 transition-all shadow-sm group">
-                                        <div className="flex items-center gap-4">
-                                            <div className="h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900/20 text-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform">
-                                                <Calendar className="h-5 w-5" />
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <span className="font-bold text-base text-foreground">Risultati</span>
-                                                <span className="text-xs text-muted-foreground">Storico partite e punteggi</span>
-                                            </div>
-                                        </div>
-                                        <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                                    </div>
-                                </Link>
+                            <div className="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
+                                <ChevronRight className="h-5 w-5 text-white" />
                             </div>
                         </div>
+                    </Link>
 
-                        <HomePressRoom userTeamId={team?.id} />
+                    {/* 4. Expanded Press Room */}
+                    <HomePressRoom userTeamId={team?.id} />
 
-                        {!user && (
-                            <div className="mt-4">
-                                <Card className="bg-primary/5 border-primary/20">
-                                    <div className="p-6 text-center space-y-4">
-                                        <div>
-                                            <h3 className="font-bold text-lg">Accedi per gestire</h3>
-                                            <p className="text-sm text-muted-foreground">Accedi per creare la tua squadra.</p>
-                                        </div>
-                                        <Link href="/login" className="block">
-                                            <Button className="w-full">Login</Button>
-                                        </Link>
+                    {!user && (
+                        <div className="mt-4">
+                            <Card className="bg-primary/5 border-primary/20">
+                                <div className="p-6 text-center space-y-4">
+                                    <div>
+                                        <h3 className="font-bold text-lg">Accedi per gestire</h3>
+                                        <p className="text-sm text-muted-foreground">Accedi per creare la tua squadra.</p>
                                     </div>
-                                </Card>
-                            </div>
-                        )}
-                    </div>
+                                    <Link href="/login" className="block">
+                                        <Button className="w-full">Login</Button>
+                                    </Link>
+                                </div>
+                            </Card>
+                        </div>
+                    )}
                 </div>
 
             </div>
