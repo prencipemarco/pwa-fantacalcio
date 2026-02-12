@@ -167,7 +167,12 @@ Usa `@dnd-kit/core` per drag-and-drop.
 
 *Documentazione aggiornata al 26/01/2026.*
 
-### v0.2.3 - UI Overhaul & Community Features (Attuale)
+### v0.2.4 - Press Room & Intro Refinements (Attuale)
+*   **Sala Stampa 2.0**: Durata messaggi ridotta a 2h, supporto immagini, swipe navigation e timestamp relativi.
+*   **Intro Fix**: Migliorata logica autoplay audio e aggiunta fallback "Tap to Unmute".
+*   **Database**: Aggiunta colonna `image_url` per allegati multimediali.
+
+### v0.2.3 - UI Overhaul & Community Features
 *   **Intro Animation**: Nuova splash screen cinematica con loghi squadre orbitanti e audio personalizzabile.
 *   **Next Match Widget**: Card "Prossimo Turno" ridisegnata con conto alla rovescia espandibile e link al calendario.
 *   **Sala Stampa**: Nuova sezione in Home per messaggi e dichiarazioni tra presidenti (sviluppo community).
