@@ -43,7 +43,7 @@ export default function LoginPage() {
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form action={formAction} className="grid gap-4">
+                    <form action={formAction} className="grid gap-8">
                         <div className="grid gap-2">
                             <Label htmlFor="username">Username</Label>
                             <Input id="username" name="username" type="text" required />

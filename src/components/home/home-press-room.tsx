@@ -177,8 +177,15 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
     }, [statements.length, currentIdx]); // Reset timer on manual interaction (optional, or just keeps going)
 
     const onDragEnd = (event: any, info: any) => {
-        if (info.offset.x < -50) nextMsg(); // Swipe Left -> Next
-        else if (info.offset.x > 50) prevMsg(); // Swipe Right -> Prev
+        const offset = info.offset.x;
+        const velocity = info.velocity.x;
+
+        // Basic swipe detection
+        if (offset < -50 || velocity < -500) {
+            nextMsg();
+        } else if (offset > 50 || velocity > 500) {
+            prevMsg();
+        }
     };
 
     const currentStatement = statements[currentIdx];
@@ -193,9 +200,15 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                         </div>
                         <h3 className="font-bold text-xs text-red-900 dark:text-red-200 uppercase tracking-widest">Sala Stampa</h3>
                     </div>
-                    {statements.length > 0 && (
-                        <div className="text-[10px] text-muted-foreground font-mono">
-                            {currentIdx + 1}/{statements.length}
+                    {/* Dot Indicators */}
+                    {statements.length > 1 && (
+                        <div className="flex gap-1">
+                            {statements.map((_, idx) => (
+                                <div
+                                    key={idx}
+                                    className={`h-1.5 rounded-full transition-all ${idx === currentIdx ? 'w-3 bg-red-500' : 'w-1.5 bg-red-200 dark:bg-red-800'}`}
+                                />
+                            ))}
                         </div>
                     )}
                 </div>
@@ -211,7 +224,7 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                 drag="x"
                                 dragConstraints={{ left: 0, right: 0 }}
-                                dragElastic={0.2}
+                                dragElastic={1} // Allow full movement
                                 onDragEnd={onDragEnd}
                                 className="absolute inset-0 p-4 flex flex-col gap-3 w-full h-full cursor-grab active:cursor-grabbing"
                                 onPointerDown={(e) => e.stopPropagation()}

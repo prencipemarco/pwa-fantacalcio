@@ -185,8 +185,10 @@ Usa `@dnd-kit/core` per drag-and-drop.
         - **Layout**: Full width reale (rimosso container/padding su mobile).
         - **Sala Stampa**: Auto-scroll (Carousel) ogni 7s.
         - **UI**: Padding rimossi dalle card per recuperare spazio.
-    - **Refinements v5**:
-        - **Layout**: Fix allineamento a sinistra (ripristinato comportamento stretch).
+    - **Refinements v6 (UI Polish)**:
+        - **Home**: Header invertito (Logout <-> Settings), rimossi bottoni ridondanti, aggiunto tasto "Inserisci Rosa" (full width).
+        - **Sala Stampa**: Indicatori a pallini (dots), swipe fluido (natural physics).
+        - **Layout**: Margini globali `px-3` per respiro, Admin Login spaziato meglio.
 
 *Documentazione aggiornata al 26/01/2026.*
 
