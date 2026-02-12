@@ -165,6 +165,11 @@ Usa `@dnd-kit/core` per drag-and-drop.
 
 ---
 
+- **Fix (v0.2.4-patch)**:
+    - Added public **`/calendar`** page.
+    - Improved **Audio Autoplay** (Tap to Unmute button).
+    - Tweaked **Press Room** UI (Arrows moved to bottom).
+
 *Documentazione aggiornata al 26/01/2026.*
 
 ### v0.2.4 - Press Room & Intro Refinements (Attuale)

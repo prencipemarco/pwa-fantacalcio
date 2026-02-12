@@ -194,18 +194,18 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="absolute left-1 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-background/50 hover:bg-background/80 backdrop-blur-sm z-10 md:flex hidden"
+                            className="absolute left-1 bottom-1 h-6 w-6 rounded-full bg-background/50 hover:bg-background/80 backdrop-blur-sm z-10 md:flex hidden"
                             onClick={prevMsg}
                         >
-                            <ChevronLeft className="h-4 w-4" />
+                            <ChevronLeft className="h-3 w-3" />
                         </Button>
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-background/50 hover:bg-background/80 backdrop-blur-sm z-10 md:flex hidden"
+                            className="absolute right-1 bottom-1 h-6 w-6 rounded-full bg-background/50 hover:bg-background/80 backdrop-blur-sm z-10 md:flex hidden"
                             onClick={nextMsg}
                         >
-                            <ChevronRight className="h-4 w-4" />
+                            <ChevronRight className="h-3 w-3" />
                         </Button>
                     </>
                 )}

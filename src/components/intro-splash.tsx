@@ -81,13 +81,28 @@ export function IntroSplash() {
                 transition={{ duration: 0.8 }}
                 onClick={toggleAudio} // Tap anywhere to try playing if blocked
             >
-                {audioUrl && <audio ref={audioRef} src={audioUrl} preload="auto" loop={false} />}
+                {audioUrl && <audio ref={audioRef} src={audioUrl} preload="auto" loop={false} playsInline />}
 
                 {/* Audio Control Indicator */}
                 {audioUrl && (
-                    <div className="absolute top-4 right-4 z-50 text-muted-foreground/50 animate-pulse">
-                        {isPlaying ? <Volume2 className="h-6 w-6" /> : <VolumeX className="h-6 w-6" />}
+                    <div className="absolute top-4 right-4 z-50 flex flex-col gap-2 items-end">
+                        <div className={`text-muted-foreground/50 ${isPlaying ? 'animate-pulse' : ''}`}>
+                            {isPlaying ? <Volume2 className="h-6 w-6" /> : <VolumeX className="h-6 w-6" />}
+                        </div>
                     </div>
+                )}
+
+                {/* Explicit Unmute Button (if blocked) */}
+                {audioUrl && !isPlaying && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="absolute bottom-20 z-50 text-center"
+                    >
+                        <span className="text-xs text-muted-foreground font-medium bg-background/80 px-2 py-1 rounded-full uppercase tracking-widest border shadow-sm">
+                            Tap to Unmute
+                        </span>
+                    </motion.div>
                 )}
 
                 <div className="relative w-full h-full max-w-lg mx-auto overflow-hidden flex items-center justify-center pointer-events-none">
@@ -108,7 +123,7 @@ export function IntroSplash() {
                             transition={{ delay: 0.5 }}
                             className="absolute -bottom-12 text-2xl font-black tracking-tight text-foreground"
                         >
-                            Fantacalcio
+                            Haramball
                         </motion.h1>
                     </motion.div>
 
@@ -120,7 +135,7 @@ export function IntroSplash() {
 
                         // Radii
                         const startRadius = 350; // Off-screenish
-                        const endRadius = 140; // Orbit radius
+                        const endRadius = 0; // Orbit radius
 
                         // Calculate keyframes for spiral effect
                         const keyframesX = [];
