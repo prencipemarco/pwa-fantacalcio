@@ -11,6 +11,8 @@ import { Badge } from '@/components/ui/badge';
 import { Shirt, ShoppingBag, Trophy, Calendar, ChevronRight, Pencil } from 'lucide-react';
 import { TeamStanding } from '@/app/actions/standings';
 import { TeamLogoEditor } from '@/components/team-logo-editor';
+import { NextMatchWidget } from '@/components/home/next-match-widget';
+import { HomePressRoom } from '@/components/home/home-press-room';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
 
@@ -76,73 +78,7 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
                     <div className="md:col-span-7 space-y-6">
 
                         {/* 2. Next Match Hero Card */}
-                        {nextMatch ? (
-                            <Card className="overflow-hidden border-none shadow-lg bg-gradient-to-br from-primary/90 to-blue-600 text-white relative group">
-                                {/* Decorative background pattern */}
-                                <div className="absolute top-0 right-0 -mr-8 -mt-8 w-40 h-40 rounded-full bg-white/10 blur-3xl group-hover:bg-white/15 transition-colors" />
-                                <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-32 h-32 rounded-full bg-black/10 blur-2xl" />
-
-                                <div className="p-6 md:p-8 relative z-10">
-                                    <div className="flex justify-between items-start mb-6">
-                                        <div className="inline-flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-md text-xs font-medium backdrop-blur-sm border border-white/10">
-                                            <Calendar className="h-3 w-3" />
-                                            <span>Giornata {nextMatch.matchday}</span>
-                                        </div>
-                                        <Badge variant="outline" className="border-white/20 text-white bg-white/10 backdrop-blur-sm">
-                                            PROSSIMO TURNO
-                                        </Badge>
-                                    </div>
-
-                                    <div className="flex items-center justify-between gap-4">
-                                        <div className="flex flex-col items-center gap-3 flex-1">
-                                            <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-white/10 backdrop-blur-sm p-2 flex items-center justify-center border border-white/20 shadow-inner">
-                                                {/* Use fetched logo if available, else fallback */}
-                                                <TeamLogo
-                                                    teamName={nextMatch.home}
-                                                    logoUrl={nextMatch.homeLogo}
-                                                    size={64}
-                                                    className="drop-shadow-md"
-                                                />
-                                            </div>
-                                            <span className="text-sm md:text-base font-bold text-center leading-tight line-clamp-2 w-full">
-                                                {nextMatch.home}
-                                            </span>
-                                        </div>
-
-                                        <div className="flex flex-col items-center gap-2 px-2">
-                                            <span className="text-xl md:text-2xl font-black italic opacity-90">VS</span>
-                                            <span className="text-[10px] md:text-xs font-medium bg-white/20 px-3 py-1 rounded-full text-white whitespace-nowrap backdrop-blur-sm">
-                                                {formattedDate}
-                                            </span>
-                                        </div>
-
-                                        <div className="flex flex-col items-center gap-3 flex-1">
-                                            <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-white/10 backdrop-blur-sm p-2 flex items-center justify-center border border-white/20 shadow-inner">
-                                                <TeamLogo
-                                                    teamName={nextMatch.away}
-                                                    logoUrl={nextMatch.awayLogo}
-                                                    size={64}
-                                                    className="drop-shadow-md"
-                                                />
-                                            </div>
-                                            <span className="text-sm md:text-base font-bold text-center leading-tight line-clamp-2 w-full">
-                                                {nextMatch.away}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Card>
-                        ) : (
-                            <Card className="p-8 flex flex-col items-center justify-center text-center gap-4 border-dashed bg-muted/30 min-h-[200px]">
-                                <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
-                                    <Calendar className="h-8 w-8 text-muted-foreground" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lg text-foreground">Nessuna partita in programma</h3>
-                                    <p className="text-sm text-muted-foreground">Il calendario verrà aggiornato presto.</p>
-                                </div>
-                            </Card>
-                        )}
+                        <NextMatchWidget nextMatch={nextMatch} />
 
                         {/* 3. Primary Actions Grid */}
                         {team && (
@@ -212,6 +148,8 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
                                 </Link>
                             </div>
                         </div>
+
+                        <HomePressRoom userTeamId={team?.id} />
 
                         {!user && (
                             <div className="mt-4">

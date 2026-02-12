@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { BottomNav } from "@/components/bottom-nav";
-import { SplashScreen } from "@/components/splash-screen";
+import { IntroSplash } from "@/components/intro-splash";
 import { SwipeNavigator } from "@/components/swipe-navigator";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <LanguageProvider>
-          <SplashScreen />
+          <IntroSplash />
           <div className="pb-20">
             <SwipeNavigator>
               {children}
