@@ -14,7 +14,7 @@ export default function AdminSettingsPage() {
     const supabase = createClient();
 
     useEffect(() => {
-        supabase.from('settings').select('*').then(({ data }) => {
+        supabase.from('app_settings').select('*').then(({ data }) => {
             const temp: any = {};
             data?.forEach(s => temp[s.key] = s.value);
             setSettings(temp);

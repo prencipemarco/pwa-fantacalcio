@@ -8,7 +8,7 @@ import { sendPushNotification } from '@/utils/notifications';
 // --- SETTINGS HELPERS ---
 async function getSettings() {
     const supabase = await createClient();
-    const { data } = await supabase.from('settings').select('*');
+    const { data } = await supabase.from('app_settings').select('*');
     const settings: any = {};
     data?.forEach(s => settings[s.key] = s.value);
     return settings;
@@ -16,7 +16,7 @@ async function getSettings() {
 
 export async function updateSetting(key: string, value: string) {
     const supabase = await createClient();
-    await supabase.from('settings').upsert({ key, value });
+    await supabase.from('app_settings').upsert({ key, value });
     return { success: true };
 }
 
