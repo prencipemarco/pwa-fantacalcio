@@ -185,6 +185,8 @@ Usa `@dnd-kit/core` per drag-and-drop.
         - **Layout**: Full width reale (rimosso container/padding su mobile).
         - **Sala Stampa**: Auto-scroll (Carousel) ogni 7s.
         - **UI**: Padding rimossi dalle card per recuperare spazio.
+    - **Refinements v5**:
+        - **Layout**: Fix allineamento a sinistra (ripristinato comportamento stretch).
 
 *Documentazione aggiornata al 26/01/2026.*
 

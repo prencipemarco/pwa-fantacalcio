@@ -13,7 +13,7 @@ export default async function Home() {
   const nextMatch = await getNextSerieAMatch();
 
   return (
-    <main className="flex min-h-screen flex-col items-start justify-start bg-background w-full">
+    <main className="flex min-h-screen flex-col justify-start bg-background w-full">
       <HomeContent user={user} team={userTeam} standings={standings} nextMatch={nextMatch} />
     </main>
   );
