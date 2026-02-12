@@ -107,6 +107,60 @@ export default function AdminSettingsPage() {
                     </div>
                 </CardContent>
             </Card>
+
+            <Card className="mt-6">
+                <CardHeader>
+                    <CardTitle>App Configuration</CardTitle>
+                    <CardDescription>Global settings for the application.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label>Intro Audio (MP3)</Label>
+                        <div className="flex flex-col gap-2">
+                            <Input
+                                type="file"
+                                accept="audio/mp3,audio/mpeg"
+                                onChange={async (e) => {
+                                    const file = e.target.files?.[0];
+                                    if (!file) return;
+
+                                    setLoading(true);
+                                    try {
+                                        // 1. Upload to Storage
+                                        const fileExt = file.name.split('.').pop();
+                                        const fileName = `intro-audio-${Date.now()}.${fileExt}`;
+                                        const { error: uploadError } = await supabase.storage
+                                            .from('app-assets')
+                                            .upload(fileName, file, { upsert: true });
+
+                                        if (uploadError) throw uploadError;
+
+                                        // 2. Get Public URL
+                                        const { data: { publicUrl } } = supabase.storage
+                                            .from('app-assets')
+                                            .getPublicUrl(fileName);
+
+                                        // 3. Update Settings
+                                        await updateSetting('intro_audio_url', publicUrl);
+                                        setSettings({ ...settings, intro_audio_url: publicUrl });
+                                        alert('Audio uploaded successfully!');
+                                    } catch (err: any) {
+                                        console.error(err);
+                                        alert('Upload failed: ' + err.message);
+                                    }
+                                    setLoading(false);
+                                }}
+                                disabled={loading}
+                            />
+                            {settings.intro_audio_url && (
+                                <div className="text-xs text-muted-foreground">
+                                    Current: <a href={settings.intro_audio_url} target="_blank" rel="noreferrer" className="underline">Listen</a>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
         </div>
     );
 }

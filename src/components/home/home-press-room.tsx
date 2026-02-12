@@ -1,15 +1,13 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useState, useEffect } from 'react';
+import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { createClient } from '@/utils/supabase/client';
 import { Mic, Send } from 'lucide-react';
 import { TeamLogo } from '@/components/team-logo';
-import { format } from 'date-fns';
-import { it } from 'date-fns/locale';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface PressStatement {
     id: string;
@@ -24,29 +22,16 @@ interface PressStatement {
 
 export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
     const [statements, setStatements] = useState<PressStatement[]>([]);
+    const [currentIdx, setCurrentIdx] = useState(0);
     const [newMessage, setNewMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    const scrollRef = useRef<HTMLDivElement>(null);
     const supabase = createClient();
 
-    useEffect(() => {
-        fetchStatements();
-
-        const channel = supabase
-            .channel('public:press_statements')
-            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'press_statements' },
-                (payload) => {
-                    fetchStatements(); // Refresh logic or append manually
-                }
-            )
-            .subscribe();
-
-        return () => {
-            supabase.removeChannel(channel);
-        };
-    }, []);
-
+    // Fetch messages (Active < 6h)
     const fetchStatements = async () => {
+        // Calculate 6 hours ago
+        const sixHoursAgo = new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString();
+
         const { data, error } = await supabase
             .from('press_statements')
             .select(`
@@ -55,11 +40,47 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                 created_at,
                 teams (name, logo_url, logo_config)
             `)
-            .order('created_at', { ascending: false })
-            .limit(20);
+            .gt('created_at', sixHoursAgo)
+            .order('created_at', { ascending: false });
 
-        if (data) setStatements(data as any);
+        if (data) {
+            setStatements(data as any);
+            // If current index is out of bounds, reset
+            if (currentIdx >= data.length) setCurrentIdx(0);
+        }
     };
+
+    useEffect(() => {
+        fetchStatements();
+
+        // Poll every 30 seconds
+        const pollInterval = setInterval(fetchStatements, 30000);
+
+        // Realtime subscription for immediate feedback on new inserts
+        const channel = supabase
+            .channel('public:press_statements')
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'press_statements' },
+                () => fetchStatements()
+            )
+            .subscribe();
+
+        return () => {
+            clearInterval(pollInterval);
+            supabase.removeChannel(channel);
+        };
+    }, []);
+
+    // Carousel Auto-Rotation
+    useEffect(() => {
+        if (statements.length <= 1) return;
+
+        const interval = setInterval(() => {
+            setCurrentIdx((prev) => (prev + 1) % statements.length);
+        }, 5000); // Rotate every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [statements.length]);
+
 
     const handleSend = async () => {
         if (!newMessage.trim() || !userTeamId) return;
@@ -79,67 +100,78 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
         setLoading(false);
     };
 
+    // Current displayed statement
+    const currentStatement = statements[currentIdx];
+
     return (
-        <Card className="border-red-500/20 shadow-sm overflow-hidden">
-            <div className="bg-red-50 dark:bg-red-900/10 border-b border-red-100 dark:border-red-900/20 p-3 flex items-center gap-2">
-                <div className="bg-red-100 dark:bg-red-900/40 p-1.5 rounded-full">
-                    <Mic className="h-4 w-4 text-red-600 dark:text-red-400" />
-                </div>
-                <h3 className="font-bold text-sm text-red-900 dark:text-red-200">Sala Stampa</h3>
-                <div className="ml-auto w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            </div>
-
-            <div className="p-0">
-                <ScrollArea className="h-[250px] p-4">
-                    <div className="space-y-4">
-                        {statements.length === 0 && (
-                            <p className="text-center text-xs text-muted-foreground italic py-8">
-                                Nessuna dichiarazione recente.
-                            </p>
-                        )}
-                        {statements.map((stmt) => (
-                            <div key={stmt.id} className="flex gap-3 items-start group">
-                                <div className="shrink-0 mt-0.5">
-                                    <div className="w-8 h-8 rounded-full overflow-hidden border border-muted">
-                                        <TeamLogo
-                                            teamName={stmt.teams.name}
-                                            logoUrl={stmt.teams.logo_url}
-                                            logoConfig={stmt.teams.logo_config}
-                                            size={32}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-baseline justify-between mb-0.5">
-                                        <span className="text-xs font-bold truncate mr-2">{stmt.teams.name}</span>
-                                        <span className="text-[10px] text-muted-foreground">
-                                            {format(new Date(stmt.created_at), 'HH:mm', { locale: it })}
-                                        </span>
-                                    </div>
-                                    <div className="bg-secondary/30 rounded-r-lg rounded-bl-lg p-2.5 text-sm leading-relaxed">
-                                        {stmt.content}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+        <Card className="border-red-500/20 shadow-sm overflow-hidden flex flex-col">
+            <div className="bg-red-50 dark:bg-red-900/10 border-b border-red-100 dark:border-red-900/20 p-2 px-3 flex items-center justify-between gap-2 h-10">
+                <div className="flex items-center gap-2">
+                    <div className="bg-red-100 dark:bg-red-900/40 p-1 rounded-full">
+                        <Mic className="h-3 w-3 text-red-600 dark:text-red-400" />
                     </div>
-                </ScrollArea>
-
-                {userTeamId && (
-                    <div className="p-3 border-t bg-background flex gap-2">
-                        <Input
-                            placeholder="Rilascia una dichiarazione..."
-                            className="h-9 text-sm"
-                            value={newMessage}
-                            onChange={(e) => setNewMessage(e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                        />
-                        <Button size="icon" className="h-9 w-9 shrink-0" onClick={handleSend} disabled={loading || !newMessage.trim()}>
-                            <Send className="h-4 w-4" />
-                        </Button>
+                    <h3 className="font-bold text-xs text-red-900 dark:text-red-200 uppercase tracking-widest">Sala Stampa</h3>
+                </div>
+                {statements.length > 0 && (
+                    <div className="flex gap-1">
+                        {statements.map((_, idx) => (
+                            <div
+                                key={idx}
+                                className={`h-1 w-1 rounded-full transition-colors ${idx === currentIdx ? 'bg-red-500' : 'bg-red-200 dark:bg-red-900'}`}
+                            />
+                        ))}
                     </div>
                 )}
             </div>
+
+            <div className="relative min-h-[60px] flex items-center bg-card">
+                <AnimatePresence mode="wait">
+                    {statements.length > 0 && currentStatement ? (
+                        <motion.div
+                            key={currentStatement.id}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute inset-0 p-3 flex items-center gap-3 w-full"
+                        >
+                            <div className="shrink-0">
+                                <TeamLogo
+                                    teamName={currentStatement.teams.name}
+                                    logoUrl={currentStatement.teams.logo_url}
+                                    logoConfig={currentStatement.teams.logo_config}
+                                    size={36}
+                                />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <p className="text-sm">
+                                    <span className="font-bold text-foreground mr-1">{currentStatement.teams.name}:</span>
+                                    <span className="text-muted-foreground italic">"{currentStatement.content}"</span>
+                                </p>
+                            </div>
+                        </motion.div>
+                    ) : (
+                        <div className="w-full text-center py-4 text-xs text-muted-foreground italic">
+                            Nessuna dichiarazione nelle ultime 6 ore.
+                        </div>
+                    )}
+                </AnimatePresence>
+            </div>
+
+            {userTeamId && (
+                <div className="p-2 border-t bg-muted/20 flex gap-2">
+                    <Input
+                        placeholder="Lascia una dichiarazione..."
+                        className="h-8 text-xs bg-background"
+                        value={newMessage}
+                        onChange={(e) => setNewMessage(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                    />
+                    <Button size="icon" className="h-8 w-8 shrink-0" onClick={handleSend} disabled={loading || !newMessage.trim()}>
+                        <Send className="h-3 w-3" />
+                    </Button>
+                </div>
+            )}
         </Card>
     );
 }
