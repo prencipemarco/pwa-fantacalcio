@@ -41,7 +41,7 @@ const PlayerList = ({
     title: string,
     colorClass: string
 }) => (
-    <div className="flex flex-col border rounded-md overflow-hidden bg-white h-full shadow-sm">
+    <div className="flex flex-col border border-border rounded-md overflow-hidden bg-card h-full shadow-sm">
         <div className={`${colorClass} p-2 text-center text-xs font-bold uppercase tracking-wider`}>{title}</div>
         <RoleSummary roster={roster} />
         <div className="flex-1 overflow-y-auto p-1 space-y-1">
@@ -51,7 +51,7 @@ const PlayerList = ({
                     <div key={p.player_id}
                         onClick={() => onToggle(p)}
                         className={`p-2 rounded border text-xs cursor-pointer flex justify-between items-center transition-all
-                            ${isSelected ? 'bg-slate-800 text-white border-slate-900 shadow-md' : 'bg-white hover:bg-slate-50 border-slate-100'}`}
+                            ${isSelected ? 'bg-primary text-primary-foreground border-primary shadow-md' : 'bg-card hover:bg-accent border-border'}`}
                     >
                         <span className="font-medium">{p.player.name}</span>
                         {isSelected ? <Check className="w-3 h-3" /> : <span className="text-[10px] font-mono opacity-50">{p.player.role}</span>}
@@ -75,25 +75,25 @@ const OfferBox = ({
     title: string,
     creditsLabel: string
 }) => (
-    <div className="border border-dashed border-slate-300 rounded-lg p-3 flex flex-col h-full bg-slate-50/50">
-        <div className="text-[10px] font-bold text-slate-400 uppercase mb-2">{title} ({players.length})</div>
+    <div className="border border-dashed border-border rounded-lg p-3 flex flex-col h-full bg-muted/20">
+        <div className="text-[10px] font-bold text-muted-foreground uppercase mb-2">{title} ({players.length})</div>
         <div className="flex-1 overflow-y-auto space-y-1 mb-2">
-            {players.length === 0 && <div className="text-center text-slate-300 text-xs italic mt-4">No players selected</div>}
+            {players.length === 0 && <div className="text-center text-muted-foreground text-xs italic mt-4">No players selected</div>}
             {players.map(p => (
-                <div key={p.player_id} className="text-xs font-medium bg-white px-2 py-1 rounded border shadow-sm flex justify-between">
-                    {p.player.name} <span className="text-[10px] text-gray-400">{p.player.role}</span>
+                <div key={p.player_id} className="text-xs font-medium bg-card px-2 py-1 rounded border border-border shadow-sm flex justify-between text-foreground">
+                    {p.player.name} <span className="text-[10px] text-muted-foreground">{p.player.role}</span>
                 </div>
             ))}
         </div>
-        <div className="mt-auto pt-2 border-t">
-            <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1 mb-1">
+        <div className="mt-auto pt-2 border-t border-border">
+            <label className="text-[10px] font-bold text-muted-foreground uppercase flex items-center gap-1 mb-1">
                 <Wallet className="w-3 h-3" /> {creditsLabel || 'Credits'}
             </label>
             <Input
                 type="number"
                 value={credits}
                 onChange={e => onCreditsChange(e.target.value)}
-                className="h-8 text-xs bg-white"
+                className="h-8 text-xs bg-background"
                 placeholder="0"
                 min="0"
             />
@@ -239,7 +239,7 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                         roster={myRoster}
                         selectedIds={myOffer.map(p => p.player_id)}
                         onToggle={(p) => handleToggle(p, 'mine')}
-                        colorClass="bg-blue-100 text-blue-800"
+                        colorClass="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border-b border-blue-200 dark:border-blue-800"
                     />
 
                     <OfferBox
@@ -263,7 +263,7 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                         roster={theirRoster}
                         selectedIds={theirOffer.map(p => p.player_id)}
                         onToggle={(p) => handleToggle(p, 'theirs')}
-                        colorClass="bg-purple-100 text-purple-800"
+                        colorClass="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 border-b border-purple-200 dark:border-purple-800"
                     />
                 </div>
             </div>
@@ -279,7 +279,7 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
             {/* Header Steps */}
             <div className="flex justify-between mb-4 px-1">
                 {[2, 3, 4].map(s => (
-                    <div key={s} className={`h-1 flex-1 mx-1 rounded-full ${s <= mobileStep ? 'bg-blue-600' : 'bg-gray-200'}`} />
+                    <div key={s} className={`h-1 flex-1 mx-1 rounded-full ${s <= mobileStep ? 'bg-primary' : 'bg-muted'}`} />
                 ))}
             </div>
 
@@ -288,7 +288,7 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                     <>
                         <div className="text-center mb-2">
                             <h4 className="font-bold">{t('selectRequest')}</h4>
-                            <p className="text-xs text-gray-500">{t('fromRoster')} {opponentName}</p>
+                            <p className="text-xs text-muted-foreground">{t('fromRoster')} {opponentName}</p>
                         </div>
                         <div className="flex-1 overflow-y-auto mb-2">
                             <PlayerList
@@ -296,16 +296,16 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                                 roster={theirRoster}
                                 selectedIds={theirOffer.map(p => p.player_id)}
                                 onToggle={(p) => handleToggle(p, 'theirs')}
-                                colorClass="bg-purple-100 text-purple-800"
+                                colorClass="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 border-b border-purple-200 dark:border-purple-800"
                             />
                         </div>
-                        <div className="p-2 border rounded bg-gray-50 mb-2">
-                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">{t('requestCredits')}</div>
+                        <div className="p-2 border border-border rounded bg-muted/30 mb-2">
+                            <div className="text-[10px] font-bold uppercase mb-1 text-muted-foreground">{t('requestCredits')}</div>
                             <Input
                                 type="number"
                                 value={theirCredits}
                                 onChange={e => setTheirCredits(e.target.value)}
-                                className="bg-white h-9"
+                                className="bg-background h-9"
                                 placeholder="0"
                             />
                         </div>
@@ -317,10 +317,10 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                     <>
                         <div className="text-center mb-2">
                             <h4 className="font-bold">{t('selectOffer')}</h4>
-                            <p className="text-xs text-gray-500">{t('myRoster')}</p>
+                            <p className="text-xs text-muted-foreground">{t('myRoster')}</p>
                         </div>
                         {/* Requirement Hint */}
-                        <div className="bg-yellow-50 p-2 text-xs mb-2 border border-yellow-200 rounded text-yellow-800 flex items-center gap-2">
+                        <div className="bg-yellow-50 dark:bg-yellow-900/20 p-2 text-xs mb-2 border border-yellow-200 dark:border-yellow-800 rounded text-yellow-800 dark:text-yellow-200 flex items-center gap-2">
                             <Shield className="w-4 h-4" />
                             <span>{t('matchRolesWarning').replace('X', theirOffer.length.toString())}</span>
                         </div>
@@ -330,16 +330,16 @@ export function NewTradeFlow({ myTeamId, onClose }: { myTeamId: string, onClose:
                                 roster={myRoster}
                                 selectedIds={myOffer.map(p => p.player_id)}
                                 onToggle={(p) => handleToggle(p, 'mine')}
-                                colorClass="bg-blue-100 text-blue-800"
+                                colorClass="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border-b border-blue-200 dark:border-blue-800"
                             />
                         </div>
-                        <div className="p-2 border rounded bg-gray-50 mb-2">
-                            <div className="text-[10px] font-bold uppercase mb-1 text-gray-500">{t('offerCredits')}</div>
+                        <div className="p-2 border border-border rounded bg-muted/30 mb-2">
+                            <div className="text-[10px] font-bold uppercase mb-1 text-muted-foreground">{t('offerCredits')}</div>
                             <Input
                                 type="number"
                                 value={myCredits}
                                 onChange={e => setMyCredits(e.target.value)}
-                                className="bg-white h-9"
+                                className="bg-background h-9"
                                 placeholder="0"
                             />
                         </div>
