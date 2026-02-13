@@ -133,13 +133,13 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                         <Link href="/" className="p-2 -ml-2 rounded-full hover:bg-accent transition-colors">
                             <ChevronLeft size={24} />
                         </Link>
-                        <h1 className="text-2xl font-bold tracking-tight">{t('lineup')}</h1>
+                        <h1 className="text-xl font-bold tracking-tight">{t('lineup')}</h1>
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-1.5 bg-secondary/50 px-3 py-1.5 rounded-full border border-border/50">
-                            <Calendar size={14} className="text-muted-foreground" />
-                            <span className="text-sm font-bold font-mono">Day {initialMatchday}</span>
+                        <div className="flex items-center gap-1.5 bg-secondary/50 px-4 py-2 rounded-full border border-border/50 min-h-[40px]">
+                            <Calendar size={16} className="text-muted-foreground" />
+                            <span className="text-md font-bold font-mono">Day {initialMatchday}</span>
                         </div>
 
                         <Button

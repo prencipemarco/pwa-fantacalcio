@@ -200,18 +200,9 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                         </div>
                         <h3 className="font-bold text-xs text-red-900 dark:text-red-200 uppercase tracking-widest">Sala Stampa</h3>
                     </div>
-                    {/* Dot Indicators */}
-                    {statements.length > 1 && (
-                        <div className="flex gap-1">
-                            {statements.map((_, idx) => (
-                                <div
-                                    key={idx}
-                                    className={`h-1.5 rounded-full transition-all ${idx === currentIdx ? 'w-3 bg-red-500' : 'w-1.5 bg-red-200 dark:bg-red-800'}`}
-                                />
-                            ))}
-                        </div>
-                    )}
                 </div>
+
+
 
                 <div className="relative min-h-[140px] flex items-center justify-center bg-card overflow-hidden">
                     <AnimatePresence mode="wait" initial={false}>
@@ -266,26 +257,16 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                         )}
                     </AnimatePresence>
 
-                    {/* Navigation Arrows for Desktop */}
+                    {/* Navigation Dots (Moved to bottom right) */}
                     {statements.length > 1 && (
-                        <>
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                className="absolute left-1 bottom-1 h-6 w-6 rounded-full bg-background/50 hover:bg-background/80 backdrop-blur-sm z-10 md:flex hidden"
-                                onClick={prevMsg}
-                            >
-                                <ChevronLeft className="h-3 w-3" />
-                            </Button>
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                className="absolute right-1 bottom-1 h-6 w-6 rounded-full bg-background/50 hover:bg-background/80 backdrop-blur-sm z-10 md:flex hidden"
-                                onClick={nextMsg}
-                            >
-                                <ChevronRight className="h-3 w-3" />
-                            </Button>
-                        </>
+                        <div className="absolute right-2 bottom-2 flex gap-1 z-10">
+                            {statements.map((_, idx) => (
+                                <div
+                                    key={idx}
+                                    className={`h-1.5 rounded-full transition-all shadow-sm ${idx === currentIdx ? 'w-3 bg-red-500' : 'w-1.5 bg-white/50 dark:bg-black/50 backdrop-blur-sm'}`}
+                                />
+                            ))}
+                        </div>
                     )}
                 </div>
 
@@ -329,10 +310,10 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                         </div>
                     </div>
                 )}
-            </Card>
+            </Card >
 
             {/* Cropper Dialog */}
-            <Dialog open={showCropper} onOpenChange={setShowCropper}>
+            < Dialog open={showCropper} onOpenChange={setShowCropper} >
                 <DialogContent className="sm:max-w-md">
                     <DialogHeader>
                         <DialogTitle>Ritaglia Immagine</DialogTitle>
@@ -373,7 +354,7 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                         </div>
                     )}
                 </DialogContent>
-            </Dialog>
+            </Dialog >
         </>
     );
 }

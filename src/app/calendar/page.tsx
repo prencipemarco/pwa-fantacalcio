@@ -45,7 +45,7 @@ export default function CalendarPage() {
     }, {});
 
     return (
-        <div className="container mx-auto p-4 max-w-3xl min-h-screen pb-20">
+        <div className="container mx-auto p-4 max-w-3xl min-h-screen pb-20 pt-0">
             <div className="flex items-center gap-4 mb-6 sticky top-0 bg-background/95 backdrop-blur z-20 py-4 -mx-4 px-4 border-b">
                 <Link href="/">
                     <Button variant="ghost" size="icon">
@@ -67,7 +67,7 @@ export default function CalendarPage() {
                 <div className="space-y-8">
                     {Object.keys(groupedMatches).map((matchday) => (
                         <div key={matchday} id={`matchday-${matchday}`} className="scroll-mt-24">
-                            <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-3 px-1 sticky top-16 bg-background/95 backdrop-blur z-10 py-2">
+                            <h3 className="text-md font-bold text-primary uppercase tracking-widest mb-3 sticky top-16 bg-background/95 backdrop-blur z-10 py-3 text-center shadow-sm">
                                 Giornata {matchday}
                             </h3>
                             <Card className="overflow-hidden border-none shadow-sm bg-card/50">
