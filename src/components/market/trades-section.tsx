@@ -13,7 +13,7 @@ export function TradesSection({ teamId, onNewTrade }: { teamId: string, onNewTra
     const [openList, setOpenList] = useState(false);
 
     return (
-        <Card className="border-purple-200 bg-purple-50">
+        <Card className="border-purple-200 bg-purple-50 dark:bg-purple-900/10 dark:border-purple-800">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-lg">{t('trades')}</CardTitle>
                 <ArrowLeftRight className="h-6 w-6 text-purple-500" />
@@ -22,7 +22,7 @@ export function TradesSection({ teamId, onNewTrade }: { teamId: string, onNewTra
                 <div className="flex gap-2">
                     <Dialog open={openList} onOpenChange={setOpenList}>
                         <DialogTrigger asChild>
-                            <Button variant="outline" className="flex-1 border-purple-300 text-purple-700 hover:bg-purple-100">
+                            <Button variant="outline" className="flex-1 border-purple-300 text-purple-700 hover:bg-purple-100 dark:border-purple-700 dark:text-purple-300 dark:hover:bg-purple-900/40">
                                 <List className="w-4 h-4 mr-2" /> Active Trades
                             </Button>
                         </DialogTrigger>

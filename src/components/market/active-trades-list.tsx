@@ -60,13 +60,13 @@ export function ActiveTradesList({ teamId }: { teamId: string }) {
         const isProposer = trade.proposer_team_id === teamId;
         const partnerName = isProposer ? trade.receiver.name : trade.proposer.name;
 
-        let statusColor = 'bg-gray-100 text-gray-800';
-        if (trade.status === 'ACCEPTED') statusColor = 'bg-green-100 text-green-800';
-        if (trade.status === 'REJECTED') statusColor = 'bg-red-100 text-red-800';
-        if (trade.status === 'CANCELLED') statusColor = 'bg-slate-100 text-slate-800 line-through';
+        let statusColor = 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300';
+        if (trade.status === 'ACCEPTED') statusColor = 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300';
+        if (trade.status === 'REJECTED') statusColor = 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300';
+        if (trade.status === 'CANCELLED') statusColor = 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-400 line-through';
 
         return (
-            <StaggerItem className="border rounded-lg p-3 bg-white shadow-sm mb-3">
+            <StaggerItem className="border rounded-lg p-3 bg-card shadow-sm mb-3">
                 <div className="flex justify-between items-center mb-2">
                     <div className="flex items-center gap-2">
                         <span className="font-bold text-sm">{isProposer ? 'To:' : 'From:'} {partnerName}</span>
@@ -79,8 +79,8 @@ export function ActiveTradesList({ teamId }: { teamId: string }) {
 
                 {/* Details */}
                 <div className="flex items-center text-xs gap-2 mb-3">
-                    <div className="flex-1 bg-blue-50 p-2 rounded">
-                        <div className="font-bold text-blue-700 mb-1">{t('youGive')}</div>
+                    <div className="flex-1 bg-blue-50 dark:bg-blue-900/20 p-2 rounded border border-blue-100 dark:border-blue-800">
+                        <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">{t('youGive')}</div>
                         {isProposer ? (
                             <>
                                 {trade.proposer_player_ids.length} players
@@ -93,9 +93,9 @@ export function ActiveTradesList({ teamId }: { teamId: string }) {
                             </>
                         )}
                     </div>
-                    <ArrowRight className="text-gray-300 w-4 h-4" />
-                    <div className="flex-1 bg-purple-50 p-2 rounded">
-                        <div className="font-bold text-purple-700 mb-1">{t('youGet')}</div>
+                    <ArrowRight className="text-gray-300 dark:text-gray-600 w-4 h-4" />
+                    <div className="flex-1 bg-purple-50 dark:bg-purple-900/20 p-2 rounded border border-purple-100 dark:border-purple-800">
+                        <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">{t('youGet')}</div>
                         {isProposer ? (
                             <>
                                 {trade.receiver_player_ids.length} players
