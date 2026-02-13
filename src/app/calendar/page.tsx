@@ -67,10 +67,10 @@ export default function CalendarPage() {
                 <div className="space-y-8">
                     {Object.keys(groupedMatches).map((matchday) => (
                         <div key={matchday} id={`matchday-${matchday}`} className="scroll-mt-24">
-                            <h3 className="text-md font-bold text-primary uppercase tracking-widest mb-3 sticky top-16 bg-background/95 backdrop-blur z-10 py-3 text-center shadow-sm">
+                            <h3 className="text-md font-bold text-primary uppercase tracking-widest sticky top-16 bg-background/95 backdrop-blur z-10 py-3 text-center shadow-sm rounded-xl border border-border/50 mx-1 mb-2">
                                 Giornata {matchday}
                             </h3>
-                            <Card className="overflow-hidden border-none shadow-sm bg-card/50">
+                            <Card className="overflow-hidden border-none shadow-sm bg-card/50 rounded-xl">
                                 <CardContent className="p-0">
                                     <div className="divide-y divide-border/50">
                                         {groupedMatches[matchday].map((m: any) => {

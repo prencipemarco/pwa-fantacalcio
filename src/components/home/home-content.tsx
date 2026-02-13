@@ -26,10 +26,10 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
 
     return (
         <div className="flex flex-col min-h-[100dvh] bg-background">
-            <div className="flex-1 p-2 pb-24 md:p-4 w-full">
+            <div className="flex-1 px-0 py-2 pb-24 md:p-4 w-full">
 
                 {/* 1. Compact Header */}
-                <header className="flex items-center justify-between mb-4">
+                <header className="flex items-center justify-between mb-4 px-3">
                     <div className="flex items-center gap-3">
                         <div className="relative">
                             <TeamLogoEditor
@@ -68,7 +68,7 @@ function InnerHome({ user, team, standings = [], nextMatch }: { user: any, team?
                     </div>
                 </header>
 
-                <div className="space-y-6">
+                <div className="space-y-6 px-3">
                     {/* 2. Next Match Hero Card */}
                     <NextMatchWidget nextMatch={nextMatch} />
 
