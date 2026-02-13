@@ -38,7 +38,13 @@ export function SwipeNavigator({ children }: { children: React.ReactNode }) {
 
     const onTouchStart = (e: React.TouchEvent) => {
         // Stop swipe if inside a modal or blocked element OR if on admin pages
-        if (isAdmin || (e.target as HTMLElement).closest('.stop-swipe-nav')) {
+        // Also check for Radix UI / Shadcn 'data-scroll-locked' on body which indicates an open dialog/sheet
+        if (
+            isAdmin ||
+            (e.target as HTMLElement).closest('.stop-swipe-nav') ||
+            document.body.hasAttribute('data-scroll-locked') ||
+            document.body.style.overflow === 'hidden'
+        ) {
             return;
         }
 
