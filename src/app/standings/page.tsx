@@ -10,12 +10,14 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 import { Trophy } from 'lucide-react';
 import { TeamLogo } from '@/components/team-logo';
+import { RosterModal } from '@/components/standings/roster-modal';
 
 export default function StandingsPage() {
     const { t } = useLanguage();
     const [standings, setStandings] = useState<TeamStanding[]>([]);
     const [loading, setLoading] = useState(true);
     const [myTeamId, setMyTeamId] = useState<string | null>(null);
+    const [selectedTeam, setSelectedTeam] = useState<{ id: string, name: string } | null>(null);
 
     useEffect(() => {
         const load = async () => {
@@ -41,6 +43,8 @@ export default function StandingsPage() {
             </div>
         );
     }
+
+
 
     return (
         <div className="min-h-screen pb-24 bg-background">
@@ -95,22 +99,10 @@ export default function StandingsPage() {
                                             rankColor = "text-[#CD7F32] dark:text-orange-400";
                                         }
 
-                                        // "My Team" Highlight (Overridden or blended?)
-                                        // Let's make "IsMe" have a specific blue highlight, but if top 3, keep the left border of the rank?
-                                        // User wants "Cornice del giocatore relativa alla posizione". 
-                                        // Let's keep Rank Border as priority for Top 3, but use Blue formatting for Text/Avatar if IsMe?
-                                        // Or if IsMe is Top 1, it should probably be Gold bordered but maybe Blue background?
-                                        // Let's prioritize Rank Border.
-
                                         if (isMe) {
-                                            // Ensure contrast. If I am 1st, Gold border is cooler than Blue border.
-                                            // But let's add a subtle blue tint if not top 3, or maybe modify background if isMe?
                                             if (rank > 3) {
                                                 borderLeft = "border-l-4 border-l-[#4169E1]";
                                                 rowBg = "bg-gradient-to-r from-blue-50/80 to-background dark:from-blue-900/10 dark:to-background";
-                                            } else {
-                                                // I am top 3. Keep rank border, but maybe add slight blue mix?
-                                                // Let's stick to Rank visuals as primary for Table. My Team is highlighted by Avatar border anyway.
                                             }
                                         }
 
@@ -121,6 +113,7 @@ export default function StandingsPage() {
                                                     "h-[72px] transition-all cursor-pointer border-b border-border/60 last:border-0 relative group",
                                                     rowBg
                                                 )}
+                                                onClick={() => setSelectedTeam({ id: team.teamId, name: team.teamName })}
                                             >
                                                 {/* Rank & Border Accent */}
                                                 <TableCell className={cn("text-center p-0 relative w-[40px] md:w-[60px]", borderLeft)}>
@@ -145,7 +138,7 @@ export default function StandingsPage() {
                                                         </div>
                                                         <div className="flex flex-col min-w-0">
                                                             <span className={cn(
-                                                                "font-bold text-xs md:text-[16px] truncate max-w-[120px] md:max-w-[300px]",
+                                                                "font-bold text-xs md:text-[16px] truncate max-w-[120px] md:max-w-[300px] hover:underline decoration-primary/50 underline-offset-4",
                                                                 isMe ? "text-[#4169E1]" : "text-foreground"
                                                             )}>
                                                                 {team.teamName}
@@ -200,6 +193,13 @@ export default function StandingsPage() {
                     </CardContent>
                 </Card>
             </div>
+
+            <RosterModal
+                open={!!selectedTeam}
+                onOpenChange={(open) => !open && setSelectedTeam(null)}
+                teamId={selectedTeam?.id || null}
+                teamName={selectedTeam?.name || ''}
+            />
         </div>
     );
 }

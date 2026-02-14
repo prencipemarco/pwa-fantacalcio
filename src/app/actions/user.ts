@@ -40,6 +40,10 @@ export async function getMyTeam(userId: string) {
     return data && data.length > 0 ? data[0] : null;
 }
 
+export async function getTeamRoster(teamId: string) {
+    return getMyRoster(teamId);
+}
+
 export async function getMyRoster(teamId: string) {
     const supabase = await createClient();
     const { data } = await supabase
