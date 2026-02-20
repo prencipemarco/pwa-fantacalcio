@@ -35,19 +35,25 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
 
     const handleSearch = async (q: string) => {
         setLoading(true);
-        // Exclude taken players = true
-        let res = await searchPlayers(q, undefined, true);
+        try {
+            // Exclude taken players = true
+            let res = await searchPlayers(q, undefined, true);
 
-        // Custom Sort: Role (P, D, C, A) then Name
-        const roleOrder: Record<string, number> = { 'P': 1, 'D': 2, 'C': 3, 'A': 4 };
-        res = res.sort((a, b) => {
-            const roleDiff = (roleOrder[a.role] || 99) - (roleOrder[b.role] || 99);
-            if (roleDiff !== 0) return roleDiff;
-            return a.name.localeCompare(b.name);
-        });
+            // Custom Sort: Role (P, D, C, A) then Name
+            const roleOrder: Record<string, number> = { 'P': 1, 'D': 2, 'C': 3, 'A': 4 };
+            res = res.sort((a, b) => {
+                const roleDiff = (roleOrder[a.role] || 99) - (roleOrder[b.role] || 99);
+                if (roleDiff !== 0) return roleDiff;
+                return a.name.localeCompare(b.name);
+            });
 
-        setResults(res);
-        setLoading(false);
+            setResults(res);
+        } catch (err) {
+            console.error("Search failed:", err);
+            setResults([]);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleStartAuction = async (player: any) => {

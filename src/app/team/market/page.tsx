@@ -68,13 +68,15 @@ function MarketContent() {
         });
     };
 
-    // Sync tab with URL
+    // Sync tab with URL without triggering Next.js navigation (which can cause infinite suspense loaders)
     useEffect(() => {
         const currentView = searchParams.get('view');
         if (activeTab && currentView !== activeTab) {
-            router.replace(`/team/market?view=${activeTab}`, { scroll: false });
+            const url = new URL(window.location.href);
+            url.searchParams.set('view', activeTab);
+            window.history.replaceState(null, '', url.toString());
         }
-    }, [activeTab, router, searchParams]);
+    }, [activeTab, searchParams]);
 
 
     if (loading) {
