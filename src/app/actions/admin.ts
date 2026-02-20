@@ -295,6 +295,7 @@ export type ResetOptions = {
     votes: boolean;
     players: boolean;
     logs: boolean;
+    credits: boolean;
 };
 
 export async function resetSystem(options: ResetOptions) {
@@ -343,6 +344,12 @@ export async function resetSystem(options: ResetOptions) {
         // 6. Match Stats (Votes) (Depends on Players)
         if (votes || players) {
             await supabase.from('match_stats').delete().neq('id', 0);
+        }
+
+        // 6.5 Credits (Independent, but acts on Teams)
+        if (options.credits && !teams) {
+            // Reset to 1000 only if teams are not being deleted anyway
+            await supabase.from('teams').update({ credits_left: 1000 }).neq('id', 0);
         }
 
         // 7. Teams (Depends on Users, League)

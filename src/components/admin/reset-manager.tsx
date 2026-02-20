@@ -31,6 +31,7 @@ export function ResetManager() {
         votes: false,
         players: false,
         logs: false,
+        credits: false,
     });
 
     const handleCheck = (key: keyof ResetOptions, checked: boolean) => {
@@ -83,6 +84,7 @@ export function ResetManager() {
                     votes: false,
                     players: false,
                     logs: false,
+                    credits: false,
                 });
                 setTimeout(() => setOpen(false), 2000);
             } else {
@@ -142,9 +144,20 @@ export function ResetManager() {
                             checked={options.teams}
                             onCheckedChange={(c) => handleCheck('teams', c as boolean)}
                         />
-                        <Label htmlFor="opt-teams" className="font-bold text-red-700">Teams (Users & Credits)</Label>
+                        <Label htmlFor="opt-teams" className="font-bold text-red-700">Teams (Users & Everything)</Label>
                     </div>
                     <p className="text-xs text-gray-400 pl-6 -mt-3">Also clears Rosters and Market.</p>
+
+                    <div className="flex items-center space-x-2 mt-2">
+                        <Checkbox
+                            id="opt-credits"
+                            checked={options.credits}
+                            onCheckedChange={(c) => handleCheck('credits', c as boolean)}
+                            disabled={options.teams}
+                        />
+                        <Label htmlFor="opt-credits" className="font-bold text-orange-600">Credits (Reset to 1000)</Label>
+                    </div>
+                    <p className="text-xs text-gray-400 pl-6 -mt-3">Sets all teams back to 1000 credits.</p>
 
                     <div className="flex items-center space-x-2">
                         <Checkbox

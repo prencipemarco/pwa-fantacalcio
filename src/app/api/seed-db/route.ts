@@ -15,7 +15,7 @@ export async function GET(request: Request) {
 
         // 1. Reset system (keep teams)
         console.log("Resetting system...");
-        await resetSystem({ market: true, rosters: true, teams: false, calendar: true, votes: true, players: true, logs: true });
+        await resetSystem({ market: true, rosters: true, teams: false, calendar: true, votes: true, players: true, logs: true, credits: true });
 
         // 2. Import Players
         console.log("Importing Listone...");
