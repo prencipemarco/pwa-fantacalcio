@@ -1,7 +1,9 @@
 'use server'
 
 import { createClient } from '@/utils/supabase/server';
+import { createAdminClient } from '@/utils/supabase/admin';
 import { PlayerImport, RosterImport, VoteImport } from '@/lib/fantacalcio/parsers';
+import { revalidatePath } from 'next/cache';
 
 export async function importPlayers(players: PlayerImport[]) {
     const supabase = await createClient();
@@ -299,7 +301,8 @@ export type ResetOptions = {
 };
 
 export async function resetSystem(options: ResetOptions) {
-    const supabase = await createClient();
+    // using createAdminClient to bypass RLS for systemic deletion and updates
+    const supabase = createAdminClient();
     const { market, rosters, teams, calendar, votes, players } = options;
 
     try {
@@ -328,7 +331,7 @@ export async function resetSystem(options: ResetOptions) {
 
             // If teams are kept but rosters/players are reset, restore initial 1000 credits
             if (!teams) {
-                await supabase.from('teams').update({ credits_left: 1000 }).neq('id', 0); // Update all valid teams
+                await supabase.from('teams').update({ credits_left: 1000 }).neq('name', 'placeholder_impossible_name'); // Update all valid teams
             }
         }
 
@@ -349,7 +352,7 @@ export async function resetSystem(options: ResetOptions) {
         // 6.5 Credits (Independent, but acts on Teams)
         if (options.credits && !teams) {
             // Reset to 1000 only if teams are not being deleted anyway
-            await supabase.from('teams').update({ credits_left: 1000 }).neq('id', 0);
+            await supabase.from('teams').update({ credits_left: 1000 }).neq('name', 'placeholder_impossible_name');
         }
 
         // 7. Teams (Depends on Users, League)
@@ -368,6 +371,7 @@ export async function resetSystem(options: ResetOptions) {
         }
 
         await logEvent('RESET_SYSTEM', { options, timestamp: new Date() });
+        revalidatePath('/', 'layout');
         return { success: true };
 
     } catch (error: any) {
