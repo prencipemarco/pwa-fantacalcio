@@ -294,11 +294,11 @@ export async function calculateMatchday(matchday: number) {
 
     for (const match of fixtures) {
         // Calculate Home
-        const homeScore = await calculateTeamScore(supabase, match.home_team_id, match.id);
+        const homeScore = await calculateTeamScore(supabase, match.home_team_id, match.id, matchday);
         const homeGoals = convertScoreToGoals(homeScore);
 
         // Calculate Away
-        const awayScore = await calculateTeamScore(supabase, match.away_team_id, match.id);
+        const awayScore = await calculateTeamScore(supabase, match.away_team_id, match.id, matchday);
         const awayGoals = convertScoreToGoals(awayScore);
 
         // Update Fixture
@@ -312,7 +312,7 @@ export async function calculateMatchday(matchday: number) {
     return { success: true };
 }
 
-async function calculateTeamScore(supabase: any, teamId: string, fixtureId: number) {
+async function calculateTeamScore(supabase: any, teamId: string, fixtureId: number, matchday: number) {
     if (!teamId) return 0;
 
     // Get Lineup
@@ -338,7 +338,8 @@ async function calculateTeamScore(supabase: any, teamId: string, fixtureId: numb
         const { data: stats } = await supabase.from('match_stats')
             .select('vote, goals_for, goals_against, yellow_cards, red_cards, assists, penalties_saved, penalties_missed, own_goals')
             .eq('player_id', p.player_id)
-            .single();
+            .eq('matchday', matchday)
+            .maybeSingle();
 
         if (stats) {
             let playerTotal = stats.vote;
