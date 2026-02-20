@@ -1,0 +1,5001 @@
+Giornata;Squadra;Modulo;Giocatore;Titolare;PanchinaOrdine
+1;ARCORE FC;3-4-3;Okoye;SI;0
+1;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+1;ARCORE FC;3-4-3;Cuadrado;SI;0
+1;ARCORE FC;3-4-3;De Winter;SI;0
+1;ARCORE FC;3-4-3;Tramoni M.;SI;0
+1;ARCORE FC;3-4-3;Orsolini;SI;0
+1;ARCORE FC;3-4-3;Zaragoza;SI;0
+1;ARCORE FC;3-4-3;Konè M.;SI;0
+1;ARCORE FC;3-4-3;Bonny;SI;0
+1;ARCORE FC;3-4-3;Sanabria;SI;0
+1;ARCORE FC;3-4-3;Colombo;SI;0
+1;ARCORE FC;3-4-3;Ostigard;NO;1
+1;ARCORE FC;3-4-3;Cataldi;NO;2
+1;ARCORE FC;3-4-3;Akanji;NO;3
+1;ARCORE FC;3-4-3;Thuram;NO;4
+1;ARCORE FC;3-4-3;Sucic P.;NO;5
+1;ARCORE FC;3-4-3;Esposito Se.;NO;6
+1;ARCORE FC;3-4-3;Cambiaso;NO;7
+1;ARCORE FC;3-4-3;Thorsby;NO;8
+1;ARCORE FC;3-4-3;N'Dicka;NO;9
+1;ARCORE FC;3-4-3;Falcone;NO;10
+1;ARCORE FC;3-4-3;Pedro;NO;11
+1;ARCORE FC;3-4-3;Audero;NO;12
+1;ARCORE FC;3-4-3;Bisseck;NO;13
+1;ARCORE FC;3-4-3;McTominay;NO;14
+1;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+1;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+1;FC San Marco Evangelista;3-4-3;Circati;SI;0
+1;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+1;FC San Marco Evangelista;3-4-3;Barella;SI;0
+1;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+1;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+1;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+1;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+1;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+1;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+1;FC San Marco Evangelista;3-4-3;Yildiz;NO;1
+1;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;2
+1;FC San Marco Evangelista;3-4-3;Maignan;NO;3
+1;FC San Marco Evangelista;3-4-3;Boga;NO;4
+1;FC San Marco Evangelista;3-4-3;Gila;NO;5
+1;FC San Marco Evangelista;3-4-3;Miretti;NO;6
+1;FC San Marco Evangelista;3-4-3;Buongiorno;NO;7
+1;FC San Marco Evangelista;3-4-3;Iling Junior;NO;8
+1;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;9
+1;FC San Marco Evangelista;3-4-3;Paz N.;NO;10
+1;FC San Marco Evangelista;3-4-3;Suzuki;NO;11
+1;FC San Marco Evangelista;3-4-3;Delprato;NO;12
+1;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;13
+1;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;14
+1;FC bianchi;3-4-3;Contini;SI;0
+1;FC bianchi;3-4-3;Diego Carlos;SI;0
+1;FC bianchi;3-4-3;Vasquez;SI;0
+1;FC bianchi;3-4-3;Romagnoli;SI;0
+1;FC bianchi;3-4-3;McKennie;SI;0
+1;FC bianchi;3-4-3;Harroui;SI;0
+1;FC bianchi;3-4-3;Thuram K.;SI;0
+1;FC bianchi;3-4-3;Isaksen;SI;0
+1;FC bianchi;3-4-3;Fullkrug;SI;0
+1;FC bianchi;3-4-3;Leao;SI;0
+1;FC bianchi;3-4-3;Vardy;SI;0
+1;FC bianchi;3-4-3;Sottil;NO;1
+1;FC bianchi;3-4-3;Mina;NO;2
+1;FC bianchi;3-4-3;Dodò;NO;3
+1;FC bianchi;3-4-3;Rovella;NO;4
+1;FC bianchi;3-4-3;Davis K.;NO;5
+1;FC bianchi;3-4-3;Mkhitaryan;NO;6
+1;FC bianchi;3-4-3;Comuzzo;NO;7
+1;FC bianchi;3-4-3;Raspadori;NO;8
+1;FC bianchi;3-4-3;Baschirotto;NO;9
+1;FC bianchi;3-4-3;Scalvini;NO;10
+1;FC bianchi;3-4-3;Strefezza;NO;11
+1;FC bianchi;3-4-3;Meret;NO;12
+1;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;13
+1;FC bianchi;3-4-3;Zapata D.;NO;14
+1;Sinuoso;3-4-3;Martinez Jo.;SI;0
+1;Sinuoso;3-4-3;Holm;SI;0
+1;Sinuoso;3-4-3;Bastoni;SI;0
+1;Sinuoso;3-4-3;Caracciolo A.;SI;0
+1;Sinuoso;3-4-3;Thorstvedt;SI;0
+1;Sinuoso;3-4-3;Locatelli;SI;0
+1;Sinuoso;3-4-3;Vergara;SI;0
+1;Sinuoso;3-4-3;Calhanoglu;SI;0
+1;Sinuoso;3-4-3;Esposito F.P.;SI;0
+1;Sinuoso;3-4-3;Martinez L.;SI;0
+1;Sinuoso;3-4-3;Nkunku;SI;0
+1;Sinuoso;3-4-3;Di Gennaro;NO;1
+1;Sinuoso;3-4-3;Laurientè;NO;2
+1;Sinuoso;3-4-3;Conceicao;NO;3
+1;Sinuoso;3-4-3;Sommer;NO;4
+1;Sinuoso;3-4-3;Vlasic;NO;5
+1;Sinuoso;3-4-3;Douvikas;NO;6
+1;Sinuoso;3-4-3;Olivera;NO;7
+1;Sinuoso;3-4-3;Darmian;NO;8
+1;Sinuoso;3-4-3;Heggem;NO;9
+1;Sinuoso;3-4-3;De Roon;NO;10
+1;Sinuoso;3-4-3;Spinazzola;NO;11
+1;Sinuoso;3-4-3;Mancini;NO;12
+1;Sinuoso;3-4-3;Nzola;NO;13
+1;Sinuoso;3-4-3;Ricci S.;NO;14
+1;Makumba FC;3-4-3;Skorupski;SI;0
+1;Makumba FC;3-4-3;Tomori;SI;0
+1;Makumba FC;3-4-3;Estupinan;SI;0
+1;Makumba FC;3-4-3;Dimarco;SI;0
+1;Makumba FC;3-4-3;Fofana Y.;SI;0
+1;Makumba FC;3-4-3;Pulisic;SI;0
+1;Makumba FC;3-4-3;Mandragora;SI;0
+1;Makumba FC;3-4-3;Zielinski;SI;0
+1;Makumba FC;3-4-3;Kean;SI;0
+1;Makumba FC;3-4-3;Adams C.;SI;0
+1;Makumba FC;3-4-3;Piccoli;SI;0
+1;Makumba FC;3-4-3;Perin;NO;1
+1;Makumba FC;3-4-3;Pavlovic;NO;2
+1;Makumba FC;3-4-3;Rodriguez Je.;NO;3
+1;Makumba FC;3-4-3;Loftus-Cheek;NO;4
+1;Makumba FC;3-4-3;Rowe;NO;5
+1;Makumba FC;3-4-3;Orban G.;NO;6
+1;Makumba FC;3-4-3;Di Gregorio;NO;7
+1;Makumba FC;3-4-3;Bellanova;NO;8
+1;Makumba FC;3-4-3;Zappacosta;NO;9
+1;Makumba FC;3-4-3;Pinamonti;NO;10
+1;Makumba FC;3-4-3;Bartesaghi;NO;11
+1;Makumba FC;3-4-3;Politano;NO;12
+1;Makumba FC;3-4-3;Taylor K.;NO;13
+1;Makumba FC;3-4-3;Gabbia;NO;14
+1;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+1;Nhamass dstrunz;3-4-3;Ramon;SI;0
+1;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+1;Nhamass dstrunz;3-4-3;Celik;SI;0
+1;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+1;Nhamass dstrunz;3-4-3;Perrone;SI;0
+1;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+1;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+1;Nhamass dstrunz;3-4-3;Dybala;SI;0
+1;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+1;Nhamass dstrunz;3-4-3;Berardi;SI;0
+1;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;1
+1;Nhamass dstrunz;3-4-3;Sportiello;NO;2
+1;Nhamass dstrunz;3-4-3;Valle;NO;3
+1;Nhamass dstrunz;3-4-3;Soulè;NO;4
+1;Nhamass dstrunz;3-4-3;Pasalic;NO;5
+1;Nhamass dstrunz;3-4-3;Kelly L.;NO;6
+1;Nhamass dstrunz;3-4-3;Tavares N.;NO;7
+1;Nhamass dstrunz;3-4-3;Scamacca;NO;8
+1;Nhamass dstrunz;3-4-3;Carnesecchi;NO;9
+1;Nhamass dstrunz;3-4-3;Konè I.;NO;10
+1;Nhamass dstrunz;3-4-3;Kempf;NO;11
+1;Nhamass dstrunz;3-4-3;Krstovic;NO;12
+1;Nhamass dstrunz;3-4-3;Rrahmani;NO;13
+1;Nhamass dstrunz;3-4-3;Tourè I.;NO;14
+1;Reazione di Mallard;3-4-3;Butez;SI;0
+1;Reazione di Mallard;3-4-3;Martin;SI;0
+1;Reazione di Mallard;3-4-3;Coco;SI;0
+1;Reazione di Mallard;3-4-3;Hien;SI;0
+1;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+1;Reazione di Mallard;3-4-3;Atta;SI;0
+1;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+1;Reazione di Mallard;3-4-3;Matic;SI;0
+1;Reazione di Mallard;3-4-3;Simeone;SI;0
+1;Reazione di Mallard;3-4-3;David;SI;0
+1;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+1;Reazione di Mallard;3-4-3;Baturina;NO;1
+1;Reazione di Mallard;3-4-3;Doig;NO;2
+1;Reazione di Mallard;3-4-3;Lukaku;NO;3
+1;Reazione di Mallard;3-4-3;Solomon;NO;4
+1;Reazione di Mallard;3-4-3;Zaniolo;NO;5
+1;Reazione di Mallard;3-4-3;Solet;NO;6
+1;Reazione di Mallard;3-4-3;Wesley;NO;7
+1;Reazione di Mallard;3-4-3;Caprile;NO;8
+1;Reazione di Mallard;3-4-3;Durosinmi;NO;9
+1;Reazione di Mallard;3-4-3;Rabiot;NO;10
+1;Reazione di Mallard;3-4-3;Lucumì;NO;11
+1;Reazione di Mallard;3-4-3;Provedel;NO;12
+1;Reazione di Mallard;3-4-3;Cristante;NO;13
+1;Reazione di Mallard;3-4-3;Gosens;NO;14
+1;Vietato Sognare FC;3-4-3;Gollini;SI;0
+1;Vietato Sognare FC;3-4-3;Bremer;SI;0
+1;Vietato Sognare FC;3-4-3;Valeri;SI;0
+1;Vietato Sognare FC;3-4-3;Maripan;SI;0
+1;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+1;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+1;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+1;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+1;Vietato Sognare FC;3-4-3;Malen;SI;0
+1;Vietato Sognare FC;3-4-3;Moreo;SI;0
+1;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+1;Vietato Sognare FC;3-4-3;Muric;NO;1
+1;Vietato Sognare FC;3-4-3;Castro S.;NO;2
+1;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;3
+1;Vietato Sognare FC;3-4-3;Muharemovic;NO;4
+1;Vietato Sognare FC;3-4-3;Ratkov;NO;5
+1;Vietato Sognare FC;3-4-3;Kristensen T.;NO;6
+1;Vietato Sognare FC;3-4-3;Maldini;NO;7
+1;Vietato Sognare FC;3-4-3;Zortea;NO;8
+1;Vietato Sognare FC;3-4-3;Casadei;NO;9
+1;Vietato Sognare FC;3-4-3;Modric;NO;10
+1;Vietato Sognare FC;3-4-3;Hojlund;NO;11
+1;Vietato Sognare FC;3-4-3;Svilar;NO;12
+1;Vietato Sognare FC;3-4-3;Zalewski;NO;13
+1;Vietato Sognare FC;3-4-3;Dumfries;NO;14
+2;ARCORE FC;3-4-3;Audero;SI;0
+2;ARCORE FC;3-4-3;N'Dicka;SI;0
+2;ARCORE FC;3-4-3;De Winter;SI;0
+2;ARCORE FC;3-4-3;Akanji;SI;0
+2;ARCORE FC;3-4-3;Zaragoza;SI;0
+2;ARCORE FC;3-4-3;Konè M.;SI;0
+2;ARCORE FC;3-4-3;Sucic P.;SI;0
+2;ARCORE FC;3-4-3;Thorsby;SI;0
+2;ARCORE FC;3-4-3;Thuram;SI;0
+2;ARCORE FC;3-4-3;Colombo;SI;0
+2;ARCORE FC;3-4-3;Bonny;SI;0
+2;ARCORE FC;3-4-3;McTominay;NO;1
+2;ARCORE FC;3-4-3;Cataldi;NO;2
+2;ARCORE FC;3-4-3;Cuadrado;NO;3
+2;ARCORE FC;3-4-3;Bisseck;NO;4
+2;ARCORE FC;3-4-3;Orsolini;NO;5
+2;ARCORE FC;3-4-3;Tramoni M.;NO;6
+2;ARCORE FC;3-4-3;Cambiaso;NO;7
+2;ARCORE FC;3-4-3;Sanabria;NO;8
+2;ARCORE FC;3-4-3;Falcone;NO;9
+2;ARCORE FC;3-4-3;Ostigard;NO;10
+2;ARCORE FC;3-4-3;Esposito Se.;NO;11
+2;ARCORE FC;3-4-3;Pedro;NO;12
+2;ARCORE FC;3-4-3;Di Lorenzo;NO;13
+2;ARCORE FC;3-4-3;Okoye;NO;14
+2;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+2;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+2;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+2;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+2;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+2;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+2;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+2;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+2;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+2;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+2;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+2;FC San Marco Evangelista;3-4-3;Delprato;NO;1
+2;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;2
+2;FC San Marco Evangelista;3-4-3;Maignan;NO;3
+2;FC San Marco Evangelista;3-4-3;Suzuki;NO;4
+2;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;5
+2;FC San Marco Evangelista;3-4-3;Yildiz;NO;6
+2;FC San Marco Evangelista;3-4-3;Palestra;NO;7
+2;FC San Marco Evangelista;3-4-3;Circati;NO;8
+2;FC San Marco Evangelista;3-4-3;Barella;NO;9
+2;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;10
+2;FC San Marco Evangelista;3-4-3;Iling Junior;NO;11
+2;FC San Marco Evangelista;3-4-3;Boga;NO;12
+2;FC San Marco Evangelista;3-4-3;Gila;NO;13
+2;FC San Marco Evangelista;3-4-3;Brescianini;NO;14
+2;FC bianchi;3-4-3;Contini;SI;0
+2;FC bianchi;3-4-3;Dodò;SI;0
+2;FC bianchi;3-4-3;Mina;SI;0
+2;FC bianchi;3-4-3;Vasquez;SI;0
+2;FC bianchi;3-4-3;Harroui;SI;0
+2;FC bianchi;3-4-3;Strefezza;SI;0
+2;FC bianchi;3-4-3;Thuram K.;SI;0
+2;FC bianchi;3-4-3;Mkhitaryan;SI;0
+2;FC bianchi;3-4-3;Davis K.;SI;0
+2;FC bianchi;3-4-3;Zapata D.;SI;0
+2;FC bianchi;3-4-3;Leao;SI;0
+2;FC bianchi;3-4-3;Romagnoli;NO;1
+2;FC bianchi;3-4-3;Raspadori;NO;2
+2;FC bianchi;3-4-3;Meret;NO;3
+2;FC bianchi;3-4-3;Fullkrug;NO;4
+2;FC bianchi;3-4-3;Isaksen;NO;5
+2;FC bianchi;3-4-3;Sottil;NO;6
+2;FC bianchi;3-4-3;Scalvini;NO;7
+2;FC bianchi;3-4-3;Rovella;NO;8
+2;FC bianchi;3-4-3;McKennie;NO;9
+2;FC bianchi;3-4-3;Diego Carlos;NO;10
+2;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;11
+2;FC bianchi;3-4-3;Baschirotto;NO;12
+2;FC bianchi;3-4-3;Vardy;NO;13
+2;FC bianchi;3-4-3;Comuzzo;NO;14
+2;Sinuoso;3-4-3;Sommer;SI;0
+2;Sinuoso;3-4-3;Mancini;SI;0
+2;Sinuoso;3-4-3;Olivera;SI;0
+2;Sinuoso;3-4-3;Spinazzola;SI;0
+2;Sinuoso;3-4-3;Vergara;SI;0
+2;Sinuoso;3-4-3;Conceicao;SI;0
+2;Sinuoso;3-4-3;Vlasic;SI;0
+2;Sinuoso;3-4-3;De Roon;SI;0
+2;Sinuoso;3-4-3;Martinez L.;SI;0
+2;Sinuoso;3-4-3;Douvikas;SI;0
+2;Sinuoso;3-4-3;Esposito F.P.;SI;0
+2;Sinuoso;3-4-3;Thorstvedt;NO;1
+2;Sinuoso;3-4-3;Darmian;NO;2
+2;Sinuoso;3-4-3;Holm;NO;3
+2;Sinuoso;3-4-3;Ricci S.;NO;4
+2;Sinuoso;3-4-3;Di Gennaro;NO;5
+2;Sinuoso;3-4-3;Nkunku;NO;6
+2;Sinuoso;3-4-3;Laurientè;NO;7
+2;Sinuoso;3-4-3;Calhanoglu;NO;8
+2;Sinuoso;3-4-3;Locatelli;NO;9
+2;Sinuoso;3-4-3;Heggem;NO;10
+2;Sinuoso;3-4-3;Bastoni;NO;11
+2;Sinuoso;3-4-3;Caracciolo A.;NO;12
+2;Sinuoso;3-4-3;Nzola;NO;13
+2;Sinuoso;3-4-3;Martinez Jo.;NO;14
+2;Makumba FC;3-4-3;Perin;SI;0
+2;Makumba FC;3-4-3;Bellanova;SI;0
+2;Makumba FC;3-4-3;Estupinan;SI;0
+2;Makumba FC;3-4-3;Tomori;SI;0
+2;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+2;Makumba FC;3-4-3;Pulisic;SI;0
+2;Makumba FC;3-4-3;Fofana Y.;SI;0
+2;Makumba FC;3-4-3;Taylor K.;SI;0
+2;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+2;Makumba FC;3-4-3;Orban G.;SI;0
+2;Makumba FC;3-4-3;Kean;SI;0
+2;Makumba FC;3-4-3;Pinamonti;NO;1
+2;Makumba FC;3-4-3;Di Gregorio;NO;2
+2;Makumba FC;3-4-3;Bartesaghi;NO;3
+2;Makumba FC;3-4-3;Piccoli;NO;4
+2;Makumba FC;3-4-3;Zielinski;NO;5
+2;Makumba FC;3-4-3;Dimarco;NO;6
+2;Makumba FC;3-4-3;Pavlovic;NO;7
+2;Makumba FC;3-4-3;Rowe;NO;8
+2;Makumba FC;3-4-3;Politano;NO;9
+2;Makumba FC;3-4-3;Mandragora;NO;10
+2;Makumba FC;3-4-3;Skorupski;NO;11
+2;Makumba FC;3-4-3;Adams C.;NO;12
+2;Makumba FC;3-4-3;Gabbia;NO;13
+2;Makumba FC;3-4-3;Zappacosta;NO;14
+2;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+2;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+2;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+2;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+2;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+2;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+2;Nhamass dstrunz;3-4-3;Tourè I.;SI;0
+2;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+2;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+2;Nhamass dstrunz;3-4-3;Dybala;SI;0
+2;Nhamass dstrunz;3-4-3;Berardi;SI;0
+2;Nhamass dstrunz;3-4-3;Kilicsoy;NO;1
+2;Nhamass dstrunz;3-4-3;Da Cunha;NO;2
+2;Nhamass dstrunz;3-4-3;Malinovskyi;NO;3
+2;Nhamass dstrunz;3-4-3;Celik;NO;4
+2;Nhamass dstrunz;3-4-3;Valle;NO;5
+2;Nhamass dstrunz;3-4-3;Ramon;NO;6
+2;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;7
+2;Nhamass dstrunz;3-4-3;Soulè;NO;8
+2;Nhamass dstrunz;3-4-3;Sportiello;NO;9
+2;Nhamass dstrunz;3-4-3;Scamacca;NO;10
+2;Nhamass dstrunz;3-4-3;Tavares N.;NO;11
+2;Nhamass dstrunz;3-4-3;Perrone;NO;12
+2;Nhamass dstrunz;3-4-3;Carnesecchi;NO;13
+2;Nhamass dstrunz;3-4-3;Kempf;NO;14
+2;Reazione di Mallard;3-4-3;Butez;SI;0
+2;Reazione di Mallard;3-4-3;Coco;SI;0
+2;Reazione di Mallard;3-4-3;Martin;SI;0
+2;Reazione di Mallard;3-4-3;Doig;SI;0
+2;Reazione di Mallard;3-4-3;Atta;SI;0
+2;Reazione di Mallard;3-4-3;Rabiot;SI;0
+2;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+2;Reazione di Mallard;3-4-3;Matic;SI;0
+2;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+2;Reazione di Mallard;3-4-3;David;SI;0
+2;Reazione di Mallard;3-4-3;Simeone;SI;0
+2;Reazione di Mallard;3-4-3;Wesley;NO;1
+2;Reazione di Mallard;3-4-3;Solomon;NO;2
+2;Reazione di Mallard;3-4-3;Durosinmi;NO;3
+2;Reazione di Mallard;3-4-3;Solet;NO;4
+2;Reazione di Mallard;3-4-3;Zaniolo;NO;5
+2;Reazione di Mallard;3-4-3;Gosens;NO;6
+2;Reazione di Mallard;3-4-3;Hien;NO;7
+2;Reazione di Mallard;3-4-3;Lucumì;NO;8
+2;Reazione di Mallard;3-4-3;Baturina;NO;9
+2;Reazione di Mallard;3-4-3;Caprile;NO;10
+2;Reazione di Mallard;3-4-3;Lukaku;NO;11
+2;Reazione di Mallard;3-4-3;Ederson D.S.;NO;12
+2;Reazione di Mallard;3-4-3;Cristante;NO;13
+2;Reazione di Mallard;3-4-3;Provedel;NO;14
+2;Vietato Sognare FC;3-4-3;Muric;SI;0
+2;Vietato Sognare FC;3-4-3;Valeri;SI;0
+2;Vietato Sognare FC;3-4-3;Zortea;SI;0
+2;Vietato Sognare FC;3-4-3;Dumfries;SI;0
+2;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+2;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+2;Vietato Sognare FC;3-4-3;Casadei;SI;0
+2;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+2;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+2;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+2;Vietato Sognare FC;3-4-3;Malen;SI;0
+2;Vietato Sognare FC;3-4-3;Gollini;NO;1
+2;Vietato Sognare FC;3-4-3;Maripan;NO;2
+2;Vietato Sognare FC;3-4-3;Kristensen T.;NO;3
+2;Vietato Sognare FC;3-4-3;Modric;NO;4
+2;Vietato Sognare FC;3-4-3;Ratkov;NO;5
+2;Vietato Sognare FC;3-4-3;Muharemovic;NO;6
+2;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;7
+2;Vietato Sognare FC;3-4-3;Moreo;NO;8
+2;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;9
+2;Vietato Sognare FC;3-4-3;Hojlund;NO;10
+2;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;11
+2;Vietato Sognare FC;3-4-3;Bremer;NO;12
+2;Vietato Sognare FC;3-4-3;Svilar;NO;13
+2;Vietato Sognare FC;3-4-3;Maldini;NO;14
+3;ARCORE FC;3-4-3;Audero;SI;0
+3;ARCORE FC;3-4-3;Cambiaso;SI;0
+3;ARCORE FC;3-4-3;Bisseck;SI;0
+3;ARCORE FC;3-4-3;N'Dicka;SI;0
+3;ARCORE FC;3-4-3;Tramoni M.;SI;0
+3;ARCORE FC;3-4-3;Zaragoza;SI;0
+3;ARCORE FC;3-4-3;Cataldi;SI;0
+3;ARCORE FC;3-4-3;Konè M.;SI;0
+3;ARCORE FC;3-4-3;Bonny;SI;0
+3;ARCORE FC;3-4-3;Thuram;SI;0
+3;ARCORE FC;3-4-3;Esposito Se.;SI;0
+3;ARCORE FC;3-4-3;Okoye;NO;1
+3;ARCORE FC;3-4-3;Thorsby;NO;2
+3;ARCORE FC;3-4-3;Ostigard;NO;3
+3;ARCORE FC;3-4-3;Pedro;NO;4
+3;ARCORE FC;3-4-3;Di Lorenzo;NO;5
+3;ARCORE FC;3-4-3;Sanabria;NO;6
+3;ARCORE FC;3-4-3;McTominay;NO;7
+3;ARCORE FC;3-4-3;Orsolini;NO;8
+3;ARCORE FC;3-4-3;Sucic P.;NO;9
+3;ARCORE FC;3-4-3;Akanji;NO;10
+3;ARCORE FC;3-4-3;Cuadrado;NO;11
+3;ARCORE FC;3-4-3;De Winter;NO;12
+3;ARCORE FC;3-4-3;Colombo;NO;13
+3;ARCORE FC;3-4-3;Falcone;NO;14
+3;FC San Marco Evangelista;3-4-3;Suzuki;SI;0
+3;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+3;FC San Marco Evangelista;3-4-3;Circati;SI;0
+3;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+3;FC San Marco Evangelista;3-4-3;Iling Junior;SI;0
+3;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+3;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+3;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+3;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+3;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+3;FC San Marco Evangelista;3-4-3;Boga;SI;0
+3;FC San Marco Evangelista;3-4-3;Paz N.;NO;1
+3;FC San Marco Evangelista;3-4-3;Palestra;NO;2
+3;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;3
+3;FC San Marco Evangelista;3-4-3;Barella;NO;4
+3;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;5
+3;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;6
+3;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;7
+3;FC San Marco Evangelista;3-4-3;Maignan;NO;8
+3;FC San Marco Evangelista;3-4-3;Brescianini;NO;9
+3;FC San Marco Evangelista;3-4-3;Gila;NO;10
+3;FC San Marco Evangelista;3-4-3;Yildiz;NO;11
+3;FC San Marco Evangelista;3-4-3;Terracciano;NO;12
+3;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;13
+3;FC San Marco Evangelista;3-4-3;Delprato;NO;14
+3;FC bianchi;3-4-3;Meret;SI;0
+3;FC bianchi;3-4-3;Dodò;SI;0
+3;FC bianchi;3-4-3;Romagnoli;SI;0
+3;FC bianchi;3-4-3;Diego Carlos;SI;0
+3;FC bianchi;3-4-3;Thuram K.;SI;0
+3;FC bianchi;3-4-3;Harroui;SI;0
+3;FC bianchi;3-4-3;Strefezza;SI;0
+3;FC bianchi;3-4-3;Sottil;SI;0
+3;FC bianchi;3-4-3;Fullkrug;SI;0
+3;FC bianchi;3-4-3;Vardy;SI;0
+3;FC bianchi;3-4-3;Zapata D.;SI;0
+3;FC bianchi;3-4-3;Scalvini;NO;1
+3;FC bianchi;3-4-3;McKennie;NO;2
+3;FC bianchi;3-4-3;Davis K.;NO;3
+3;FC bianchi;3-4-3;Leao;NO;4
+3;FC bianchi;3-4-3;Rovella;NO;5
+3;FC bianchi;3-4-3;Contini;NO;6
+3;FC bianchi;3-4-3;Mina;NO;7
+3;FC bianchi;3-4-3;Baschirotto;NO;8
+3;FC bianchi;3-4-3;Raspadori;NO;9
+3;FC bianchi;3-4-3;Isaksen;NO;10
+3;FC bianchi;3-4-3;Vasquez;NO;11
+3;FC bianchi;3-4-3;Mkhitaryan;NO;12
+3;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;13
+3;FC bianchi;3-4-3;Comuzzo;NO;14
+3;Sinuoso;3-4-3;Sommer;SI;0
+3;Sinuoso;3-4-3;Holm;SI;0
+3;Sinuoso;3-4-3;Caracciolo A.;SI;0
+3;Sinuoso;3-4-3;Spinazzola;SI;0
+3;Sinuoso;3-4-3;Vlasic;SI;0
+3;Sinuoso;3-4-3;Calhanoglu;SI;0
+3;Sinuoso;3-4-3;Thorstvedt;SI;0
+3;Sinuoso;3-4-3;Vergara;SI;0
+3;Sinuoso;3-4-3;Laurientè;SI;0
+3;Sinuoso;3-4-3;Douvikas;SI;0
+3;Sinuoso;3-4-3;Nzola;SI;0
+3;Sinuoso;3-4-3;Heggem;NO;1
+3;Sinuoso;3-4-3;Nkunku;NO;2
+3;Sinuoso;3-4-3;Olivera;NO;3
+3;Sinuoso;3-4-3;Conceicao;NO;4
+3;Sinuoso;3-4-3;Mancini;NO;5
+3;Sinuoso;3-4-3;Locatelli;NO;6
+3;Sinuoso;3-4-3;De Roon;NO;7
+3;Sinuoso;3-4-3;Esposito F.P.;NO;8
+3;Sinuoso;3-4-3;Martinez L.;NO;9
+3;Sinuoso;3-4-3;Ricci S.;NO;10
+3;Sinuoso;3-4-3;Bastoni;NO;11
+3;Sinuoso;3-4-3;Darmian;NO;12
+3;Sinuoso;3-4-3;Martinez Jo.;NO;13
+3;Sinuoso;3-4-3;Di Gennaro;NO;14
+3;Makumba FC;3-4-3;Perin;SI;0
+3;Makumba FC;3-4-3;Zappacosta;SI;0
+3;Makumba FC;3-4-3;Tomori;SI;0
+3;Makumba FC;3-4-3;Bellanova;SI;0
+3;Makumba FC;3-4-3;Pulisic;SI;0
+3;Makumba FC;3-4-3;Mandragora;SI;0
+3;Makumba FC;3-4-3;Zielinski;SI;0
+3;Makumba FC;3-4-3;Taylor K.;SI;0
+3;Makumba FC;3-4-3;Pinamonti;SI;0
+3;Makumba FC;3-4-3;Adams C.;SI;0
+3;Makumba FC;3-4-3;Kean;SI;0
+3;Makumba FC;3-4-3;Skorupski;NO;1
+3;Makumba FC;3-4-3;Politano;NO;2
+3;Makumba FC;3-4-3;Gabbia;NO;3
+3;Makumba FC;3-4-3;Orban G.;NO;4
+3;Makumba FC;3-4-3;Pavlovic;NO;5
+3;Makumba FC;3-4-3;Dimarco;NO;6
+3;Makumba FC;3-4-3;Loftus-Cheek;NO;7
+3;Makumba FC;3-4-3;Piccoli;NO;8
+3;Makumba FC;3-4-3;Fofana Y.;NO;9
+3;Makumba FC;3-4-3;Rodriguez Je.;NO;10
+3;Makumba FC;3-4-3;Rowe;NO;11
+3;Makumba FC;3-4-3;Di Gregorio;NO;12
+3;Makumba FC;3-4-3;Bartesaghi;NO;13
+3;Makumba FC;3-4-3;Estupinan;NO;14
+3;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+3;Nhamass dstrunz;3-4-3;Ramon;SI;0
+3;Nhamass dstrunz;3-4-3;Valle;SI;0
+3;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+3;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+3;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+3;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+3;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+3;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+3;Nhamass dstrunz;3-4-3;Berardi;SI;0
+3;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+3;Nhamass dstrunz;3-4-3;Dybala;NO;1
+3;Nhamass dstrunz;3-4-3;Soulè;NO;2
+3;Nhamass dstrunz;3-4-3;Bijlow;NO;3
+3;Nhamass dstrunz;3-4-3;Rrahmani;NO;4
+3;Nhamass dstrunz;3-4-3;Kelly L.;NO;5
+3;Nhamass dstrunz;3-4-3;Konè I.;NO;6
+3;Nhamass dstrunz;3-4-3;Zaccagni;NO;7
+3;Nhamass dstrunz;3-4-3;Krstovic;NO;8
+3;Nhamass dstrunz;3-4-3;Celik;NO;9
+3;Nhamass dstrunz;3-4-3;Tourè I.;NO;10
+3;Nhamass dstrunz;3-4-3;Tavares N.;NO;11
+3;Nhamass dstrunz;3-4-3;Sportiello;NO;12
+3;Nhamass dstrunz;3-4-3;Perrone;NO;13
+3;Nhamass dstrunz;3-4-3;Kempf;NO;14
+3;Reazione di Mallard;3-4-3;Caprile;SI;0
+3;Reazione di Mallard;3-4-3;Lucumì;SI;0
+3;Reazione di Mallard;3-4-3;Hien;SI;0
+3;Reazione di Mallard;3-4-3;Wesley;SI;0
+3;Reazione di Mallard;3-4-3;Matic;SI;0
+3;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+3;Reazione di Mallard;3-4-3;Cristante;SI;0
+3;Reazione di Mallard;3-4-3;Baturina;SI;0
+3;Reazione di Mallard;3-4-3;Solomon;SI;0
+3;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+3;Reazione di Mallard;3-4-3;David;SI;0
+3;Reazione di Mallard;3-4-3;Gosens;NO;1
+3;Reazione di Mallard;3-4-3;Ederson D.S.;NO;2
+3;Reazione di Mallard;3-4-3;Rabiot;NO;3
+3;Reazione di Mallard;3-4-3;Solet;NO;4
+3;Reazione di Mallard;3-4-3;Coco;NO;5
+3;Reazione di Mallard;3-4-3;Provedel;NO;6
+3;Reazione di Mallard;3-4-3;Vitinha O.;NO;7
+3;Reazione di Mallard;3-4-3;Zaniolo;NO;8
+3;Reazione di Mallard;3-4-3;Simeone;NO;9
+3;Reazione di Mallard;3-4-3;Doig;NO;10
+3;Reazione di Mallard;3-4-3;Atta;NO;11
+3;Reazione di Mallard;3-4-3;Martin;NO;12
+3;Reazione di Mallard;3-4-3;Lukaku;NO;13
+3;Reazione di Mallard;3-4-3;Butez;NO;14
+3;Vietato Sognare FC;3-4-3;Muric;SI;0
+3;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+3;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+3;Vietato Sognare FC;3-4-3;Valeri;SI;0
+3;Vietato Sognare FC;3-4-3;Maldini;SI;0
+3;Vietato Sognare FC;3-4-3;Casadei;SI;0
+3;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+3;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+3;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+3;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+3;Vietato Sognare FC;3-4-3;Moreo;SI;0
+3;Vietato Sognare FC;3-4-3;Modric;NO;1
+3;Vietato Sognare FC;3-4-3;Castro S.;NO;2
+3;Vietato Sognare FC;3-4-3;Malen;NO;3
+3;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;4
+3;Vietato Sognare FC;3-4-3;Maripan;NO;5
+3;Vietato Sognare FC;3-4-3;Dumfries;NO;6
+3;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;7
+3;Vietato Sognare FC;3-4-3;Zortea;NO;8
+3;Vietato Sognare FC;3-4-3;Muharemovic;NO;9
+3;Vietato Sognare FC;3-4-3;Svilar;NO;10
+3;Vietato Sognare FC;3-4-3;Gollini;NO;11
+3;Vietato Sognare FC;3-4-3;Bonazzoli;NO;12
+3;Vietato Sognare FC;3-4-3;Zalewski;NO;13
+3;Vietato Sognare FC;3-4-3;Bremer;NO;14
+4;ARCORE FC;3-4-3;Audero;SI;0
+4;ARCORE FC;3-4-3;Bisseck;SI;0
+4;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+4;ARCORE FC;3-4-3;N'Dicka;SI;0
+4;ARCORE FC;3-4-3;Konè M.;SI;0
+4;ARCORE FC;3-4-3;Zaragoza;SI;0
+4;ARCORE FC;3-4-3;McTominay;SI;0
+4;ARCORE FC;3-4-3;Tramoni M.;SI;0
+4;ARCORE FC;3-4-3;Bonny;SI;0
+4;ARCORE FC;3-4-3;Colombo;SI;0
+4;ARCORE FC;3-4-3;Thuram;SI;0
+4;ARCORE FC;3-4-3;De Winter;NO;1
+4;ARCORE FC;3-4-3;Falcone;NO;2
+4;ARCORE FC;3-4-3;Pedro;NO;3
+4;ARCORE FC;3-4-3;Akanji;NO;4
+4;ARCORE FC;3-4-3;Sucic P.;NO;5
+4;ARCORE FC;3-4-3;Okoye;NO;6
+4;ARCORE FC;3-4-3;Ostigard;NO;7
+4;ARCORE FC;3-4-3;Cambiaso;NO;8
+4;ARCORE FC;3-4-3;Thorsby;NO;9
+4;ARCORE FC;3-4-3;Sanabria;NO;10
+4;ARCORE FC;3-4-3;Cuadrado;NO;11
+4;ARCORE FC;3-4-3;Cataldi;NO;12
+4;ARCORE FC;3-4-3;Orsolini;NO;13
+4;ARCORE FC;3-4-3;Esposito Se.;NO;14
+4;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+4;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+4;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+4;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+4;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+4;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+4;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+4;FC San Marco Evangelista;3-4-3;Iling Junior;SI;0
+4;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+4;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+4;FC San Marco Evangelista;3-4-3;Boga;SI;0
+4;FC San Marco Evangelista;3-4-3;Gila;NO;1
+4;FC San Marco Evangelista;3-4-3;Terracciano;NO;2
+4;FC San Marco Evangelista;3-4-3;Barella;NO;3
+4;FC San Marco Evangelista;3-4-3;Circati;NO;4
+4;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;5
+4;FC San Marco Evangelista;3-4-3;Paz N.;NO;6
+4;FC San Marco Evangelista;3-4-3;Brescianini;NO;7
+4;FC San Marco Evangelista;3-4-3;Suzuki;NO;8
+4;FC San Marco Evangelista;3-4-3;Cancellieri;NO;9
+4;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;10
+4;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;11
+4;FC San Marco Evangelista;3-4-3;Kalulu;NO;12
+4;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;13
+4;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;14
+4;FC bianchi;3-4-3;Meret;SI;0
+4;FC bianchi;3-4-3;Dodò;SI;0
+4;FC bianchi;3-4-3;Vasquez;SI;0
+4;FC bianchi;3-4-3;Scalvini;SI;0
+4;FC bianchi;3-4-3;Mkhitaryan;SI;0
+4;FC bianchi;3-4-3;Harroui;SI;0
+4;FC bianchi;3-4-3;McKennie;SI;0
+4;FC bianchi;3-4-3;Strefezza;SI;0
+4;FC bianchi;3-4-3;Raspadori;SI;0
+4;FC bianchi;3-4-3;Zapata D.;SI;0
+4;FC bianchi;3-4-3;Fullkrug;SI;0
+4;FC bianchi;3-4-3;Davis K.;NO;1
+4;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;2
+4;FC bianchi;3-4-3;Baschirotto;NO;3
+4;FC bianchi;3-4-3;Isaksen;NO;4
+4;FC bianchi;3-4-3;Romagnoli;NO;5
+4;FC bianchi;3-4-3;Contini;NO;6
+4;FC bianchi;3-4-3;Sottil;NO;7
+4;FC bianchi;3-4-3;Diego Carlos;NO;8
+4;FC bianchi;3-4-3;Thuram K.;NO;9
+4;FC bianchi;3-4-3;Rovella;NO;10
+4;FC bianchi;3-4-3;Vardy;NO;11
+4;FC bianchi;3-4-3;Comuzzo;NO;12
+4;FC bianchi;3-4-3;Leao;NO;13
+4;FC bianchi;3-4-3;Mina;NO;14
+4;Sinuoso;3-4-3;Sommer;SI;0
+4;Sinuoso;3-4-3;Holm;SI;0
+4;Sinuoso;3-4-3;Heggem;SI;0
+4;Sinuoso;3-4-3;Olivera;SI;0
+4;Sinuoso;3-4-3;Conceicao;SI;0
+4;Sinuoso;3-4-3;Thorstvedt;SI;0
+4;Sinuoso;3-4-3;Locatelli;SI;0
+4;Sinuoso;3-4-3;Ricci S.;SI;0
+4;Sinuoso;3-4-3;Nkunku;SI;0
+4;Sinuoso;3-4-3;Douvikas;SI;0
+4;Sinuoso;3-4-3;Martinez L.;SI;0
+4;Sinuoso;3-4-3;Mancini;NO;1
+4;Sinuoso;3-4-3;Spinazzola;NO;2
+4;Sinuoso;3-4-3;Caracciolo A.;NO;3
+4;Sinuoso;3-4-3;Nzola;NO;4
+4;Sinuoso;3-4-3;De Roon;NO;5
+4;Sinuoso;3-4-3;Bastoni;NO;6
+4;Sinuoso;3-4-3;Calhanoglu;NO;7
+4;Sinuoso;3-4-3;Esposito F.P.;NO;8
+4;Sinuoso;3-4-3;Martinez Jo.;NO;9
+4;Sinuoso;3-4-3;Di Gennaro;NO;10
+4;Sinuoso;3-4-3;Vergara;NO;11
+4;Sinuoso;3-4-3;Laurientè;NO;12
+4;Sinuoso;3-4-3;Vlasic;NO;13
+4;Sinuoso;3-4-3;Darmian;NO;14
+4;Makumba FC;3-4-3;Perin;SI;0
+4;Makumba FC;3-4-3;Tomori;SI;0
+4;Makumba FC;3-4-3;Bartesaghi;SI;0
+4;Makumba FC;3-4-3;Gabbia;SI;0
+4;Makumba FC;3-4-3;Fofana Y.;SI;0
+4;Makumba FC;3-4-3;Rowe;SI;0
+4;Makumba FC;3-4-3;Pulisic;SI;0
+4;Makumba FC;3-4-3;Mandragora;SI;0
+4;Makumba FC;3-4-3;Orban G.;SI;0
+4;Makumba FC;3-4-3;Piccoli;SI;0
+4;Makumba FC;3-4-3;Pinamonti;SI;0
+4;Makumba FC;3-4-3;Di Gregorio;NO;1
+4;Makumba FC;3-4-3;Dimarco;NO;2
+4;Makumba FC;3-4-3;Rodriguez Je.;NO;3
+4;Makumba FC;3-4-3;Bellanova;NO;4
+4;Makumba FC;3-4-3;Estupinan;NO;5
+4;Makumba FC;3-4-3;Loftus-Cheek;NO;6
+4;Makumba FC;3-4-3;Taylor K.;NO;7
+4;Makumba FC;3-4-3;Zappacosta;NO;8
+4;Makumba FC;3-4-3;Pavlovic;NO;9
+4;Makumba FC;3-4-3;Adams C.;NO;10
+4;Makumba FC;3-4-3;Politano;NO;11
+4;Makumba FC;3-4-3;Kean;NO;12
+4;Makumba FC;3-4-3;Skorupski;NO;13
+4;Makumba FC;3-4-3;Zielinski;NO;14
+4;Nhamass dstrunz;3-4-3;Sportiello;SI;0
+4;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+4;Nhamass dstrunz;3-4-3;Celik;SI;0
+4;Nhamass dstrunz;3-4-3;Ramon;SI;0
+4;Nhamass dstrunz;3-4-3;Tourè I.;SI;0
+4;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+4;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+4;Nhamass dstrunz;3-4-3;Perrone;SI;0
+4;Nhamass dstrunz;3-4-3;Berardi;SI;0
+4;Nhamass dstrunz;3-4-3;Soulè;SI;0
+4;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+4;Nhamass dstrunz;3-4-3;Tavares N.;NO;1
+4;Nhamass dstrunz;3-4-3;Kempf;NO;2
+4;Nhamass dstrunz;3-4-3;Malinovskyi;NO;3
+4;Nhamass dstrunz;3-4-3;Kilicsoy;NO;4
+4;Nhamass dstrunz;3-4-3;Kelly L.;NO;5
+4;Nhamass dstrunz;3-4-3;Carnesecchi;NO;6
+4;Nhamass dstrunz;3-4-3;Pasalic;NO;7
+4;Nhamass dstrunz;3-4-3;Dybala;NO;8
+4;Nhamass dstrunz;3-4-3;Bijlow;NO;9
+4;Nhamass dstrunz;3-4-3;Konè I.;NO;10
+4;Nhamass dstrunz;3-4-3;Da Cunha;NO;11
+4;Nhamass dstrunz;3-4-3;Rrahmani;NO;12
+4;Nhamass dstrunz;3-4-3;Valle;NO;13
+4;Nhamass dstrunz;3-4-3;Krstovic;NO;14
+4;Reazione di Mallard;3-4-3;Caprile;SI;0
+4;Reazione di Mallard;3-4-3;Lucumì;SI;0
+4;Reazione di Mallard;3-4-3;Gosens;SI;0
+4;Reazione di Mallard;3-4-3;Hien;SI;0
+4;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+4;Reazione di Mallard;3-4-3;Cristante;SI;0
+4;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+4;Reazione di Mallard;3-4-3;Matic;SI;0
+4;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+4;Reazione di Mallard;3-4-3;Solomon;SI;0
+4;Reazione di Mallard;3-4-3;Simeone;SI;0
+4;Reazione di Mallard;3-4-3;Doig;NO;1
+4;Reazione di Mallard;3-4-3;Rabiot;NO;2
+4;Reazione di Mallard;3-4-3;Butez;NO;3
+4;Reazione di Mallard;3-4-3;Vitinha O.;NO;4
+4;Reazione di Mallard;3-4-3;Martin;NO;5
+4;Reazione di Mallard;3-4-3;Coco;NO;6
+4;Reazione di Mallard;3-4-3;Lukaku;NO;7
+4;Reazione di Mallard;3-4-3;Baturina;NO;8
+4;Reazione di Mallard;3-4-3;Wesley;NO;9
+4;Reazione di Mallard;3-4-3;Ederson D.S.;NO;10
+4;Reazione di Mallard;3-4-3;Solet;NO;11
+4;Reazione di Mallard;3-4-3;Provedel;NO;12
+4;Reazione di Mallard;3-4-3;Atta;NO;13
+4;Reazione di Mallard;3-4-3;David;NO;14
+4;Vietato Sognare FC;3-4-3;Gollini;SI;0
+4;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+4;Vietato Sognare FC;3-4-3;Maripan;SI;0
+4;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+4;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+4;Vietato Sognare FC;3-4-3;Casadei;SI;0
+4;Vietato Sognare FC;3-4-3;Modric;SI;0
+4;Vietato Sognare FC;3-4-3;Maldini;SI;0
+4;Vietato Sognare FC;3-4-3;Moreo;SI;0
+4;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+4;Vietato Sognare FC;3-4-3;Malen;SI;0
+4;Vietato Sognare FC;3-4-3;Zortea;NO;1
+4;Vietato Sognare FC;3-4-3;Ratkov;NO;2
+4;Vietato Sognare FC;3-4-3;Valeri;NO;3
+4;Vietato Sognare FC;3-4-3;Bonazzoli;NO;4
+4;Vietato Sognare FC;3-4-3;Muric;NO;5
+4;Vietato Sognare FC;3-4-3;Svilar;NO;6
+4;Vietato Sognare FC;3-4-3;Bremer;NO;7
+4;Vietato Sognare FC;3-4-3;Dumfries;NO;8
+4;Vietato Sognare FC;3-4-3;Muharemovic;NO;9
+4;Vietato Sognare FC;3-4-3;Bernabè;NO;10
+4;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;11
+4;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;12
+4;Vietato Sognare FC;3-4-3;Hojlund;NO;13
+4;Vietato Sognare FC;3-4-3;Zalewski;NO;14
+5;ARCORE FC;3-4-3;Falcone;SI;0
+5;ARCORE FC;3-4-3;Ostigard;SI;0
+5;ARCORE FC;3-4-3;Akanji;SI;0
+5;ARCORE FC;3-4-3;Cuadrado;SI;0
+5;ARCORE FC;3-4-3;Sucic P.;SI;0
+5;ARCORE FC;3-4-3;Zaragoza;SI;0
+5;ARCORE FC;3-4-3;Thorsby;SI;0
+5;ARCORE FC;3-4-3;Orsolini;SI;0
+5;ARCORE FC;3-4-3;Thuram;SI;0
+5;ARCORE FC;3-4-3;Pedro;SI;0
+5;ARCORE FC;3-4-3;Esposito Se.;SI;0
+5;ARCORE FC;3-4-3;Bisseck;NO;1
+5;ARCORE FC;3-4-3;N'Dicka;NO;2
+5;ARCORE FC;3-4-3;Di Lorenzo;NO;3
+5;ARCORE FC;3-4-3;Sanabria;NO;4
+5;ARCORE FC;3-4-3;Cataldi;NO;5
+5;ARCORE FC;3-4-3;Okoye;NO;6
+5;ARCORE FC;3-4-3;McTominay;NO;7
+5;ARCORE FC;3-4-3;Audero;NO;8
+5;ARCORE FC;3-4-3;Konè M.;NO;9
+5;ARCORE FC;3-4-3;Tramoni M.;NO;10
+5;ARCORE FC;3-4-3;Bonny;NO;11
+5;ARCORE FC;3-4-3;De Winter;NO;12
+5;ARCORE FC;3-4-3;Cambiaso;NO;13
+5;ARCORE FC;3-4-3;Colombo;NO;14
+5;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+5;FC San Marco Evangelista;3-4-3;Gila;SI;0
+5;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+5;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+5;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+5;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+5;FC San Marco Evangelista;3-4-3;Barella;SI;0
+5;FC San Marco Evangelista;3-4-3;Iling Junior;SI;0
+5;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+5;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+5;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+5;FC San Marco Evangelista;3-4-3;Terracciano;NO;1
+5;FC San Marco Evangelista;3-4-3;Suzuki;NO;2
+5;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;3
+5;FC San Marco Evangelista;3-4-3;Yildiz;NO;4
+5;FC San Marco Evangelista;3-4-3;Buongiorno;NO;5
+5;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;6
+5;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;7
+5;FC San Marco Evangelista;3-4-3;Odgaard;NO;8
+5;FC San Marco Evangelista;3-4-3;Circati;NO;9
+5;FC San Marco Evangelista;3-4-3;Miretti;NO;10
+5;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;11
+5;FC San Marco Evangelista;3-4-3;Kalulu;NO;12
+5;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;13
+5;FC San Marco Evangelista;3-4-3;Boga;NO;14
+5;FC bianchi;3-4-3;Milinkovic-Savic V.;SI;0
+5;FC bianchi;3-4-3;Comuzzo;SI;0
+5;FC bianchi;3-4-3;Mina;SI;0
+5;FC bianchi;3-4-3;Dodò;SI;0
+5;FC bianchi;3-4-3;McKennie;SI;0
+5;FC bianchi;3-4-3;Sottil;SI;0
+5;FC bianchi;3-4-3;Mkhitaryan;SI;0
+5;FC bianchi;3-4-3;Harroui;SI;0
+5;FC bianchi;3-4-3;Fullkrug;SI;0
+5;FC bianchi;3-4-3;Zapata D.;SI;0
+5;FC bianchi;3-4-3;Vardy;SI;0
+5;FC bianchi;3-4-3;Isaksen;NO;1
+5;FC bianchi;3-4-3;Baschirotto;NO;2
+5;FC bianchi;3-4-3;Leao;NO;3
+5;FC bianchi;3-4-3;Scalvini;NO;4
+5;FC bianchi;3-4-3;Romagnoli;NO;5
+5;FC bianchi;3-4-3;Contini;NO;6
+5;FC bianchi;3-4-3;Meret;NO;7
+5;FC bianchi;3-4-3;Thuram K.;NO;8
+5;FC bianchi;3-4-3;Strefezza;NO;9
+5;FC bianchi;3-4-3;Vasquez;NO;10
+5;FC bianchi;3-4-3;Rovella;NO;11
+5;FC bianchi;3-4-3;Raspadori;NO;12
+5;FC bianchi;3-4-3;Davis K.;NO;13
+5;FC bianchi;3-4-3;Diego Carlos;NO;14
+5;Sinuoso;3-4-3;Sommer;SI;0
+5;Sinuoso;3-4-3;Spinazzola;SI;0
+5;Sinuoso;3-4-3;Holm;SI;0
+5;Sinuoso;3-4-3;Darmian;SI;0
+5;Sinuoso;3-4-3;Calhanoglu;SI;0
+5;Sinuoso;3-4-3;Vergara;SI;0
+5;Sinuoso;3-4-3;De Roon;SI;0
+5;Sinuoso;3-4-3;Thorstvedt;SI;0
+5;Sinuoso;3-4-3;Douvikas;SI;0
+5;Sinuoso;3-4-3;Nzola;SI;0
+5;Sinuoso;3-4-3;Nkunku;SI;0
+5;Sinuoso;3-4-3;Ricci S.;NO;1
+5;Sinuoso;3-4-3;Olivera;NO;2
+5;Sinuoso;3-4-3;Vlasic;NO;3
+5;Sinuoso;3-4-3;Esposito F.P.;NO;4
+5;Sinuoso;3-4-3;Bastoni;NO;5
+5;Sinuoso;3-4-3;Heggem;NO;6
+5;Sinuoso;3-4-3;Caracciolo A.;NO;7
+5;Sinuoso;3-4-3;Martinez L.;NO;8
+5;Sinuoso;3-4-3;Mancini;NO;9
+5;Sinuoso;3-4-3;Di Gennaro;NO;10
+5;Sinuoso;3-4-3;Martinez Jo.;NO;11
+5;Sinuoso;3-4-3;Locatelli;NO;12
+5;Sinuoso;3-4-3;Laurientè;NO;13
+5;Sinuoso;3-4-3;Conceicao;NO;14
+5;Makumba FC;3-4-3;Perin;SI;0
+5;Makumba FC;3-4-3;Zappacosta;SI;0
+5;Makumba FC;3-4-3;Estupinan;SI;0
+5;Makumba FC;3-4-3;Dimarco;SI;0
+5;Makumba FC;3-4-3;Rowe;SI;0
+5;Makumba FC;3-4-3;Pulisic;SI;0
+5;Makumba FC;3-4-3;Zielinski;SI;0
+5;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+5;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+5;Makumba FC;3-4-3;Pinamonti;SI;0
+5;Makumba FC;3-4-3;Kean;SI;0
+5;Makumba FC;3-4-3;Skorupski;NO;1
+5;Makumba FC;3-4-3;Pavlovic;NO;2
+5;Makumba FC;3-4-3;Adams C.;NO;3
+5;Makumba FC;3-4-3;Politano;NO;4
+5;Makumba FC;3-4-3;Bartesaghi;NO;5
+5;Makumba FC;3-4-3;Mandragora;NO;6
+5;Makumba FC;3-4-3;Taylor K.;NO;7
+5;Makumba FC;3-4-3;Piccoli;NO;8
+5;Makumba FC;3-4-3;Tomori;NO;9
+5;Makumba FC;3-4-3;Di Gregorio;NO;10
+5;Makumba FC;3-4-3;Bellanova;NO;11
+5;Makumba FC;3-4-3;Fofana Y.;NO;12
+5;Makumba FC;3-4-3;Orban G.;NO;13
+5;Makumba FC;3-4-3;Gabbia;NO;14
+5;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+5;Nhamass dstrunz;3-4-3;Kempf;SI;0
+5;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+5;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+5;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+5;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+5;Nhamass dstrunz;3-4-3;Perrone;SI;0
+5;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+5;Nhamass dstrunz;3-4-3;Dybala;SI;0
+5;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+5;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+5;Nhamass dstrunz;3-4-3;Valle;NO;1
+5;Nhamass dstrunz;3-4-3;Zaccagni;NO;2
+5;Nhamass dstrunz;3-4-3;Berardi;NO;3
+5;Nhamass dstrunz;3-4-3;Sportiello;NO;4
+5;Nhamass dstrunz;3-4-3;Da Cunha;NO;5
+5;Nhamass dstrunz;3-4-3;Ramon;NO;6
+5;Nhamass dstrunz;3-4-3;Pasalic;NO;7
+5;Nhamass dstrunz;3-4-3;Rrahmani;NO;8
+5;Nhamass dstrunz;3-4-3;Bijlow;NO;9
+5;Nhamass dstrunz;3-4-3;Tavares N.;NO;10
+5;Nhamass dstrunz;3-4-3;Soulè;NO;11
+5;Nhamass dstrunz;3-4-3;Tourè I.;NO;12
+5;Nhamass dstrunz;3-4-3;Celik;NO;13
+5;Nhamass dstrunz;3-4-3;Scamacca;NO;14
+5;Reazione di Mallard;3-4-3;Caprile;SI;0
+5;Reazione di Mallard;3-4-3;Wesley;SI;0
+5;Reazione di Mallard;3-4-3;Coco;SI;0
+5;Reazione di Mallard;3-4-3;Hien;SI;0
+5;Reazione di Mallard;3-4-3;Baturina;SI;0
+5;Reazione di Mallard;3-4-3;Matic;SI;0
+5;Reazione di Mallard;3-4-3;Cristante;SI;0
+5;Reazione di Mallard;3-4-3;Rabiot;SI;0
+5;Reazione di Mallard;3-4-3;David;SI;0
+5;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+5;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+5;Reazione di Mallard;3-4-3;Gosens;NO;1
+5;Reazione di Mallard;3-4-3;Zaniolo;NO;2
+5;Reazione di Mallard;3-4-3;Ederson D.S.;NO;3
+5;Reazione di Mallard;3-4-3;Lucumì;NO;4
+5;Reazione di Mallard;3-4-3;Solomon;NO;5
+5;Reazione di Mallard;3-4-3;Lukaku;NO;6
+5;Reazione di Mallard;3-4-3;Provedel;NO;7
+5;Reazione di Mallard;3-4-3;Solet;NO;8
+5;Reazione di Mallard;3-4-3;Simeone;NO;9
+5;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;10
+5;Reazione di Mallard;3-4-3;Doig;NO;11
+5;Reazione di Mallard;3-4-3;Martin;NO;12
+5;Reazione di Mallard;3-4-3;Atta;NO;13
+5;Reazione di Mallard;3-4-3;Butez;NO;14
+5;Vietato Sognare FC;3-4-3;Gollini;SI;0
+5;Vietato Sognare FC;3-4-3;Bremer;SI;0
+5;Vietato Sognare FC;3-4-3;Zortea;SI;0
+5;Vietato Sognare FC;3-4-3;Maripan;SI;0
+5;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+5;Vietato Sognare FC;3-4-3;Maldini;SI;0
+5;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+5;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+5;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+5;Vietato Sognare FC;3-4-3;Malen;SI;0
+5;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+5;Vietato Sognare FC;3-4-3;Bonazzoli;NO;1
+5;Vietato Sognare FC;3-4-3;Muharemovic;NO;2
+5;Vietato Sognare FC;3-4-3;Casadei;NO;3
+5;Vietato Sognare FC;3-4-3;Castro S.;NO;4
+5;Vietato Sognare FC;3-4-3;Dumfries;NO;5
+5;Vietato Sognare FC;3-4-3;Kristensen T.;NO;6
+5;Vietato Sognare FC;3-4-3;Valeri;NO;7
+5;Vietato Sognare FC;3-4-3;Muric;NO;8
+5;Vietato Sognare FC;3-4-3;Svilar;NO;9
+5;Vietato Sognare FC;3-4-3;Santos A.;NO;10
+5;Vietato Sognare FC;3-4-3;Modric;NO;11
+5;Vietato Sognare FC;3-4-3;Moreo;NO;12
+5;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;13
+5;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;14
+6;ARCORE FC;3-4-3;Audero;SI;0
+6;ARCORE FC;3-4-3;Cuadrado;SI;0
+6;ARCORE FC;3-4-3;Ostigard;SI;0
+6;ARCORE FC;3-4-3;De Winter;SI;0
+6;ARCORE FC;3-4-3;Tramoni M.;SI;0
+6;ARCORE FC;3-4-3;Sucic P.;SI;0
+6;ARCORE FC;3-4-3;Cataldi;SI;0
+6;ARCORE FC;3-4-3;Orsolini;SI;0
+6;ARCORE FC;3-4-3;Thuram;SI;0
+6;ARCORE FC;3-4-3;Colombo;SI;0
+6;ARCORE FC;3-4-3;Bonny;SI;0
+6;ARCORE FC;3-4-3;McTominay;NO;1
+6;ARCORE FC;3-4-3;Falcone;NO;2
+6;ARCORE FC;3-4-3;Cambiaso;NO;3
+6;ARCORE FC;3-4-3;Esposito Se.;NO;4
+6;ARCORE FC;3-4-3;Zaragoza;NO;5
+6;ARCORE FC;3-4-3;Akanji;NO;6
+6;ARCORE FC;3-4-3;Pedro;NO;7
+6;ARCORE FC;3-4-3;Sanabria;NO;8
+6;ARCORE FC;3-4-3;Okoye;NO;9
+6;ARCORE FC;3-4-3;Thorsby;NO;10
+6;ARCORE FC;3-4-3;Bisseck;NO;11
+6;ARCORE FC;3-4-3;Konè M.;NO;12
+6;ARCORE FC;3-4-3;Di Lorenzo;NO;13
+6;ARCORE FC;3-4-3;N'Dicka;NO;14
+6;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+6;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+6;FC San Marco Evangelista;3-4-3;Gila;SI;0
+6;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+6;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+6;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+6;FC San Marco Evangelista;3-4-3;Iling Junior;SI;0
+6;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+6;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+6;FC San Marco Evangelista;3-4-3;Boga;SI;0
+6;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+6;FC San Marco Evangelista;3-4-3;Miretti;NO;1
+6;FC San Marco Evangelista;3-4-3;Buongiorno;NO;2
+6;FC San Marco Evangelista;3-4-3;Barella;NO;3
+6;FC San Marco Evangelista;3-4-3;Odgaard;NO;4
+6;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;5
+6;FC San Marco Evangelista;3-4-3;Cancellieri;NO;6
+6;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;7
+6;FC San Marco Evangelista;3-4-3;Maignan;NO;8
+6;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;9
+6;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;10
+6;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;11
+6;FC San Marco Evangelista;3-4-3;Kalulu;NO;12
+6;FC San Marco Evangelista;3-4-3;Circati;NO;13
+6;FC San Marco Evangelista;3-4-3;Suzuki;NO;14
+6;FC bianchi;3-4-3;Contini;SI;0
+6;FC bianchi;3-4-3;Baschirotto;SI;0
+6;FC bianchi;3-4-3;Scalvini;SI;0
+6;FC bianchi;3-4-3;Vasquez;SI;0
+6;FC bianchi;3-4-3;Isaksen;SI;0
+6;FC bianchi;3-4-3;Harroui;SI;0
+6;FC bianchi;3-4-3;Mkhitaryan;SI;0
+6;FC bianchi;3-4-3;Sottil;SI;0
+6;FC bianchi;3-4-3;Fullkrug;SI;0
+6;FC bianchi;3-4-3;Leao;SI;0
+6;FC bianchi;3-4-3;Vardy;SI;0
+6;FC bianchi;3-4-3;Thuram K.;NO;1
+6;FC bianchi;3-4-3;Comuzzo;NO;2
+6;FC bianchi;3-4-3;Davis K.;NO;3
+6;FC bianchi;3-4-3;Strefezza;NO;4
+6;FC bianchi;3-4-3;Romagnoli;NO;5
+6;FC bianchi;3-4-3;McKennie;NO;6
+6;FC bianchi;3-4-3;Dodò;NO;7
+6;FC bianchi;3-4-3;Diego Carlos;NO;8
+6;FC bianchi;3-4-3;Meret;NO;9
+6;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;10
+6;FC bianchi;3-4-3;Raspadori;NO;11
+6;FC bianchi;3-4-3;Zapata D.;NO;12
+6;FC bianchi;3-4-3;Rovella;NO;13
+6;FC bianchi;3-4-3;Mina;NO;14
+6;Sinuoso;3-4-3;Di Gennaro;SI;0
+6;Sinuoso;3-4-3;Mancini;SI;0
+6;Sinuoso;3-4-3;Olivera;SI;0
+6;Sinuoso;3-4-3;Spinazzola;SI;0
+6;Sinuoso;3-4-3;Vergara;SI;0
+6;Sinuoso;3-4-3;De Roon;SI;0
+6;Sinuoso;3-4-3;Thorstvedt;SI;0
+6;Sinuoso;3-4-3;Locatelli;SI;0
+6;Sinuoso;3-4-3;Laurientè;SI;0
+6;Sinuoso;3-4-3;Nzola;SI;0
+6;Sinuoso;3-4-3;Douvikas;SI;0
+6;Sinuoso;3-4-3;Vlasic;NO;1
+6;Sinuoso;3-4-3;Esposito F.P.;NO;2
+6;Sinuoso;3-4-3;Sommer;NO;3
+6;Sinuoso;3-4-3;Holm;NO;4
+6;Sinuoso;3-4-3;Darmian;NO;5
+6;Sinuoso;3-4-3;Martinez Jo.;NO;6
+6;Sinuoso;3-4-3;Conceicao;NO;7
+6;Sinuoso;3-4-3;Bastoni;NO;8
+6;Sinuoso;3-4-3;Ricci S.;NO;9
+6;Sinuoso;3-4-3;Martinez L.;NO;10
+6;Sinuoso;3-4-3;Caracciolo A.;NO;11
+6;Sinuoso;3-4-3;Nkunku;NO;12
+6;Sinuoso;3-4-3;Calhanoglu;NO;13
+6;Sinuoso;3-4-3;Heggem;NO;14
+6;Makumba FC;3-4-3;Perin;SI;0
+6;Makumba FC;3-4-3;Pavlovic;SI;0
+6;Makumba FC;3-4-3;Estupinan;SI;0
+6;Makumba FC;3-4-3;Bellanova;SI;0
+6;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+6;Makumba FC;3-4-3;Rowe;SI;0
+6;Makumba FC;3-4-3;Zielinski;SI;0
+6;Makumba FC;3-4-3;Mandragora;SI;0
+6;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+6;Makumba FC;3-4-3;Piccoli;SI;0
+6;Makumba FC;3-4-3;Orban G.;SI;0
+6;Makumba FC;3-4-3;Kean;NO;1
+6;Makumba FC;3-4-3;Skorupski;NO;2
+6;Makumba FC;3-4-3;Di Gregorio;NO;3
+6;Makumba FC;3-4-3;Fofana Y.;NO;4
+6;Makumba FC;3-4-3;Zappacosta;NO;5
+6;Makumba FC;3-4-3;Bartesaghi;NO;6
+6;Makumba FC;3-4-3;Gabbia;NO;7
+6;Makumba FC;3-4-3;Taylor K.;NO;8
+6;Makumba FC;3-4-3;Tomori;NO;9
+6;Makumba FC;3-4-3;Pinamonti;NO;10
+6;Makumba FC;3-4-3;Pulisic;NO;11
+6;Makumba FC;3-4-3;Politano;NO;12
+6;Makumba FC;3-4-3;Dimarco;NO;13
+6;Makumba FC;3-4-3;Adams C.;NO;14
+6;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+6;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+6;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+6;Nhamass dstrunz;3-4-3;Kempf;SI;0
+6;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+6;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+6;Nhamass dstrunz;3-4-3;Tourè I.;SI;0
+6;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+6;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+6;Nhamass dstrunz;3-4-3;Soulè;SI;0
+6;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+6;Nhamass dstrunz;3-4-3;Valle;NO;1
+6;Nhamass dstrunz;3-4-3;Celik;NO;2
+6;Nhamass dstrunz;3-4-3;Carnesecchi;NO;3
+6;Nhamass dstrunz;3-4-3;Malinovskyi;NO;4
+6;Nhamass dstrunz;3-4-3;Perrone;NO;5
+6;Nhamass dstrunz;3-4-3;Kilicsoy;NO;6
+6;Nhamass dstrunz;3-4-3;Kossounou;NO;7
+6;Nhamass dstrunz;3-4-3;Dybala;NO;8
+6;Nhamass dstrunz;3-4-3;Sportiello;NO;9
+6;Nhamass dstrunz;3-4-3;Pasalic;NO;10
+6;Nhamass dstrunz;3-4-3;Rrahmani;NO;11
+6;Nhamass dstrunz;3-4-3;Berardi;NO;12
+6;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;13
+6;Nhamass dstrunz;3-4-3;Ramon;NO;14
+6;Reazione di Mallard;3-4-3;Butez;SI;0
+6;Reazione di Mallard;3-4-3;Wesley;SI;0
+6;Reazione di Mallard;3-4-3;Gosens;SI;0
+6;Reazione di Mallard;3-4-3;Coco;SI;0
+6;Reazione di Mallard;3-4-3;Matic;SI;0
+6;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+6;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+6;Reazione di Mallard;3-4-3;Rabiot;SI;0
+6;Reazione di Mallard;3-4-3;Simeone;SI;0
+6;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+6;Reazione di Mallard;3-4-3;David;SI;0
+6;Reazione di Mallard;3-4-3;Solomon;NO;1
+6;Reazione di Mallard;3-4-3;Lucumì;NO;2
+6;Reazione di Mallard;3-4-3;Cristante;NO;3
+6;Reazione di Mallard;3-4-3;Provedel;NO;4
+6;Reazione di Mallard;3-4-3;Doig;NO;5
+6;Reazione di Mallard;3-4-3;Ederson D.S.;NO;6
+6;Reazione di Mallard;3-4-3;Martin;NO;7
+6;Reazione di Mallard;3-4-3;Baturina;NO;8
+6;Reazione di Mallard;3-4-3;Durosinmi;NO;9
+6;Reazione di Mallard;3-4-3;Caprile;NO;10
+6;Reazione di Mallard;3-4-3;Solet;NO;11
+6;Reazione di Mallard;3-4-3;Lukaku;NO;12
+6;Reazione di Mallard;3-4-3;Atta;NO;13
+6;Reazione di Mallard;3-4-3;Hien;NO;14
+6;Vietato Sognare FC;3-4-3;Gollini;SI;0
+6;Vietato Sognare FC;3-4-3;Valeri;SI;0
+6;Vietato Sognare FC;3-4-3;Zortea;SI;0
+6;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+6;Vietato Sognare FC;3-4-3;Modric;SI;0
+6;Vietato Sognare FC;3-4-3;Maldini;SI;0
+6;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+6;Vietato Sognare FC;3-4-3;Casadei;SI;0
+6;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+6;Vietato Sognare FC;3-4-3;Moreo;SI;0
+6;Vietato Sognare FC;3-4-3;Malen;SI;0
+6;Vietato Sognare FC;3-4-3;Bernabè;NO;1
+6;Vietato Sognare FC;3-4-3;Santos A.;NO;2
+6;Vietato Sognare FC;3-4-3;Bremer;NO;3
+6;Vietato Sognare FC;3-4-3;Muharemovic;NO;4
+6;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;5
+6;Vietato Sognare FC;3-4-3;Svilar;NO;6
+6;Vietato Sognare FC;3-4-3;Maripan;NO;7
+6;Vietato Sognare FC;3-4-3;Zalewski;NO;8
+6;Vietato Sognare FC;3-4-3;Bonazzoli;NO;9
+6;Vietato Sognare FC;3-4-3;Dumfries;NO;10
+6;Vietato Sognare FC;3-4-3;Castro S.;NO;11
+6;Vietato Sognare FC;3-4-3;Kristensen T.;NO;12
+6;Vietato Sognare FC;3-4-3;Ratkov;NO;13
+6;Vietato Sognare FC;3-4-3;Muric;NO;14
+7;ARCORE FC;3-4-3;Audero;SI;0
+7;ARCORE FC;3-4-3;Akanji;SI;0
+7;ARCORE FC;3-4-3;Cuadrado;SI;0
+7;ARCORE FC;3-4-3;Cambiaso;SI;0
+7;ARCORE FC;3-4-3;Zaragoza;SI;0
+7;ARCORE FC;3-4-3;Tramoni M.;SI;0
+7;ARCORE FC;3-4-3;Konè M.;SI;0
+7;ARCORE FC;3-4-3;Orsolini;SI;0
+7;ARCORE FC;3-4-3;Thuram;SI;0
+7;ARCORE FC;3-4-3;Colombo;SI;0
+7;ARCORE FC;3-4-3;Pedro;SI;0
+7;ARCORE FC;3-4-3;Thorsby;NO;1
+7;ARCORE FC;3-4-3;Ostigard;NO;2
+7;ARCORE FC;3-4-3;McTominay;NO;3
+7;ARCORE FC;3-4-3;Okoye;NO;4
+7;ARCORE FC;3-4-3;Di Lorenzo;NO;5
+7;ARCORE FC;3-4-3;Bonny;NO;6
+7;ARCORE FC;3-4-3;Bisseck;NO;7
+7;ARCORE FC;3-4-3;Falcone;NO;8
+7;ARCORE FC;3-4-3;Sanabria;NO;9
+7;ARCORE FC;3-4-3;Esposito Se.;NO;10
+7;ARCORE FC;3-4-3;De Winter;NO;11
+7;ARCORE FC;3-4-3;Sucic P.;NO;12
+7;ARCORE FC;3-4-3;Cataldi;NO;13
+7;ARCORE FC;3-4-3;N'Dicka;NO;14
+7;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+7;FC San Marco Evangelista;3-4-3;Circati;SI;0
+7;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+7;FC San Marco Evangelista;3-4-3;Gila;SI;0
+7;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+7;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+7;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+7;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+7;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+7;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+7;FC San Marco Evangelista;3-4-3;Boga;SI;0
+7;FC San Marco Evangelista;3-4-3;Suzuki;NO;1
+7;FC San Marco Evangelista;3-4-3;Barella;NO;2
+7;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;3
+7;FC San Marco Evangelista;3-4-3;Buongiorno;NO;4
+7;FC San Marco Evangelista;3-4-3;Yildiz;NO;5
+7;FC San Marco Evangelista;3-4-3;Paz N.;NO;6
+7;FC San Marco Evangelista;3-4-3;Terracciano;NO;7
+7;FC San Marco Evangelista;3-4-3;Iling Junior;NO;8
+7;FC San Marco Evangelista;3-4-3;Kalulu;NO;9
+7;FC San Marco Evangelista;3-4-3;Cancellieri;NO;10
+7;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;11
+7;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;12
+7;FC San Marco Evangelista;3-4-3;Palestra;NO;13
+7;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;14
+7;FC bianchi;3-4-3;Contini;SI;0
+7;FC bianchi;3-4-3;Comuzzo;SI;0
+7;FC bianchi;3-4-3;Dodò;SI;0
+7;FC bianchi;3-4-3;Mina;SI;0
+7;FC bianchi;3-4-3;Strefezza;SI;0
+7;FC bianchi;3-4-3;McKennie;SI;0
+7;FC bianchi;3-4-3;Rovella;SI;0
+7;FC bianchi;3-4-3;Sottil;SI;0
+7;FC bianchi;3-4-3;Davis K.;SI;0
+7;FC bianchi;3-4-3;Vardy;SI;0
+7;FC bianchi;3-4-3;Fullkrug;SI;0
+7;FC bianchi;3-4-3;Thuram K.;NO;1
+7;FC bianchi;3-4-3;Vasquez;NO;2
+7;FC bianchi;3-4-3;Scalvini;NO;3
+7;FC bianchi;3-4-3;Baschirotto;NO;4
+7;FC bianchi;3-4-3;Mkhitaryan;NO;5
+7;FC bianchi;3-4-3;Diego Carlos;NO;6
+7;FC bianchi;3-4-3;Harroui;NO;7
+7;FC bianchi;3-4-3;Meret;NO;8
+7;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;9
+7;FC bianchi;3-4-3;Romagnoli;NO;10
+7;FC bianchi;3-4-3;Leao;NO;11
+7;FC bianchi;3-4-3;Zapata D.;NO;12
+7;FC bianchi;3-4-3;Raspadori;NO;13
+7;FC bianchi;3-4-3;Isaksen;NO;14
+7;Sinuoso;3-4-3;Di Gennaro;SI;0
+7;Sinuoso;3-4-3;Darmian;SI;0
+7;Sinuoso;3-4-3;Caracciolo A.;SI;0
+7;Sinuoso;3-4-3;Holm;SI;0
+7;Sinuoso;3-4-3;Conceicao;SI;0
+7;Sinuoso;3-4-3;Locatelli;SI;0
+7;Sinuoso;3-4-3;Vergara;SI;0
+7;Sinuoso;3-4-3;Thorstvedt;SI;0
+7;Sinuoso;3-4-3;Douvikas;SI;0
+7;Sinuoso;3-4-3;Nzola;SI;0
+7;Sinuoso;3-4-3;Esposito F.P.;SI;0
+7;Sinuoso;3-4-3;Calhanoglu;NO;1
+7;Sinuoso;3-4-3;Heggem;NO;2
+7;Sinuoso;3-4-3;Nkunku;NO;3
+7;Sinuoso;3-4-3;Ricci S.;NO;4
+7;Sinuoso;3-4-3;Vlasic;NO;5
+7;Sinuoso;3-4-3;Sommer;NO;6
+7;Sinuoso;3-4-3;Bastoni;NO;7
+7;Sinuoso;3-4-3;Martinez Jo.;NO;8
+7;Sinuoso;3-4-3;Olivera;NO;9
+7;Sinuoso;3-4-3;Martinez L.;NO;10
+7;Sinuoso;3-4-3;De Roon;NO;11
+7;Sinuoso;3-4-3;Mancini;NO;12
+7;Sinuoso;3-4-3;Spinazzola;NO;13
+7;Sinuoso;3-4-3;Laurientè;NO;14
+7;Makumba FC;3-4-3;Di Gregorio;SI;0
+7;Makumba FC;3-4-3;Pavlovic;SI;0
+7;Makumba FC;3-4-3;Dimarco;SI;0
+7;Makumba FC;3-4-3;Tomori;SI;0
+7;Makumba FC;3-4-3;Zielinski;SI;0
+7;Makumba FC;3-4-3;Mandragora;SI;0
+7;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+7;Makumba FC;3-4-3;Taylor K.;SI;0
+7;Makumba FC;3-4-3;Orban G.;SI;0
+7;Makumba FC;3-4-3;Piccoli;SI;0
+7;Makumba FC;3-4-3;Adams C.;SI;0
+7;Makumba FC;3-4-3;Rodriguez Je.;NO;1
+7;Makumba FC;3-4-3;Kean;NO;2
+7;Makumba FC;3-4-3;Pulisic;NO;3
+7;Makumba FC;3-4-3;Zappacosta;NO;4
+7;Makumba FC;3-4-3;Pinamonti;NO;5
+7;Makumba FC;3-4-3;Bellanova;NO;6
+7;Makumba FC;3-4-3;Skorupski;NO;7
+7;Makumba FC;3-4-3;Politano;NO;8
+7;Makumba FC;3-4-3;Gabbia;NO;9
+7;Makumba FC;3-4-3;Perin;NO;10
+7;Makumba FC;3-4-3;Estupinan;NO;11
+7;Makumba FC;3-4-3;Rowe;NO;12
+7;Makumba FC;3-4-3;Bartesaghi;NO;13
+7;Makumba FC;3-4-3;Fofana Y.;NO;14
+7;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+7;Nhamass dstrunz;3-4-3;Celik;SI;0
+7;Nhamass dstrunz;3-4-3;Valle;SI;0
+7;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+7;Nhamass dstrunz;3-4-3;Perrone;SI;0
+7;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+7;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+7;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+7;Nhamass dstrunz;3-4-3;Berardi;SI;0
+7;Nhamass dstrunz;3-4-3;Dybala;SI;0
+7;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+7;Nhamass dstrunz;3-4-3;Tourè I.;NO;1
+7;Nhamass dstrunz;3-4-3;Sportiello;NO;2
+7;Nhamass dstrunz;3-4-3;Kilicsoy;NO;3
+7;Nhamass dstrunz;3-4-3;Ramon;NO;4
+7;Nhamass dstrunz;3-4-3;Soulè;NO;5
+7;Nhamass dstrunz;3-4-3;Kempf;NO;6
+7;Nhamass dstrunz;3-4-3;Konè I.;NO;7
+7;Nhamass dstrunz;3-4-3;Rrahmani;NO;8
+7;Nhamass dstrunz;3-4-3;Malinovskyi;NO;9
+7;Nhamass dstrunz;3-4-3;Kossounou;NO;10
+7;Nhamass dstrunz;3-4-3;Scamacca;NO;11
+7;Nhamass dstrunz;3-4-3;Carnesecchi;NO;12
+7;Nhamass dstrunz;3-4-3;Pasalic;NO;13
+7;Nhamass dstrunz;3-4-3;Kelly L.;NO;14
+7;Reazione di Mallard;3-4-3;Caprile;SI;0
+7;Reazione di Mallard;3-4-3;Martin;SI;0
+7;Reazione di Mallard;3-4-3;Solet;SI;0
+7;Reazione di Mallard;3-4-3;Lucumì;SI;0
+7;Reazione di Mallard;3-4-3;Atta;SI;0
+7;Reazione di Mallard;3-4-3;Matic;SI;0
+7;Reazione di Mallard;3-4-3;Cristante;SI;0
+7;Reazione di Mallard;3-4-3;Baturina;SI;0
+7;Reazione di Mallard;3-4-3;Lukaku;SI;0
+7;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+7;Reazione di Mallard;3-4-3;Solomon;SI;0
+7;Reazione di Mallard;3-4-3;Hien;NO;1
+7;Reazione di Mallard;3-4-3;Rabiot;NO;2
+7;Reazione di Mallard;3-4-3;Wesley;NO;3
+7;Reazione di Mallard;3-4-3;Simeone;NO;4
+7;Reazione di Mallard;3-4-3;Gosens;NO;5
+7;Reazione di Mallard;3-4-3;Durosinmi;NO;6
+7;Reazione di Mallard;3-4-3;Provedel;NO;7
+7;Reazione di Mallard;3-4-3;Ederson D.S.;NO;8
+7;Reazione di Mallard;3-4-3;Zaniolo;NO;9
+7;Reazione di Mallard;3-4-3;David;NO;10
+7;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;11
+7;Reazione di Mallard;3-4-3;Butez;NO;12
+7;Reazione di Mallard;3-4-3;Coco;NO;13
+7;Reazione di Mallard;3-4-3;Doig;NO;14
+7;Vietato Sognare FC;3-4-3;Gollini;SI;0
+7;Vietato Sognare FC;3-4-3;Dumfries;SI;0
+7;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+7;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+7;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+7;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+7;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+7;Vietato Sognare FC;3-4-3;Modric;SI;0
+7;Vietato Sognare FC;3-4-3;Moreo;SI;0
+7;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+7;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+7;Vietato Sognare FC;3-4-3;Muharemovic;NO;1
+7;Vietato Sognare FC;3-4-3;Maldini;NO;2
+7;Vietato Sognare FC;3-4-3;Valeri;NO;3
+7;Vietato Sognare FC;3-4-3;Muric;NO;4
+7;Vietato Sognare FC;3-4-3;Maripan;NO;5
+7;Vietato Sognare FC;3-4-3;Hojlund;NO;6
+7;Vietato Sognare FC;3-4-3;Bremer;NO;7
+7;Vietato Sognare FC;3-4-3;Bonazzoli;NO;8
+7;Vietato Sognare FC;3-4-3;Bernabè;NO;9
+7;Vietato Sognare FC;3-4-3;Casadei;NO;10
+7;Vietato Sognare FC;3-4-3;Zortea;NO;11
+7;Vietato Sognare FC;3-4-3;Zalewski;NO;12
+7;Vietato Sognare FC;3-4-3;Malen;NO;13
+7;Vietato Sognare FC;3-4-3;Svilar;NO;14
+8;ARCORE FC;3-4-3;Audero;SI;0
+8;ARCORE FC;3-4-3;Cambiaso;SI;0
+8;ARCORE FC;3-4-3;Ostigard;SI;0
+8;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+8;ARCORE FC;3-4-3;Orsolini;SI;0
+8;ARCORE FC;3-4-3;Konè M.;SI;0
+8;ARCORE FC;3-4-3;Cataldi;SI;0
+8;ARCORE FC;3-4-3;Sucic P.;SI;0
+8;ARCORE FC;3-4-3;Sanabria;SI;0
+8;ARCORE FC;3-4-3;Esposito Se.;SI;0
+8;ARCORE FC;3-4-3;Pedro;SI;0
+8;ARCORE FC;3-4-3;Okoye;NO;1
+8;ARCORE FC;3-4-3;Bisseck;NO;2
+8;ARCORE FC;3-4-3;Thorsby;NO;3
+8;ARCORE FC;3-4-3;McTominay;NO;4
+8;ARCORE FC;3-4-3;Bonny;NO;5
+8;ARCORE FC;3-4-3;Akanji;NO;6
+8;ARCORE FC;3-4-3;Colombo;NO;7
+8;ARCORE FC;3-4-3;Zaragoza;NO;8
+8;ARCORE FC;3-4-3;Thuram;NO;9
+8;ARCORE FC;3-4-3;N'Dicka;NO;10
+8;ARCORE FC;3-4-3;Cuadrado;NO;11
+8;ARCORE FC;3-4-3;Falcone;NO;12
+8;ARCORE FC;3-4-3;De Winter;NO;13
+8;ARCORE FC;3-4-3;Tramoni M.;NO;14
+8;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+8;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+8;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+8;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+8;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+8;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+8;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+8;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+8;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+8;FC San Marco Evangelista;3-4-3;Boga;SI;0
+8;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+8;FC San Marco Evangelista;3-4-3;Suzuki;NO;1
+8;FC San Marco Evangelista;3-4-3;Buongiorno;NO;2
+8;FC San Marco Evangelista;3-4-3;Iling Junior;NO;3
+8;FC San Marco Evangelista;3-4-3;Gila;NO;4
+8;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;5
+8;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;6
+8;FC San Marco Evangelista;3-4-3;Circati;NO;7
+8;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;8
+8;FC San Marco Evangelista;3-4-3;Delprato;NO;9
+8;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;10
+8;FC San Marco Evangelista;3-4-3;Cancellieri;NO;11
+8;FC San Marco Evangelista;3-4-3;Terracciano;NO;12
+8;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;13
+8;FC San Marco Evangelista;3-4-3;Barella;NO;14
+8;FC bianchi;3-4-3;Milinkovic-Savic V.;SI;0
+8;FC bianchi;3-4-3;Mina;SI;0
+8;FC bianchi;3-4-3;Romagnoli;SI;0
+8;FC bianchi;3-4-3;Diego Carlos;SI;0
+8;FC bianchi;3-4-3;McKennie;SI;0
+8;FC bianchi;3-4-3;Isaksen;SI;0
+8;FC bianchi;3-4-3;Thuram K.;SI;0
+8;FC bianchi;3-4-3;Harroui;SI;0
+8;FC bianchi;3-4-3;Leao;SI;0
+8;FC bianchi;3-4-3;Fullkrug;SI;0
+8;FC bianchi;3-4-3;Raspadori;SI;0
+8;FC bianchi;3-4-3;Zapata D.;NO;1
+8;FC bianchi;3-4-3;Vasquez;NO;2
+8;FC bianchi;3-4-3;Scalvini;NO;3
+8;FC bianchi;3-4-3;Strefezza;NO;4
+8;FC bianchi;3-4-3;Meret;NO;5
+8;FC bianchi;3-4-3;Dodò;NO;6
+8;FC bianchi;3-4-3;Davis K.;NO;7
+8;FC bianchi;3-4-3;Contini;NO;8
+8;FC bianchi;3-4-3;Comuzzo;NO;9
+8;FC bianchi;3-4-3;Vardy;NO;10
+8;FC bianchi;3-4-3;Mkhitaryan;NO;11
+8;FC bianchi;3-4-3;Baschirotto;NO;12
+8;FC bianchi;3-4-3;Sottil;NO;13
+8;FC bianchi;3-4-3;Rovella;NO;14
+8;Sinuoso;3-4-3;Di Gennaro;SI;0
+8;Sinuoso;3-4-3;Olivera;SI;0
+8;Sinuoso;3-4-3;Caracciolo A.;SI;0
+8;Sinuoso;3-4-3;Mancini;SI;0
+8;Sinuoso;3-4-3;Conceicao;SI;0
+8;Sinuoso;3-4-3;Ricci S.;SI;0
+8;Sinuoso;3-4-3;Thorstvedt;SI;0
+8;Sinuoso;3-4-3;De Roon;SI;0
+8;Sinuoso;3-4-3;Nzola;SI;0
+8;Sinuoso;3-4-3;Laurientè;SI;0
+8;Sinuoso;3-4-3;Esposito F.P.;SI;0
+8;Sinuoso;3-4-3;Douvikas;NO;1
+8;Sinuoso;3-4-3;Vlasic;NO;2
+8;Sinuoso;3-4-3;Nkunku;NO;3
+8;Sinuoso;3-4-3;Bastoni;NO;4
+8;Sinuoso;3-4-3;Martinez L.;NO;5
+8;Sinuoso;3-4-3;Sommer;NO;6
+8;Sinuoso;3-4-3;Heggem;NO;7
+8;Sinuoso;3-4-3;Calhanoglu;NO;8
+8;Sinuoso;3-4-3;Martinez Jo.;NO;9
+8;Sinuoso;3-4-3;Locatelli;NO;10
+8;Sinuoso;3-4-3;Spinazzola;NO;11
+8;Sinuoso;3-4-3;Holm;NO;12
+8;Sinuoso;3-4-3;Darmian;NO;13
+8;Sinuoso;3-4-3;Vergara;NO;14
+8;Makumba FC;3-4-3;Skorupski;SI;0
+8;Makumba FC;3-4-3;Dimarco;SI;0
+8;Makumba FC;3-4-3;Bellanova;SI;0
+8;Makumba FC;3-4-3;Estupinan;SI;0
+8;Makumba FC;3-4-3;Fofana Y.;SI;0
+8;Makumba FC;3-4-3;Taylor K.;SI;0
+8;Makumba FC;3-4-3;Zielinski;SI;0
+8;Makumba FC;3-4-3;Pulisic;SI;0
+8;Makumba FC;3-4-3;Piccoli;SI;0
+8;Makumba FC;3-4-3;Orban G.;SI;0
+8;Makumba FC;3-4-3;Pinamonti;SI;0
+8;Makumba FC;3-4-3;Zappacosta;NO;1
+8;Makumba FC;3-4-3;Kean;NO;2
+8;Makumba FC;3-4-3;Perin;NO;3
+8;Makumba FC;3-4-3;Bartesaghi;NO;4
+8;Makumba FC;3-4-3;Politano;NO;5
+8;Makumba FC;3-4-3;Rowe;NO;6
+8;Makumba FC;3-4-3;Adams C.;NO;7
+8;Makumba FC;3-4-3;Gabbia;NO;8
+8;Makumba FC;3-4-3;Mandragora;NO;9
+8;Makumba FC;3-4-3;Di Gregorio;NO;10
+8;Makumba FC;3-4-3;Pavlovic;NO;11
+8;Makumba FC;3-4-3;Rodriguez Je.;NO;12
+8;Makumba FC;3-4-3;Loftus-Cheek;NO;13
+8;Makumba FC;3-4-3;Tomori;NO;14
+8;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+8;Nhamass dstrunz;3-4-3;Valle;SI;0
+8;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+8;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+8;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+8;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+8;Nhamass dstrunz;3-4-3;Tourè I.;SI;0
+8;Nhamass dstrunz;3-4-3;Perrone;SI;0
+8;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+8;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+8;Nhamass dstrunz;3-4-3;Dybala;SI;0
+8;Nhamass dstrunz;3-4-3;Carnesecchi;NO;1
+8;Nhamass dstrunz;3-4-3;Tavares N.;NO;2
+8;Nhamass dstrunz;3-4-3;Soulè;NO;3
+8;Nhamass dstrunz;3-4-3;Zaccagni;NO;4
+8;Nhamass dstrunz;3-4-3;Kempf;NO;5
+8;Nhamass dstrunz;3-4-3;Pasalic;NO;6
+8;Nhamass dstrunz;3-4-3;Ramon;NO;7
+8;Nhamass dstrunz;3-4-3;Scamacca;NO;8
+8;Nhamass dstrunz;3-4-3;Celik;NO;9
+8;Nhamass dstrunz;3-4-3;Sportiello;NO;10
+8;Nhamass dstrunz;3-4-3;Kelly L.;NO;11
+8;Nhamass dstrunz;3-4-3;Berardi;NO;12
+8;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;13
+8;Nhamass dstrunz;3-4-3;Malinovskyi;NO;14
+8;Reazione di Mallard;3-4-3;Provedel;SI;0
+8;Reazione di Mallard;3-4-3;Solet;SI;0
+8;Reazione di Mallard;3-4-3;Gosens;SI;0
+8;Reazione di Mallard;3-4-3;Martin;SI;0
+8;Reazione di Mallard;3-4-3;Cristante;SI;0
+8;Reazione di Mallard;3-4-3;Baturina;SI;0
+8;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+8;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+8;Reazione di Mallard;3-4-3;Lukaku;SI;0
+8;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+8;Reazione di Mallard;3-4-3;Solomon;SI;0
+8;Reazione di Mallard;3-4-3;Zaniolo;NO;1
+8;Reazione di Mallard;3-4-3;Lucumì;NO;2
+8;Reazione di Mallard;3-4-3;Simeone;NO;3
+8;Reazione di Mallard;3-4-3;Wesley;NO;4
+8;Reazione di Mallard;3-4-3;Matic;NO;5
+8;Reazione di Mallard;3-4-3;Durosinmi;NO;6
+8;Reazione di Mallard;3-4-3;Caprile;NO;7
+8;Reazione di Mallard;3-4-3;Butez;NO;8
+8;Reazione di Mallard;3-4-3;Atta;NO;9
+8;Reazione di Mallard;3-4-3;Hien;NO;10
+8;Reazione di Mallard;3-4-3;David;NO;11
+8;Reazione di Mallard;3-4-3;Doig;NO;12
+8;Reazione di Mallard;3-4-3;Coco;NO;13
+8;Reazione di Mallard;3-4-3;Rabiot;NO;14
+8;Vietato Sognare FC;3-4-3;Muric;SI;0
+8;Vietato Sognare FC;3-4-3;Muharemovic;SI;0
+8;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+8;Vietato Sognare FC;3-4-3;Dumfries;SI;0
+8;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+8;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+8;Vietato Sognare FC;3-4-3;Maldini;SI;0
+8;Vietato Sognare FC;3-4-3;Casadei;SI;0
+8;Vietato Sognare FC;3-4-3;Malen;SI;0
+8;Vietato Sognare FC;3-4-3;Moreo;SI;0
+8;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+8;Vietato Sognare FC;3-4-3;Ratkov;NO;1
+8;Vietato Sognare FC;3-4-3;Bremer;NO;2
+8;Vietato Sognare FC;3-4-3;Modric;NO;3
+8;Vietato Sognare FC;3-4-3;Castro S.;NO;4
+8;Vietato Sognare FC;3-4-3;Zortea;NO;5
+8;Vietato Sognare FC;3-4-3;Hojlund;NO;6
+8;Vietato Sognare FC;3-4-3;Gollini;NO;7
+8;Vietato Sognare FC;3-4-3;Bernabè;NO;8
+8;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;9
+8;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;10
+8;Vietato Sognare FC;3-4-3;Maripan;NO;11
+8;Vietato Sognare FC;3-4-3;Svilar;NO;12
+8;Vietato Sognare FC;3-4-3;Kristensen T.;NO;13
+8;Vietato Sognare FC;3-4-3;Valeri;NO;14
+9;ARCORE FC;3-4-3;Falcone;SI;0
+9;ARCORE FC;3-4-3;N'Dicka;SI;0
+9;ARCORE FC;3-4-3;Ostigard;SI;0
+9;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+9;ARCORE FC;3-4-3;Tramoni M.;SI;0
+9;ARCORE FC;3-4-3;Thorsby;SI;0
+9;ARCORE FC;3-4-3;Zaragoza;SI;0
+9;ARCORE FC;3-4-3;Cataldi;SI;0
+9;ARCORE FC;3-4-3;Sanabria;SI;0
+9;ARCORE FC;3-4-3;Thuram;SI;0
+9;ARCORE FC;3-4-3;Colombo;SI;0
+9;ARCORE FC;3-4-3;Esposito Se.;NO;1
+9;ARCORE FC;3-4-3;Okoye;NO;2
+9;ARCORE FC;3-4-3;Cambiaso;NO;3
+9;ARCORE FC;3-4-3;Orsolini;NO;4
+9;ARCORE FC;3-4-3;Pedro;NO;5
+9;ARCORE FC;3-4-3;Konè M.;NO;6
+9;ARCORE FC;3-4-3;Audero;NO;7
+9;ARCORE FC;3-4-3;De Winter;NO;8
+9;ARCORE FC;3-4-3;Sucic P.;NO;9
+9;ARCORE FC;3-4-3;Akanji;NO;10
+9;ARCORE FC;3-4-3;McTominay;NO;11
+9;ARCORE FC;3-4-3;Bisseck;NO;12
+9;ARCORE FC;3-4-3;Bonny;NO;13
+9;ARCORE FC;3-4-3;Cuadrado;NO;14
+9;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+9;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+9;FC San Marco Evangelista;3-4-3;Circati;SI;0
+9;FC San Marco Evangelista;3-4-3;Gila;SI;0
+9;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+9;FC San Marco Evangelista;3-4-3;Iling Junior;SI;0
+9;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+9;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+9;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+9;FC San Marco Evangelista;3-4-3;Boga;SI;0
+9;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+9;FC San Marco Evangelista;3-4-3;Odgaard;NO;1
+9;FC San Marco Evangelista;3-4-3;Kalulu;NO;2
+9;FC San Marco Evangelista;3-4-3;Cancellieri;NO;3
+9;FC San Marco Evangelista;3-4-3;Palestra;NO;4
+9;FC San Marco Evangelista;3-4-3;Miretti;NO;5
+9;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;6
+9;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;7
+9;FC San Marco Evangelista;3-4-3;Suzuki;NO;8
+9;FC San Marco Evangelista;3-4-3;Yildiz;NO;9
+9;FC San Marco Evangelista;3-4-3;Barella;NO;10
+9;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;11
+9;FC San Marco Evangelista;3-4-3;Buongiorno;NO;12
+9;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;13
+9;FC San Marco Evangelista;3-4-3;Maignan;NO;14
+9;FC bianchi;3-4-3;Contini;SI;0
+9;FC bianchi;3-4-3;Diego Carlos;SI;0
+9;FC bianchi;3-4-3;Vasquez;SI;0
+9;FC bianchi;3-4-3;Mina;SI;0
+9;FC bianchi;3-4-3;Thuram K.;SI;0
+9;FC bianchi;3-4-3;Sottil;SI;0
+9;FC bianchi;3-4-3;Rovella;SI;0
+9;FC bianchi;3-4-3;Harroui;SI;0
+9;FC bianchi;3-4-3;Zapata D.;SI;0
+9;FC bianchi;3-4-3;Leao;SI;0
+9;FC bianchi;3-4-3;Davis K.;SI;0
+9;FC bianchi;3-4-3;Mkhitaryan;NO;1
+9;FC bianchi;3-4-3;Baschirotto;NO;2
+9;FC bianchi;3-4-3;Comuzzo;NO;3
+9;FC bianchi;3-4-3;McKennie;NO;4
+9;FC bianchi;3-4-3;Fullkrug;NO;5
+9;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;6
+9;FC bianchi;3-4-3;Meret;NO;7
+9;FC bianchi;3-4-3;Vardy;NO;8
+9;FC bianchi;3-4-3;Romagnoli;NO;9
+9;FC bianchi;3-4-3;Isaksen;NO;10
+9;FC bianchi;3-4-3;Dodò;NO;11
+9;FC bianchi;3-4-3;Scalvini;NO;12
+9;FC bianchi;3-4-3;Raspadori;NO;13
+9;FC bianchi;3-4-3;Strefezza;NO;14
+9;Sinuoso;3-4-3;Martinez Jo.;SI;0
+9;Sinuoso;3-4-3;Bastoni;SI;0
+9;Sinuoso;3-4-3;Heggem;SI;0
+9;Sinuoso;3-4-3;Holm;SI;0
+9;Sinuoso;3-4-3;Vergara;SI;0
+9;Sinuoso;3-4-3;Ricci S.;SI;0
+9;Sinuoso;3-4-3;Vlasic;SI;0
+9;Sinuoso;3-4-3;Thorstvedt;SI;0
+9;Sinuoso;3-4-3;Laurientè;SI;0
+9;Sinuoso;3-4-3;Douvikas;SI;0
+9;Sinuoso;3-4-3;Nzola;SI;0
+9;Sinuoso;3-4-3;Locatelli;NO;1
+9;Sinuoso;3-4-3;Di Gennaro;NO;2
+9;Sinuoso;3-4-3;Olivera;NO;3
+9;Sinuoso;3-4-3;Mancini;NO;4
+9;Sinuoso;3-4-3;Nkunku;NO;5
+9;Sinuoso;3-4-3;Martinez L.;NO;6
+9;Sinuoso;3-4-3;Caracciolo A.;NO;7
+9;Sinuoso;3-4-3;Calhanoglu;NO;8
+9;Sinuoso;3-4-3;Sommer;NO;9
+9;Sinuoso;3-4-3;De Roon;NO;10
+9;Sinuoso;3-4-3;Spinazzola;NO;11
+9;Sinuoso;3-4-3;Darmian;NO;12
+9;Sinuoso;3-4-3;Conceicao;NO;13
+9;Sinuoso;3-4-3;Esposito F.P.;NO;14
+9;Makumba FC;3-4-3;Perin;SI;0
+9;Makumba FC;3-4-3;Zappacosta;SI;0
+9;Makumba FC;3-4-3;Gabbia;SI;0
+9;Makumba FC;3-4-3;Tomori;SI;0
+9;Makumba FC;3-4-3;Taylor K.;SI;0
+9;Makumba FC;3-4-3;Zielinski;SI;0
+9;Makumba FC;3-4-3;Rowe;SI;0
+9;Makumba FC;3-4-3;Mandragora;SI;0
+9;Makumba FC;3-4-3;Piccoli;SI;0
+9;Makumba FC;3-4-3;Pinamonti;SI;0
+9;Makumba FC;3-4-3;Adams C.;SI;0
+9;Makumba FC;3-4-3;Orban G.;NO;1
+9;Makumba FC;3-4-3;Estupinan;NO;2
+9;Makumba FC;3-4-3;Fofana Y.;NO;3
+9;Makumba FC;3-4-3;Dimarco;NO;4
+9;Makumba FC;3-4-3;Di Gregorio;NO;5
+9;Makumba FC;3-4-3;Pavlovic;NO;6
+9;Makumba FC;3-4-3;Bellanova;NO;7
+9;Makumba FC;3-4-3;Skorupski;NO;8
+9;Makumba FC;3-4-3;Kean;NO;9
+9;Makumba FC;3-4-3;Politano;NO;10
+9;Makumba FC;3-4-3;Bartesaghi;NO;11
+9;Makumba FC;3-4-3;Pulisic;NO;12
+9;Makumba FC;3-4-3;Rodriguez Je.;NO;13
+9;Makumba FC;3-4-3;Loftus-Cheek;NO;14
+9;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+9;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+9;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+9;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+9;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+9;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+9;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+9;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+9;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+9;Nhamass dstrunz;3-4-3;Berardi;SI;0
+9;Nhamass dstrunz;3-4-3;Dybala;SI;0
+9;Nhamass dstrunz;3-4-3;Sportiello;NO;1
+9;Nhamass dstrunz;3-4-3;Valle;NO;2
+9;Nhamass dstrunz;3-4-3;Carnesecchi;NO;3
+9;Nhamass dstrunz;3-4-3;Kilicsoy;NO;4
+9;Nhamass dstrunz;3-4-3;Ramon;NO;5
+9;Nhamass dstrunz;3-4-3;Kempf;NO;6
+9;Nhamass dstrunz;3-4-3;Tourè I.;NO;7
+9;Nhamass dstrunz;3-4-3;Celik;NO;8
+9;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;9
+9;Nhamass dstrunz;3-4-3;Perrone;NO;10
+9;Nhamass dstrunz;3-4-3;Soulè;NO;11
+9;Nhamass dstrunz;3-4-3;Da Cunha;NO;12
+9;Nhamass dstrunz;3-4-3;Scamacca;NO;13
+9;Nhamass dstrunz;3-4-3;Kelly L.;NO;14
+9;Reazione di Mallard;3-4-3;Butez;SI;0
+9;Reazione di Mallard;3-4-3;Gosens;SI;0
+9;Reazione di Mallard;3-4-3;Solet;SI;0
+9;Reazione di Mallard;3-4-3;Coco;SI;0
+9;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+9;Reazione di Mallard;3-4-3;Cristante;SI;0
+9;Reazione di Mallard;3-4-3;Matic;SI;0
+9;Reazione di Mallard;3-4-3;Atta;SI;0
+9;Reazione di Mallard;3-4-3;Solomon;SI;0
+9;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+9;Reazione di Mallard;3-4-3;David;SI;0
+9;Reazione di Mallard;3-4-3;Provedel;NO;1
+9;Reazione di Mallard;3-4-3;Doig;NO;2
+9;Reazione di Mallard;3-4-3;Wesley;NO;3
+9;Reazione di Mallard;3-4-3;Lukaku;NO;4
+9;Reazione di Mallard;3-4-3;Rabiot;NO;5
+9;Reazione di Mallard;3-4-3;Zaniolo;NO;6
+9;Reazione di Mallard;3-4-3;Durosinmi;NO;7
+9;Reazione di Mallard;3-4-3;Caprile;NO;8
+9;Reazione di Mallard;3-4-3;Hien;NO;9
+9;Reazione di Mallard;3-4-3;Martin;NO;10
+9;Reazione di Mallard;3-4-3;Ederson D.S.;NO;11
+9;Reazione di Mallard;3-4-3;Baturina;NO;12
+9;Reazione di Mallard;3-4-3;Simeone;NO;13
+9;Reazione di Mallard;3-4-3;Lucumì;NO;14
+9;Vietato Sognare FC;3-4-3;Gollini;SI;0
+9;Vietato Sognare FC;3-4-3;Zortea;SI;0
+9;Vietato Sognare FC;3-4-3;Maripan;SI;0
+9;Vietato Sognare FC;3-4-3;Valeri;SI;0
+9;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+9;Vietato Sognare FC;3-4-3;Casadei;SI;0
+9;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+9;Vietato Sognare FC;3-4-3;Modric;SI;0
+9;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+9;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+9;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+9;Vietato Sognare FC;3-4-3;Dumfries;NO;1
+9;Vietato Sognare FC;3-4-3;Malen;NO;2
+9;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;3
+9;Vietato Sognare FC;3-4-3;Moreo;NO;4
+9;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;5
+9;Vietato Sognare FC;3-4-3;Svilar;NO;6
+9;Vietato Sognare FC;3-4-3;Bremer;NO;7
+9;Vietato Sognare FC;3-4-3;Zalewski;NO;8
+9;Vietato Sognare FC;3-4-3;Muric;NO;9
+9;Vietato Sognare FC;3-4-3;Kristensen T.;NO;10
+9;Vietato Sognare FC;3-4-3;Maldini;NO;11
+9;Vietato Sognare FC;3-4-3;Muharemovic;NO;12
+9;Vietato Sognare FC;3-4-3;Hojlund;NO;13
+9;Vietato Sognare FC;3-4-3;Santos A.;NO;14
+10;ARCORE FC;3-4-3;Audero;SI;0
+10;ARCORE FC;3-4-3;Akanji;SI;0
+10;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+10;ARCORE FC;3-4-3;Cuadrado;SI;0
+10;ARCORE FC;3-4-3;Tramoni M.;SI;0
+10;ARCORE FC;3-4-3;Zaragoza;SI;0
+10;ARCORE FC;3-4-3;Cataldi;SI;0
+10;ARCORE FC;3-4-3;Sucic P.;SI;0
+10;ARCORE FC;3-4-3;Colombo;SI;0
+10;ARCORE FC;3-4-3;Bonny;SI;0
+10;ARCORE FC;3-4-3;Sanabria;SI;0
+10;ARCORE FC;3-4-3;Falcone;NO;1
+10;ARCORE FC;3-4-3;Cambiaso;NO;2
+10;ARCORE FC;3-4-3;Orsolini;NO;3
+10;ARCORE FC;3-4-3;Esposito Se.;NO;4
+10;ARCORE FC;3-4-3;De Winter;NO;5
+10;ARCORE FC;3-4-3;Thorsby;NO;6
+10;ARCORE FC;3-4-3;Okoye;NO;7
+10;ARCORE FC;3-4-3;Thuram;NO;8
+10;ARCORE FC;3-4-3;Bisseck;NO;9
+10;ARCORE FC;3-4-3;Pedro;NO;10
+10;ARCORE FC;3-4-3;N'Dicka;NO;11
+10;ARCORE FC;3-4-3;McTominay;NO;12
+10;ARCORE FC;3-4-3;Ostigard;NO;13
+10;ARCORE FC;3-4-3;Konè M.;NO;14
+10;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+10;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+10;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+10;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+10;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+10;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+10;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+10;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+10;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+10;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+10;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+10;FC San Marco Evangelista;3-4-3;Suzuki;NO;1
+10;FC San Marco Evangelista;3-4-3;Yildiz;NO;2
+10;FC San Marco Evangelista;3-4-3;Maignan;NO;3
+10;FC San Marco Evangelista;3-4-3;Boga;NO;4
+10;FC San Marco Evangelista;3-4-3;Palestra;NO;5
+10;FC San Marco Evangelista;3-4-3;Buongiorno;NO;6
+10;FC San Marco Evangelista;3-4-3;Iling Junior;NO;7
+10;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;8
+10;FC San Marco Evangelista;3-4-3;Circati;NO;9
+10;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;10
+10;FC San Marco Evangelista;3-4-3;Barella;NO;11
+10;FC San Marco Evangelista;3-4-3;Gila;NO;12
+10;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;13
+10;FC San Marco Evangelista;3-4-3;Odgaard;NO;14
+10;FC bianchi;3-4-3;Contini;SI;0
+10;FC bianchi;3-4-3;Mina;SI;0
+10;FC bianchi;3-4-3;Dodò;SI;0
+10;FC bianchi;3-4-3;Comuzzo;SI;0
+10;FC bianchi;3-4-3;Mkhitaryan;SI;0
+10;FC bianchi;3-4-3;Thuram K.;SI;0
+10;FC bianchi;3-4-3;Strefezza;SI;0
+10;FC bianchi;3-4-3;Rovella;SI;0
+10;FC bianchi;3-4-3;Leao;SI;0
+10;FC bianchi;3-4-3;Zapata D.;SI;0
+10;FC bianchi;3-4-3;Davis K.;SI;0
+10;FC bianchi;3-4-3;Isaksen;NO;1
+10;FC bianchi;3-4-3;Harroui;NO;2
+10;FC bianchi;3-4-3;Scalvini;NO;3
+10;FC bianchi;3-4-3;Fullkrug;NO;4
+10;FC bianchi;3-4-3;Meret;NO;5
+10;FC bianchi;3-4-3;Diego Carlos;NO;6
+10;FC bianchi;3-4-3;Baschirotto;NO;7
+10;FC bianchi;3-4-3;Vardy;NO;8
+10;FC bianchi;3-4-3;McKennie;NO;9
+10;FC bianchi;3-4-3;Sottil;NO;10
+10;FC bianchi;3-4-3;Raspadori;NO;11
+10;FC bianchi;3-4-3;Romagnoli;NO;12
+10;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;13
+10;FC bianchi;3-4-3;Vasquez;NO;14
+10;Sinuoso;3-4-3;Di Gennaro;SI;0
+10;Sinuoso;3-4-3;Olivera;SI;0
+10;Sinuoso;3-4-3;Spinazzola;SI;0
+10;Sinuoso;3-4-3;Mancini;SI;0
+10;Sinuoso;3-4-3;Thorstvedt;SI;0
+10;Sinuoso;3-4-3;Locatelli;SI;0
+10;Sinuoso;3-4-3;Ricci S.;SI;0
+10;Sinuoso;3-4-3;De Roon;SI;0
+10;Sinuoso;3-4-3;Nzola;SI;0
+10;Sinuoso;3-4-3;Nkunku;SI;0
+10;Sinuoso;3-4-3;Martinez L.;SI;0
+10;Sinuoso;3-4-3;Heggem;NO;1
+10;Sinuoso;3-4-3;Darmian;NO;2
+10;Sinuoso;3-4-3;Conceicao;NO;3
+10;Sinuoso;3-4-3;Douvikas;NO;4
+10;Sinuoso;3-4-3;Caracciolo A.;NO;5
+10;Sinuoso;3-4-3;Calhanoglu;NO;6
+10;Sinuoso;3-4-3;Sommer;NO;7
+10;Sinuoso;3-4-3;Vlasic;NO;8
+10;Sinuoso;3-4-3;Bastoni;NO;9
+10;Sinuoso;3-4-3;Esposito F.P.;NO;10
+10;Sinuoso;3-4-3;Vergara;NO;11
+10;Sinuoso;3-4-3;Laurientè;NO;12
+10;Sinuoso;3-4-3;Martinez Jo.;NO;13
+10;Sinuoso;3-4-3;Holm;NO;14
+10;Makumba FC;3-4-3;Perin;SI;0
+10;Makumba FC;3-4-3;Dimarco;SI;0
+10;Makumba FC;3-4-3;Bartesaghi;SI;0
+10;Makumba FC;3-4-3;Estupinan;SI;0
+10;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+10;Makumba FC;3-4-3;Politano;SI;0
+10;Makumba FC;3-4-3;Rowe;SI;0
+10;Makumba FC;3-4-3;Taylor K.;SI;0
+10;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+10;Makumba FC;3-4-3;Adams C.;SI;0
+10;Makumba FC;3-4-3;Orban G.;SI;0
+10;Makumba FC;3-4-3;Pavlovic;NO;1
+10;Makumba FC;3-4-3;Zappacosta;NO;2
+10;Makumba FC;3-4-3;Zielinski;NO;3
+10;Makumba FC;3-4-3;Bellanova;NO;4
+10;Makumba FC;3-4-3;Pulisic;NO;5
+10;Makumba FC;3-4-3;Fofana Y.;NO;6
+10;Makumba FC;3-4-3;Mandragora;NO;7
+10;Makumba FC;3-4-3;Skorupski;NO;8
+10;Makumba FC;3-4-3;Piccoli;NO;9
+10;Makumba FC;3-4-3;Pinamonti;NO;10
+10;Makumba FC;3-4-3;Gabbia;NO;11
+10;Makumba FC;3-4-3;Tomori;NO;12
+10;Makumba FC;3-4-3;Kean;NO;13
+10;Makumba FC;3-4-3;Di Gregorio;NO;14
+10;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+10;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+10;Nhamass dstrunz;3-4-3;Valle;SI;0
+10;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+10;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+10;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+10;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+10;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+10;Nhamass dstrunz;3-4-3;Soulè;SI;0
+10;Nhamass dstrunz;3-4-3;Dybala;SI;0
+10;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+10;Nhamass dstrunz;3-4-3;Kilicsoy;NO;1
+10;Nhamass dstrunz;3-4-3;Tourè I.;NO;2
+10;Nhamass dstrunz;3-4-3;Krstovic;NO;3
+10;Nhamass dstrunz;3-4-3;Berardi;NO;4
+10;Nhamass dstrunz;3-4-3;Zaccagni;NO;5
+10;Nhamass dstrunz;3-4-3;Tavares N.;NO;6
+10;Nhamass dstrunz;3-4-3;Sportiello;NO;7
+10;Nhamass dstrunz;3-4-3;Ramon;NO;8
+10;Nhamass dstrunz;3-4-3;Perrone;NO;9
+10;Nhamass dstrunz;3-4-3;Bijlow;NO;10
+10;Nhamass dstrunz;3-4-3;Celik;NO;11
+10;Nhamass dstrunz;3-4-3;Kempf;NO;12
+10;Nhamass dstrunz;3-4-3;Konè I.;NO;13
+10;Nhamass dstrunz;3-4-3;Kossounou;NO;14
+10;Reazione di Mallard;3-4-3;Provedel;SI;0
+10;Reazione di Mallard;3-4-3;Solet;SI;0
+10;Reazione di Mallard;3-4-3;Doig;SI;0
+10;Reazione di Mallard;3-4-3;Wesley;SI;0
+10;Reazione di Mallard;3-4-3;Cristante;SI;0
+10;Reazione di Mallard;3-4-3;Matic;SI;0
+10;Reazione di Mallard;3-4-3;Baturina;SI;0
+10;Reazione di Mallard;3-4-3;Atta;SI;0
+10;Reazione di Mallard;3-4-3;Lukaku;SI;0
+10;Reazione di Mallard;3-4-3;Simeone;SI;0
+10;Reazione di Mallard;3-4-3;David;SI;0
+10;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;1
+10;Reazione di Mallard;3-4-3;Coco;NO;2
+10;Reazione di Mallard;3-4-3;Solomon;NO;3
+10;Reazione di Mallard;3-4-3;Lucumì;NO;4
+10;Reazione di Mallard;3-4-3;Butez;NO;5
+10;Reazione di Mallard;3-4-3;Martin;NO;6
+10;Reazione di Mallard;3-4-3;Ederson D.S.;NO;7
+10;Reazione di Mallard;3-4-3;Rabiot;NO;8
+10;Reazione di Mallard;3-4-3;Durosinmi;NO;9
+10;Reazione di Mallard;3-4-3;Vitinha O.;NO;10
+10;Reazione di Mallard;3-4-3;Zaniolo;NO;11
+10;Reazione di Mallard;3-4-3;Hien;NO;12
+10;Reazione di Mallard;3-4-3;Caprile;NO;13
+10;Reazione di Mallard;3-4-3;Gosens;NO;14
+10;Vietato Sognare FC;3-4-3;Gollini;SI;0
+10;Vietato Sognare FC;3-4-3;Valeri;SI;0
+10;Vietato Sognare FC;3-4-3;Zortea;SI;0
+10;Vietato Sognare FC;3-4-3;Bremer;SI;0
+10;Vietato Sognare FC;3-4-3;Maldini;SI;0
+10;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+10;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+10;Vietato Sognare FC;3-4-3;Casadei;SI;0
+10;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+10;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+10;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+10;Vietato Sognare FC;3-4-3;Bonazzoli;NO;1
+10;Vietato Sognare FC;3-4-3;Svilar;NO;2
+10;Vietato Sognare FC;3-4-3;Modric;NO;3
+10;Vietato Sognare FC;3-4-3;Bernabè;NO;4
+10;Vietato Sognare FC;3-4-3;Maripan;NO;5
+10;Vietato Sognare FC;3-4-3;Zalewski;NO;6
+10;Vietato Sognare FC;3-4-3;Muharemovic;NO;7
+10;Vietato Sognare FC;3-4-3;Moreo;NO;8
+10;Vietato Sognare FC;3-4-3;Kristensen T.;NO;9
+10;Vietato Sognare FC;3-4-3;Malen;NO;10
+10;Vietato Sognare FC;3-4-3;Dumfries;NO;11
+10;Vietato Sognare FC;3-4-3;Santos A.;NO;12
+10;Vietato Sognare FC;3-4-3;Muric;NO;13
+10;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;14
+11;ARCORE FC;3-4-3;Falcone;SI;0
+11;ARCORE FC;3-4-3;Ostigard;SI;0
+11;ARCORE FC;3-4-3;De Winter;SI;0
+11;ARCORE FC;3-4-3;N'Dicka;SI;0
+11;ARCORE FC;3-4-3;Zaragoza;SI;0
+11;ARCORE FC;3-4-3;Thorsby;SI;0
+11;ARCORE FC;3-4-3;Orsolini;SI;0
+11;ARCORE FC;3-4-3;McTominay;SI;0
+11;ARCORE FC;3-4-3;Bonny;SI;0
+11;ARCORE FC;3-4-3;Thuram;SI;0
+11;ARCORE FC;3-4-3;Esposito Se.;SI;0
+11;ARCORE FC;3-4-3;Di Lorenzo;NO;1
+11;ARCORE FC;3-4-3;Audero;NO;2
+11;ARCORE FC;3-4-3;Cambiaso;NO;3
+11;ARCORE FC;3-4-3;Cuadrado;NO;4
+11;ARCORE FC;3-4-3;Cataldi;NO;5
+11;ARCORE FC;3-4-3;Colombo;NO;6
+11;ARCORE FC;3-4-3;Sanabria;NO;7
+11;ARCORE FC;3-4-3;Konè M.;NO;8
+11;ARCORE FC;3-4-3;Sucic P.;NO;9
+11;ARCORE FC;3-4-3;Bisseck;NO;10
+11;ARCORE FC;3-4-3;Okoye;NO;11
+11;ARCORE FC;3-4-3;Akanji;NO;12
+11;ARCORE FC;3-4-3;Tramoni M.;NO;13
+11;ARCORE FC;3-4-3;Pedro;NO;14
+11;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+11;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+11;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+11;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+11;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+11;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+11;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+11;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+11;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+11;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+11;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+11;FC San Marco Evangelista;3-4-3;Buongiorno;NO;1
+11;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;2
+11;FC San Marco Evangelista;3-4-3;Suzuki;NO;3
+11;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;4
+11;FC San Marco Evangelista;3-4-3;Odgaard;NO;5
+11;FC San Marco Evangelista;3-4-3;Yildiz;NO;6
+11;FC San Marco Evangelista;3-4-3;Iling Junior;NO;7
+11;FC San Marco Evangelista;3-4-3;Gila;NO;8
+11;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;9
+11;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;10
+11;FC San Marco Evangelista;3-4-3;Circati;NO;11
+11;FC San Marco Evangelista;3-4-3;Boga;NO;12
+11;FC San Marco Evangelista;3-4-3;Maignan;NO;13
+11;FC San Marco Evangelista;3-4-3;Barella;NO;14
+11;FC bianchi;3-4-3;Meret;SI;0
+11;FC bianchi;3-4-3;Mina;SI;0
+11;FC bianchi;3-4-3;Dodò;SI;0
+11;FC bianchi;3-4-3;Scalvini;SI;0
+11;FC bianchi;3-4-3;Isaksen;SI;0
+11;FC bianchi;3-4-3;Mkhitaryan;SI;0
+11;FC bianchi;3-4-3;Sottil;SI;0
+11;FC bianchi;3-4-3;Harroui;SI;0
+11;FC bianchi;3-4-3;Vardy;SI;0
+11;FC bianchi;3-4-3;Fullkrug;SI;0
+11;FC bianchi;3-4-3;Leao;SI;0
+11;FC bianchi;3-4-3;Vasquez;NO;1
+11;FC bianchi;3-4-3;Strefezza;NO;2
+11;FC bianchi;3-4-3;Davis K.;NO;3
+11;FC bianchi;3-4-3;Contini;NO;4
+11;FC bianchi;3-4-3;Zapata D.;NO;5
+11;FC bianchi;3-4-3;Diego Carlos;NO;6
+11;FC bianchi;3-4-3;Thuram K.;NO;7
+11;FC bianchi;3-4-3;Baschirotto;NO;8
+11;FC bianchi;3-4-3;Rovella;NO;9
+11;FC bianchi;3-4-3;Romagnoli;NO;10
+11;FC bianchi;3-4-3;Raspadori;NO;11
+11;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;12
+11;FC bianchi;3-4-3;McKennie;NO;13
+11;FC bianchi;3-4-3;Comuzzo;NO;14
+11;Sinuoso;3-4-3;Sommer;SI;0
+11;Sinuoso;3-4-3;Holm;SI;0
+11;Sinuoso;3-4-3;Heggem;SI;0
+11;Sinuoso;3-4-3;Caracciolo A.;SI;0
+11;Sinuoso;3-4-3;Ricci S.;SI;0
+11;Sinuoso;3-4-3;De Roon;SI;0
+11;Sinuoso;3-4-3;Conceicao;SI;0
+11;Sinuoso;3-4-3;Locatelli;SI;0
+11;Sinuoso;3-4-3;Laurientè;SI;0
+11;Sinuoso;3-4-3;Douvikas;SI;0
+11;Sinuoso;3-4-3;Esposito F.P.;SI;0
+11;Sinuoso;3-4-3;Thorstvedt;NO;1
+11;Sinuoso;3-4-3;Spinazzola;NO;2
+11;Sinuoso;3-4-3;Olivera;NO;3
+11;Sinuoso;3-4-3;Di Gennaro;NO;4
+11;Sinuoso;3-4-3;Nkunku;NO;5
+11;Sinuoso;3-4-3;Nzola;NO;6
+11;Sinuoso;3-4-3;Darmian;NO;7
+11;Sinuoso;3-4-3;Vergara;NO;8
+11;Sinuoso;3-4-3;Bastoni;NO;9
+11;Sinuoso;3-4-3;Calhanoglu;NO;10
+11;Sinuoso;3-4-3;Martinez L.;NO;11
+11;Sinuoso;3-4-3;Mancini;NO;12
+11;Sinuoso;3-4-3;Martinez Jo.;NO;13
+11;Sinuoso;3-4-3;Vlasic;NO;14
+11;Makumba FC;3-4-3;Perin;SI;0
+11;Makumba FC;3-4-3;Gabbia;SI;0
+11;Makumba FC;3-4-3;Pavlovic;SI;0
+11;Makumba FC;3-4-3;Tomori;SI;0
+11;Makumba FC;3-4-3;Politano;SI;0
+11;Makumba FC;3-4-3;Rowe;SI;0
+11;Makumba FC;3-4-3;Fofana Y.;SI;0
+11;Makumba FC;3-4-3;Mandragora;SI;0
+11;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+11;Makumba FC;3-4-3;Piccoli;SI;0
+11;Makumba FC;3-4-3;Pinamonti;SI;0
+11;Makumba FC;3-4-3;Zappacosta;NO;1
+11;Makumba FC;3-4-3;Orban G.;NO;2
+11;Makumba FC;3-4-3;Bartesaghi;NO;3
+11;Makumba FC;3-4-3;Zielinski;NO;4
+11;Makumba FC;3-4-3;Skorupski;NO;5
+11;Makumba FC;3-4-3;Di Gregorio;NO;6
+11;Makumba FC;3-4-3;Taylor K.;NO;7
+11;Makumba FC;3-4-3;Estupinan;NO;8
+11;Makumba FC;3-4-3;Loftus-Cheek;NO;9
+11;Makumba FC;3-4-3;Dimarco;NO;10
+11;Makumba FC;3-4-3;Kean;NO;11
+11;Makumba FC;3-4-3;Bellanova;NO;12
+11;Makumba FC;3-4-3;Adams C.;NO;13
+11;Makumba FC;3-4-3;Pulisic;NO;14
+11;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+11;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+11;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+11;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+11;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+11;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+11;Nhamass dstrunz;3-4-3;Perrone;SI;0
+11;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+11;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+11;Nhamass dstrunz;3-4-3;Dybala;SI;0
+11;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+11;Nhamass dstrunz;3-4-3;Celik;NO;1
+11;Nhamass dstrunz;3-4-3;Ramon;NO;2
+11;Nhamass dstrunz;3-4-3;Tavares N.;NO;3
+11;Nhamass dstrunz;3-4-3;Bijlow;NO;4
+11;Nhamass dstrunz;3-4-3;Sportiello;NO;5
+11;Nhamass dstrunz;3-4-3;Soulè;NO;6
+11;Nhamass dstrunz;3-4-3;Tourè I.;NO;7
+11;Nhamass dstrunz;3-4-3;Konè I.;NO;8
+11;Nhamass dstrunz;3-4-3;Scamacca;NO;9
+11;Nhamass dstrunz;3-4-3;Malinovskyi;NO;10
+11;Nhamass dstrunz;3-4-3;Zaccagni;NO;11
+11;Nhamass dstrunz;3-4-3;Berardi;NO;12
+11;Nhamass dstrunz;3-4-3;Kempf;NO;13
+11;Nhamass dstrunz;3-4-3;Valle;NO;14
+11;Reazione di Mallard;3-4-3;Caprile;SI;0
+11;Reazione di Mallard;3-4-3;Wesley;SI;0
+11;Reazione di Mallard;3-4-3;Coco;SI;0
+11;Reazione di Mallard;3-4-3;Hien;SI;0
+11;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+11;Reazione di Mallard;3-4-3;Rabiot;SI;0
+11;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+11;Reazione di Mallard;3-4-3;Baturina;SI;0
+11;Reazione di Mallard;3-4-3;Lukaku;SI;0
+11;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+11;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+11;Reazione di Mallard;3-4-3;David;NO;1
+11;Reazione di Mallard;3-4-3;Atta;NO;2
+11;Reazione di Mallard;3-4-3;Martin;NO;3
+11;Reazione di Mallard;3-4-3;Lucumì;NO;4
+11;Reazione di Mallard;3-4-3;Solet;NO;5
+11;Reazione di Mallard;3-4-3;Cristante;NO;6
+11;Reazione di Mallard;3-4-3;Simeone;NO;7
+11;Reazione di Mallard;3-4-3;Zaniolo;NO;8
+11;Reazione di Mallard;3-4-3;Doig;NO;9
+11;Reazione di Mallard;3-4-3;Gosens;NO;10
+11;Reazione di Mallard;3-4-3;Solomon;NO;11
+11;Reazione di Mallard;3-4-3;Butez;NO;12
+11;Reazione di Mallard;3-4-3;Provedel;NO;13
+11;Reazione di Mallard;3-4-3;Matic;NO;14
+11;Vietato Sognare FC;3-4-3;Gollini;SI;0
+11;Vietato Sognare FC;3-4-3;Valeri;SI;0
+11;Vietato Sognare FC;3-4-3;Zortea;SI;0
+11;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+11;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+11;Vietato Sognare FC;3-4-3;Modric;SI;0
+11;Vietato Sognare FC;3-4-3;Casadei;SI;0
+11;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+11;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+11;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+11;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+11;Vietato Sognare FC;3-4-3;Svilar;NO;1
+11;Vietato Sognare FC;3-4-3;Muric;NO;2
+11;Vietato Sognare FC;3-4-3;Maripan;NO;3
+11;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;4
+11;Vietato Sognare FC;3-4-3;Muharemovic;NO;5
+11;Vietato Sognare FC;3-4-3;Dumfries;NO;6
+11;Vietato Sognare FC;3-4-3;Kristensen T.;NO;7
+11;Vietato Sognare FC;3-4-3;Hojlund;NO;8
+11;Vietato Sognare FC;3-4-3;Moreo;NO;9
+11;Vietato Sognare FC;3-4-3;Malen;NO;10
+11;Vietato Sognare FC;3-4-3;Bernabè;NO;11
+11;Vietato Sognare FC;3-4-3;Bremer;NO;12
+11;Vietato Sognare FC;3-4-3;Santos A.;NO;13
+11;Vietato Sognare FC;3-4-3;Maldini;NO;14
+12;ARCORE FC;3-4-3;Audero;SI;0
+12;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+12;ARCORE FC;3-4-3;Cuadrado;SI;0
+12;ARCORE FC;3-4-3;De Winter;SI;0
+12;ARCORE FC;3-4-3;Tramoni M.;SI;0
+12;ARCORE FC;3-4-3;Konè M.;SI;0
+12;ARCORE FC;3-4-3;Orsolini;SI;0
+12;ARCORE FC;3-4-3;Sucic P.;SI;0
+12;ARCORE FC;3-4-3;Thuram;SI;0
+12;ARCORE FC;3-4-3;Colombo;SI;0
+12;ARCORE FC;3-4-3;Sanabria;SI;0
+12;ARCORE FC;3-4-3;McTominay;NO;1
+12;ARCORE FC;3-4-3;Falcone;NO;2
+12;ARCORE FC;3-4-3;Okoye;NO;3
+12;ARCORE FC;3-4-3;Akanji;NO;4
+12;ARCORE FC;3-4-3;Pedro;NO;5
+12;ARCORE FC;3-4-3;Ostigard;NO;6
+12;ARCORE FC;3-4-3;Bisseck;NO;7
+12;ARCORE FC;3-4-3;N'Dicka;NO;8
+12;ARCORE FC;3-4-3;Bonny;NO;9
+12;ARCORE FC;3-4-3;Esposito Se.;NO;10
+12;ARCORE FC;3-4-3;Cambiaso;NO;11
+12;ARCORE FC;3-4-3;Thorsby;NO;12
+12;ARCORE FC;3-4-3;Zaragoza;NO;13
+12;ARCORE FC;3-4-3;Cataldi;NO;14
+12;FC San Marco Evangelista;3-4-3;Suzuki;SI;0
+12;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+12;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+12;FC San Marco Evangelista;3-4-3;Gila;SI;0
+12;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+12;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+12;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+12;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+12;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+12;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+12;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+12;FC San Marco Evangelista;3-4-3;Circati;NO;1
+12;FC San Marco Evangelista;3-4-3;Maignan;NO;2
+12;FC San Marco Evangelista;3-4-3;Barella;NO;3
+12;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;4
+12;FC San Marco Evangelista;3-4-3;Terracciano;NO;5
+12;FC San Marco Evangelista;3-4-3;Miretti;NO;6
+12;FC San Marco Evangelista;3-4-3;Delprato;NO;7
+12;FC San Marco Evangelista;3-4-3;Iling Junior;NO;8
+12;FC San Marco Evangelista;3-4-3;Kalulu;NO;9
+12;FC San Marco Evangelista;3-4-3;Palestra;NO;10
+12;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;11
+12;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;12
+12;FC San Marco Evangelista;3-4-3;Boga;NO;13
+12;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;14
+12;FC bianchi;3-4-3;Meret;SI;0
+12;FC bianchi;3-4-3;Scalvini;SI;0
+12;FC bianchi;3-4-3;Vasquez;SI;0
+12;FC bianchi;3-4-3;Diego Carlos;SI;0
+12;FC bianchi;3-4-3;Rovella;SI;0
+12;FC bianchi;3-4-3;Mkhitaryan;SI;0
+12;FC bianchi;3-4-3;Harroui;SI;0
+12;FC bianchi;3-4-3;Isaksen;SI;0
+12;FC bianchi;3-4-3;Raspadori;SI;0
+12;FC bianchi;3-4-3;Leao;SI;0
+12;FC bianchi;3-4-3;Davis K.;SI;0
+12;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;1
+12;FC bianchi;3-4-3;Sottil;NO;2
+12;FC bianchi;3-4-3;Contini;NO;3
+12;FC bianchi;3-4-3;Thuram K.;NO;4
+12;FC bianchi;3-4-3;Comuzzo;NO;5
+12;FC bianchi;3-4-3;Baschirotto;NO;6
+12;FC bianchi;3-4-3;Strefezza;NO;7
+12;FC bianchi;3-4-3;Vardy;NO;8
+12;FC bianchi;3-4-3;Fullkrug;NO;9
+12;FC bianchi;3-4-3;Zapata D.;NO;10
+12;FC bianchi;3-4-3;McKennie;NO;11
+12;FC bianchi;3-4-3;Dodò;NO;12
+12;FC bianchi;3-4-3;Romagnoli;NO;13
+12;FC bianchi;3-4-3;Mina;NO;14
+12;Sinuoso;3-4-3;Di Gennaro;SI;0
+12;Sinuoso;3-4-3;Bastoni;SI;0
+12;Sinuoso;3-4-3;Mancini;SI;0
+12;Sinuoso;3-4-3;Darmian;SI;0
+12;Sinuoso;3-4-3;Vergara;SI;0
+12;Sinuoso;3-4-3;Locatelli;SI;0
+12;Sinuoso;3-4-3;Conceicao;SI;0
+12;Sinuoso;3-4-3;Vlasic;SI;0
+12;Sinuoso;3-4-3;Nzola;SI;0
+12;Sinuoso;3-4-3;Martinez L.;SI;0
+12;Sinuoso;3-4-3;Douvikas;SI;0
+12;Sinuoso;3-4-3;Olivera;NO;1
+12;Sinuoso;3-4-3;Spinazzola;NO;2
+12;Sinuoso;3-4-3;Calhanoglu;NO;3
+12;Sinuoso;3-4-3;Martinez Jo.;NO;4
+12;Sinuoso;3-4-3;Caracciolo A.;NO;5
+12;Sinuoso;3-4-3;Nkunku;NO;6
+12;Sinuoso;3-4-3;Heggem;NO;7
+12;Sinuoso;3-4-3;Sommer;NO;8
+12;Sinuoso;3-4-3;Esposito F.P.;NO;9
+12;Sinuoso;3-4-3;Laurientè;NO;10
+12;Sinuoso;3-4-3;Thorstvedt;NO;11
+12;Sinuoso;3-4-3;Ricci S.;NO;12
+12;Sinuoso;3-4-3;De Roon;NO;13
+12;Sinuoso;3-4-3;Holm;NO;14
+12;Makumba FC;3-4-3;Perin;SI;0
+12;Makumba FC;3-4-3;Pavlovic;SI;0
+12;Makumba FC;3-4-3;Dimarco;SI;0
+12;Makumba FC;3-4-3;Tomori;SI;0
+12;Makumba FC;3-4-3;Zielinski;SI;0
+12;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+12;Makumba FC;3-4-3;Rowe;SI;0
+12;Makumba FC;3-4-3;Politano;SI;0
+12;Makumba FC;3-4-3;Piccoli;SI;0
+12;Makumba FC;3-4-3;Adams C.;SI;0
+12;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+12;Makumba FC;3-4-3;Estupinan;NO;1
+12;Makumba FC;3-4-3;Fofana Y.;NO;2
+12;Makumba FC;3-4-3;Kean;NO;3
+12;Makumba FC;3-4-3;Zappacosta;NO;4
+12;Makumba FC;3-4-3;Gabbia;NO;5
+12;Makumba FC;3-4-3;Skorupski;NO;6
+12;Makumba FC;3-4-3;Taylor K.;NO;7
+12;Makumba FC;3-4-3;Orban G.;NO;8
+12;Makumba FC;3-4-3;Bellanova;NO;9
+12;Makumba FC;3-4-3;Pinamonti;NO;10
+12;Makumba FC;3-4-3;Mandragora;NO;11
+12;Makumba FC;3-4-3;Pulisic;NO;12
+12;Makumba FC;3-4-3;Bartesaghi;NO;13
+12;Makumba FC;3-4-3;Di Gregorio;NO;14
+12;Nhamass dstrunz;3-4-3;Sportiello;SI;0
+12;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+12;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+12;Nhamass dstrunz;3-4-3;Ramon;SI;0
+12;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+12;Nhamass dstrunz;3-4-3;Perrone;SI;0
+12;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+12;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+12;Nhamass dstrunz;3-4-3;Dybala;SI;0
+12;Nhamass dstrunz;3-4-3;Berardi;SI;0
+12;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+12;Nhamass dstrunz;3-4-3;Carnesecchi;NO;1
+12;Nhamass dstrunz;3-4-3;Valle;NO;2
+12;Nhamass dstrunz;3-4-3;Celik;NO;3
+12;Nhamass dstrunz;3-4-3;Bijlow;NO;4
+12;Nhamass dstrunz;3-4-3;Kempf;NO;5
+12;Nhamass dstrunz;3-4-3;Kossounou;NO;6
+12;Nhamass dstrunz;3-4-3;Tourè I.;NO;7
+12;Nhamass dstrunz;3-4-3;Da Cunha;NO;8
+12;Nhamass dstrunz;3-4-3;Soulè;NO;9
+12;Nhamass dstrunz;3-4-3;Rrahmani;NO;10
+12;Nhamass dstrunz;3-4-3;Kilicsoy;NO;11
+12;Nhamass dstrunz;3-4-3;Malinovskyi;NO;12
+12;Nhamass dstrunz;3-4-3;Pasalic;NO;13
+12;Nhamass dstrunz;3-4-3;Krstovic;NO;14
+12;Reazione di Mallard;3-4-3;Butez;SI;0
+12;Reazione di Mallard;3-4-3;Coco;SI;0
+12;Reazione di Mallard;3-4-3;Hien;SI;0
+12;Reazione di Mallard;3-4-3;Solet;SI;0
+12;Reazione di Mallard;3-4-3;Baturina;SI;0
+12;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+12;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+12;Reazione di Mallard;3-4-3;Matic;SI;0
+12;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+12;Reazione di Mallard;3-4-3;Simeone;SI;0
+12;Reazione di Mallard;3-4-3;David;SI;0
+12;Reazione di Mallard;3-4-3;Durosinmi;NO;1
+12;Reazione di Mallard;3-4-3;Cristante;NO;2
+12;Reazione di Mallard;3-4-3;Solomon;NO;3
+12;Reazione di Mallard;3-4-3;Lukaku;NO;4
+12;Reazione di Mallard;3-4-3;Gosens;NO;5
+12;Reazione di Mallard;3-4-3;Martin;NO;6
+12;Reazione di Mallard;3-4-3;Rabiot;NO;7
+12;Reazione di Mallard;3-4-3;Provedel;NO;8
+12;Reazione di Mallard;3-4-3;Doig;NO;9
+12;Reazione di Mallard;3-4-3;Zaniolo;NO;10
+12;Reazione di Mallard;3-4-3;Wesley;NO;11
+12;Reazione di Mallard;3-4-3;Caprile;NO;12
+12;Reazione di Mallard;3-4-3;Atta;NO;13
+12;Reazione di Mallard;3-4-3;Lucumì;NO;14
+12;Vietato Sognare FC;3-4-3;Svilar;SI;0
+12;Vietato Sognare FC;3-4-3;Muharemovic;SI;0
+12;Vietato Sognare FC;3-4-3;Zortea;SI;0
+12;Vietato Sognare FC;3-4-3;Valeri;SI;0
+12;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+12;Vietato Sognare FC;3-4-3;Modric;SI;0
+12;Vietato Sognare FC;3-4-3;Casadei;SI;0
+12;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+12;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+12;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+12;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+12;Vietato Sognare FC;3-4-3;Moreo;NO;1
+12;Vietato Sognare FC;3-4-3;Malen;NO;2
+12;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;3
+12;Vietato Sognare FC;3-4-3;Dumfries;NO;4
+12;Vietato Sognare FC;3-4-3;Hojlund;NO;5
+12;Vietato Sognare FC;3-4-3;Muric;NO;6
+12;Vietato Sognare FC;3-4-3;Zalewski;NO;7
+12;Vietato Sognare FC;3-4-3;Maldini;NO;8
+12;Vietato Sognare FC;3-4-3;Bremer;NO;9
+12;Vietato Sognare FC;3-4-3;Kristensen T.;NO;10
+12;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;11
+12;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;12
+12;Vietato Sognare FC;3-4-3;Gollini;NO;13
+12;Vietato Sognare FC;3-4-3;Maripan;NO;14
+13;ARCORE FC;3-4-3;Okoye;SI;0
+13;ARCORE FC;3-4-3;Akanji;SI;0
+13;ARCORE FC;3-4-3;Cambiaso;SI;0
+13;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+13;ARCORE FC;3-4-3;Konè M.;SI;0
+13;ARCORE FC;3-4-3;Sucic P.;SI;0
+13;ARCORE FC;3-4-3;McTominay;SI;0
+13;ARCORE FC;3-4-3;Tramoni M.;SI;0
+13;ARCORE FC;3-4-3;Thuram;SI;0
+13;ARCORE FC;3-4-3;Esposito Se.;SI;0
+13;ARCORE FC;3-4-3;Pedro;SI;0
+13;ARCORE FC;3-4-3;N'Dicka;NO;1
+13;ARCORE FC;3-4-3;Thorsby;NO;2
+13;ARCORE FC;3-4-3;Audero;NO;3
+13;ARCORE FC;3-4-3;Zaragoza;NO;4
+13;ARCORE FC;3-4-3;Cuadrado;NO;5
+13;ARCORE FC;3-4-3;Bisseck;NO;6
+13;ARCORE FC;3-4-3;Falcone;NO;7
+13;ARCORE FC;3-4-3;Bonny;NO;8
+13;ARCORE FC;3-4-3;De Winter;NO;9
+13;ARCORE FC;3-4-3;Sanabria;NO;10
+13;ARCORE FC;3-4-3;Colombo;NO;11
+13;ARCORE FC;3-4-3;Ostigard;NO;12
+13;ARCORE FC;3-4-3;Orsolini;NO;13
+13;ARCORE FC;3-4-3;Cataldi;NO;14
+13;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+13;FC San Marco Evangelista;3-4-3;Gila;SI;0
+13;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+13;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+13;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+13;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+13;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+13;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+13;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+13;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+13;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+13;FC San Marco Evangelista;3-4-3;Kalulu;NO;1
+13;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;2
+13;FC San Marco Evangelista;3-4-3;Barella;NO;3
+13;FC San Marco Evangelista;3-4-3;Terracciano;NO;4
+13;FC San Marco Evangelista;3-4-3;Buongiorno;NO;5
+13;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;6
+13;FC San Marco Evangelista;3-4-3;Boga;NO;7
+13;FC San Marco Evangelista;3-4-3;Circati;NO;8
+13;FC San Marco Evangelista;3-4-3;Cancellieri;NO;9
+13;FC San Marco Evangelista;3-4-3;Palestra;NO;10
+13;FC San Marco Evangelista;3-4-3;Odgaard;NO;11
+13;FC San Marco Evangelista;3-4-3;Iling Junior;NO;12
+13;FC San Marco Evangelista;3-4-3;Miretti;NO;13
+13;FC San Marco Evangelista;3-4-3;Suzuki;NO;14
+13;FC bianchi;3-4-3;Milinkovic-Savic V.;SI;0
+13;FC bianchi;3-4-3;Comuzzo;SI;0
+13;FC bianchi;3-4-3;Baschirotto;SI;0
+13;FC bianchi;3-4-3;Mina;SI;0
+13;FC bianchi;3-4-3;Isaksen;SI;0
+13;FC bianchi;3-4-3;Sottil;SI;0
+13;FC bianchi;3-4-3;Harroui;SI;0
+13;FC bianchi;3-4-3;McKennie;SI;0
+13;FC bianchi;3-4-3;Fullkrug;SI;0
+13;FC bianchi;3-4-3;Leao;SI;0
+13;FC bianchi;3-4-3;Davis K.;SI;0
+13;FC bianchi;3-4-3;Rovella;NO;1
+13;FC bianchi;3-4-3;Raspadori;NO;2
+13;FC bianchi;3-4-3;Mkhitaryan;NO;3
+13;FC bianchi;3-4-3;Dodò;NO;4
+13;FC bianchi;3-4-3;Vardy;NO;5
+13;FC bianchi;3-4-3;Vasquez;NO;6
+13;FC bianchi;3-4-3;Scalvini;NO;7
+13;FC bianchi;3-4-3;Meret;NO;8
+13;FC bianchi;3-4-3;Thuram K.;NO;9
+13;FC bianchi;3-4-3;Diego Carlos;NO;10
+13;FC bianchi;3-4-3;Zapata D.;NO;11
+13;FC bianchi;3-4-3;Strefezza;NO;12
+13;FC bianchi;3-4-3;Contini;NO;13
+13;FC bianchi;3-4-3;Romagnoli;NO;14
+13;Sinuoso;3-4-3;Sommer;SI;0
+13;Sinuoso;3-4-3;Holm;SI;0
+13;Sinuoso;3-4-3;Heggem;SI;0
+13;Sinuoso;3-4-3;Mancini;SI;0
+13;Sinuoso;3-4-3;Locatelli;SI;0
+13;Sinuoso;3-4-3;Thorstvedt;SI;0
+13;Sinuoso;3-4-3;Vergara;SI;0
+13;Sinuoso;3-4-3;De Roon;SI;0
+13;Sinuoso;3-4-3;Douvikas;SI;0
+13;Sinuoso;3-4-3;Nkunku;SI;0
+13;Sinuoso;3-4-3;Laurientè;SI;0
+13;Sinuoso;3-4-3;Martinez Jo.;NO;1
+13;Sinuoso;3-4-3;Vlasic;NO;2
+13;Sinuoso;3-4-3;Olivera;NO;3
+13;Sinuoso;3-4-3;Ricci S.;NO;4
+13;Sinuoso;3-4-3;Di Gennaro;NO;5
+13;Sinuoso;3-4-3;Martinez L.;NO;6
+13;Sinuoso;3-4-3;Spinazzola;NO;7
+13;Sinuoso;3-4-3;Darmian;NO;8
+13;Sinuoso;3-4-3;Caracciolo A.;NO;9
+13;Sinuoso;3-4-3;Bastoni;NO;10
+13;Sinuoso;3-4-3;Esposito F.P.;NO;11
+13;Sinuoso;3-4-3;Nzola;NO;12
+13;Sinuoso;3-4-3;Calhanoglu;NO;13
+13;Sinuoso;3-4-3;Conceicao;NO;14
+13;Makumba FC;3-4-3;Di Gregorio;SI;0
+13;Makumba FC;3-4-3;Dimarco;SI;0
+13;Makumba FC;3-4-3;Zappacosta;SI;0
+13;Makumba FC;3-4-3;Tomori;SI;0
+13;Makumba FC;3-4-3;Mandragora;SI;0
+13;Makumba FC;3-4-3;Zielinski;SI;0
+13;Makumba FC;3-4-3;Pulisic;SI;0
+13;Makumba FC;3-4-3;Fofana Y.;SI;0
+13;Makumba FC;3-4-3;Kean;SI;0
+13;Makumba FC;3-4-3;Piccoli;SI;0
+13;Makumba FC;3-4-3;Pinamonti;SI;0
+13;Makumba FC;3-4-3;Gabbia;NO;1
+13;Makumba FC;3-4-3;Taylor K.;NO;2
+13;Makumba FC;3-4-3;Rodriguez Je.;NO;3
+13;Makumba FC;3-4-3;Bartesaghi;NO;4
+13;Makumba FC;3-4-3;Politano;NO;5
+13;Makumba FC;3-4-3;Loftus-Cheek;NO;6
+13;Makumba FC;3-4-3;Bellanova;NO;7
+13;Makumba FC;3-4-3;Adams C.;NO;8
+13;Makumba FC;3-4-3;Estupinan;NO;9
+13;Makumba FC;3-4-3;Perin;NO;10
+13;Makumba FC;3-4-3;Orban G.;NO;11
+13;Makumba FC;3-4-3;Rowe;NO;12
+13;Makumba FC;3-4-3;Pavlovic;NO;13
+13;Makumba FC;3-4-3;Skorupski;NO;14
+13;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+13;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+13;Nhamass dstrunz;3-4-3;Ramon;SI;0
+13;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+13;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+13;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+13;Nhamass dstrunz;3-4-3;Tourè I.;SI;0
+13;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+13;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+13;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+13;Nhamass dstrunz;3-4-3;Berardi;SI;0
+13;Nhamass dstrunz;3-4-3;Krstovic;NO;1
+13;Nhamass dstrunz;3-4-3;Bijlow;NO;2
+13;Nhamass dstrunz;3-4-3;Zaccagni;NO;3
+13;Nhamass dstrunz;3-4-3;Kempf;NO;4
+13;Nhamass dstrunz;3-4-3;Malinovskyi;NO;5
+13;Nhamass dstrunz;3-4-3;Soulè;NO;6
+13;Nhamass dstrunz;3-4-3;Konè I.;NO;7
+13;Nhamass dstrunz;3-4-3;Celik;NO;8
+13;Nhamass dstrunz;3-4-3;Kossounou;NO;9
+13;Nhamass dstrunz;3-4-3;Perrone;NO;10
+13;Nhamass dstrunz;3-4-3;Kelly L.;NO;11
+13;Nhamass dstrunz;3-4-3;Valle;NO;12
+13;Nhamass dstrunz;3-4-3;Dybala;NO;13
+13;Nhamass dstrunz;3-4-3;Sportiello;NO;14
+13;Reazione di Mallard;3-4-3;Provedel;SI;0
+13;Reazione di Mallard;3-4-3;Solet;SI;0
+13;Reazione di Mallard;3-4-3;Coco;SI;0
+13;Reazione di Mallard;3-4-3;Gosens;SI;0
+13;Reazione di Mallard;3-4-3;Matic;SI;0
+13;Reazione di Mallard;3-4-3;Rabiot;SI;0
+13;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+13;Reazione di Mallard;3-4-3;Baturina;SI;0
+13;Reazione di Mallard;3-4-3;Lukaku;SI;0
+13;Reazione di Mallard;3-4-3;Simeone;SI;0
+13;Reazione di Mallard;3-4-3;David;SI;0
+13;Reazione di Mallard;3-4-3;Solomon;NO;1
+13;Reazione di Mallard;3-4-3;Ederson D.S.;NO;2
+13;Reazione di Mallard;3-4-3;Vitinha O.;NO;3
+13;Reazione di Mallard;3-4-3;Butez;NO;4
+13;Reazione di Mallard;3-4-3;Durosinmi;NO;5
+13;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;6
+13;Reazione di Mallard;3-4-3;Martin;NO;7
+13;Reazione di Mallard;3-4-3;Caprile;NO;8
+13;Reazione di Mallard;3-4-3;Atta;NO;9
+13;Reazione di Mallard;3-4-3;Hien;NO;10
+13;Reazione di Mallard;3-4-3;Lucumì;NO;11
+13;Reazione di Mallard;3-4-3;Cristante;NO;12
+13;Reazione di Mallard;3-4-3;Doig;NO;13
+13;Reazione di Mallard;3-4-3;Wesley;NO;14
+13;Vietato Sognare FC;3-4-3;Muric;SI;0
+13;Vietato Sognare FC;3-4-3;Valeri;SI;0
+13;Vietato Sognare FC;3-4-3;Zortea;SI;0
+13;Vietato Sognare FC;3-4-3;Dumfries;SI;0
+13;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+13;Vietato Sognare FC;3-4-3;Casadei;SI;0
+13;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+13;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+13;Vietato Sognare FC;3-4-3;Malen;SI;0
+13;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+13;Vietato Sognare FC;3-4-3;Moreo;SI;0
+13;Vietato Sognare FC;3-4-3;Bernabè;NO;1
+13;Vietato Sognare FC;3-4-3;Santos A.;NO;2
+13;Vietato Sognare FC;3-4-3;Gollini;NO;3
+13;Vietato Sognare FC;3-4-3;Svilar;NO;4
+13;Vietato Sognare FC;3-4-3;Ratkov;NO;5
+13;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;6
+13;Vietato Sognare FC;3-4-3;Maldini;NO;7
+13;Vietato Sognare FC;3-4-3;Muharemovic;NO;8
+13;Vietato Sognare FC;3-4-3;Kristensen T.;NO;9
+13;Vietato Sognare FC;3-4-3;Bonazzoli;NO;10
+13;Vietato Sognare FC;3-4-3;Hojlund;NO;11
+13;Vietato Sognare FC;3-4-3;Modric;NO;12
+13;Vietato Sognare FC;3-4-3;Bremer;NO;13
+13;Vietato Sognare FC;3-4-3;Maripan;NO;14
+14;ARCORE FC;3-4-3;Okoye;SI;0
+14;ARCORE FC;3-4-3;Bisseck;SI;0
+14;ARCORE FC;3-4-3;Cambiaso;SI;0
+14;ARCORE FC;3-4-3;De Winter;SI;0
+14;ARCORE FC;3-4-3;Konè M.;SI;0
+14;ARCORE FC;3-4-3;Cataldi;SI;0
+14;ARCORE FC;3-4-3;Tramoni M.;SI;0
+14;ARCORE FC;3-4-3;Zaragoza;SI;0
+14;ARCORE FC;3-4-3;Sanabria;SI;0
+14;ARCORE FC;3-4-3;Colombo;SI;0
+14;ARCORE FC;3-4-3;Pedro;SI;0
+14;ARCORE FC;3-4-3;Sucic P.;NO;1
+14;ARCORE FC;3-4-3;Akanji;NO;2
+14;ARCORE FC;3-4-3;Ostigard;NO;3
+14;ARCORE FC;3-4-3;Di Lorenzo;NO;4
+14;ARCORE FC;3-4-3;Falcone;NO;5
+14;ARCORE FC;3-4-3;Bonny;NO;6
+14;ARCORE FC;3-4-3;Audero;NO;7
+14;ARCORE FC;3-4-3;Orsolini;NO;8
+14;ARCORE FC;3-4-3;Thuram;NO;9
+14;ARCORE FC;3-4-3;N'Dicka;NO;10
+14;ARCORE FC;3-4-3;Esposito Se.;NO;11
+14;ARCORE FC;3-4-3;Cuadrado;NO;12
+14;ARCORE FC;3-4-3;Thorsby;NO;13
+14;ARCORE FC;3-4-3;McTominay;NO;14
+14;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+14;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+14;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+14;FC San Marco Evangelista;3-4-3;Circati;SI;0
+14;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+14;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+14;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+14;FC San Marco Evangelista;3-4-3;Barella;SI;0
+14;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+14;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+14;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+14;FC San Marco Evangelista;3-4-3;Odgaard;NO;1
+14;FC San Marco Evangelista;3-4-3;Delprato;NO;2
+14;FC San Marco Evangelista;3-4-3;Paz N.;NO;3
+14;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;4
+14;FC San Marco Evangelista;3-4-3;Buongiorno;NO;5
+14;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;6
+14;FC San Marco Evangelista;3-4-3;Iling Junior;NO;7
+14;FC San Marco Evangelista;3-4-3;Suzuki;NO;8
+14;FC San Marco Evangelista;3-4-3;Kalulu;NO;9
+14;FC San Marco Evangelista;3-4-3;Cancellieri;NO;10
+14;FC San Marco Evangelista;3-4-3;Gila;NO;11
+14;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;12
+14;FC San Marco Evangelista;3-4-3;Maignan;NO;13
+14;FC San Marco Evangelista;3-4-3;Boga;NO;14
+14;FC bianchi;3-4-3;Meret;SI;0
+14;FC bianchi;3-4-3;Comuzzo;SI;0
+14;FC bianchi;3-4-3;Romagnoli;SI;0
+14;FC bianchi;3-4-3;Mina;SI;0
+14;FC bianchi;3-4-3;Harroui;SI;0
+14;FC bianchi;3-4-3;Sottil;SI;0
+14;FC bianchi;3-4-3;Isaksen;SI;0
+14;FC bianchi;3-4-3;Strefezza;SI;0
+14;FC bianchi;3-4-3;Fullkrug;SI;0
+14;FC bianchi;3-4-3;Raspadori;SI;0
+14;FC bianchi;3-4-3;Leao;SI;0
+14;FC bianchi;3-4-3;Mkhitaryan;NO;1
+14;FC bianchi;3-4-3;Zapata D.;NO;2
+14;FC bianchi;3-4-3;McKennie;NO;3
+14;FC bianchi;3-4-3;Vasquez;NO;4
+14;FC bianchi;3-4-3;Scalvini;NO;5
+14;FC bianchi;3-4-3;Thuram K.;NO;6
+14;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;7
+14;FC bianchi;3-4-3;Baschirotto;NO;8
+14;FC bianchi;3-4-3;Diego Carlos;NO;9
+14;FC bianchi;3-4-3;Rovella;NO;10
+14;FC bianchi;3-4-3;Contini;NO;11
+14;FC bianchi;3-4-3;Vardy;NO;12
+14;FC bianchi;3-4-3;Dodò;NO;13
+14;FC bianchi;3-4-3;Davis K.;NO;14
+14;Sinuoso;3-4-3;Martinez Jo.;SI;0
+14;Sinuoso;3-4-3;Mancini;SI;0
+14;Sinuoso;3-4-3;Olivera;SI;0
+14;Sinuoso;3-4-3;Spinazzola;SI;0
+14;Sinuoso;3-4-3;De Roon;SI;0
+14;Sinuoso;3-4-3;Calhanoglu;SI;0
+14;Sinuoso;3-4-3;Ricci S.;SI;0
+14;Sinuoso;3-4-3;Vlasic;SI;0
+14;Sinuoso;3-4-3;Laurientè;SI;0
+14;Sinuoso;3-4-3;Douvikas;SI;0
+14;Sinuoso;3-4-3;Esposito F.P.;SI;0
+14;Sinuoso;3-4-3;Martinez L.;NO;1
+14;Sinuoso;3-4-3;Heggem;NO;2
+14;Sinuoso;3-4-3;Thorstvedt;NO;3
+14;Sinuoso;3-4-3;Vergara;NO;4
+14;Sinuoso;3-4-3;Di Gennaro;NO;5
+14;Sinuoso;3-4-3;Conceicao;NO;6
+14;Sinuoso;3-4-3;Sommer;NO;7
+14;Sinuoso;3-4-3;Darmian;NO;8
+14;Sinuoso;3-4-3;Bastoni;NO;9
+14;Sinuoso;3-4-3;Holm;NO;10
+14;Sinuoso;3-4-3;Locatelli;NO;11
+14;Sinuoso;3-4-3;Nkunku;NO;12
+14;Sinuoso;3-4-3;Caracciolo A.;NO;13
+14;Sinuoso;3-4-3;Nzola;NO;14
+14;Makumba FC;3-4-3;Di Gregorio;SI;0
+14;Makumba FC;3-4-3;Dimarco;SI;0
+14;Makumba FC;3-4-3;Zappacosta;SI;0
+14;Makumba FC;3-4-3;Estupinan;SI;0
+14;Makumba FC;3-4-3;Politano;SI;0
+14;Makumba FC;3-4-3;Zielinski;SI;0
+14;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+14;Makumba FC;3-4-3;Rowe;SI;0
+14;Makumba FC;3-4-3;Orban G.;SI;0
+14;Makumba FC;3-4-3;Adams C.;SI;0
+14;Makumba FC;3-4-3;Pinamonti;SI;0
+14;Makumba FC;3-4-3;Fofana Y.;NO;1
+14;Makumba FC;3-4-3;Bellanova;NO;2
+14;Makumba FC;3-4-3;Pavlovic;NO;3
+14;Makumba FC;3-4-3;Gabbia;NO;4
+14;Makumba FC;3-4-3;Perin;NO;5
+14;Makumba FC;3-4-3;Piccoli;NO;6
+14;Makumba FC;3-4-3;Taylor K.;NO;7
+14;Makumba FC;3-4-3;Pulisic;NO;8
+14;Makumba FC;3-4-3;Rodriguez Je.;NO;9
+14;Makumba FC;3-4-3;Mandragora;NO;10
+14;Makumba FC;3-4-3;Bartesaghi;NO;11
+14;Makumba FC;3-4-3;Skorupski;NO;12
+14;Makumba FC;3-4-3;Kean;NO;13
+14;Makumba FC;3-4-3;Tomori;NO;14
+14;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+14;Nhamass dstrunz;3-4-3;Valle;SI;0
+14;Nhamass dstrunz;3-4-3;Celik;SI;0
+14;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+14;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+14;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+14;Nhamass dstrunz;3-4-3;Perrone;SI;0
+14;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+14;Nhamass dstrunz;3-4-3;Soulè;SI;0
+14;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+14;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+14;Nhamass dstrunz;3-4-3;Dybala;NO;1
+14;Nhamass dstrunz;3-4-3;Carnesecchi;NO;2
+14;Nhamass dstrunz;3-4-3;Kelly L.;NO;3
+14;Nhamass dstrunz;3-4-3;Ramon;NO;4
+14;Nhamass dstrunz;3-4-3;Tavares N.;NO;5
+14;Nhamass dstrunz;3-4-3;Tourè I.;NO;6
+14;Nhamass dstrunz;3-4-3;Kilicsoy;NO;7
+14;Nhamass dstrunz;3-4-3;Zaccagni;NO;8
+14;Nhamass dstrunz;3-4-3;Berardi;NO;9
+14;Nhamass dstrunz;3-4-3;Kempf;NO;10
+14;Nhamass dstrunz;3-4-3;Rrahmani;NO;11
+14;Nhamass dstrunz;3-4-3;Konè I.;NO;12
+14;Nhamass dstrunz;3-4-3;Da Cunha;NO;13
+14;Nhamass dstrunz;3-4-3;Sportiello;NO;14
+14;Reazione di Mallard;3-4-3;Caprile;SI;0
+14;Reazione di Mallard;3-4-3;Doig;SI;0
+14;Reazione di Mallard;3-4-3;Wesley;SI;0
+14;Reazione di Mallard;3-4-3;Lucumì;SI;0
+14;Reazione di Mallard;3-4-3;Matic;SI;0
+14;Reazione di Mallard;3-4-3;Atta;SI;0
+14;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+14;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+14;Reazione di Mallard;3-4-3;Lukaku;SI;0
+14;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+14;Reazione di Mallard;3-4-3;David;SI;0
+14;Reazione di Mallard;3-4-3;Vitinha O.;NO;1
+14;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;2
+14;Reazione di Mallard;3-4-3;Baturina;NO;3
+14;Reazione di Mallard;3-4-3;Butez;NO;4
+14;Reazione di Mallard;3-4-3;Coco;NO;5
+14;Reazione di Mallard;3-4-3;Hien;NO;6
+14;Reazione di Mallard;3-4-3;Martin;NO;7
+14;Reazione di Mallard;3-4-3;Solet;NO;8
+14;Reazione di Mallard;3-4-3;Rabiot;NO;9
+14;Reazione di Mallard;3-4-3;Provedel;NO;10
+14;Reazione di Mallard;3-4-3;Cristante;NO;11
+14;Reazione di Mallard;3-4-3;Gosens;NO;12
+14;Reazione di Mallard;3-4-3;Simeone;NO;13
+14;Reazione di Mallard;3-4-3;Solomon;NO;14
+14;Vietato Sognare FC;3-4-3;Muric;SI;0
+14;Vietato Sognare FC;3-4-3;Dumfries;SI;0
+14;Vietato Sognare FC;3-4-3;Maripan;SI;0
+14;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+14;Vietato Sognare FC;3-4-3;Modric;SI;0
+14;Vietato Sognare FC;3-4-3;Maldini;SI;0
+14;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+14;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+14;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+14;Vietato Sognare FC;3-4-3;Moreo;SI;0
+14;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+14;Vietato Sognare FC;3-4-3;Bremer;NO;1
+14;Vietato Sognare FC;3-4-3;Casadei;NO;2
+14;Vietato Sognare FC;3-4-3;Zortea;NO;3
+14;Vietato Sognare FC;3-4-3;Hojlund;NO;4
+14;Vietato Sognare FC;3-4-3;Kristensen T.;NO;5
+14;Vietato Sognare FC;3-4-3;Ratkov;NO;6
+14;Vietato Sognare FC;3-4-3;Zalewski;NO;7
+14;Vietato Sognare FC;3-4-3;Svilar;NO;8
+14;Vietato Sognare FC;3-4-3;Gollini;NO;9
+14;Vietato Sognare FC;3-4-3;Malen;NO;10
+14;Vietato Sognare FC;3-4-3;Bernabè;NO;11
+14;Vietato Sognare FC;3-4-3;Santos A.;NO;12
+14;Vietato Sognare FC;3-4-3;Muharemovic;NO;13
+14;Vietato Sognare FC;3-4-3;Valeri;NO;14
+15;ARCORE FC;3-4-3;Falcone;SI;0
+15;ARCORE FC;3-4-3;Cambiaso;SI;0
+15;ARCORE FC;3-4-3;Cuadrado;SI;0
+15;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+15;ARCORE FC;3-4-3;McTominay;SI;0
+15;ARCORE FC;3-4-3;Konè M.;SI;0
+15;ARCORE FC;3-4-3;Cataldi;SI;0
+15;ARCORE FC;3-4-3;Sucic P.;SI;0
+15;ARCORE FC;3-4-3;Pedro;SI;0
+15;ARCORE FC;3-4-3;Colombo;SI;0
+15;ARCORE FC;3-4-3;Bonny;SI;0
+15;ARCORE FC;3-4-3;Audero;NO;1
+15;ARCORE FC;3-4-3;Esposito Se.;NO;2
+15;ARCORE FC;3-4-3;Okoye;NO;3
+15;ARCORE FC;3-4-3;Sanabria;NO;4
+15;ARCORE FC;3-4-3;Akanji;NO;5
+15;ARCORE FC;3-4-3;Zaragoza;NO;6
+15;ARCORE FC;3-4-3;Tramoni M.;NO;7
+15;ARCORE FC;3-4-3;Orsolini;NO;8
+15;ARCORE FC;3-4-3;Thuram;NO;9
+15;ARCORE FC;3-4-3;De Winter;NO;10
+15;ARCORE FC;3-4-3;Ostigard;NO;11
+15;ARCORE FC;3-4-3;Thorsby;NO;12
+15;ARCORE FC;3-4-3;N'Dicka;NO;13
+15;ARCORE FC;3-4-3;Bisseck;NO;14
+15;FC San Marco Evangelista;3-4-3;Suzuki;SI;0
+15;FC San Marco Evangelista;3-4-3;Palestra;SI;0
+15;FC San Marco Evangelista;3-4-3;Gila;SI;0
+15;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+15;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+15;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+15;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+15;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+15;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+15;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+15;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+15;FC San Marco Evangelista;3-4-3;Boga;NO;1
+15;FC San Marco Evangelista;3-4-3;Brescianini;NO;2
+15;FC San Marco Evangelista;3-4-3;Cancellieri;NO;3
+15;FC San Marco Evangelista;3-4-3;Barella;NO;4
+15;FC San Marco Evangelista;3-4-3;Delprato;NO;5
+15;FC San Marco Evangelista;3-4-3;Maignan;NO;6
+15;FC San Marco Evangelista;3-4-3;Iling Junior;NO;7
+15;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;8
+15;FC San Marco Evangelista;3-4-3;Circati;NO;9
+15;FC San Marco Evangelista;3-4-3;Yildiz;NO;10
+15;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;11
+15;FC San Marco Evangelista;3-4-3;Kalulu;NO;12
+15;FC San Marco Evangelista;3-4-3;Miretti;NO;13
+15;FC San Marco Evangelista;3-4-3;Terracciano;NO;14
+15;FC bianchi;3-4-3;Contini;SI;0
+15;FC bianchi;3-4-3;Vasquez;SI;0
+15;FC bianchi;3-4-3;Comuzzo;SI;0
+15;FC bianchi;3-4-3;Scalvini;SI;0
+15;FC bianchi;3-4-3;Thuram K.;SI;0
+15;FC bianchi;3-4-3;Rovella;SI;0
+15;FC bianchi;3-4-3;Strefezza;SI;0
+15;FC bianchi;3-4-3;Isaksen;SI;0
+15;FC bianchi;3-4-3;Raspadori;SI;0
+15;FC bianchi;3-4-3;Vardy;SI;0
+15;FC bianchi;3-4-3;Fullkrug;SI;0
+15;FC bianchi;3-4-3;Harroui;NO;1
+15;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;2
+15;FC bianchi;3-4-3;Diego Carlos;NO;3
+15;FC bianchi;3-4-3;Dodò;NO;4
+15;FC bianchi;3-4-3;Baschirotto;NO;5
+15;FC bianchi;3-4-3;McKennie;NO;6
+15;FC bianchi;3-4-3;Mina;NO;7
+15;FC bianchi;3-4-3;Meret;NO;8
+15;FC bianchi;3-4-3;Leao;NO;9
+15;FC bianchi;3-4-3;Mkhitaryan;NO;10
+15;FC bianchi;3-4-3;Sottil;NO;11
+15;FC bianchi;3-4-3;Zapata D.;NO;12
+15;FC bianchi;3-4-3;Davis K.;NO;13
+15;FC bianchi;3-4-3;Romagnoli;NO;14
+15;Sinuoso;3-4-3;Di Gennaro;SI;0
+15;Sinuoso;3-4-3;Mancini;SI;0
+15;Sinuoso;3-4-3;Spinazzola;SI;0
+15;Sinuoso;3-4-3;Holm;SI;0
+15;Sinuoso;3-4-3;Calhanoglu;SI;0
+15;Sinuoso;3-4-3;De Roon;SI;0
+15;Sinuoso;3-4-3;Locatelli;SI;0
+15;Sinuoso;3-4-3;Vlasic;SI;0
+15;Sinuoso;3-4-3;Laurientè;SI;0
+15;Sinuoso;3-4-3;Nzola;SI;0
+15;Sinuoso;3-4-3;Martinez L.;SI;0
+15;Sinuoso;3-4-3;Martinez Jo.;NO;1
+15;Sinuoso;3-4-3;Bastoni;NO;2
+15;Sinuoso;3-4-3;Heggem;NO;3
+15;Sinuoso;3-4-3;Caracciolo A.;NO;4
+15;Sinuoso;3-4-3;Olivera;NO;5
+15;Sinuoso;3-4-3;Darmian;NO;6
+15;Sinuoso;3-4-3;Thorstvedt;NO;7
+15;Sinuoso;3-4-3;Sommer;NO;8
+15;Sinuoso;3-4-3;Nkunku;NO;9
+15;Sinuoso;3-4-3;Ricci S.;NO;10
+15;Sinuoso;3-4-3;Esposito F.P.;NO;11
+15;Sinuoso;3-4-3;Douvikas;NO;12
+15;Sinuoso;3-4-3;Vergara;NO;13
+15;Sinuoso;3-4-3;Conceicao;NO;14
+15;Makumba FC;3-4-3;Di Gregorio;SI;0
+15;Makumba FC;3-4-3;Bellanova;SI;0
+15;Makumba FC;3-4-3;Bartesaghi;SI;0
+15;Makumba FC;3-4-3;Gabbia;SI;0
+15;Makumba FC;3-4-3;Zielinski;SI;0
+15;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+15;Makumba FC;3-4-3;Fofana Y.;SI;0
+15;Makumba FC;3-4-3;Pulisic;SI;0
+15;Makumba FC;3-4-3;Kean;SI;0
+15;Makumba FC;3-4-3;Pinamonti;SI;0
+15;Makumba FC;3-4-3;Adams C.;SI;0
+15;Makumba FC;3-4-3;Politano;NO;1
+15;Makumba FC;3-4-3;Perin;NO;2
+15;Makumba FC;3-4-3;Skorupski;NO;3
+15;Makumba FC;3-4-3;Taylor K.;NO;4
+15;Makumba FC;3-4-3;Pavlovic;NO;5
+15;Makumba FC;3-4-3;Orban G.;NO;6
+15;Makumba FC;3-4-3;Estupinan;NO;7
+15;Makumba FC;3-4-3;Tomori;NO;8
+15;Makumba FC;3-4-3;Rodriguez Je.;NO;9
+15;Makumba FC;3-4-3;Rowe;NO;10
+15;Makumba FC;3-4-3;Piccoli;NO;11
+15;Makumba FC;3-4-3;Zappacosta;NO;12
+15;Makumba FC;3-4-3;Dimarco;NO;13
+15;Makumba FC;3-4-3;Mandragora;NO;14
+15;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+15;Nhamass dstrunz;3-4-3;Kempf;SI;0
+15;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+15;Nhamass dstrunz;3-4-3;Celik;SI;0
+15;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+15;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+15;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+15;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+15;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+15;Nhamass dstrunz;3-4-3;Dybala;SI;0
+15;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+15;Nhamass dstrunz;3-4-3;Tavares N.;NO;1
+15;Nhamass dstrunz;3-4-3;Rrahmani;NO;2
+15;Nhamass dstrunz;3-4-3;Berardi;NO;3
+15;Nhamass dstrunz;3-4-3;Kossounou;NO;4
+15;Nhamass dstrunz;3-4-3;Konè I.;NO;5
+15;Nhamass dstrunz;3-4-3;Bijlow;NO;6
+15;Nhamass dstrunz;3-4-3;Valle;NO;7
+15;Nhamass dstrunz;3-4-3;Tourè I.;NO;8
+15;Nhamass dstrunz;3-4-3;Sportiello;NO;9
+15;Nhamass dstrunz;3-4-3;Pasalic;NO;10
+15;Nhamass dstrunz;3-4-3;Perrone;NO;11
+15;Nhamass dstrunz;3-4-3;Scamacca;NO;12
+15;Nhamass dstrunz;3-4-3;Soulè;NO;13
+15;Nhamass dstrunz;3-4-3;Ramon;NO;14
+15;Reazione di Mallard;3-4-3;Butez;SI;0
+15;Reazione di Mallard;3-4-3;Martin;SI;0
+15;Reazione di Mallard;3-4-3;Hien;SI;0
+15;Reazione di Mallard;3-4-3;Gosens;SI;0
+15;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+15;Reazione di Mallard;3-4-3;Rabiot;SI;0
+15;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+15;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+15;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+15;Reazione di Mallard;3-4-3;David;SI;0
+15;Reazione di Mallard;3-4-3;Simeone;SI;0
+15;Reazione di Mallard;3-4-3;Lucumì;NO;1
+15;Reazione di Mallard;3-4-3;Lukaku;NO;2
+15;Reazione di Mallard;3-4-3;Solet;NO;3
+15;Reazione di Mallard;3-4-3;Durosinmi;NO;4
+15;Reazione di Mallard;3-4-3;Solomon;NO;5
+15;Reazione di Mallard;3-4-3;Cristante;NO;6
+15;Reazione di Mallard;3-4-3;Wesley;NO;7
+15;Reazione di Mallard;3-4-3;Doig;NO;8
+15;Reazione di Mallard;3-4-3;Provedel;NO;9
+15;Reazione di Mallard;3-4-3;Atta;NO;10
+15;Reazione di Mallard;3-4-3;Matic;NO;11
+15;Reazione di Mallard;3-4-3;Coco;NO;12
+15;Reazione di Mallard;3-4-3;Baturina;NO;13
+15;Reazione di Mallard;3-4-3;Caprile;NO;14
+15;Vietato Sognare FC;3-4-3;Svilar;SI;0
+15;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+15;Vietato Sognare FC;3-4-3;Bremer;SI;0
+15;Vietato Sognare FC;3-4-3;Maripan;SI;0
+15;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+15;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+15;Vietato Sognare FC;3-4-3;Modric;SI;0
+15;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+15;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+15;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+15;Vietato Sognare FC;3-4-3;Malen;SI;0
+15;Vietato Sognare FC;3-4-3;Santos A.;NO;1
+15;Vietato Sognare FC;3-4-3;Valeri;NO;2
+15;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;3
+15;Vietato Sognare FC;3-4-3;Casadei;NO;4
+15;Vietato Sognare FC;3-4-3;Dumfries;NO;5
+15;Vietato Sognare FC;3-4-3;Ratkov;NO;6
+15;Vietato Sognare FC;3-4-3;Gollini;NO;7
+15;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;8
+15;Vietato Sognare FC;3-4-3;Maldini;NO;9
+15;Vietato Sognare FC;3-4-3;Muric;NO;10
+15;Vietato Sognare FC;3-4-3;Zortea;NO;11
+15;Vietato Sognare FC;3-4-3;Bonazzoli;NO;12
+15;Vietato Sognare FC;3-4-3;Moreo;NO;13
+15;Vietato Sognare FC;3-4-3;Muharemovic;NO;14
+16;ARCORE FC;3-4-3;Okoye;SI;0
+16;ARCORE FC;3-4-3;Ostigard;SI;0
+16;ARCORE FC;3-4-3;Bisseck;SI;0
+16;ARCORE FC;3-4-3;Akanji;SI;0
+16;ARCORE FC;3-4-3;Cataldi;SI;0
+16;ARCORE FC;3-4-3;Konè M.;SI;0
+16;ARCORE FC;3-4-3;Thorsby;SI;0
+16;ARCORE FC;3-4-3;McTominay;SI;0
+16;ARCORE FC;3-4-3;Thuram;SI;0
+16;ARCORE FC;3-4-3;Pedro;SI;0
+16;ARCORE FC;3-4-3;Esposito Se.;SI;0
+16;ARCORE FC;3-4-3;Di Lorenzo;NO;1
+16;ARCORE FC;3-4-3;Audero;NO;2
+16;ARCORE FC;3-4-3;Cambiaso;NO;3
+16;ARCORE FC;3-4-3;Orsolini;NO;4
+16;ARCORE FC;3-4-3;Sucic P.;NO;5
+16;ARCORE FC;3-4-3;N'Dicka;NO;6
+16;ARCORE FC;3-4-3;Bonny;NO;7
+16;ARCORE FC;3-4-3;Falcone;NO;8
+16;ARCORE FC;3-4-3;Sanabria;NO;9
+16;ARCORE FC;3-4-3;Zaragoza;NO;10
+16;ARCORE FC;3-4-3;Cuadrado;NO;11
+16;ARCORE FC;3-4-3;Colombo;NO;12
+16;ARCORE FC;3-4-3;De Winter;NO;13
+16;ARCORE FC;3-4-3;Tramoni M.;NO;14
+16;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+16;FC San Marco Evangelista;3-4-3;Circati;SI;0
+16;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+16;FC San Marco Evangelista;3-4-3;Gila;SI;0
+16;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+16;FC San Marco Evangelista;3-4-3;Iling Junior;SI;0
+16;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+16;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+16;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+16;FC San Marco Evangelista;3-4-3;Boga;SI;0
+16;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+16;FC San Marco Evangelista;3-4-3;Palestra;NO;1
+16;FC San Marco Evangelista;3-4-3;Dele-Bashiru;NO;2
+16;FC San Marco Evangelista;3-4-3;Cancellieri;NO;3
+16;FC San Marco Evangelista;3-4-3;Miretti;NO;4
+16;FC San Marco Evangelista;3-4-3;Kalulu;NO;5
+16;FC San Marco Evangelista;3-4-3;Odgaard;NO;6
+16;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;7
+16;FC San Marco Evangelista;3-4-3;Buongiorno;NO;8
+16;FC San Marco Evangelista;3-4-3;Suzuki;NO;9
+16;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;10
+16;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;11
+16;FC San Marco Evangelista;3-4-3;Barella;NO;12
+16;FC San Marco Evangelista;3-4-3;Delprato;NO;13
+16;FC San Marco Evangelista;3-4-3;Maignan;NO;14
+16;FC bianchi;3-4-3;Meret;SI;0
+16;FC bianchi;3-4-3;Romagnoli;SI;0
+16;FC bianchi;3-4-3;Comuzzo;SI;0
+16;FC bianchi;3-4-3;Mina;SI;0
+16;FC bianchi;3-4-3;Sottil;SI;0
+16;FC bianchi;3-4-3;McKennie;SI;0
+16;FC bianchi;3-4-3;Harroui;SI;0
+16;FC bianchi;3-4-3;Rovella;SI;0
+16;FC bianchi;3-4-3;Raspadori;SI;0
+16;FC bianchi;3-4-3;Zapata D.;SI;0
+16;FC bianchi;3-4-3;Fullkrug;SI;0
+16;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;1
+16;FC bianchi;3-4-3;Mkhitaryan;NO;2
+16;FC bianchi;3-4-3;Leao;NO;3
+16;FC bianchi;3-4-3;Scalvini;NO;4
+16;FC bianchi;3-4-3;Vardy;NO;5
+16;FC bianchi;3-4-3;Thuram K.;NO;6
+16;FC bianchi;3-4-3;Baschirotto;NO;7
+16;FC bianchi;3-4-3;Diego Carlos;NO;8
+16;FC bianchi;3-4-3;Isaksen;NO;9
+16;FC bianchi;3-4-3;Vasquez;NO;10
+16;FC bianchi;3-4-3;Strefezza;NO;11
+16;FC bianchi;3-4-3;Contini;NO;12
+16;FC bianchi;3-4-3;Davis K.;NO;13
+16;FC bianchi;3-4-3;Dodò;NO;14
+16;Sinuoso;3-4-3;Sommer;SI;0
+16;Sinuoso;3-4-3;Heggem;SI;0
+16;Sinuoso;3-4-3;Bastoni;SI;0
+16;Sinuoso;3-4-3;Spinazzola;SI;0
+16;Sinuoso;3-4-3;Calhanoglu;SI;0
+16;Sinuoso;3-4-3;Ricci S.;SI;0
+16;Sinuoso;3-4-3;Vergara;SI;0
+16;Sinuoso;3-4-3;Conceicao;SI;0
+16;Sinuoso;3-4-3;Nzola;SI;0
+16;Sinuoso;3-4-3;Laurientè;SI;0
+16;Sinuoso;3-4-3;Martinez L.;SI;0
+16;Sinuoso;3-4-3;Locatelli;NO;1
+16;Sinuoso;3-4-3;Douvikas;NO;2
+16;Sinuoso;3-4-3;Esposito F.P.;NO;3
+16;Sinuoso;3-4-3;Olivera;NO;4
+16;Sinuoso;3-4-3;Caracciolo A.;NO;5
+16;Sinuoso;3-4-3;Martinez Jo.;NO;6
+16;Sinuoso;3-4-3;Di Gennaro;NO;7
+16;Sinuoso;3-4-3;Vlasic;NO;8
+16;Sinuoso;3-4-3;Nkunku;NO;9
+16;Sinuoso;3-4-3;De Roon;NO;10
+16;Sinuoso;3-4-3;Thorstvedt;NO;11
+16;Sinuoso;3-4-3;Mancini;NO;12
+16;Sinuoso;3-4-3;Darmian;NO;13
+16;Sinuoso;3-4-3;Holm;NO;14
+16;Makumba FC;3-4-3;Di Gregorio;SI;0
+16;Makumba FC;3-4-3;Estupinan;SI;0
+16;Makumba FC;3-4-3;Bartesaghi;SI;0
+16;Makumba FC;3-4-3;Gabbia;SI;0
+16;Makumba FC;3-4-3;Taylor K.;SI;0
+16;Makumba FC;3-4-3;Mandragora;SI;0
+16;Makumba FC;3-4-3;Pulisic;SI;0
+16;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+16;Makumba FC;3-4-3;Kean;SI;0
+16;Makumba FC;3-4-3;Piccoli;SI;0
+16;Makumba FC;3-4-3;Adams C.;SI;0
+16;Makumba FC;3-4-3;Skorupski;NO;1
+16;Makumba FC;3-4-3;Rodriguez Je.;NO;2
+16;Makumba FC;3-4-3;Tomori;NO;3
+16;Makumba FC;3-4-3;Perin;NO;4
+16;Makumba FC;3-4-3;Orban G.;NO;5
+16;Makumba FC;3-4-3;Rowe;NO;6
+16;Makumba FC;3-4-3;Politano;NO;7
+16;Makumba FC;3-4-3;Pavlovic;NO;8
+16;Makumba FC;3-4-3;Dimarco;NO;9
+16;Makumba FC;3-4-3;Bellanova;NO;10
+16;Makumba FC;3-4-3;Zielinski;NO;11
+16;Makumba FC;3-4-3;Zappacosta;NO;12
+16;Makumba FC;3-4-3;Pinamonti;NO;13
+16;Makumba FC;3-4-3;Fofana Y.;NO;14
+16;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+16;Nhamass dstrunz;3-4-3;Ramon;SI;0
+16;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+16;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+16;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+16;Nhamass dstrunz;3-4-3;Perrone;SI;0
+16;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+16;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+16;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+16;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+16;Nhamass dstrunz;3-4-3;Dybala;SI;0
+16;Nhamass dstrunz;3-4-3;Sportiello;NO;1
+16;Nhamass dstrunz;3-4-3;Malinovskyi;NO;2
+16;Nhamass dstrunz;3-4-3;Celik;NO;3
+16;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;4
+16;Nhamass dstrunz;3-4-3;Valle;NO;5
+16;Nhamass dstrunz;3-4-3;Tourè I.;NO;6
+16;Nhamass dstrunz;3-4-3;Kempf;NO;7
+16;Nhamass dstrunz;3-4-3;Bijlow;NO;8
+16;Nhamass dstrunz;3-4-3;Kelly L.;NO;9
+16;Nhamass dstrunz;3-4-3;Scamacca;NO;10
+16;Nhamass dstrunz;3-4-3;Tavares N.;NO;11
+16;Nhamass dstrunz;3-4-3;Soulè;NO;12
+16;Nhamass dstrunz;3-4-3;Zaccagni;NO;13
+16;Nhamass dstrunz;3-4-3;Berardi;NO;14
+16;Reazione di Mallard;3-4-3;Provedel;SI;0
+16;Reazione di Mallard;3-4-3;Hien;SI;0
+16;Reazione di Mallard;3-4-3;Coco;SI;0
+16;Reazione di Mallard;3-4-3;Martin;SI;0
+16;Reazione di Mallard;3-4-3;Atta;SI;0
+16;Reazione di Mallard;3-4-3;Baturina;SI;0
+16;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+16;Reazione di Mallard;3-4-3;Cristante;SI;0
+16;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+16;Reazione di Mallard;3-4-3;Solomon;SI;0
+16;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+16;Reazione di Mallard;3-4-3;Butez;NO;1
+16;Reazione di Mallard;3-4-3;Solet;NO;2
+16;Reazione di Mallard;3-4-3;Doig;NO;3
+16;Reazione di Mallard;3-4-3;Rabiot;NO;4
+16;Reazione di Mallard;3-4-3;Lucumì;NO;5
+16;Reazione di Mallard;3-4-3;Gosens;NO;6
+16;Reazione di Mallard;3-4-3;David;NO;7
+16;Reazione di Mallard;3-4-3;Caprile;NO;8
+16;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;9
+16;Reazione di Mallard;3-4-3;Lukaku;NO;10
+16;Reazione di Mallard;3-4-3;Simeone;NO;11
+16;Reazione di Mallard;3-4-3;Matic;NO;12
+16;Reazione di Mallard;3-4-3;Wesley;NO;13
+16;Reazione di Mallard;3-4-3;Ederson D.S.;NO;14
+16;Vietato Sognare FC;3-4-3;Svilar;SI;0
+16;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+16;Vietato Sognare FC;3-4-3;Zortea;SI;0
+16;Vietato Sognare FC;3-4-3;Muharemovic;SI;0
+16;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+16;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+16;Vietato Sognare FC;3-4-3;Casadei;SI;0
+16;Vietato Sognare FC;3-4-3;Maldini;SI;0
+16;Vietato Sognare FC;3-4-3;Malen;SI;0
+16;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+16;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+16;Vietato Sognare FC;3-4-3;Castro S.;NO;1
+16;Vietato Sognare FC;3-4-3;Ratkov;NO;2
+16;Vietato Sognare FC;3-4-3;Valeri;NO;3
+16;Vietato Sognare FC;3-4-3;Moreo;NO;4
+16;Vietato Sognare FC;3-4-3;Kristensen T.;NO;5
+16;Vietato Sognare FC;3-4-3;Bremer;NO;6
+16;Vietato Sognare FC;3-4-3;Modric;NO;7
+16;Vietato Sognare FC;3-4-3;Santos A.;NO;8
+16;Vietato Sognare FC;3-4-3;Bernabè;NO;9
+16;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;10
+16;Vietato Sognare FC;3-4-3;Maripan;NO;11
+16;Vietato Sognare FC;3-4-3;Dumfries;NO;12
+16;Vietato Sognare FC;3-4-3;Muric;NO;13
+16;Vietato Sognare FC;3-4-3;Gollini;NO;14
+17;ARCORE FC;3-4-3;Falcone;SI;0
+17;ARCORE FC;3-4-3;Cuadrado;SI;0
+17;ARCORE FC;3-4-3;N'Dicka;SI;0
+17;ARCORE FC;3-4-3;Bisseck;SI;0
+17;ARCORE FC;3-4-3;Tramoni M.;SI;0
+17;ARCORE FC;3-4-3;McTominay;SI;0
+17;ARCORE FC;3-4-3;Cataldi;SI;0
+17;ARCORE FC;3-4-3;Konè M.;SI;0
+17;ARCORE FC;3-4-3;Bonny;SI;0
+17;ARCORE FC;3-4-3;Pedro;SI;0
+17;ARCORE FC;3-4-3;Esposito Se.;SI;0
+17;ARCORE FC;3-4-3;Di Lorenzo;NO;1
+17;ARCORE FC;3-4-3;Zaragoza;NO;2
+17;ARCORE FC;3-4-3;Okoye;NO;3
+17;ARCORE FC;3-4-3;Colombo;NO;4
+17;ARCORE FC;3-4-3;Ostigard;NO;5
+17;ARCORE FC;3-4-3;Audero;NO;6
+17;ARCORE FC;3-4-3;Sucic P.;NO;7
+17;ARCORE FC;3-4-3;Thuram;NO;8
+17;ARCORE FC;3-4-3;Sanabria;NO;9
+17;ARCORE FC;3-4-3;Thorsby;NO;10
+17;ARCORE FC;3-4-3;Akanji;NO;11
+17;ARCORE FC;3-4-3;Orsolini;NO;12
+17;ARCORE FC;3-4-3;De Winter;NO;13
+17;ARCORE FC;3-4-3;Cambiaso;NO;14
+17;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+17;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+17;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+17;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+17;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+17;FC San Marco Evangelista;3-4-3;Barella;SI;0
+17;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+17;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+17;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+17;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+17;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+17;FC San Marco Evangelista;3-4-3;Paz N.;NO;1
+17;FC San Marco Evangelista;3-4-3;Gila;NO;2
+17;FC San Marco Evangelista;3-4-3;Terracciano;NO;3
+17;FC San Marco Evangelista;3-4-3;Iling Junior;NO;4
+17;FC San Marco Evangelista;3-4-3;Brescianini;NO;5
+17;FC San Marco Evangelista;3-4-3;Suzuki;NO;6
+17;FC San Marco Evangelista;3-4-3;Kalulu;NO;7
+17;FC San Marco Evangelista;3-4-3;Palestra;NO;8
+17;FC San Marco Evangelista;3-4-3;Boga;NO;9
+17;FC San Marco Evangelista;3-4-3;Circati;NO;10
+17;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;11
+17;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;12
+17;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;13
+17;FC San Marco Evangelista;3-4-3;Miretti;NO;14
+17;FC bianchi;3-4-3;Milinkovic-Savic V.;SI;0
+17;FC bianchi;3-4-3;Romagnoli;SI;0
+17;FC bianchi;3-4-3;Baschirotto;SI;0
+17;FC bianchi;3-4-3;Scalvini;SI;0
+17;FC bianchi;3-4-3;Strefezza;SI;0
+17;FC bianchi;3-4-3;Isaksen;SI;0
+17;FC bianchi;3-4-3;McKennie;SI;0
+17;FC bianchi;3-4-3;Harroui;SI;0
+17;FC bianchi;3-4-3;Raspadori;SI;0
+17;FC bianchi;3-4-3;Zapata D.;SI;0
+17;FC bianchi;3-4-3;Vardy;SI;0
+17;FC bianchi;3-4-3;Dodò;NO;1
+17;FC bianchi;3-4-3;Leao;NO;2
+17;FC bianchi;3-4-3;Meret;NO;3
+17;FC bianchi;3-4-3;Davis K.;NO;4
+17;FC bianchi;3-4-3;Sottil;NO;5
+17;FC bianchi;3-4-3;Comuzzo;NO;6
+17;FC bianchi;3-4-3;Mkhitaryan;NO;7
+17;FC bianchi;3-4-3;Diego Carlos;NO;8
+17;FC bianchi;3-4-3;Thuram K.;NO;9
+17;FC bianchi;3-4-3;Rovella;NO;10
+17;FC bianchi;3-4-3;Contini;NO;11
+17;FC bianchi;3-4-3;Fullkrug;NO;12
+17;FC bianchi;3-4-3;Vasquez;NO;13
+17;FC bianchi;3-4-3;Mina;NO;14
+17;Sinuoso;3-4-3;Martinez Jo.;SI;0
+17;Sinuoso;3-4-3;Heggem;SI;0
+17;Sinuoso;3-4-3;Darmian;SI;0
+17;Sinuoso;3-4-3;Holm;SI;0
+17;Sinuoso;3-4-3;Thorstvedt;SI;0
+17;Sinuoso;3-4-3;Vlasic;SI;0
+17;Sinuoso;3-4-3;Ricci S.;SI;0
+17;Sinuoso;3-4-3;Conceicao;SI;0
+17;Sinuoso;3-4-3;Laurientè;SI;0
+17;Sinuoso;3-4-3;Douvikas;SI;0
+17;Sinuoso;3-4-3;Martinez L.;SI;0
+17;Sinuoso;3-4-3;Locatelli;NO;1
+17;Sinuoso;3-4-3;Olivera;NO;2
+17;Sinuoso;3-4-3;Bastoni;NO;3
+17;Sinuoso;3-4-3;Di Gennaro;NO;4
+17;Sinuoso;3-4-3;Vergara;NO;5
+17;Sinuoso;3-4-3;Nkunku;NO;6
+17;Sinuoso;3-4-3;Nzola;NO;7
+17;Sinuoso;3-4-3;Sommer;NO;8
+17;Sinuoso;3-4-3;Caracciolo A.;NO;9
+17;Sinuoso;3-4-3;Spinazzola;NO;10
+17;Sinuoso;3-4-3;Calhanoglu;NO;11
+17;Sinuoso;3-4-3;De Roon;NO;12
+17;Sinuoso;3-4-3;Esposito F.P.;NO;13
+17;Sinuoso;3-4-3;Mancini;NO;14
+17;Makumba FC;3-4-3;Skorupski;SI;0
+17;Makumba FC;3-4-3;Gabbia;SI;0
+17;Makumba FC;3-4-3;Bartesaghi;SI;0
+17;Makumba FC;3-4-3;Pavlovic;SI;0
+17;Makumba FC;3-4-3;Mandragora;SI;0
+17;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+17;Makumba FC;3-4-3;Pulisic;SI;0
+17;Makumba FC;3-4-3;Fofana Y.;SI;0
+17;Makumba FC;3-4-3;Adams C.;SI;0
+17;Makumba FC;3-4-3;Kean;SI;0
+17;Makumba FC;3-4-3;Orban G.;SI;0
+17;Makumba FC;3-4-3;Perin;NO;1
+17;Makumba FC;3-4-3;Bellanova;NO;2
+17;Makumba FC;3-4-3;Rodriguez Je.;NO;3
+17;Makumba FC;3-4-3;Tomori;NO;4
+17;Makumba FC;3-4-3;Di Gregorio;NO;5
+17;Makumba FC;3-4-3;Pinamonti;NO;6
+17;Makumba FC;3-4-3;Zappacosta;NO;7
+17;Makumba FC;3-4-3;Rowe;NO;8
+17;Makumba FC;3-4-3;Piccoli;NO;9
+17;Makumba FC;3-4-3;Politano;NO;10
+17;Makumba FC;3-4-3;Taylor K.;NO;11
+17;Makumba FC;3-4-3;Zielinski;NO;12
+17;Makumba FC;3-4-3;Dimarco;NO;13
+17;Makumba FC;3-4-3;Estupinan;NO;14
+17;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+17;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+17;Nhamass dstrunz;3-4-3;Ramon;SI;0
+17;Nhamass dstrunz;3-4-3;Kossounou;SI;0
+17;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+17;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+17;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+17;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+17;Nhamass dstrunz;3-4-3;Soulè;SI;0
+17;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+17;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+17;Nhamass dstrunz;3-4-3;Perrone;NO;1
+17;Nhamass dstrunz;3-4-3;Valle;NO;2
+17;Nhamass dstrunz;3-4-3;Tavares N.;NO;3
+17;Nhamass dstrunz;3-4-3;Carnesecchi;NO;4
+17;Nhamass dstrunz;3-4-3;Berardi;NO;5
+17;Nhamass dstrunz;3-4-3;Kelly L.;NO;6
+17;Nhamass dstrunz;3-4-3;Sportiello;NO;7
+17;Nhamass dstrunz;3-4-3;Celik;NO;8
+17;Nhamass dstrunz;3-4-3;Konè I.;NO;9
+17;Nhamass dstrunz;3-4-3;Dybala;NO;10
+17;Nhamass dstrunz;3-4-3;Scamacca;NO;11
+17;Nhamass dstrunz;3-4-3;Malinovskyi;NO;12
+17;Nhamass dstrunz;3-4-3;Tourè I.;NO;13
+17;Nhamass dstrunz;3-4-3;Kempf;NO;14
+17;Reazione di Mallard;3-4-3;Caprile;SI;0
+17;Reazione di Mallard;3-4-3;Lucumì;SI;0
+17;Reazione di Mallard;3-4-3;Hien;SI;0
+17;Reazione di Mallard;3-4-3;Doig;SI;0
+17;Reazione di Mallard;3-4-3;Matic;SI;0
+17;Reazione di Mallard;3-4-3;Atta;SI;0
+17;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+17;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+17;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+17;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+17;Reazione di Mallard;3-4-3;Simeone;SI;0
+17;Reazione di Mallard;3-4-3;Gosens;NO;1
+17;Reazione di Mallard;3-4-3;Cristante;NO;2
+17;Reazione di Mallard;3-4-3;Lukaku;NO;3
+17;Reazione di Mallard;3-4-3;David;NO;4
+17;Reazione di Mallard;3-4-3;Martin;NO;5
+17;Reazione di Mallard;3-4-3;Solomon;NO;6
+17;Reazione di Mallard;3-4-3;Wesley;NO;7
+17;Reazione di Mallard;3-4-3;Provedel;NO;8
+17;Reazione di Mallard;3-4-3;Baturina;NO;9
+17;Reazione di Mallard;3-4-3;Solet;NO;10
+17;Reazione di Mallard;3-4-3;Rabiot;NO;11
+17;Reazione di Mallard;3-4-3;Coco;NO;12
+17;Reazione di Mallard;3-4-3;Butez;NO;13
+17;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;14
+17;Vietato Sognare FC;3-4-3;Svilar;SI;0
+17;Vietato Sognare FC;3-4-3;Dumfries;SI;0
+17;Vietato Sognare FC;3-4-3;Maripan;SI;0
+17;Vietato Sognare FC;3-4-3;Bremer;SI;0
+17;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+17;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+17;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+17;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+17;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+17;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+17;Vietato Sognare FC;3-4-3;Moreo;SI;0
+17;Vietato Sognare FC;3-4-3;Modric;NO;1
+17;Vietato Sognare FC;3-4-3;Ratkov;NO;2
+17;Vietato Sognare FC;3-4-3;Gollini;NO;3
+17;Vietato Sognare FC;3-4-3;Maldini;NO;4
+17;Vietato Sognare FC;3-4-3;Casadei;NO;5
+17;Vietato Sognare FC;3-4-3;Muric;NO;6
+17;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;7
+17;Vietato Sognare FC;3-4-3;Zortea;NO;8
+17;Vietato Sognare FC;3-4-3;Muharemovic;NO;9
+17;Vietato Sognare FC;3-4-3;Kristensen T.;NO;10
+17;Vietato Sognare FC;3-4-3;Zalewski;NO;11
+17;Vietato Sognare FC;3-4-3;Malen;NO;12
+17;Vietato Sognare FC;3-4-3;Castro S.;NO;13
+17;Vietato Sognare FC;3-4-3;Valeri;NO;14
+18;ARCORE FC;3-4-3;Okoye;SI;0
+18;ARCORE FC;3-4-3;Cambiaso;SI;0
+18;ARCORE FC;3-4-3;Bisseck;SI;0
+18;ARCORE FC;3-4-3;Ostigard;SI;0
+18;ARCORE FC;3-4-3;Thorsby;SI;0
+18;ARCORE FC;3-4-3;Sucic P.;SI;0
+18;ARCORE FC;3-4-3;Konè M.;SI;0
+18;ARCORE FC;3-4-3;Zaragoza;SI;0
+18;ARCORE FC;3-4-3;Esposito Se.;SI;0
+18;ARCORE FC;3-4-3;Colombo;SI;0
+18;ARCORE FC;3-4-3;Bonny;SI;0
+18;ARCORE FC;3-4-3;Di Lorenzo;NO;1
+18;ARCORE FC;3-4-3;Pedro;NO;2
+18;ARCORE FC;3-4-3;Cataldi;NO;3
+18;ARCORE FC;3-4-3;Akanji;NO;4
+18;ARCORE FC;3-4-3;Sanabria;NO;5
+18;ARCORE FC;3-4-3;N'Dicka;NO;6
+18;ARCORE FC;3-4-3;McTominay;NO;7
+18;ARCORE FC;3-4-3;Audero;NO;8
+18;ARCORE FC;3-4-3;De Winter;NO;9
+18;ARCORE FC;3-4-3;Cuadrado;NO;10
+18;ARCORE FC;3-4-3;Falcone;NO;11
+18;ARCORE FC;3-4-3;Tramoni M.;NO;12
+18;ARCORE FC;3-4-3;Orsolini;NO;13
+18;ARCORE FC;3-4-3;Thuram;NO;14
+18;FC San Marco Evangelista;3-4-3;Suzuki;SI;0
+18;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+18;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+18;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+18;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+18;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+18;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+18;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+18;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+18;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+18;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+18;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;1
+18;FC San Marco Evangelista;3-4-3;Terracciano;NO;2
+18;FC San Marco Evangelista;3-4-3;Iling Junior;NO;3
+18;FC San Marco Evangelista;3-4-3;Cancellieri;NO;4
+18;FC San Marco Evangelista;3-4-3;Kalulu;NO;5
+18;FC San Marco Evangelista;3-4-3;Buongiorno;NO;6
+18;FC San Marco Evangelista;3-4-3;Circati;NO;7
+18;FC San Marco Evangelista;3-4-3;Gila;NO;8
+18;FC San Marco Evangelista;3-4-3;Yildiz;NO;9
+18;FC San Marco Evangelista;3-4-3;Boga;NO;10
+18;FC San Marco Evangelista;3-4-3;Paz N.;NO;11
+18;FC San Marco Evangelista;3-4-3;Maignan;NO;12
+18;FC San Marco Evangelista;3-4-3;Barella;NO;13
+18;FC San Marco Evangelista;3-4-3;Palestra;NO;14
+18;FC bianchi;3-4-3;Contini;SI;0
+18;FC bianchi;3-4-3;Diego Carlos;SI;0
+18;FC bianchi;3-4-3;Baschirotto;SI;0
+18;FC bianchi;3-4-3;Vasquez;SI;0
+18;FC bianchi;3-4-3;Thuram K.;SI;0
+18;FC bianchi;3-4-3;Harroui;SI;0
+18;FC bianchi;3-4-3;Mkhitaryan;SI;0
+18;FC bianchi;3-4-3;McKennie;SI;0
+18;FC bianchi;3-4-3;Raspadori;SI;0
+18;FC bianchi;3-4-3;Vardy;SI;0
+18;FC bianchi;3-4-3;Davis K.;SI;0
+18;FC bianchi;3-4-3;Romagnoli;NO;1
+18;FC bianchi;3-4-3;Meret;NO;2
+18;FC bianchi;3-4-3;Zapata D.;NO;3
+18;FC bianchi;3-4-3;Fullkrug;NO;4
+18;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;5
+18;FC bianchi;3-4-3;Comuzzo;NO;6
+18;FC bianchi;3-4-3;Rovella;NO;7
+18;FC bianchi;3-4-3;Strefezza;NO;8
+18;FC bianchi;3-4-3;Isaksen;NO;9
+18;FC bianchi;3-4-3;Dodò;NO;10
+18;FC bianchi;3-4-3;Scalvini;NO;11
+18;FC bianchi;3-4-3;Sottil;NO;12
+18;FC bianchi;3-4-3;Mina;NO;13
+18;FC bianchi;3-4-3;Leao;NO;14
+18;Sinuoso;3-4-3;Di Gennaro;SI;0
+18;Sinuoso;3-4-3;Bastoni;SI;0
+18;Sinuoso;3-4-3;Holm;SI;0
+18;Sinuoso;3-4-3;Mancini;SI;0
+18;Sinuoso;3-4-3;De Roon;SI;0
+18;Sinuoso;3-4-3;Vergara;SI;0
+18;Sinuoso;3-4-3;Locatelli;SI;0
+18;Sinuoso;3-4-3;Ricci S.;SI;0
+18;Sinuoso;3-4-3;Laurientè;SI;0
+18;Sinuoso;3-4-3;Martinez L.;SI;0
+18;Sinuoso;3-4-3;Esposito F.P.;SI;0
+18;Sinuoso;3-4-3;Douvikas;NO;1
+18;Sinuoso;3-4-3;Martinez Jo.;NO;2
+18;Sinuoso;3-4-3;Heggem;NO;3
+18;Sinuoso;3-4-3;Calhanoglu;NO;4
+18;Sinuoso;3-4-3;Vlasic;NO;5
+18;Sinuoso;3-4-3;Olivera;NO;6
+18;Sinuoso;3-4-3;Sommer;NO;7
+18;Sinuoso;3-4-3;Thorstvedt;NO;8
+18;Sinuoso;3-4-3;Nzola;NO;9
+18;Sinuoso;3-4-3;Darmian;NO;10
+18;Sinuoso;3-4-3;Conceicao;NO;11
+18;Sinuoso;3-4-3;Spinazzola;NO;12
+18;Sinuoso;3-4-3;Nkunku;NO;13
+18;Sinuoso;3-4-3;Caracciolo A.;NO;14
+18;Makumba FC;3-4-3;Di Gregorio;SI;0
+18;Makumba FC;3-4-3;Gabbia;SI;0
+18;Makumba FC;3-4-3;Dimarco;SI;0
+18;Makumba FC;3-4-3;Tomori;SI;0
+18;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+18;Makumba FC;3-4-3;Fofana Y.;SI;0
+18;Makumba FC;3-4-3;Rowe;SI;0
+18;Makumba FC;3-4-3;Politano;SI;0
+18;Makumba FC;3-4-3;Orban G.;SI;0
+18;Makumba FC;3-4-3;Pinamonti;SI;0
+18;Makumba FC;3-4-3;Adams C.;SI;0
+18;Makumba FC;3-4-3;Pavlovic;NO;1
+18;Makumba FC;3-4-3;Mandragora;NO;2
+18;Makumba FC;3-4-3;Taylor K.;NO;3
+18;Makumba FC;3-4-3;Estupinan;NO;4
+18;Makumba FC;3-4-3;Pulisic;NO;5
+18;Makumba FC;3-4-3;Bartesaghi;NO;6
+18;Makumba FC;3-4-3;Rodriguez Je.;NO;7
+18;Makumba FC;3-4-3;Kean;NO;8
+18;Makumba FC;3-4-3;Piccoli;NO;9
+18;Makumba FC;3-4-3;Zappacosta;NO;10
+18;Makumba FC;3-4-3;Perin;NO;11
+18;Makumba FC;3-4-3;Zielinski;NO;12
+18;Makumba FC;3-4-3;Bellanova;NO;13
+18;Makumba FC;3-4-3;Skorupski;NO;14
+18;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+18;Nhamass dstrunz;3-4-3;Celik;SI;0
+18;Nhamass dstrunz;3-4-3;Kempf;SI;0
+18;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+18;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+18;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+18;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+18;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+18;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+18;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+18;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+18;Nhamass dstrunz;3-4-3;Perrone;NO;1
+18;Nhamass dstrunz;3-4-3;Malinovskyi;NO;2
+18;Nhamass dstrunz;3-4-3;Berardi;NO;3
+18;Nhamass dstrunz;3-4-3;Kossounou;NO;4
+18;Nhamass dstrunz;3-4-3;Da Cunha;NO;5
+18;Nhamass dstrunz;3-4-3;Valle;NO;6
+18;Nhamass dstrunz;3-4-3;Kelly L.;NO;7
+18;Nhamass dstrunz;3-4-3;Sportiello;NO;8
+18;Nhamass dstrunz;3-4-3;Bijlow;NO;9
+18;Nhamass dstrunz;3-4-3;Dybala;NO;10
+18;Nhamass dstrunz;3-4-3;Tourè I.;NO;11
+18;Nhamass dstrunz;3-4-3;Soulè;NO;12
+18;Nhamass dstrunz;3-4-3;Ramon;NO;13
+18;Nhamass dstrunz;3-4-3;Rrahmani;NO;14
+18;Reazione di Mallard;3-4-3;Butez;SI;0
+18;Reazione di Mallard;3-4-3;Doig;SI;0
+18;Reazione di Mallard;3-4-3;Lucumì;SI;0
+18;Reazione di Mallard;3-4-3;Hien;SI;0
+18;Reazione di Mallard;3-4-3;Baturina;SI;0
+18;Reazione di Mallard;3-4-3;Atta;SI;0
+18;Reazione di Mallard;3-4-3;Rabiot;SI;0
+18;Reazione di Mallard;3-4-3;Cristante;SI;0
+18;Reazione di Mallard;3-4-3;Simeone;SI;0
+18;Reazione di Mallard;3-4-3;Lukaku;SI;0
+18;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+18;Reazione di Mallard;3-4-3;Coco;NO;1
+18;Reazione di Mallard;3-4-3;Martin;NO;2
+18;Reazione di Mallard;3-4-3;Zaniolo;NO;3
+18;Reazione di Mallard;3-4-3;Solomon;NO;4
+18;Reazione di Mallard;3-4-3;Provedel;NO;5
+18;Reazione di Mallard;3-4-3;Matic;NO;6
+18;Reazione di Mallard;3-4-3;Caprile;NO;7
+18;Reazione di Mallard;3-4-3;Gosens;NO;8
+18;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;9
+18;Reazione di Mallard;3-4-3;Vitinha O.;NO;10
+18;Reazione di Mallard;3-4-3;Solet;NO;11
+18;Reazione di Mallard;3-4-3;Wesley;NO;12
+18;Reazione di Mallard;3-4-3;David;NO;13
+18;Reazione di Mallard;3-4-3;Ederson D.S.;NO;14
+18;Vietato Sognare FC;3-4-3;Svilar;SI;0
+18;Vietato Sognare FC;3-4-3;Bremer;SI;0
+18;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+18;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+18;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+18;Vietato Sognare FC;3-4-3;Modric;SI;0
+18;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+18;Vietato Sognare FC;3-4-3;Casadei;SI;0
+18;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+18;Vietato Sognare FC;3-4-3;Moreo;SI;0
+18;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+18;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;1
+18;Vietato Sognare FC;3-4-3;Valeri;NO;2
+18;Vietato Sognare FC;3-4-3;Zortea;NO;3
+18;Vietato Sognare FC;3-4-3;Bonazzoli;NO;4
+18;Vietato Sognare FC;3-4-3;Ratkov;NO;5
+18;Vietato Sognare FC;3-4-3;Malen;NO;6
+18;Vietato Sognare FC;3-4-3;Maldini;NO;7
+18;Vietato Sognare FC;3-4-3;Muric;NO;8
+18;Vietato Sognare FC;3-4-3;Muharemovic;NO;9
+18;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;10
+18;Vietato Sognare FC;3-4-3;Maripan;NO;11
+18;Vietato Sognare FC;3-4-3;Gollini;NO;12
+18;Vietato Sognare FC;3-4-3;Bernabè;NO;13
+18;Vietato Sognare FC;3-4-3;Dumfries;NO;14
+19;ARCORE FC;3-4-3;Falcone;SI;0
+19;ARCORE FC;3-4-3;De Winter;SI;0
+19;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+19;ARCORE FC;3-4-3;N'Dicka;SI;0
+19;ARCORE FC;3-4-3;Zaragoza;SI;0
+19;ARCORE FC;3-4-3;Thorsby;SI;0
+19;ARCORE FC;3-4-3;Tramoni M.;SI;0
+19;ARCORE FC;3-4-3;Orsolini;SI;0
+19;ARCORE FC;3-4-3;Thuram;SI;0
+19;ARCORE FC;3-4-3;Sanabria;SI;0
+19;ARCORE FC;3-4-3;Colombo;SI;0
+19;ARCORE FC;3-4-3;Cataldi;NO;1
+19;ARCORE FC;3-4-3;Esposito Se.;NO;2
+19;ARCORE FC;3-4-3;Ostigard;NO;3
+19;ARCORE FC;3-4-3;Cuadrado;NO;4
+19;ARCORE FC;3-4-3;Sucic P.;NO;5
+19;ARCORE FC;3-4-3;Bonny;NO;6
+19;ARCORE FC;3-4-3;Bisseck;NO;7
+19;ARCORE FC;3-4-3;McTominay;NO;8
+19;ARCORE FC;3-4-3;Pedro;NO;9
+19;ARCORE FC;3-4-3;Akanji;NO;10
+19;ARCORE FC;3-4-3;Cambiaso;NO;11
+19;ARCORE FC;3-4-3;Audero;NO;12
+19;ARCORE FC;3-4-3;Okoye;NO;13
+19;ARCORE FC;3-4-3;Konè M.;NO;14
+19;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+19;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+19;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+19;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+19;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+19;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+19;FC San Marco Evangelista;3-4-3;Barella;SI;0
+19;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+19;FC San Marco Evangelista;3-4-3;Boga;SI;0
+19;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+19;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+19;FC San Marco Evangelista;3-4-3;Odgaard;NO;1
+19;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;2
+19;FC San Marco Evangelista;3-4-3;Miretti;NO;3
+19;FC San Marco Evangelista;3-4-3;Terracciano;NO;4
+19;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;5
+19;FC San Marco Evangelista;3-4-3;Kalulu;NO;6
+19;FC San Marco Evangelista;3-4-3;Iling Junior;NO;7
+19;FC San Marco Evangelista;3-4-3;Gila;NO;8
+19;FC San Marco Evangelista;3-4-3;Suzuki;NO;9
+19;FC San Marco Evangelista;3-4-3;Palestra;NO;10
+19;FC San Marco Evangelista;3-4-3;Circati;NO;11
+19;FC San Marco Evangelista;3-4-3;Brescianini;NO;12
+19;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;13
+19;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;14
+19;FC bianchi;3-4-3;Milinkovic-Savic V.;SI;0
+19;FC bianchi;3-4-3;Diego Carlos;SI;0
+19;FC bianchi;3-4-3;Vasquez;SI;0
+19;FC bianchi;3-4-3;Scalvini;SI;0
+19;FC bianchi;3-4-3;Mkhitaryan;SI;0
+19;FC bianchi;3-4-3;Rovella;SI;0
+19;FC bianchi;3-4-3;Thuram K.;SI;0
+19;FC bianchi;3-4-3;Sottil;SI;0
+19;FC bianchi;3-4-3;Zapata D.;SI;0
+19;FC bianchi;3-4-3;Davis K.;SI;0
+19;FC bianchi;3-4-3;Vardy;SI;0
+19;FC bianchi;3-4-3;Isaksen;NO;1
+19;FC bianchi;3-4-3;Raspadori;NO;2
+19;FC bianchi;3-4-3;Mina;NO;3
+19;FC bianchi;3-4-3;Harroui;NO;4
+19;FC bianchi;3-4-3;Comuzzo;NO;5
+19;FC bianchi;3-4-3;Leao;NO;6
+19;FC bianchi;3-4-3;Contini;NO;7
+19;FC bianchi;3-4-3;Baschirotto;NO;8
+19;FC bianchi;3-4-3;McKennie;NO;9
+19;FC bianchi;3-4-3;Dodò;NO;10
+19;FC bianchi;3-4-3;Strefezza;NO;11
+19;FC bianchi;3-4-3;Romagnoli;NO;12
+19;FC bianchi;3-4-3;Meret;NO;13
+19;FC bianchi;3-4-3;Fullkrug;NO;14
+19;Sinuoso;3-4-3;Di Gennaro;SI;0
+19;Sinuoso;3-4-3;Holm;SI;0
+19;Sinuoso;3-4-3;Olivera;SI;0
+19;Sinuoso;3-4-3;Mancini;SI;0
+19;Sinuoso;3-4-3;Vlasic;SI;0
+19;Sinuoso;3-4-3;Vergara;SI;0
+19;Sinuoso;3-4-3;De Roon;SI;0
+19;Sinuoso;3-4-3;Calhanoglu;SI;0
+19;Sinuoso;3-4-3;Esposito F.P.;SI;0
+19;Sinuoso;3-4-3;Douvikas;SI;0
+19;Sinuoso;3-4-3;Martinez L.;SI;0
+19;Sinuoso;3-4-3;Conceicao;NO;1
+19;Sinuoso;3-4-3;Bastoni;NO;2
+19;Sinuoso;3-4-3;Caracciolo A.;NO;3
+19;Sinuoso;3-4-3;Thorstvedt;NO;4
+19;Sinuoso;3-4-3;Heggem;NO;5
+19;Sinuoso;3-4-3;Martinez Jo.;NO;6
+19;Sinuoso;3-4-3;Nkunku;NO;7
+19;Sinuoso;3-4-3;Spinazzola;NO;8
+19;Sinuoso;3-4-3;Nzola;NO;9
+19;Sinuoso;3-4-3;Sommer;NO;10
+19;Sinuoso;3-4-3;Darmian;NO;11
+19;Sinuoso;3-4-3;Ricci S.;NO;12
+19;Sinuoso;3-4-3;Laurientè;NO;13
+19;Sinuoso;3-4-3;Locatelli;NO;14
+19;Makumba FC;3-4-3;Skorupski;SI;0
+19;Makumba FC;3-4-3;Dimarco;SI;0
+19;Makumba FC;3-4-3;Bartesaghi;SI;0
+19;Makumba FC;3-4-3;Estupinan;SI;0
+19;Makumba FC;3-4-3;Pulisic;SI;0
+19;Makumba FC;3-4-3;Zielinski;SI;0
+19;Makumba FC;3-4-3;Taylor K.;SI;0
+19;Makumba FC;3-4-3;Mandragora;SI;0
+19;Makumba FC;3-4-3;Orban G.;SI;0
+19;Makumba FC;3-4-3;Kean;SI;0
+19;Makumba FC;3-4-3;Adams C.;SI;0
+19;Makumba FC;3-4-3;Politano;NO;1
+19;Makumba FC;3-4-3;Fofana Y.;NO;2
+19;Makumba FC;3-4-3;Piccoli;NO;3
+19;Makumba FC;3-4-3;Tomori;NO;4
+19;Makumba FC;3-4-3;Zappacosta;NO;5
+19;Makumba FC;3-4-3;Pinamonti;NO;6
+19;Makumba FC;3-4-3;Di Gregorio;NO;7
+19;Makumba FC;3-4-3;Bellanova;NO;8
+19;Makumba FC;3-4-3;Gabbia;NO;9
+19;Makumba FC;3-4-3;Pavlovic;NO;10
+19;Makumba FC;3-4-3;Rowe;NO;11
+19;Makumba FC;3-4-3;Loftus-Cheek;NO;12
+19;Makumba FC;3-4-3;Perin;NO;13
+19;Makumba FC;3-4-3;Rodriguez Je.;NO;14
+19;Nhamass dstrunz;3-4-3;Sportiello;SI;0
+19;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+19;Nhamass dstrunz;3-4-3;Celik;SI;0
+19;Nhamass dstrunz;3-4-3;Ramon;SI;0
+19;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+19;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+19;Nhamass dstrunz;3-4-3;Tourè I.;SI;0
+19;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+19;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+19;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+19;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+19;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;1
+19;Nhamass dstrunz;3-4-3;Perrone;NO;2
+19;Nhamass dstrunz;3-4-3;Berardi;NO;3
+19;Nhamass dstrunz;3-4-3;Soulè;NO;4
+19;Nhamass dstrunz;3-4-3;Kempf;NO;5
+19;Nhamass dstrunz;3-4-3;Kossounou;NO;6
+19;Nhamass dstrunz;3-4-3;Dybala;NO;7
+19;Nhamass dstrunz;3-4-3;Kelly L.;NO;8
+19;Nhamass dstrunz;3-4-3;Tavares N.;NO;9
+19;Nhamass dstrunz;3-4-3;Valle;NO;10
+19;Nhamass dstrunz;3-4-3;Carnesecchi;NO;11
+19;Nhamass dstrunz;3-4-3;Pasalic;NO;12
+19;Nhamass dstrunz;3-4-3;Malinovskyi;NO;13
+19;Nhamass dstrunz;3-4-3;Bijlow;NO;14
+19;Reazione di Mallard;3-4-3;Butez;SI;0
+19;Reazione di Mallard;3-4-3;Wesley;SI;0
+19;Reazione di Mallard;3-4-3;Solet;SI;0
+19;Reazione di Mallard;3-4-3;Martin;SI;0
+19;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+19;Reazione di Mallard;3-4-3;Rabiot;SI;0
+19;Reazione di Mallard;3-4-3;Cristante;SI;0
+19;Reazione di Mallard;3-4-3;Baturina;SI;0
+19;Reazione di Mallard;3-4-3;Simeone;SI;0
+19;Reazione di Mallard;3-4-3;Lukaku;SI;0
+19;Reazione di Mallard;3-4-3;David;SI;0
+19;Reazione di Mallard;3-4-3;Ederson D.S.;NO;1
+19;Reazione di Mallard;3-4-3;Gosens;NO;2
+19;Reazione di Mallard;3-4-3;Doig;NO;3
+19;Reazione di Mallard;3-4-3;Durosinmi;NO;4
+19;Reazione di Mallard;3-4-3;Matic;NO;5
+19;Reazione di Mallard;3-4-3;Caprile;NO;6
+19;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;7
+19;Reazione di Mallard;3-4-3;Lucumì;NO;8
+19;Reazione di Mallard;3-4-3;Coco;NO;9
+19;Reazione di Mallard;3-4-3;Solomon;NO;10
+19;Reazione di Mallard;3-4-3;Hien;NO;11
+19;Reazione di Mallard;3-4-3;Provedel;NO;12
+19;Reazione di Mallard;3-4-3;Vitinha O.;NO;13
+19;Reazione di Mallard;3-4-3;Atta;NO;14
+19;Vietato Sognare FC;3-4-3;Gollini;SI;0
+19;Vietato Sognare FC;3-4-3;Maripan;SI;0
+19;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+19;Vietato Sognare FC;3-4-3;Muharemovic;SI;0
+19;Vietato Sognare FC;3-4-3;Modric;SI;0
+19;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+19;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+19;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+19;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+19;Vietato Sognare FC;3-4-3;Malen;SI;0
+19;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+19;Vietato Sognare FC;3-4-3;Castro S.;NO;1
+19;Vietato Sognare FC;3-4-3;Zortea;NO;2
+19;Vietato Sognare FC;3-4-3;Bernabè;NO;3
+19;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;4
+19;Vietato Sognare FC;3-4-3;Valeri;NO;5
+19;Vietato Sognare FC;3-4-3;Dumfries;NO;6
+19;Vietato Sognare FC;3-4-3;Muric;NO;7
+19;Vietato Sognare FC;3-4-3;Kristensen T.;NO;8
+19;Vietato Sognare FC;3-4-3;Bremer;NO;9
+19;Vietato Sognare FC;3-4-3;Maldini;NO;10
+19;Vietato Sognare FC;3-4-3;Moreo;NO;11
+19;Vietato Sognare FC;3-4-3;Casadei;NO;12
+19;Vietato Sognare FC;3-4-3;Svilar;NO;13
+19;Vietato Sognare FC;3-4-3;Bonazzoli;NO;14
+20;ARCORE FC;3-4-3;Audero;SI;0
+20;ARCORE FC;3-4-3;Cambiaso;SI;0
+20;ARCORE FC;3-4-3;Akanji;SI;0
+20;ARCORE FC;3-4-3;Ostigard;SI;0
+20;ARCORE FC;3-4-3;Zaragoza;SI;0
+20;ARCORE FC;3-4-3;Konè M.;SI;0
+20;ARCORE FC;3-4-3;Sucic P.;SI;0
+20;ARCORE FC;3-4-3;Thorsby;SI;0
+20;ARCORE FC;3-4-3;Esposito Se.;SI;0
+20;ARCORE FC;3-4-3;Thuram;SI;0
+20;ARCORE FC;3-4-3;Bonny;SI;0
+20;ARCORE FC;3-4-3;Bisseck;NO;1
+20;ARCORE FC;3-4-3;Cataldi;NO;2
+20;ARCORE FC;3-4-3;De Winter;NO;3
+20;ARCORE FC;3-4-3;N'Dicka;NO;4
+20;ARCORE FC;3-4-3;Sanabria;NO;5
+20;ARCORE FC;3-4-3;Orsolini;NO;6
+20;ARCORE FC;3-4-3;Falcone;NO;7
+20;ARCORE FC;3-4-3;Tramoni M.;NO;8
+20;ARCORE FC;3-4-3;Pedro;NO;9
+20;ARCORE FC;3-4-3;McTominay;NO;10
+20;ARCORE FC;3-4-3;Cuadrado;NO;11
+20;ARCORE FC;3-4-3;Colombo;NO;12
+20;ARCORE FC;3-4-3;Okoye;NO;13
+20;ARCORE FC;3-4-3;Di Lorenzo;NO;14
+20;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+20;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+20;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+20;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+20;FC San Marco Evangelista;3-4-3;Paz N.;SI;0
+20;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+20;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+20;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+20;FC San Marco Evangelista;3-4-3;Boga;SI;0
+20;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+20;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+20;FC San Marco Evangelista;3-4-3;Odgaard;NO;1
+20;FC San Marco Evangelista;3-4-3;Barella;NO;2
+20;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;3
+20;FC San Marco Evangelista;3-4-3;Buongiorno;NO;4
+20;FC San Marco Evangelista;3-4-3;Palestra;NO;5
+20;FC San Marco Evangelista;3-4-3;Yildiz;NO;6
+20;FC San Marco Evangelista;3-4-3;Suzuki;NO;7
+20;FC San Marco Evangelista;3-4-3;Circati;NO;8
+20;FC San Marco Evangelista;3-4-3;Kalulu;NO;9
+20;FC San Marco Evangelista;3-4-3;Maignan;NO;10
+20;FC San Marco Evangelista;3-4-3;Miretti;NO;11
+20;FC San Marco Evangelista;3-4-3;Gila;NO;12
+20;FC San Marco Evangelista;3-4-3;Iling Junior;NO;13
+20;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;14
+20;FC bianchi;3-4-3;Contini;SI;0
+20;FC bianchi;3-4-3;Scalvini;SI;0
+20;FC bianchi;3-4-3;Mina;SI;0
+20;FC bianchi;3-4-3;Diego Carlos;SI;0
+20;FC bianchi;3-4-3;Mkhitaryan;SI;0
+20;FC bianchi;3-4-3;Strefezza;SI;0
+20;FC bianchi;3-4-3;Harroui;SI;0
+20;FC bianchi;3-4-3;McKennie;SI;0
+20;FC bianchi;3-4-3;Davis K.;SI;0
+20;FC bianchi;3-4-3;Leao;SI;0
+20;FC bianchi;3-4-3;Vardy;SI;0
+20;FC bianchi;3-4-3;Fullkrug;NO;1
+20;FC bianchi;3-4-3;Isaksen;NO;2
+20;FC bianchi;3-4-3;Vasquez;NO;3
+20;FC bianchi;3-4-3;Baschirotto;NO;4
+20;FC bianchi;3-4-3;Dodò;NO;5
+20;FC bianchi;3-4-3;Thuram K.;NO;6
+20;FC bianchi;3-4-3;Comuzzo;NO;7
+20;FC bianchi;3-4-3;Rovella;NO;8
+20;FC bianchi;3-4-3;Meret;NO;9
+20;FC bianchi;3-4-3;Zapata D.;NO;10
+20;FC bianchi;3-4-3;Romagnoli;NO;11
+20;FC bianchi;3-4-3;Raspadori;NO;12
+20;FC bianchi;3-4-3;Sottil;NO;13
+20;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;14
+20;Sinuoso;3-4-3;Martinez Jo.;SI;0
+20;Sinuoso;3-4-3;Bastoni;SI;0
+20;Sinuoso;3-4-3;Darmian;SI;0
+20;Sinuoso;3-4-3;Olivera;SI;0
+20;Sinuoso;3-4-3;Vlasic;SI;0
+20;Sinuoso;3-4-3;Conceicao;SI;0
+20;Sinuoso;3-4-3;De Roon;SI;0
+20;Sinuoso;3-4-3;Thorstvedt;SI;0
+20;Sinuoso;3-4-3;Martinez L.;SI;0
+20;Sinuoso;3-4-3;Nkunku;SI;0
+20;Sinuoso;3-4-3;Laurientè;SI;0
+20;Sinuoso;3-4-3;Heggem;NO;1
+20;Sinuoso;3-4-3;Vergara;NO;2
+20;Sinuoso;3-4-3;Esposito F.P.;NO;3
+20;Sinuoso;3-4-3;Caracciolo A.;NO;4
+20;Sinuoso;3-4-3;Mancini;NO;5
+20;Sinuoso;3-4-3;Ricci S.;NO;6
+20;Sinuoso;3-4-3;Calhanoglu;NO;7
+20;Sinuoso;3-4-3;Locatelli;NO;8
+20;Sinuoso;3-4-3;Di Gennaro;NO;9
+20;Sinuoso;3-4-3;Nzola;NO;10
+20;Sinuoso;3-4-3;Holm;NO;11
+20;Sinuoso;3-4-3;Sommer;NO;12
+20;Sinuoso;3-4-3;Spinazzola;NO;13
+20;Sinuoso;3-4-3;Douvikas;NO;14
+20;Makumba FC;3-4-3;Perin;SI;0
+20;Makumba FC;3-4-3;Dimarco;SI;0
+20;Makumba FC;3-4-3;Tomori;SI;0
+20;Makumba FC;3-4-3;Pavlovic;SI;0
+20;Makumba FC;3-4-3;Rowe;SI;0
+20;Makumba FC;3-4-3;Politano;SI;0
+20;Makumba FC;3-4-3;Mandragora;SI;0
+20;Makumba FC;3-4-3;Taylor K.;SI;0
+20;Makumba FC;3-4-3;Kean;SI;0
+20;Makumba FC;3-4-3;Piccoli;SI;0
+20;Makumba FC;3-4-3;Adams C.;SI;0
+20;Makumba FC;3-4-3;Di Gregorio;NO;1
+20;Makumba FC;3-4-3;Orban G.;NO;2
+20;Makumba FC;3-4-3;Pinamonti;NO;3
+20;Makumba FC;3-4-3;Estupinan;NO;4
+20;Makumba FC;3-4-3;Rodriguez Je.;NO;5
+20;Makumba FC;3-4-3;Bartesaghi;NO;6
+20;Makumba FC;3-4-3;Pulisic;NO;7
+20;Makumba FC;3-4-3;Bellanova;NO;8
+20;Makumba FC;3-4-3;Gabbia;NO;9
+20;Makumba FC;3-4-3;Fofana Y.;NO;10
+20;Makumba FC;3-4-3;Loftus-Cheek;NO;11
+20;Makumba FC;3-4-3;Skorupski;NO;12
+20;Makumba FC;3-4-3;Zappacosta;NO;13
+20;Makumba FC;3-4-3;Zielinski;NO;14
+20;Nhamass dstrunz;3-4-3;Carnesecchi;SI;0
+20;Nhamass dstrunz;3-4-3;Ramon;SI;0
+20;Nhamass dstrunz;3-4-3;Celik;SI;0
+20;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+20;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+20;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+20;Nhamass dstrunz;3-4-3;Perrone;SI;0
+20;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+20;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+20;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+20;Nhamass dstrunz;3-4-3;Dybala;SI;0
+20;Nhamass dstrunz;3-4-3;Sportiello;NO;1
+20;Nhamass dstrunz;3-4-3;Kossounou;NO;2
+20;Nhamass dstrunz;3-4-3;Bijlow;NO;3
+20;Nhamass dstrunz;3-4-3;Soulè;NO;4
+20;Nhamass dstrunz;3-4-3;Tourè I.;NO;5
+20;Nhamass dstrunz;3-4-3;Kelly L.;NO;6
+20;Nhamass dstrunz;3-4-3;Rrahmani;NO;7
+20;Nhamass dstrunz;3-4-3;Konè I.;NO;8
+20;Nhamass dstrunz;3-4-3;Malinovskyi;NO;9
+20;Nhamass dstrunz;3-4-3;Zaccagni;NO;10
+20;Nhamass dstrunz;3-4-3;Valle;NO;11
+20;Nhamass dstrunz;3-4-3;Berardi;NO;12
+20;Nhamass dstrunz;3-4-3;Scamacca;NO;13
+20;Nhamass dstrunz;3-4-3;Kempf;NO;14
+20;Reazione di Mallard;3-4-3;Provedel;SI;0
+20;Reazione di Mallard;3-4-3;Gosens;SI;0
+20;Reazione di Mallard;3-4-3;Doig;SI;0
+20;Reazione di Mallard;3-4-3;Hien;SI;0
+20;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+20;Reazione di Mallard;3-4-3;Cristante;SI;0
+20;Reazione di Mallard;3-4-3;Matic;SI;0
+20;Reazione di Mallard;3-4-3;Atta;SI;0
+20;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+20;Reazione di Mallard;3-4-3;Solomon;SI;0
+20;Reazione di Mallard;3-4-3;David;SI;0
+20;Reazione di Mallard;3-4-3;Solet;NO;1
+20;Reazione di Mallard;3-4-3;Rabiot;NO;2
+20;Reazione di Mallard;3-4-3;Wesley;NO;3
+20;Reazione di Mallard;3-4-3;Durosinmi;NO;4
+20;Reazione di Mallard;3-4-3;Caprile;NO;5
+20;Reazione di Mallard;3-4-3;Coco;NO;6
+20;Reazione di Mallard;3-4-3;Baturina;NO;7
+20;Reazione di Mallard;3-4-3;Ederson D.S.;NO;8
+20;Reazione di Mallard;3-4-3;Simeone;NO;9
+20;Reazione di Mallard;3-4-3;Butez;NO;10
+20;Reazione di Mallard;3-4-3;Martin;NO;11
+20;Reazione di Mallard;3-4-3;Lucumì;NO;12
+20;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;13
+20;Reazione di Mallard;3-4-3;Lukaku;NO;14
+20;Vietato Sognare FC;3-4-3;Muric;SI;0
+20;Vietato Sognare FC;3-4-3;Maripan;SI;0
+20;Vietato Sognare FC;3-4-3;Zortea;SI;0
+20;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+20;Vietato Sognare FC;3-4-3;Casadei;SI;0
+20;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+20;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+20;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+20;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+20;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+20;Vietato Sognare FC;3-4-3;Malen;SI;0
+20;Vietato Sognare FC;3-4-3;Muharemovic;NO;1
+20;Vietato Sognare FC;3-4-3;Moreo;NO;2
+20;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;3
+20;Vietato Sognare FC;3-4-3;Modric;NO;4
+20;Vietato Sognare FC;3-4-3;Gollini;NO;5
+20;Vietato Sognare FC;3-4-3;Zalewski;NO;6
+20;Vietato Sognare FC;3-4-3;Svilar;NO;7
+20;Vietato Sognare FC;3-4-3;Valeri;NO;8
+20;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;9
+20;Vietato Sognare FC;3-4-3;Dumfries;NO;10
+20;Vietato Sognare FC;3-4-3;Hojlund;NO;11
+20;Vietato Sognare FC;3-4-3;Bremer;NO;12
+20;Vietato Sognare FC;3-4-3;Ratkov;NO;13
+20;Vietato Sognare FC;3-4-3;Maldini;NO;14
+21;ARCORE FC;3-4-3;Okoye;SI;0
+21;ARCORE FC;3-4-3;N'Dicka;SI;0
+21;ARCORE FC;3-4-3;Cuadrado;SI;0
+21;ARCORE FC;3-4-3;Cambiaso;SI;0
+21;ARCORE FC;3-4-3;Sucic P.;SI;0
+21;ARCORE FC;3-4-3;Cataldi;SI;0
+21;ARCORE FC;3-4-3;Thorsby;SI;0
+21;ARCORE FC;3-4-3;Tramoni M.;SI;0
+21;ARCORE FC;3-4-3;Pedro;SI;0
+21;ARCORE FC;3-4-3;Bonny;SI;0
+21;ARCORE FC;3-4-3;Esposito Se.;SI;0
+21;ARCORE FC;3-4-3;Akanji;NO;1
+21;ARCORE FC;3-4-3;Falcone;NO;2
+21;ARCORE FC;3-4-3;Colombo;NO;3
+21;ARCORE FC;3-4-3;Orsolini;NO;4
+21;ARCORE FC;3-4-3;De Winter;NO;5
+21;ARCORE FC;3-4-3;Konè M.;NO;6
+21;ARCORE FC;3-4-3;Bisseck;NO;7
+21;ARCORE FC;3-4-3;McTominay;NO;8
+21;ARCORE FC;3-4-3;Thuram;NO;9
+21;ARCORE FC;3-4-3;Zaragoza;NO;10
+21;ARCORE FC;3-4-3;Audero;NO;11
+21;ARCORE FC;3-4-3;Ostigard;NO;12
+21;ARCORE FC;3-4-3;Di Lorenzo;NO;13
+21;ARCORE FC;3-4-3;Sanabria;NO;14
+21;FC San Marco Evangelista;3-4-3;Suzuki;SI;0
+21;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+21;FC San Marco Evangelista;3-4-3;Circati;SI;0
+21;FC San Marco Evangelista;3-4-3;Buongiorno;SI;0
+21;FC San Marco Evangelista;3-4-3;Iling Junior;SI;0
+21;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+21;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+21;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+21;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+21;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+21;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+21;FC San Marco Evangelista;3-4-3;Terracciano;NO;1
+21;FC San Marco Evangelista;3-4-3;Boga;NO;2
+21;FC San Marco Evangelista;3-4-3;Palestra;NO;3
+21;FC San Marco Evangelista;3-4-3;Barella;NO;4
+21;FC San Marco Evangelista;3-4-3;Maignan;NO;5
+21;FC San Marco Evangelista;3-4-3;Gila;NO;6
+21;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;7
+21;FC San Marco Evangelista;3-4-3;Kalulu;NO;8
+21;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;9
+21;FC San Marco Evangelista;3-4-3;Miretti;NO;10
+21;FC San Marco Evangelista;3-4-3;Brescianini;NO;11
+21;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;12
+21;FC San Marco Evangelista;3-4-3;Delprato;NO;13
+21;FC San Marco Evangelista;3-4-3;Paz N.;NO;14
+21;FC bianchi;3-4-3;Meret;SI;0
+21;FC bianchi;3-4-3;Mina;SI;0
+21;FC bianchi;3-4-3;Baschirotto;SI;0
+21;FC bianchi;3-4-3;Romagnoli;SI;0
+21;FC bianchi;3-4-3;Harroui;SI;0
+21;FC bianchi;3-4-3;Isaksen;SI;0
+21;FC bianchi;3-4-3;McKennie;SI;0
+21;FC bianchi;3-4-3;Mkhitaryan;SI;0
+21;FC bianchi;3-4-3;Vardy;SI;0
+21;FC bianchi;3-4-3;Leao;SI;0
+21;FC bianchi;3-4-3;Fullkrug;SI;0
+21;FC bianchi;3-4-3;Scalvini;NO;1
+21;FC bianchi;3-4-3;Dodò;NO;2
+21;FC bianchi;3-4-3;Zapata D.;NO;3
+21;FC bianchi;3-4-3;Comuzzo;NO;4
+21;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;5
+21;FC bianchi;3-4-3;Diego Carlos;NO;6
+21;FC bianchi;3-4-3;Rovella;NO;7
+21;FC bianchi;3-4-3;Sottil;NO;8
+21;FC bianchi;3-4-3;Contini;NO;9
+21;FC bianchi;3-4-3;Davis K.;NO;10
+21;FC bianchi;3-4-3;Thuram K.;NO;11
+21;FC bianchi;3-4-3;Vasquez;NO;12
+21;FC bianchi;3-4-3;Strefezza;NO;13
+21;FC bianchi;3-4-3;Raspadori;NO;14
+21;Sinuoso;3-4-3;Di Gennaro;SI;0
+21;Sinuoso;3-4-3;Bastoni;SI;0
+21;Sinuoso;3-4-3;Olivera;SI;0
+21;Sinuoso;3-4-3;Holm;SI;0
+21;Sinuoso;3-4-3;Thorstvedt;SI;0
+21;Sinuoso;3-4-3;Ricci S.;SI;0
+21;Sinuoso;3-4-3;De Roon;SI;0
+21;Sinuoso;3-4-3;Calhanoglu;SI;0
+21;Sinuoso;3-4-3;Nkunku;SI;0
+21;Sinuoso;3-4-3;Esposito F.P.;SI;0
+21;Sinuoso;3-4-3;Martinez L.;SI;0
+21;Sinuoso;3-4-3;Conceicao;NO;1
+21;Sinuoso;3-4-3;Spinazzola;NO;2
+21;Sinuoso;3-4-3;Laurientè;NO;3
+21;Sinuoso;3-4-3;Vlasic;NO;4
+21;Sinuoso;3-4-3;Nzola;NO;5
+21;Sinuoso;3-4-3;Caracciolo A.;NO;6
+21;Sinuoso;3-4-3;Douvikas;NO;7
+21;Sinuoso;3-4-3;Locatelli;NO;8
+21;Sinuoso;3-4-3;Heggem;NO;9
+21;Sinuoso;3-4-3;Vergara;NO;10
+21;Sinuoso;3-4-3;Sommer;NO;11
+21;Sinuoso;3-4-3;Martinez Jo.;NO;12
+21;Sinuoso;3-4-3;Mancini;NO;13
+21;Sinuoso;3-4-3;Darmian;NO;14
+21;Makumba FC;3-4-3;Perin;SI;0
+21;Makumba FC;3-4-3;Estupinan;SI;0
+21;Makumba FC;3-4-3;Dimarco;SI;0
+21;Makumba FC;3-4-3;Tomori;SI;0
+21;Makumba FC;3-4-3;Pulisic;SI;0
+21;Makumba FC;3-4-3;Politano;SI;0
+21;Makumba FC;3-4-3;Taylor K.;SI;0
+21;Makumba FC;3-4-3;Zielinski;SI;0
+21;Makumba FC;3-4-3;Pinamonti;SI;0
+21;Makumba FC;3-4-3;Piccoli;SI;0
+21;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+21;Makumba FC;3-4-3;Gabbia;NO;1
+21;Makumba FC;3-4-3;Loftus-Cheek;NO;2
+21;Makumba FC;3-4-3;Mandragora;NO;3
+21;Makumba FC;3-4-3;Orban G.;NO;4
+21;Makumba FC;3-4-3;Skorupski;NO;5
+21;Makumba FC;3-4-3;Fofana Y.;NO;6
+21;Makumba FC;3-4-3;Rowe;NO;7
+21;Makumba FC;3-4-3;Bartesaghi;NO;8
+21;Makumba FC;3-4-3;Zappacosta;NO;9
+21;Makumba FC;3-4-3;Adams C.;NO;10
+21;Makumba FC;3-4-3;Kean;NO;11
+21;Makumba FC;3-4-3;Di Gregorio;NO;12
+21;Makumba FC;3-4-3;Bellanova;NO;13
+21;Makumba FC;3-4-3;Pavlovic;NO;14
+21;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+21;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+21;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+21;Nhamass dstrunz;3-4-3;Valle;SI;0
+21;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+21;Nhamass dstrunz;3-4-3;Perrone;SI;0
+21;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+21;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+21;Nhamass dstrunz;3-4-3;Dybala;SI;0
+21;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+21;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+21;Nhamass dstrunz;3-4-3;Soulè;NO;1
+21;Nhamass dstrunz;3-4-3;Berardi;NO;2
+21;Nhamass dstrunz;3-4-3;Ramon;NO;3
+21;Nhamass dstrunz;3-4-3;Zaccagni;NO;4
+21;Nhamass dstrunz;3-4-3;Sportiello;NO;5
+21;Nhamass dstrunz;3-4-3;Carnesecchi;NO;6
+21;Nhamass dstrunz;3-4-3;Celik;NO;7
+21;Nhamass dstrunz;3-4-3;Konè I.;NO;8
+21;Nhamass dstrunz;3-4-3;Kelly L.;NO;9
+21;Nhamass dstrunz;3-4-3;Tourè I.;NO;10
+21;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;11
+21;Nhamass dstrunz;3-4-3;Kempf;NO;12
+21;Nhamass dstrunz;3-4-3;Krstovic;NO;13
+21;Nhamass dstrunz;3-4-3;Kossounou;NO;14
+21;Reazione di Mallard;3-4-3;Provedel;SI;0
+21;Reazione di Mallard;3-4-3;Gosens;SI;0
+21;Reazione di Mallard;3-4-3;Doig;SI;0
+21;Reazione di Mallard;3-4-3;Wesley;SI;0
+21;Reazione di Mallard;3-4-3;Atta;SI;0
+21;Reazione di Mallard;3-4-3;Cristante;SI;0
+21;Reazione di Mallard;3-4-3;Matic;SI;0
+21;Reazione di Mallard;3-4-3;Ederson D.S.;SI;0
+21;Reazione di Mallard;3-4-3;Vitinha O.;SI;0
+21;Reazione di Mallard;3-4-3;Lukaku;SI;0
+21;Reazione di Mallard;3-4-3;Simeone;SI;0
+21;Reazione di Mallard;3-4-3;Coco;NO;1
+21;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;2
+21;Reazione di Mallard;3-4-3;Zaniolo;NO;3
+21;Reazione di Mallard;3-4-3;Solomon;NO;4
+21;Reazione di Mallard;3-4-3;David;NO;5
+21;Reazione di Mallard;3-4-3;Durosinmi;NO;6
+21;Reazione di Mallard;3-4-3;Solet;NO;7
+21;Reazione di Mallard;3-4-3;Rabiot;NO;8
+21;Reazione di Mallard;3-4-3;Butez;NO;9
+21;Reazione di Mallard;3-4-3;Hien;NO;10
+21;Reazione di Mallard;3-4-3;Baturina;NO;11
+21;Reazione di Mallard;3-4-3;Martin;NO;12
+21;Reazione di Mallard;3-4-3;Lucumì;NO;13
+21;Reazione di Mallard;3-4-3;Caprile;NO;14
+21;Vietato Sognare FC;3-4-3;Svilar;SI;0
+21;Vietato Sognare FC;3-4-3;Valeri;SI;0
+21;Vietato Sognare FC;3-4-3;Bremer;SI;0
+21;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+21;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+21;Vietato Sognare FC;3-4-3;Modric;SI;0
+21;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+21;Vietato Sognare FC;3-4-3;Maldini;SI;0
+21;Vietato Sognare FC;3-4-3;Malen;SI;0
+21;Vietato Sognare FC;3-4-3;Moreo;SI;0
+21;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+21;Vietato Sognare FC;3-4-3;Zortea;NO;1
+21;Vietato Sognare FC;3-4-3;Muharemovic;NO;2
+21;Vietato Sognare FC;3-4-3;Zalewski;NO;3
+21;Vietato Sognare FC;3-4-3;Kristensen T.;NO;4
+21;Vietato Sognare FC;3-4-3;Muric;NO;5
+21;Vietato Sognare FC;3-4-3;Ratkov;NO;6
+21;Vietato Sognare FC;3-4-3;Santos A.;NO;7
+21;Vietato Sognare FC;3-4-3;Casadei;NO;8
+21;Vietato Sognare FC;3-4-3;Maripan;NO;9
+21;Vietato Sognare FC;3-4-3;Castro S.;NO;10
+21;Vietato Sognare FC;3-4-3;Bonazzoli;NO;11
+21;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;12
+21;Vietato Sognare FC;3-4-3;Dumfries;NO;13
+21;Vietato Sognare FC;3-4-3;Gollini;NO;14
+22;ARCORE FC;3-4-3;Okoye;SI;0
+22;ARCORE FC;3-4-3;Ostigard;SI;0
+22;ARCORE FC;3-4-3;Bisseck;SI;0
+22;ARCORE FC;3-4-3;Cambiaso;SI;0
+22;ARCORE FC;3-4-3;McTominay;SI;0
+22;ARCORE FC;3-4-3;Tramoni M.;SI;0
+22;ARCORE FC;3-4-3;Cataldi;SI;0
+22;ARCORE FC;3-4-3;Sucic P.;SI;0
+22;ARCORE FC;3-4-3;Colombo;SI;0
+22;ARCORE FC;3-4-3;Thuram;SI;0
+22;ARCORE FC;3-4-3;Bonny;SI;0
+22;ARCORE FC;3-4-3;Cuadrado;NO;1
+22;ARCORE FC;3-4-3;Pedro;NO;2
+22;ARCORE FC;3-4-3;Sanabria;NO;3
+22;ARCORE FC;3-4-3;Esposito Se.;NO;4
+22;ARCORE FC;3-4-3;N'Dicka;NO;5
+22;ARCORE FC;3-4-3;Thorsby;NO;6
+22;ARCORE FC;3-4-3;Zaragoza;NO;7
+22;ARCORE FC;3-4-3;Audero;NO;8
+22;ARCORE FC;3-4-3;De Winter;NO;9
+22;ARCORE FC;3-4-3;Falcone;NO;10
+22;ARCORE FC;3-4-3;Akanji;NO;11
+22;ARCORE FC;3-4-3;Orsolini;NO;12
+22;ARCORE FC;3-4-3;Di Lorenzo;NO;13
+22;ARCORE FC;3-4-3;Konè M.;NO;14
+22;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+22;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+22;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+22;FC San Marco Evangelista;3-4-3;Norton-Cuffy;SI;0
+22;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+22;FC San Marco Evangelista;3-4-3;Barella;SI;0
+22;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+22;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+22;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+22;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+22;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+22;FC San Marco Evangelista;3-4-3;Palestra;NO;1
+22;FC San Marco Evangelista;3-4-3;Odgaard;NO;2
+22;FC San Marco Evangelista;3-4-3;Boga;NO;3
+22;FC San Marco Evangelista;3-4-3;Miretti;NO;4
+22;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;5
+22;FC San Marco Evangelista;3-4-3;Gila;NO;6
+22;FC San Marco Evangelista;3-4-3;Maignan;NO;7
+22;FC San Marco Evangelista;3-4-3;Suzuki;NO;8
+22;FC San Marco Evangelista;3-4-3;Delprato;NO;9
+22;FC San Marco Evangelista;3-4-3;Circati;NO;10
+22;FC San Marco Evangelista;3-4-3;Iling Junior;NO;11
+22;FC San Marco Evangelista;3-4-3;Buongiorno;NO;12
+22;FC San Marco Evangelista;3-4-3;Paz N.;NO;13
+22;FC San Marco Evangelista;3-4-3;Yildiz;NO;14
+22;FC bianchi;3-4-3;Milinkovic-Savic V.;SI;0
+22;FC bianchi;3-4-3;Comuzzo;SI;0
+22;FC bianchi;3-4-3;Dodò;SI;0
+22;FC bianchi;3-4-3;Romagnoli;SI;0
+22;FC bianchi;3-4-3;Harroui;SI;0
+22;FC bianchi;3-4-3;Mkhitaryan;SI;0
+22;FC bianchi;3-4-3;Strefezza;SI;0
+22;FC bianchi;3-4-3;Sottil;SI;0
+22;FC bianchi;3-4-3;Vardy;SI;0
+22;FC bianchi;3-4-3;Leao;SI;0
+22;FC bianchi;3-4-3;Zapata D.;SI;0
+22;FC bianchi;3-4-3;Fullkrug;NO;1
+22;FC bianchi;3-4-3;Rovella;NO;2
+22;FC bianchi;3-4-3;Meret;NO;3
+22;FC bianchi;3-4-3;Isaksen;NO;4
+22;FC bianchi;3-4-3;Raspadori;NO;5
+22;FC bianchi;3-4-3;Mina;NO;6
+22;FC bianchi;3-4-3;Diego Carlos;NO;7
+22;FC bianchi;3-4-3;Baschirotto;NO;8
+22;FC bianchi;3-4-3;Scalvini;NO;9
+22;FC bianchi;3-4-3;McKennie;NO;10
+22;FC bianchi;3-4-3;Vasquez;NO;11
+22;FC bianchi;3-4-3;Davis K.;NO;12
+22;FC bianchi;3-4-3;Thuram K.;NO;13
+22;FC bianchi;3-4-3;Contini;NO;14
+22;Sinuoso;3-4-3;Sommer;SI;0
+22;Sinuoso;3-4-3;Olivera;SI;0
+22;Sinuoso;3-4-3;Bastoni;SI;0
+22;Sinuoso;3-4-3;Darmian;SI;0
+22;Sinuoso;3-4-3;Conceicao;SI;0
+22;Sinuoso;3-4-3;De Roon;SI;0
+22;Sinuoso;3-4-3;Ricci S.;SI;0
+22;Sinuoso;3-4-3;Calhanoglu;SI;0
+22;Sinuoso;3-4-3;Esposito F.P.;SI;0
+22;Sinuoso;3-4-3;Nkunku;SI;0
+22;Sinuoso;3-4-3;Martinez L.;SI;0
+22;Sinuoso;3-4-3;Martinez Jo.;NO;1
+22;Sinuoso;3-4-3;Vlasic;NO;2
+22;Sinuoso;3-4-3;Laurientè;NO;3
+22;Sinuoso;3-4-3;Thorstvedt;NO;4
+22;Sinuoso;3-4-3;Caracciolo A.;NO;5
+22;Sinuoso;3-4-3;Heggem;NO;6
+22;Sinuoso;3-4-3;Spinazzola;NO;7
+22;Sinuoso;3-4-3;Douvikas;NO;8
+22;Sinuoso;3-4-3;Vergara;NO;9
+22;Sinuoso;3-4-3;Di Gennaro;NO;10
+22;Sinuoso;3-4-3;Holm;NO;11
+22;Sinuoso;3-4-3;Mancini;NO;12
+22;Sinuoso;3-4-3;Locatelli;NO;13
+22;Sinuoso;3-4-3;Nzola;NO;14
+22;Makumba FC;3-4-3;Perin;SI;0
+22;Makumba FC;3-4-3;Bartesaghi;SI;0
+22;Makumba FC;3-4-3;Estupinan;SI;0
+22;Makumba FC;3-4-3;Gabbia;SI;0
+22;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+22;Makumba FC;3-4-3;Fofana Y.;SI;0
+22;Makumba FC;3-4-3;Pulisic;SI;0
+22;Makumba FC;3-4-3;Taylor K.;SI;0
+22;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+22;Makumba FC;3-4-3;Pinamonti;SI;0
+22;Makumba FC;3-4-3;Kean;SI;0
+22;Makumba FC;3-4-3;Piccoli;NO;1
+22;Makumba FC;3-4-3;Mandragora;NO;2
+22;Makumba FC;3-4-3;Orban G.;NO;3
+22;Makumba FC;3-4-3;Dimarco;NO;4
+22;Makumba FC;3-4-3;Rowe;NO;5
+22;Makumba FC;3-4-3;Di Gregorio;NO;6
+22;Makumba FC;3-4-3;Tomori;NO;7
+22;Makumba FC;3-4-3;Skorupski;NO;8
+22;Makumba FC;3-4-3;Bellanova;NO;9
+22;Makumba FC;3-4-3;Politano;NO;10
+22;Makumba FC;3-4-3;Adams C.;NO;11
+22;Makumba FC;3-4-3;Pavlovic;NO;12
+22;Makumba FC;3-4-3;Zappacosta;NO;13
+22;Makumba FC;3-4-3;Zielinski;NO;14
+22;Nhamass dstrunz;3-4-3;Sportiello;SI;0
+22;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+22;Nhamass dstrunz;3-4-3;Celik;SI;0
+22;Nhamass dstrunz;3-4-3;Ramon;SI;0
+22;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+22;Nhamass dstrunz;3-4-3;Konè I.;SI;0
+22;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+22;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+22;Nhamass dstrunz;3-4-3;Dybala;SI;0
+22;Nhamass dstrunz;3-4-3;Soulè;SI;0
+22;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+22;Nhamass dstrunz;3-4-3;Tourè I.;NO;1
+22;Nhamass dstrunz;3-4-3;Kossounou;NO;2
+22;Nhamass dstrunz;3-4-3;Scamacca;NO;3
+22;Nhamass dstrunz;3-4-3;Bijlow;NO;4
+22;Nhamass dstrunz;3-4-3;Perrone;NO;5
+22;Nhamass dstrunz;3-4-3;Carnesecchi;NO;6
+22;Nhamass dstrunz;3-4-3;Ekkelenkamp;NO;7
+22;Nhamass dstrunz;3-4-3;Kempf;NO;8
+22;Nhamass dstrunz;3-4-3;Malinovskyi;NO;9
+22;Nhamass dstrunz;3-4-3;Krstovic;NO;10
+22;Nhamass dstrunz;3-4-3;Kelly L.;NO;11
+22;Nhamass dstrunz;3-4-3;Tavares N.;NO;12
+22;Nhamass dstrunz;3-4-3;Berardi;NO;13
+22;Nhamass dstrunz;3-4-3;Valle;NO;14
+22;Reazione di Mallard;3-4-3;Butez;SI;0
+22;Reazione di Mallard;3-4-3;Wesley;SI;0
+22;Reazione di Mallard;3-4-3;Martin;SI;0
+22;Reazione di Mallard;3-4-3;Lucumì;SI;0
+22;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+22;Reazione di Mallard;3-4-3;Matic;SI;0
+22;Reazione di Mallard;3-4-3;Rabiot;SI;0
+22;Reazione di Mallard;3-4-3;Atta;SI;0
+22;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+22;Reazione di Mallard;3-4-3;Simeone;SI;0
+22;Reazione di Mallard;3-4-3;David;SI;0
+22;Reazione di Mallard;3-4-3;Lukaku;NO;1
+22;Reazione di Mallard;3-4-3;Hien;NO;2
+22;Reazione di Mallard;3-4-3;Cristante;NO;3
+22;Reazione di Mallard;3-4-3;Baturina;NO;4
+22;Reazione di Mallard;3-4-3;Vitinha O.;NO;5
+22;Reazione di Mallard;3-4-3;Caprile;NO;6
+22;Reazione di Mallard;3-4-3;Coco;NO;7
+22;Reazione di Mallard;3-4-3;Zaniolo;NO;8
+22;Reazione di Mallard;3-4-3;Doig;NO;9
+22;Reazione di Mallard;3-4-3;Ederson D.S.;NO;10
+22;Reazione di Mallard;3-4-3;Gosens;NO;11
+22;Reazione di Mallard;3-4-3;Solomon;NO;12
+22;Reazione di Mallard;3-4-3;Solet;NO;13
+22;Reazione di Mallard;3-4-3;Provedel;NO;14
+22;Vietato Sognare FC;3-4-3;Svilar;SI;0
+22;Vietato Sognare FC;3-4-3;Bremer;SI;0
+22;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+22;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+22;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+22;Vietato Sognare FC;3-4-3;Maldini;SI;0
+22;Vietato Sognare FC;3-4-3;Modric;SI;0
+22;Vietato Sognare FC;3-4-3;Casadei;SI;0
+22;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+22;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+22;Vietato Sognare FC;3-4-3;Moreo;SI;0
+22;Vietato Sognare FC;3-4-3;Hojlund;NO;1
+22;Vietato Sognare FC;3-4-3;Muric;NO;2
+22;Vietato Sognare FC;3-4-3;Gollini;NO;3
+22;Vietato Sognare FC;3-4-3;Valeri;NO;4
+22;Vietato Sognare FC;3-4-3;Maripan;NO;5
+22;Vietato Sognare FC;3-4-3;Zortea;NO;6
+22;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;7
+22;Vietato Sognare FC;3-4-3;Zalewski;NO;8
+22;Vietato Sognare FC;3-4-3;Muharemovic;NO;9
+22;Vietato Sognare FC;3-4-3;Malen;NO;10
+22;Vietato Sognare FC;3-4-3;Santos A.;NO;11
+22;Vietato Sognare FC;3-4-3;Ratkov;NO;12
+22;Vietato Sognare FC;3-4-3;Bernabè;NO;13
+22;Vietato Sognare FC;3-4-3;Dumfries;NO;14
+23;ARCORE FC;3-4-3;Falcone;SI;0
+23;ARCORE FC;3-4-3;Ostigard;SI;0
+23;ARCORE FC;3-4-3;Cambiaso;SI;0
+23;ARCORE FC;3-4-3;Cuadrado;SI;0
+23;ARCORE FC;3-4-3;Cataldi;SI;0
+23;ARCORE FC;3-4-3;Tramoni M.;SI;0
+23;ARCORE FC;3-4-3;Konè M.;SI;0
+23;ARCORE FC;3-4-3;Thorsby;SI;0
+23;ARCORE FC;3-4-3;Colombo;SI;0
+23;ARCORE FC;3-4-3;Bonny;SI;0
+23;ARCORE FC;3-4-3;Esposito Se.;SI;0
+23;ARCORE FC;3-4-3;Audero;NO;1
+23;ARCORE FC;3-4-3;Zaragoza;NO;2
+23;ARCORE FC;3-4-3;Akanji;NO;3
+23;ARCORE FC;3-4-3;Pedro;NO;4
+23;ARCORE FC;3-4-3;Bisseck;NO;5
+23;ARCORE FC;3-4-3;Di Lorenzo;NO;6
+23;ARCORE FC;3-4-3;McTominay;NO;7
+23;ARCORE FC;3-4-3;Thuram;NO;8
+23;ARCORE FC;3-4-3;De Winter;NO;9
+23;ARCORE FC;3-4-3;Sanabria;NO;10
+23;ARCORE FC;3-4-3;Orsolini;NO;11
+23;ARCORE FC;3-4-3;Okoye;NO;12
+23;ARCORE FC;3-4-3;Sucic P.;NO;13
+23;ARCORE FC;3-4-3;N'Dicka;NO;14
+23;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+23;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+23;FC San Marco Evangelista;3-4-3;Circati;SI;0
+23;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+23;FC San Marco Evangelista;3-4-3;Barella;SI;0
+23;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+23;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+23;FC San Marco Evangelista;3-4-3;Brescianini;SI;0
+23;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+23;FC San Marco Evangelista;3-4-3;De Ketelaere;SI;0
+23;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+23;FC San Marco Evangelista;3-4-3;Buongiorno;NO;1
+23;FC San Marco Evangelista;3-4-3;Saelemaekers;NO;2
+23;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;3
+23;FC San Marco Evangelista;3-4-3;Suzuki;NO;4
+23;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;5
+23;FC San Marco Evangelista;3-4-3;Yildiz;NO;6
+23;FC San Marco Evangelista;3-4-3;Gila;NO;7
+23;FC San Marco Evangelista;3-4-3;Palestra;NO;8
+23;FC San Marco Evangelista;3-4-3;Iling Junior;NO;9
+23;FC San Marco Evangelista;3-4-3;Delprato;NO;10
+23;FC San Marco Evangelista;3-4-3;Odgaard;NO;11
+23;FC San Marco Evangelista;3-4-3;Paz N.;NO;12
+23;FC San Marco Evangelista;3-4-3;Maignan;NO;13
+23;FC San Marco Evangelista;3-4-3;Boga;NO;14
+23;FC bianchi;3-4-3;Contini;SI;0
+23;FC bianchi;3-4-3;Comuzzo;SI;0
+23;FC bianchi;3-4-3;Baschirotto;SI;0
+23;FC bianchi;3-4-3;Mina;SI;0
+23;FC bianchi;3-4-3;McKennie;SI;0
+23;FC bianchi;3-4-3;Harroui;SI;0
+23;FC bianchi;3-4-3;Sottil;SI;0
+23;FC bianchi;3-4-3;Isaksen;SI;0
+23;FC bianchi;3-4-3;Vardy;SI;0
+23;FC bianchi;3-4-3;Fullkrug;SI;0
+23;FC bianchi;3-4-3;Zapata D.;SI;0
+23;FC bianchi;3-4-3;Diego Carlos;NO;1
+23;FC bianchi;3-4-3;Thuram K.;NO;2
+23;FC bianchi;3-4-3;Dodò;NO;3
+23;FC bianchi;3-4-3;Strefezza;NO;4
+23;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;5
+23;FC bianchi;3-4-3;Meret;NO;6
+23;FC bianchi;3-4-3;Davis K.;NO;7
+23;FC bianchi;3-4-3;Scalvini;NO;8
+23;FC bianchi;3-4-3;Leao;NO;9
+23;FC bianchi;3-4-3;Rovella;NO;10
+23;FC bianchi;3-4-3;Vasquez;NO;11
+23;FC bianchi;3-4-3;Raspadori;NO;12
+23;FC bianchi;3-4-3;Romagnoli;NO;13
+23;FC bianchi;3-4-3;Mkhitaryan;NO;14
+23;Sinuoso;3-4-3;Sommer;SI;0
+23;Sinuoso;3-4-3;Holm;SI;0
+23;Sinuoso;3-4-3;Caracciolo A.;SI;0
+23;Sinuoso;3-4-3;Olivera;SI;0
+23;Sinuoso;3-4-3;Vlasic;SI;0
+23;Sinuoso;3-4-3;Ricci S.;SI;0
+23;Sinuoso;3-4-3;De Roon;SI;0
+23;Sinuoso;3-4-3;Conceicao;SI;0
+23;Sinuoso;3-4-3;Martinez L.;SI;0
+23;Sinuoso;3-4-3;Douvikas;SI;0
+23;Sinuoso;3-4-3;Esposito F.P.;SI;0
+23;Sinuoso;3-4-3;Spinazzola;NO;1
+23;Sinuoso;3-4-3;Thorstvedt;NO;2
+23;Sinuoso;3-4-3;Darmian;NO;3
+23;Sinuoso;3-4-3;Laurientè;NO;4
+23;Sinuoso;3-4-3;Vergara;NO;5
+23;Sinuoso;3-4-3;Di Gennaro;NO;6
+23;Sinuoso;3-4-3;Nzola;NO;7
+23;Sinuoso;3-4-3;Mancini;NO;8
+23;Sinuoso;3-4-3;Nkunku;NO;9
+23;Sinuoso;3-4-3;Heggem;NO;10
+23;Sinuoso;3-4-3;Martinez Jo.;NO;11
+23;Sinuoso;3-4-3;Calhanoglu;NO;12
+23;Sinuoso;3-4-3;Bastoni;NO;13
+23;Sinuoso;3-4-3;Locatelli;NO;14
+23;Makumba FC;3-4-3;Perin;SI;0
+23;Makumba FC;3-4-3;Bartesaghi;SI;0
+23;Makumba FC;3-4-3;Zappacosta;SI;0
+23;Makumba FC;3-4-3;Gabbia;SI;0
+23;Makumba FC;3-4-3;Mandragora;SI;0
+23;Makumba FC;3-4-3;Rowe;SI;0
+23;Makumba FC;3-4-3;Zielinski;SI;0
+23;Makumba FC;3-4-3;Pulisic;SI;0
+23;Makumba FC;3-4-3;Piccoli;SI;0
+23;Makumba FC;3-4-3;Kean;SI;0
+23;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+23;Makumba FC;3-4-3;Adams C.;NO;1
+23;Makumba FC;3-4-3;Pavlovic;NO;2
+23;Makumba FC;3-4-3;Estupinan;NO;3
+23;Makumba FC;3-4-3;Pinamonti;NO;4
+23;Makumba FC;3-4-3;Loftus-Cheek;NO;5
+23;Makumba FC;3-4-3;Di Gregorio;NO;6
+23;Makumba FC;3-4-3;Fofana Y.;NO;7
+23;Makumba FC;3-4-3;Dimarco;NO;8
+23;Makumba FC;3-4-3;Tomori;NO;9
+23;Makumba FC;3-4-3;Bellanova;NO;10
+23;Makumba FC;3-4-3;Politano;NO;11
+23;Makumba FC;3-4-3;Orban G.;NO;12
+23;Makumba FC;3-4-3;Skorupski;NO;13
+23;Makumba FC;3-4-3;Taylor K.;NO;14
+23;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+23;Nhamass dstrunz;3-4-3;Ramon;SI;0
+23;Nhamass dstrunz;3-4-3;Tavares N.;SI;0
+23;Nhamass dstrunz;3-4-3;Kempf;SI;0
+23;Nhamass dstrunz;3-4-3;Tourè I.;SI;0
+23;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+23;Nhamass dstrunz;3-4-3;Zaccagni;SI;0
+23;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+23;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+23;Nhamass dstrunz;3-4-3;Berardi;SI;0
+23;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+23;Nhamass dstrunz;3-4-3;Valle;NO;1
+23;Nhamass dstrunz;3-4-3;Pasalic;NO;2
+23;Nhamass dstrunz;3-4-3;Dybala;NO;3
+23;Nhamass dstrunz;3-4-3;Kossounou;NO;4
+23;Nhamass dstrunz;3-4-3;Rrahmani;NO;5
+23;Nhamass dstrunz;3-4-3;Soulè;NO;6
+23;Nhamass dstrunz;3-4-3;Carnesecchi;NO;7
+23;Nhamass dstrunz;3-4-3;Konè I.;NO;8
+23;Nhamass dstrunz;3-4-3;Perrone;NO;9
+23;Nhamass dstrunz;3-4-3;Kilicsoy;NO;10
+23;Nhamass dstrunz;3-4-3;Celik;NO;11
+23;Nhamass dstrunz;3-4-3;Malinovskyi;NO;12
+23;Nhamass dstrunz;3-4-3;Kelly L.;NO;13
+23;Nhamass dstrunz;3-4-3;Sportiello;NO;14
+23;Reazione di Mallard;3-4-3;Caprile;SI;0
+23;Reazione di Mallard;3-4-3;Hien;SI;0
+23;Reazione di Mallard;3-4-3;Martin;SI;0
+23;Reazione di Mallard;3-4-3;Gosens;SI;0
+23;Reazione di Mallard;3-4-3;Cristante;SI;0
+23;Reazione di Mallard;3-4-3;Matic;SI;0
+23;Reazione di Mallard;3-4-3;Atta;SI;0
+23;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+23;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+23;Reazione di Mallard;3-4-3;Solomon;SI;0
+23;Reazione di Mallard;3-4-3;David;SI;0
+23;Reazione di Mallard;3-4-3;Ederson D.S.;NO;1
+23;Reazione di Mallard;3-4-3;Simeone;NO;2
+23;Reazione di Mallard;3-4-3;Coco;NO;3
+23;Reazione di Mallard;3-4-3;Vitinha O.;NO;4
+23;Reazione di Mallard;3-4-3;Provedel;NO;5
+23;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;6
+23;Reazione di Mallard;3-4-3;Butez;NO;7
+23;Reazione di Mallard;3-4-3;Lucumì;NO;8
+23;Reazione di Mallard;3-4-3;Lukaku;NO;9
+23;Reazione di Mallard;3-4-3;Rabiot;NO;10
+23;Reazione di Mallard;3-4-3;Solet;NO;11
+23;Reazione di Mallard;3-4-3;Doig;NO;12
+23;Reazione di Mallard;3-4-3;Baturina;NO;13
+23;Reazione di Mallard;3-4-3;Wesley;NO;14
+23;Vietato Sognare FC;3-4-3;Gollini;SI;0
+23;Vietato Sognare FC;3-4-3;Bremer;SI;0
+23;Vietato Sognare FC;3-4-3;Valeri;SI;0
+23;Vietato Sognare FC;3-4-3;Kristensen T.;SI;0
+23;Vietato Sognare FC;3-4-3;Zambo Anguissa;SI;0
+23;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+23;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+23;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+23;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+23;Vietato Sognare FC;3-4-3;Malen;SI;0
+23;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+23;Vietato Sognare FC;3-4-3;Dumfries;NO;1
+23;Vietato Sognare FC;3-4-3;Modric;NO;2
+23;Vietato Sognare FC;3-4-3;Zortea;NO;3
+23;Vietato Sognare FC;3-4-3;Maldini;NO;4
+23;Vietato Sognare FC;3-4-3;Carlos Augusto;NO;5
+23;Vietato Sognare FC;3-4-3;Muharemovic;NO;6
+23;Vietato Sognare FC;3-4-3;Maripan;NO;7
+23;Vietato Sognare FC;3-4-3;Moreo;NO;8
+23;Vietato Sognare FC;3-4-3;Ratkov;NO;9
+23;Vietato Sognare FC;3-4-3;Castro S.;NO;10
+23;Vietato Sognare FC;3-4-3;Svilar;NO;11
+23;Vietato Sognare FC;3-4-3;Casadei;NO;12
+23;Vietato Sognare FC;3-4-3;Muric;NO;13
+23;Vietato Sognare FC;3-4-3;Zalewski;NO;14
+24;ARCORE FC;3-4-3;Falcone;SI;0
+24;ARCORE FC;3-4-3;Akanji;SI;0
+24;ARCORE FC;3-4-3;Di Lorenzo;SI;0
+24;ARCORE FC;3-4-3;De Winter;SI;0
+24;ARCORE FC;3-4-3;Cataldi;SI;0
+24;ARCORE FC;3-4-3;Thorsby;SI;0
+24;ARCORE FC;3-4-3;McTominay;SI;0
+24;ARCORE FC;3-4-3;Sucic P.;SI;0
+24;ARCORE FC;3-4-3;Bonny;SI;0
+24;ARCORE FC;3-4-3;Colombo;SI;0
+24;ARCORE FC;3-4-3;Esposito Se.;SI;0
+24;ARCORE FC;3-4-3;Orsolini;NO;1
+24;ARCORE FC;3-4-3;Pedro;NO;2
+24;ARCORE FC;3-4-3;Cambiaso;NO;3
+24;ARCORE FC;3-4-3;N'Dicka;NO;4
+24;ARCORE FC;3-4-3;Ostigard;NO;5
+24;ARCORE FC;3-4-3;Audero;NO;6
+24;ARCORE FC;3-4-3;Zaragoza;NO;7
+24;ARCORE FC;3-4-3;Tramoni M.;NO;8
+24;ARCORE FC;3-4-3;Okoye;NO;9
+24;ARCORE FC;3-4-3;Bisseck;NO;10
+24;ARCORE FC;3-4-3;Cuadrado;NO;11
+24;ARCORE FC;3-4-3;Sanabria;NO;12
+24;ARCORE FC;3-4-3;Thuram;NO;13
+24;ARCORE FC;3-4-3;Konè M.;NO;14
+24;FC San Marco Evangelista;3-4-3;Maignan;SI;0
+24;FC San Marco Evangelista;3-4-3;Gila;SI;0
+24;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+24;FC San Marco Evangelista;3-4-3;Delprato;SI;0
+24;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+24;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+24;FC San Marco Evangelista;3-4-3;Odgaard;SI;0
+24;FC San Marco Evangelista;3-4-3;Barella;SI;0
+24;FC San Marco Evangelista;3-4-3;Yildiz;SI;0
+24;FC San Marco Evangelista;3-4-3;Ferguson E.;SI;0
+24;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+24;FC San Marco Evangelista;3-4-3;Pellegrino M.;NO;1
+24;FC San Marco Evangelista;3-4-3;Buongiorno;NO;2
+24;FC San Marco Evangelista;3-4-3;Palestra;NO;3
+24;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;4
+24;FC San Marco Evangelista;3-4-3;Paz N.;NO;5
+24;FC San Marco Evangelista;3-4-3;Circati;NO;6
+24;FC San Marco Evangelista;3-4-3;Miretti;NO;7
+24;FC San Marco Evangelista;3-4-3;Suzuki;NO;8
+24;FC San Marco Evangelista;3-4-3;Iling Junior;NO;9
+24;FC San Marco Evangelista;3-4-3;Terracciano;NO;10
+24;FC San Marco Evangelista;3-4-3;Ranieri L.;NO;11
+24;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;12
+24;FC San Marco Evangelista;3-4-3;Brescianini;NO;13
+24;FC San Marco Evangelista;3-4-3;Boga;NO;14
+24;FC bianchi;3-4-3;Contini;SI;0
+24;FC bianchi;3-4-3;Diego Carlos;SI;0
+24;FC bianchi;3-4-3;Mina;SI;0
+24;FC bianchi;3-4-3;Baschirotto;SI;0
+24;FC bianchi;3-4-3;Strefezza;SI;0
+24;FC bianchi;3-4-3;Isaksen;SI;0
+24;FC bianchi;3-4-3;Rovella;SI;0
+24;FC bianchi;3-4-3;Thuram K.;SI;0
+24;FC bianchi;3-4-3;Raspadori;SI;0
+24;FC bianchi;3-4-3;Zapata D.;SI;0
+24;FC bianchi;3-4-3;Leao;SI;0
+24;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;1
+24;FC bianchi;3-4-3;Fullkrug;NO;2
+24;FC bianchi;3-4-3;Vasquez;NO;3
+24;FC bianchi;3-4-3;Harroui;NO;4
+24;FC bianchi;3-4-3;Mkhitaryan;NO;5
+24;FC bianchi;3-4-3;Vardy;NO;6
+24;FC bianchi;3-4-3;Sottil;NO;7
+24;FC bianchi;3-4-3;Comuzzo;NO;8
+24;FC bianchi;3-4-3;McKennie;NO;9
+24;FC bianchi;3-4-3;Dodò;NO;10
+24;FC bianchi;3-4-3;Scalvini;NO;11
+24;FC bianchi;3-4-3;Meret;NO;12
+24;FC bianchi;3-4-3;Romagnoli;NO;13
+24;FC bianchi;3-4-3;Davis K.;NO;14
+24;Sinuoso;3-4-3;Martinez Jo.;SI;0
+24;Sinuoso;3-4-3;Caracciolo A.;SI;0
+24;Sinuoso;3-4-3;Heggem;SI;0
+24;Sinuoso;3-4-3;Olivera;SI;0
+24;Sinuoso;3-4-3;Vergara;SI;0
+24;Sinuoso;3-4-3;Vlasic;SI;0
+24;Sinuoso;3-4-3;Calhanoglu;SI;0
+24;Sinuoso;3-4-3;De Roon;SI;0
+24;Sinuoso;3-4-3;Nzola;SI;0
+24;Sinuoso;3-4-3;Esposito F.P.;SI;0
+24;Sinuoso;3-4-3;Nkunku;SI;0
+24;Sinuoso;3-4-3;Thorstvedt;NO;1
+24;Sinuoso;3-4-3;Spinazzola;NO;2
+24;Sinuoso;3-4-3;Darmian;NO;3
+24;Sinuoso;3-4-3;Di Gennaro;NO;4
+24;Sinuoso;3-4-3;Douvikas;NO;5
+24;Sinuoso;3-4-3;Bastoni;NO;6
+24;Sinuoso;3-4-3;Ricci S.;NO;7
+24;Sinuoso;3-4-3;Conceicao;NO;8
+24;Sinuoso;3-4-3;Martinez L.;NO;9
+24;Sinuoso;3-4-3;Mancini;NO;10
+24;Sinuoso;3-4-3;Locatelli;NO;11
+24;Sinuoso;3-4-3;Laurientè;NO;12
+24;Sinuoso;3-4-3;Holm;NO;13
+24;Sinuoso;3-4-3;Sommer;NO;14
+24;Makumba FC;3-4-3;Skorupski;SI;0
+24;Makumba FC;3-4-3;Zappacosta;SI;0
+24;Makumba FC;3-4-3;Tomori;SI;0
+24;Makumba FC;3-4-3;Bellanova;SI;0
+24;Makumba FC;3-4-3;Taylor K.;SI;0
+24;Makumba FC;3-4-3;Rowe;SI;0
+24;Makumba FC;3-4-3;Loftus-Cheek;SI;0
+24;Makumba FC;3-4-3;Pulisic;SI;0
+24;Makumba FC;3-4-3;Kean;SI;0
+24;Makumba FC;3-4-3;Adams C.;SI;0
+24;Makumba FC;3-4-3;Orban G.;SI;0
+24;Makumba FC;3-4-3;Pinamonti;NO;1
+24;Makumba FC;3-4-3;Di Gregorio;NO;2
+24;Makumba FC;3-4-3;Pavlovic;NO;3
+24;Makumba FC;3-4-3;Bartesaghi;NO;4
+24;Makumba FC;3-4-3;Rodriguez Je.;NO;5
+24;Makumba FC;3-4-3;Gabbia;NO;6
+24;Makumba FC;3-4-3;Fofana Y.;NO;7
+24;Makumba FC;3-4-3;Politano;NO;8
+24;Makumba FC;3-4-3;Zielinski;NO;9
+24;Makumba FC;3-4-3;Dimarco;NO;10
+24;Makumba FC;3-4-3;Perin;NO;11
+24;Makumba FC;3-4-3;Mandragora;NO;12
+24;Makumba FC;3-4-3;Estupinan;NO;13
+24;Makumba FC;3-4-3;Piccoli;NO;14
+24;Nhamass dstrunz;3-4-3;Bijlow;SI;0
+24;Nhamass dstrunz;3-4-3;Valle;SI;0
+24;Nhamass dstrunz;3-4-3;Rrahmani;SI;0
+24;Nhamass dstrunz;3-4-3;Kempf;SI;0
+24;Nhamass dstrunz;3-4-3;Da Cunha;SI;0
+24;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+24;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+24;Nhamass dstrunz;3-4-3;Perrone;SI;0
+24;Nhamass dstrunz;3-4-3;Krstovic;SI;0
+24;Nhamass dstrunz;3-4-3;Kilicsoy;SI;0
+24;Nhamass dstrunz;3-4-3;Dybala;SI;0
+24;Nhamass dstrunz;3-4-3;Konè I.;NO;1
+24;Nhamass dstrunz;3-4-3;Celik;NO;2
+24;Nhamass dstrunz;3-4-3;Scamacca;NO;3
+24;Nhamass dstrunz;3-4-3;Sportiello;NO;4
+24;Nhamass dstrunz;3-4-3;Pasalic;NO;5
+24;Nhamass dstrunz;3-4-3;Tavares N.;NO;6
+24;Nhamass dstrunz;3-4-3;Carnesecchi;NO;7
+24;Nhamass dstrunz;3-4-3;Soulè;NO;8
+24;Nhamass dstrunz;3-4-3;Kelly L.;NO;9
+24;Nhamass dstrunz;3-4-3;Zaccagni;NO;10
+24;Nhamass dstrunz;3-4-3;Kossounou;NO;11
+24;Nhamass dstrunz;3-4-3;Berardi;NO;12
+24;Nhamass dstrunz;3-4-3;Tourè I.;NO;13
+24;Nhamass dstrunz;3-4-3;Ramon;NO;14
+24;Reazione di Mallard;3-4-3;Butez;SI;0
+24;Reazione di Mallard;3-4-3;Wesley;SI;0
+24;Reazione di Mallard;3-4-3;Solet;SI;0
+24;Reazione di Mallard;3-4-3;Lucumì;SI;0
+24;Reazione di Mallard;3-4-3;Matic;SI;0
+24;Reazione di Mallard;3-4-3;Cristante;SI;0
+24;Reazione di Mallard;3-4-3;Zaniolo;SI;0
+24;Reazione di Mallard;3-4-3;Baturina;SI;0
+24;Reazione di Mallard;3-4-3;Lukaku;SI;0
+24;Reazione di Mallard;3-4-3;David;SI;0
+24;Reazione di Mallard;3-4-3;Solomon;SI;0
+24;Reazione di Mallard;3-4-3;Gosens;NO;1
+24;Reazione di Mallard;3-4-3;Caprile;NO;2
+24;Reazione di Mallard;3-4-3;Atta;NO;3
+24;Reazione di Mallard;3-4-3;Doig;NO;4
+24;Reazione di Mallard;3-4-3;Hien;NO;5
+24;Reazione di Mallard;3-4-3;Rabiot;NO;6
+24;Reazione di Mallard;3-4-3;Durosinmi;NO;7
+24;Reazione di Mallard;3-4-3;Simeone;NO;8
+24;Reazione di Mallard;3-4-3;Gudmundsson A.;NO;9
+24;Reazione di Mallard;3-4-3;Coco;NO;10
+24;Reazione di Mallard;3-4-3;Vitinha O.;NO;11
+24;Reazione di Mallard;3-4-3;Martin;NO;12
+24;Reazione di Mallard;3-4-3;Ederson D.S.;NO;13
+24;Reazione di Mallard;3-4-3;Provedel;NO;14
+24;Vietato Sognare FC;3-4-3;Muric;SI;0
+24;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+24;Vietato Sognare FC;3-4-3;Bremer;SI;0
+24;Vietato Sognare FC;3-4-3;Dumfries;SI;0
+24;Vietato Sognare FC;3-4-3;Pellegrini Lo.;SI;0
+24;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+24;Vietato Sognare FC;3-4-3;Maldini;SI;0
+24;Vietato Sognare FC;3-4-3;Casadei;SI;0
+24;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+24;Vietato Sognare FC;3-4-3;Castro S.;SI;0
+24;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+24;Vietato Sognare FC;3-4-3;Bernabè;NO;1
+24;Vietato Sognare FC;3-4-3;Gollini;NO;2
+24;Vietato Sognare FC;3-4-3;Malen;NO;3
+24;Vietato Sognare FC;3-4-3;Zortea;NO;4
+24;Vietato Sognare FC;3-4-3;Modric;NO;5
+24;Vietato Sognare FC;3-4-3;Muharemovic;NO;6
+24;Vietato Sognare FC;3-4-3;Kristensen T.;NO;7
+24;Vietato Sognare FC;3-4-3;Maripan;NO;8
+24;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;9
+24;Vietato Sognare FC;3-4-3;Valeri;NO;10
+24;Vietato Sognare FC;3-4-3;Moreo;NO;11
+24;Vietato Sognare FC;3-4-3;Zalewski;NO;12
+24;Vietato Sognare FC;3-4-3;Svilar;NO;13
+24;Vietato Sognare FC;3-4-3;Hojlund;NO;14
+25;ARCORE FC;3-4-3;Audero;SI;0
+25;ARCORE FC;3-4-3;Bisseck;SI;0
+25;ARCORE FC;3-4-3;Akanji;SI;0
+25;ARCORE FC;3-4-3;Cambiaso;SI;0
+25;ARCORE FC;3-4-3;Sucic P.;SI;0
+25;ARCORE FC;3-4-3;Konè M.;SI;0
+25;ARCORE FC;3-4-3;Zaragoza;SI;0
+25;ARCORE FC;3-4-3;Thorsby;SI;0
+25;ARCORE FC;3-4-3;Bonny;SI;0
+25;ARCORE FC;3-4-3;Thuram;SI;0
+25;ARCORE FC;3-4-3;Sanabria;SI;0
+25;ARCORE FC;3-4-3;Colombo;NO;1
+25;ARCORE FC;3-4-3;McTominay;NO;2
+25;ARCORE FC;3-4-3;Pedro;NO;3
+25;ARCORE FC;3-4-3;N'Dicka;NO;4
+25;ARCORE FC;3-4-3;Cuadrado;NO;5
+25;ARCORE FC;3-4-3;Cataldi;NO;6
+25;ARCORE FC;3-4-3;Ostigard;NO;7
+25;ARCORE FC;3-4-3;Orsolini;NO;8
+25;ARCORE FC;3-4-3;De Winter;NO;9
+25;ARCORE FC;3-4-3;Falcone;NO;10
+25;ARCORE FC;3-4-3;Di Lorenzo;NO;11
+25;ARCORE FC;3-4-3;Tramoni M.;NO;12
+25;ARCORE FC;3-4-3;Esposito Se.;NO;13
+25;ARCORE FC;3-4-3;Okoye;NO;14
+25;FC San Marco Evangelista;3-4-3;Terracciano;SI;0
+25;FC San Marco Evangelista;3-4-3;Kalulu;SI;0
+25;FC San Marco Evangelista;3-4-3;Gila;SI;0
+25;FC San Marco Evangelista;3-4-3;Ranieri L.;SI;0
+25;FC San Marco Evangelista;3-4-3;Dele-Bashiru;SI;0
+25;FC San Marco Evangelista;3-4-3;Barella;SI;0
+25;FC San Marco Evangelista;3-4-3;Saelemaekers;SI;0
+25;FC San Marco Evangelista;3-4-3;Miretti;SI;0
+25;FC San Marco Evangelista;3-4-3;Cancellieri;SI;0
+25;FC San Marco Evangelista;3-4-3;Pellegrino M.;SI;0
+25;FC San Marco Evangelista;3-4-3;Boga;SI;0
+25;FC San Marco Evangelista;3-4-3;Brescianini;NO;1
+25;FC San Marco Evangelista;3-4-3;Buongiorno;NO;2
+25;FC San Marco Evangelista;3-4-3;Paz N.;NO;3
+25;FC San Marco Evangelista;3-4-3;Delprato;NO;4
+25;FC San Marco Evangelista;3-4-3;Maignan;NO;5
+25;FC San Marco Evangelista;3-4-3;Iling Junior;NO;6
+25;FC San Marco Evangelista;3-4-3;Ferguson E.;NO;7
+25;FC San Marco Evangelista;3-4-3;Suzuki;NO;8
+25;FC San Marco Evangelista;3-4-3;Norton-Cuffy;NO;9
+25;FC San Marco Evangelista;3-4-3;De Ketelaere;NO;10
+25;FC San Marco Evangelista;3-4-3;Odgaard;NO;11
+25;FC San Marco Evangelista;3-4-3;Circati;NO;12
+25;FC San Marco Evangelista;3-4-3;Palestra;NO;13
+25;FC San Marco Evangelista;3-4-3;Yildiz;NO;14
+25;FC bianchi;3-4-3;Contini;SI;0
+25;FC bianchi;3-4-3;Mina;SI;0
+25;FC bianchi;3-4-3;Vasquez;SI;0
+25;FC bianchi;3-4-3;Romagnoli;SI;0
+25;FC bianchi;3-4-3;Mkhitaryan;SI;0
+25;FC bianchi;3-4-3;McKennie;SI;0
+25;FC bianchi;3-4-3;Strefezza;SI;0
+25;FC bianchi;3-4-3;Harroui;SI;0
+25;FC bianchi;3-4-3;Raspadori;SI;0
+25;FC bianchi;3-4-3;Leao;SI;0
+25;FC bianchi;3-4-3;Vardy;SI;0
+25;FC bianchi;3-4-3;Meret;NO;1
+25;FC bianchi;3-4-3;Isaksen;NO;2
+25;FC bianchi;3-4-3;Rovella;NO;3
+25;FC bianchi;3-4-3;Fullkrug;NO;4
+25;FC bianchi;3-4-3;Sottil;NO;5
+25;FC bianchi;3-4-3;Scalvini;NO;6
+25;FC bianchi;3-4-3;Baschirotto;NO;7
+25;FC bianchi;3-4-3;Dodò;NO;8
+25;FC bianchi;3-4-3;Comuzzo;NO;9
+25;FC bianchi;3-4-3;Milinkovic-Savic V.;NO;10
+25;FC bianchi;3-4-3;Davis K.;NO;11
+25;FC bianchi;3-4-3;Diego Carlos;NO;12
+25;FC bianchi;3-4-3;Thuram K.;NO;13
+25;FC bianchi;3-4-3;Zapata D.;NO;14
+25;Sinuoso;3-4-3;Sommer;SI;0
+25;Sinuoso;3-4-3;Darmian;SI;0
+25;Sinuoso;3-4-3;Mancini;SI;0
+25;Sinuoso;3-4-3;Bastoni;SI;0
+25;Sinuoso;3-4-3;Calhanoglu;SI;0
+25;Sinuoso;3-4-3;Ricci S.;SI;0
+25;Sinuoso;3-4-3;Vlasic;SI;0
+25;Sinuoso;3-4-3;Thorstvedt;SI;0
+25;Sinuoso;3-4-3;Nzola;SI;0
+25;Sinuoso;3-4-3;Douvikas;SI;0
+25;Sinuoso;3-4-3;Esposito F.P.;SI;0
+25;Sinuoso;3-4-3;Martinez Jo.;NO;1
+25;Sinuoso;3-4-3;Di Gennaro;NO;2
+25;Sinuoso;3-4-3;De Roon;NO;3
+25;Sinuoso;3-4-3;Heggem;NO;4
+25;Sinuoso;3-4-3;Spinazzola;NO;5
+25;Sinuoso;3-4-3;Olivera;NO;6
+25;Sinuoso;3-4-3;Holm;NO;7
+25;Sinuoso;3-4-3;Nkunku;NO;8
+25;Sinuoso;3-4-3;Conceicao;NO;9
+25;Sinuoso;3-4-3;Caracciolo A.;NO;10
+25;Sinuoso;3-4-3;Vergara;NO;11
+25;Sinuoso;3-4-3;Locatelli;NO;12
+25;Sinuoso;3-4-3;Laurientè;NO;13
+25;Sinuoso;3-4-3;Martinez L.;NO;14
+25;Makumba FC;3-4-3;Di Gregorio;SI;0
+25;Makumba FC;3-4-3;Gabbia;SI;0
+25;Makumba FC;3-4-3;Bellanova;SI;0
+25;Makumba FC;3-4-3;Estupinan;SI;0
+25;Makumba FC;3-4-3;Fofana Y.;SI;0
+25;Makumba FC;3-4-3;Taylor K.;SI;0
+25;Makumba FC;3-4-3;Zielinski;SI;0
+25;Makumba FC;3-4-3;Mandragora;SI;0
+25;Makumba FC;3-4-3;Adams C.;SI;0
+25;Makumba FC;3-4-3;Orban G.;SI;0
+25;Makumba FC;3-4-3;Rodriguez Je.;SI;0
+25;Makumba FC;3-4-3;Piccoli;NO;1
+25;Makumba FC;3-4-3;Pavlovic;NO;2
+25;Makumba FC;3-4-3;Dimarco;NO;3
+25;Makumba FC;3-4-3;Loftus-Cheek;NO;4
+25;Makumba FC;3-4-3;Politano;NO;5
+25;Makumba FC;3-4-3;Zappacosta;NO;6
+25;Makumba FC;3-4-3;Kean;NO;7
+25;Makumba FC;3-4-3;Perin;NO;8
+25;Makumba FC;3-4-3;Skorupski;NO;9
+25;Makumba FC;3-4-3;Bartesaghi;NO;10
+25;Makumba FC;3-4-3;Tomori;NO;11
+25;Makumba FC;3-4-3;Pulisic;NO;12
+25;Makumba FC;3-4-3;Pinamonti;NO;13
+25;Makumba FC;3-4-3;Rowe;NO;14
+25;Nhamass dstrunz;3-4-3;Sportiello;SI;0
+25;Nhamass dstrunz;3-4-3;Kelly L.;SI;0
+25;Nhamass dstrunz;3-4-3;Ramon;SI;0
+25;Nhamass dstrunz;3-4-3;Celik;SI;0
+25;Nhamass dstrunz;3-4-3;Perrone;SI;0
+25;Nhamass dstrunz;3-4-3;Ekkelenkamp;SI;0
+25;Nhamass dstrunz;3-4-3;Malinovskyi;SI;0
+25;Nhamass dstrunz;3-4-3;Pasalic;SI;0
+25;Nhamass dstrunz;3-4-3;Dybala;SI;0
+25;Nhamass dstrunz;3-4-3;Scamacca;SI;0
+25;Nhamass dstrunz;3-4-3;Berardi;SI;0
+25;Nhamass dstrunz;3-4-3;Rrahmani;NO;1
+25;Nhamass dstrunz;3-4-3;Kilicsoy;NO;2
+25;Nhamass dstrunz;3-4-3;Soulè;NO;3
+25;Nhamass dstrunz;3-4-3;Konè I.;NO;4
+25;Nhamass dstrunz;3-4-3;Tavares N.;NO;5
+25;Nhamass dstrunz;3-4-3;Kempf;NO;6
+25;Nhamass dstrunz;3-4-3;Tourè I.;NO;7
+25;Nhamass dstrunz;3-4-3;Kossounou;NO;8
+25;Nhamass dstrunz;3-4-3;Bijlow;NO;9
+25;Nhamass dstrunz;3-4-3;Zaccagni;NO;10
+25;Nhamass dstrunz;3-4-3;Valle;NO;11
+25;Nhamass dstrunz;3-4-3;Carnesecchi;NO;12
+25;Nhamass dstrunz;3-4-3;Da Cunha;NO;13
+25;Nhamass dstrunz;3-4-3;Krstovic;NO;14
+25;Reazione di Mallard;3-4-3;Butez;SI;0
+25;Reazione di Mallard;3-4-3;Gosens;SI;0
+25;Reazione di Mallard;3-4-3;Lucumì;SI;0
+25;Reazione di Mallard;3-4-3;Solet;SI;0
+25;Reazione di Mallard;3-4-3;Atta;SI;0
+25;Reazione di Mallard;3-4-3;Baturina;SI;0
+25;Reazione di Mallard;3-4-3;Gudmundsson A.;SI;0
+25;Reazione di Mallard;3-4-3;Matic;SI;0
+25;Reazione di Mallard;3-4-3;Solomon;SI;0
+25;Reazione di Mallard;3-4-3;Simeone;SI;0
+25;Reazione di Mallard;3-4-3;Durosinmi;SI;0
+25;Reazione di Mallard;3-4-3;Rabiot;NO;1
+25;Reazione di Mallard;3-4-3;Provedel;NO;2
+25;Reazione di Mallard;3-4-3;Martin;NO;3
+25;Reazione di Mallard;3-4-3;Caprile;NO;4
+25;Reazione di Mallard;3-4-3;Ederson D.S.;NO;5
+25;Reazione di Mallard;3-4-3;David;NO;6
+25;Reazione di Mallard;3-4-3;Wesley;NO;7
+25;Reazione di Mallard;3-4-3;Coco;NO;8
+25;Reazione di Mallard;3-4-3;Vitinha O.;NO;9
+25;Reazione di Mallard;3-4-3;Cristante;NO;10
+25;Reazione di Mallard;3-4-3;Zaniolo;NO;11
+25;Reazione di Mallard;3-4-3;Doig;NO;12
+25;Reazione di Mallard;3-4-3;Hien;NO;13
+25;Reazione di Mallard;3-4-3;Lukaku;NO;14
+25;Vietato Sognare FC;3-4-3;Muric;SI;0
+25;Vietato Sognare FC;3-4-3;Muharemovic;SI;0
+25;Vietato Sognare FC;3-4-3;Zortea;SI;0
+25;Vietato Sognare FC;3-4-3;Carlos Augusto;SI;0
+25;Vietato Sognare FC;3-4-3;Modric;SI;0
+25;Vietato Sognare FC;3-4-3;Santos A.;SI;0
+25;Vietato Sognare FC;3-4-3;Bernabè;SI;0
+25;Vietato Sognare FC;3-4-3;Zalewski;SI;0
+25;Vietato Sognare FC;3-4-3;Bonazzoli;SI;0
+25;Vietato Sognare FC;3-4-3;Hojlund;SI;0
+25;Vietato Sognare FC;3-4-3;Ratkov;SI;0
+25;Vietato Sognare FC;3-4-3;Pellegrini Lo.;NO;1
+25;Vietato Sognare FC;3-4-3;Valeri;NO;2
+25;Vietato Sognare FC;3-4-3;Castro S.;NO;3
+25;Vietato Sognare FC;3-4-3;Svilar;NO;4
+25;Vietato Sognare FC;3-4-3;Maripan;NO;5
+25;Vietato Sognare FC;3-4-3;Moreo;NO;6
+25;Vietato Sognare FC;3-4-3;Gollini;NO;7
+25;Vietato Sognare FC;3-4-3;Casadei;NO;8
+25;Vietato Sognare FC;3-4-3;Maldini;NO;9
+25;Vietato Sognare FC;3-4-3;Bremer;NO;10
+25;Vietato Sognare FC;3-4-3;Malen;NO;11
+25;Vietato Sognare FC;3-4-3;Zambo Anguissa;NO;12
+25;Vietato Sognare FC;3-4-3;Dumfries;NO;13
+25;Vietato Sognare FC;3-4-3;Kristensen T.;NO;14

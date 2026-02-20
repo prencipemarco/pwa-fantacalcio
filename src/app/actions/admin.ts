@@ -721,3 +721,64 @@ export async function forceImportLineupFromCSV(teamId: string, matchday: number,
         return { success: false, error: e.message };
     }
 }
+
+export async function getMatchdayDataStatus(matchday: number) {
+    const supabase = createAdminClient();
+
+    // 1. Check Lineups
+    const { data: fixtures } = await supabase.from('fixtures').select('id').eq('matchday', matchday);
+    let lineupsCount = 0;
+
+    if (fixtures && fixtures.length > 0) {
+        const fixtureIds = fixtures.map((f: any) => f.id);
+        const { count: lCount, error: lError } = await supabase
+            .from('lineups')
+            .select('*', { count: 'exact', head: true })
+            .in('fixture_id', fixtureIds);
+
+        if (!lError) lineupsCount = lCount || 0;
+    }
+
+    // 2. Check Votes
+    const { count: vCount, error: vError } = await supabase
+        .from('match_stats')
+        .select('*', { count: 'exact', head: true })
+        .eq('matchday', matchday);
+
+    let votesCount = 0;
+    if (!vError) votesCount = vCount || 0;
+
+    return { success: true, lineupsCount, votesCount };
+}
+
+export async function deleteMatchdayLineups(matchday: number) {
+    const supabase = createAdminClient();
+
+    const { data: fixtures } = await supabase.from('fixtures').select('id').eq('matchday', matchday);
+    if (!fixtures || fixtures.length === 0) return { success: true, count: 0 };
+
+    const fixtureIds = fixtures.map((f: any) => f.id);
+    const { data: lineups } = await supabase.from('lineups').select('id').in('fixture_id', fixtureIds);
+    if (!lineups || lineups.length === 0) return { success: true, count: 0 };
+
+    const lineupIds = lineups.map((l: any) => l.id);
+
+    // Safely delete lineup players first in case CASCADE is not set
+    await supabase.from('lineup_players').delete().in('lineup_id', lineupIds);
+
+    const { error } = await supabase.from('lineups').delete().in('id', lineupIds);
+    if (error) return { success: false, error: error.message };
+
+    await logEvent('DELETE_MATCHDAY_LINEUPS', { matchday, count: lineups.length }, 'ADMIN');
+    return { success: true, count: lineups.length };
+}
+
+export async function deleteMatchdayVotes(matchday: number) {
+    const supabase = createAdminClient();
+
+    const { error } = await supabase.from('match_stats').delete().eq('matchday', matchday);
+    if (error) return { success: false, error: error.message };
+
+    await logEvent('DELETE_MATCHDAY_VOTES', { matchday }, 'ADMIN');
+    return { success: true };
+}

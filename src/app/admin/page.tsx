@@ -7,7 +7,7 @@ import { DevTools } from '@/components/admin/dev-tools';
 import { TestNotificationButton } from '@/components/admin/test-notification-button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import {
-    Upload, Calendar, Shield, ShoppingCart, UserCog,
+    Upload, Calendar, Shield, ShoppingCart, UserCog, Database,
     FileText, Code, AlertTriangle, ArrowRight, Settings
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -135,6 +135,19 @@ export default function AdminDashboard() {
                         <Button asChild className={btnSecondary}>
                             <Link href="/admin/calendar">
                                 {t('manageCalendar')}
+                            </Link>
+                        </Button>
+                    </AdminCard>
+
+                    {/* Manage Data (New Feature) */}
+                    <AdminCard
+                        title="Gestione Dati"
+                        description="Visualizza e rimuovi massivamente Lineups e Voti per giornata."
+                        icon={Database}
+                    >
+                        <Button asChild className={btnSecondary}>
+                            <Link href="/admin/data">
+                                Gestisci Dati
                             </Link>
                         </Button>
                     </AdminCard>
