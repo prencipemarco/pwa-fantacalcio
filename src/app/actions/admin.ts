@@ -324,6 +324,11 @@ export async function resetSystem(options: ResetOptions) {
         // 4. Rosters (Depends on Teams, Players)
         if (rosters || teams || players) {
             await supabase.from('rosters').delete().neq('id', 0);
+
+            // If teams are kept but rosters/players are reset, restore initial 1000 credits
+            if (!teams) {
+                await supabase.from('teams').update({ credits_left: 1000 }).neq('id', 0); // Update all valid teams
+            }
         }
 
         // 5. Fixtures (Depends on League, but Teams ref it)
