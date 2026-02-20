@@ -361,12 +361,7 @@ async function calculateTeamScore(supabase: any, teamId: string, fixtureId: numb
 
 function convertScoreToGoals(score: number) {
     if (score < 66) return 0;
-    if (score < 72) return 1; // 66-71.5
-    if (score < 78) return 2; // 72-77.5
-    if (score < 84) return 3; // 78-83.5
-    if (score < 90) return 4; // 84-89.5
-    if (score < 96) return 5;
-    return 6; // 96+
+    return Math.floor((score - 66) / 4) + 1;
 }
 // System Logs
 export async function logEvent(action: string, details: any = {}, userId?: string) {
