@@ -32,6 +32,7 @@ export function ResetManager() {
         players: false,
         logs: false,
         credits: false,
+        lineups: false,
     });
 
     const handleCheck = (key: keyof ResetOptions, checked: boolean) => {
@@ -85,6 +86,7 @@ export function ResetManager() {
                     players: false,
                     logs: false,
                     credits: false,
+                    lineups: false,
                 });
                 setTimeout(() => setOpen(false), 2000);
             } else {
@@ -175,7 +177,17 @@ export function ResetManager() {
                             onCheckedChange={(c) => handleCheck('votes', c as boolean)}
                             disabled={options.players}
                         />
-                        <Label htmlFor="opt-votes">Match Stats (Votes)</Label>
+                        <Label htmlFor="opt-votes">Voti e Statistiche (Tutti i matchday)</Label>
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                        <Checkbox
+                            id="opt-lineups"
+                            checked={options.lineups}
+                            onCheckedChange={(c) => handleCheck('lineups', c as boolean)}
+                            disabled={options.teams || options.calendar || options.players}
+                        />
+                        <Label htmlFor="opt-lineups" className="font-bold text-red-600">Formazioni (Tutte le giornate)</Label>
                     </div>
 
                     <div className="flex items-center space-x-2 mt-4 pt-4 border-t">

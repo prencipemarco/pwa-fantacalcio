@@ -149,14 +149,14 @@ export async function importLineups(rows: LineupImportRow[]) {
             }
 
             // 3. Lineup Upsert
-            const { data: existingLineup } = await supabase
+            const { data: existingLineups } = await supabase
                 .from('lineups')
                 .select('id')
                 .eq('team_id', team.id)
                 .eq('fixture_id', fixture.id)
-                .maybeSingle();
+                .limit(1);
 
-            let lineupId = existingLineup?.id;
+            let lineupId = existingLineups && existingLineups.length > 0 ? existingLineups[0].id : undefined;
 
             if (lineupId) {
                 await supabase.from('lineups').update({ module }).eq('id', lineupId);
@@ -394,6 +394,7 @@ export type ResetOptions = {
     players: boolean;
     logs: boolean;
     credits: boolean;
+    lineups?: boolean;
 };
 
 export async function resetSystem(options: ResetOptions) {
@@ -405,13 +406,13 @@ export async function resetSystem(options: ResetOptions) {
         // Order matters for Foreign Key constraints
 
         // 1. Lineup Players (Depends on Lineups, Players)
-        if (teams || calendar || players) {
+        if (options.lineups || teams || calendar || players) {
             // Needed if deleting teams (lineups gone), calendar (lineups gone) or players
             await supabase.from('lineup_players').delete().neq('id', 0);
         }
 
         // 2. Lineups (Depends on Fixtures, Teams)
-        if (teams || calendar) {
+        if (options.lineups || teams || calendar) {
             await supabase.from('lineups').delete().neq('id', 0);
         }
 
