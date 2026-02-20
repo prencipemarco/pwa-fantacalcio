@@ -2,7 +2,7 @@
 
 import { createClient } from '@/utils/supabase/server';
 import { createAdminClient } from '@/utils/supabase/admin';
-import { PlayerImport, RosterImport, VoteImport } from '@/lib/fantacalcio/parsers';
+import { PlayerImport, RosterImport, VoteImport, LineupImportRow } from '@/lib/fantacalcio/parsers';
 import { revalidatePath } from 'next/cache';
 
 export async function importPlayers(players: PlayerImport[]) {
@@ -106,6 +106,102 @@ export async function importVotes(votes: VoteImport[], matchday: number) {
     if (error) return { success: false, error: error.message };
 
     return { success: true, count: dbVotes.length };
+}
+
+export async function importLineups(rows: LineupImportRow[]) {
+    const supabase = createAdminClient();
+    let importedLineupsCount = 0;
+    const errors: string[] = [];
+
+    // Pre-fetch all teams, players, and fixtures to avoid N+1 queries
+    const { data: teams } = await supabase.from('teams').select('id, name');
+    const { data: players } = await supabase.from('players').select('id, name');
+    const { data: fixtures } = await supabase.from('fixtures').select('id, matchday, home_team_id, away_team_id');
+
+    if (!teams || !players || !fixtures) return { success: false, error: 'Failed to fetch base DB items (teams, players, fixtures).' };
+
+    // Process group by Matchday + Team
+    const groups: Record<string, LineupImportRow[]> = {};
+    for (const row of rows) {
+        const key = `${row.matchday}_${row.team_name.toLowerCase().trim()}`;
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(row);
+    }
+
+    for (const [key, groupRows] of Object.entries(groups)) {
+        try {
+            const teamName = groupRows[0].team_name.toLowerCase().trim();
+            const matchday = groupRows[0].matchday;
+            const module = groupRows[0].module;
+
+            // 1. Find Team
+            const team = teams.find(t => t.name.toLowerCase().trim() === teamName);
+            if (!team) {
+                errors.push(`Team not found: ${teamName}`);
+                continue;
+            }
+
+            // 2. Find Fixture for this team on this matchday
+            const fixture = fixtures.find(f => f.matchday === matchday && (f.home_team_id === team.id || f.away_team_id === team.id));
+            if (!fixture) {
+                errors.push(`Fixture not found for team ${teamName} on matchday ${matchday}`);
+                continue;
+            }
+
+            // 3. Lineup Upsert
+            const { data: existingLineup } = await supabase
+                .from('lineups')
+                .select('id')
+                .eq('team_id', team.id)
+                .eq('fixture_id', fixture.id)
+                .maybeSingle();
+
+            let lineupId = existingLineup?.id;
+
+            if (lineupId) {
+                await supabase.from('lineups').update({ module }).eq('id', lineupId);
+                await supabase.from('lineup_players').delete().eq('lineup_id', lineupId);
+            } else {
+                const { data: newLineup, error: lineupErr } = await supabase
+                    .from('lineups')
+                    .insert({ team_id: team.id, fixture_id: fixture.id, module })
+                    .select('id')
+                    .single();
+
+                if (lineupErr) throw lineupErr;
+                lineupId = newLineup.id;
+            }
+
+            // 4. Resolve Players
+            const playersToInsert = [];
+            for (const row of groupRows) {
+                const pName = row.player_name.toLowerCase().trim();
+                const player = players.find(p => p.name.toLowerCase().trim() === pName);
+                if (!player) {
+                    errors.push(`Player not found: ${row.player_name}`);
+                    continue;
+                }
+                playersToInsert.push({
+                    lineup_id: lineupId,
+                    player_id: player.id,
+                    is_starter: row.is_starter,
+                    bench_order: row.bench_order
+                });
+            }
+
+            // 5. Insert Lineup Players
+            if (playersToInsert.length > 0) {
+                const { error: insertErr } = await supabase.from('lineup_players').insert(playersToInsert);
+                if (insertErr) throw insertErr;
+                importedLineupsCount++;
+            }
+
+        } catch (e: any) {
+            errors.push(`Error on group ${key}: ${e.message}`);
+        }
+    }
+
+    return { success: true, count: importedLineupsCount, errors };
 }
 
 export async function generateCalendar(leagueId: string) {

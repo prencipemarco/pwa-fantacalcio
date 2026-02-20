@@ -25,6 +25,15 @@ export type VoteImport = {
     own_goals: number;
 };
 
+export type LineupImportRow = {
+    matchday: number;
+    team_name: string;
+    module: string;
+    player_name: string;
+    is_starter: boolean;
+    bench_order: number;
+};
+
 function parseCSVLine(line: string, delimiter: string = ';'): string[] {
     // Simple split, can be enhanced for quoted values if needed
     return line.split(delimiter).map(s => s.trim().replace(/^"|"$/g, ''));
@@ -153,4 +162,47 @@ export function parseVotesCSV(csvContent: string): VoteImport[] {
         });
     }
     return votes;
+}
+
+export function parseLineupCSV(csvContent: string): LineupImportRow[] {
+    const lines = csvContent.split(/\r?\n/).filter(l => l.trim() !== '');
+    const rows: LineupImportRow[] = [];
+
+    // Expected: Giornata; Squadra; Modulo; Giocatore; Titolare; PanchinaOrdine
+    // Skip header if present
+    let startIndex = 0;
+    if (lines[0].toLowerCase().includes('giornata') || lines[0].toLowerCase().includes('squadra')) {
+        startIndex = 1;
+    }
+
+    for (let i = startIndex; i < lines.length; i++) {
+        const cols = parseCSVLine(lines[i], ';');
+        const colsComma = parseCSVLine(lines[i], ',');
+        const activeCols = cols.length > colsComma.length ? cols : colsComma;
+
+        if (activeCols.length < 6) continue;
+
+        const matchday = parseInt(activeCols[0]);
+        const team_name = activeCols[1];
+        const module = activeCols[2];
+        const player_name = activeCols[3];
+
+        // Titolare can be "SI", "NO", "TRUE", "FALSE", "1", "0"
+        const isStarterStr = activeCols[4].toUpperCase();
+        const is_starter = isStarterStr === 'SI' || isStarterStr === 'TRUE' || isStarterStr === '1' || isStarterStr === 'YES';
+
+        const bench_order = parseInt(activeCols[5]) || 0;
+
+        if (!isNaN(matchday) && team_name && player_name) {
+            rows.push({
+                matchday,
+                team_name,
+                module,
+                player_name,
+                is_starter,
+                bench_order
+            });
+        }
+    }
+    return rows;
 }

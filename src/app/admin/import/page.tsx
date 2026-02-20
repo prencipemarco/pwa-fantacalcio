@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { parsePlayerListone, parseRosterCSV, parseVotesCSV } from '@/lib/fantacalcio/parsers';
-import { importPlayers, importRosters, importVotes, calculateMatchday } from '@/app/actions/admin';
+import { parsePlayerListone, parseRosterCSV, parseVotesCSV, parseLineupCSV } from '@/lib/fantacalcio/parsers';
+import { importPlayers, importRosters, importVotes, calculateMatchday, importLineups } from '@/app/actions/admin';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,7 +15,7 @@ export default function ImportPage() {
     const [result, setResult] = useState<any>(null);
     const [matchday, setMatchday] = useState<number>(1);
 
-    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>, type: 'players' | 'rosters' | 'votes') => {
+    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>, type: 'players' | 'rosters' | 'votes' | 'lineups') => {
         const file = e.target.files?.[0];
         if (!file) return;
 
@@ -37,6 +37,9 @@ export default function ImportPage() {
                 } else if (type === 'votes') {
                     const data = parseVotesCSV(text);
                     res = await importVotes(data, matchday);
+                } else if (type === 'lineups') {
+                    const data = parseLineupCSV(text);
+                    res = await importLineups(data);
                 }
 
                 setResult(res);
@@ -55,9 +58,10 @@ export default function ImportPage() {
             <h1 className="text-3xl font-bold mb-6">Admin Import Dashboard</h1>
 
             <Tabs defaultValue="players">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid w-full grid-cols-4">
                     <TabsTrigger value="players">Players (Listone)</TabsTrigger>
                     <TabsTrigger value="rosters">Rosters</TabsTrigger>
+                    <TabsTrigger value="lineups">Lineups</TabsTrigger>
                     <TabsTrigger value="votes">Votes</TabsTrigger>
                 </TabsList>
 
@@ -89,6 +93,25 @@ export default function ImportPage() {
                                 <Label htmlFor="roster-file">Select CSV</Label>
                                 <Input id="roster-file" type="file" accept=".csv,.txt" onChange={(e) => handleFileChange(e, 'rosters')} disabled={loading} />
                             </div>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+
+                {/* LINEUPS IMPORT */}
+                <TabsContent value="lineups">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Import Lineups (Formazioni)</CardTitle>
+                            <CardDescription>Upload CSV (Giornata; Squadra; Modulo; Giocatore; Titolare; PanchinaOrdine).</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid w-full max-w-sm items-center gap-1.5">
+                                <Label htmlFor="lineups-file">Select CSV</Label>
+                                <Input id="lineups-file" type="file" accept=".csv,.txt" onChange={(e) => handleFileChange(e, 'lineups')} disabled={loading} />
+                            </div>
+                            <p className="text-xs text-gray-500 mt-4">
+                                This will parse the file, group by matchday and team, and insert lineups directly into the database. Make sure teams and players are already imported.
+                            </p>
                         </CardContent>
                     </Card>
                 </TabsContent>
