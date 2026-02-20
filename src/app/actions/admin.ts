@@ -6,7 +6,7 @@ import { PlayerImport, RosterImport, VoteImport } from '@/lib/fantacalcio/parser
 import { revalidatePath } from 'next/cache';
 
 export async function importPlayers(players: PlayerImport[]) {
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { error } = await supabase
         .from('players')
@@ -20,7 +20,7 @@ export async function importPlayers(players: PlayerImport[]) {
 }
 
 export async function importRosters(rosters: RosterImport[]) {
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: teams } = await supabase.from('teams').select('id, name');
     if (!teams) return { success: false, error: 'No teams found' };
@@ -74,7 +74,7 @@ export async function importRosters(rosters: RosterImport[]) {
 }
 
 export async function importVotes(votes: VoteImport[], matchday: number) {
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: validPlayers } = await supabase.from('players').select('id');
     const validIds = new Set(validPlayers?.map(p => p.id));
@@ -109,7 +109,7 @@ export async function importVotes(votes: VoteImport[], matchday: number) {
 }
 
 export async function generateCalendar(leagueId: string) {
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // 1. Fetch teams
     const { data: teams } = await supabase.from('teams').select('id').eq('league_id', leagueId);
@@ -190,7 +190,7 @@ export async function generateCalendar(leagueId: string) {
 }
 
 export async function calculateMatchday(matchday: number) {
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // 1. Get fixtures
     const { data: fixtures } = await supabase.from('fixtures').select('*').eq('matchday', matchday);
@@ -391,7 +391,7 @@ export async function getAllTeams() {
 }
 // Single Team Deletion
 export async function deleteTeam(teamId: string) {
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     try {
         // 1. Lineup Players (via Lineups)
