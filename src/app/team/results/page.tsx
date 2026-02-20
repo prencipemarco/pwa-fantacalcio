@@ -152,13 +152,15 @@ export default function ResultsPage() {
                                                 {/* Match */}
                                                 <div className="flex-1 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
                                                     {/* Home */}
-                                                    <div className="flex items-center justify-end gap-3 z-10 transition-transform group-hover:translate-x-1">
-                                                        <span className={cn("text-sm font-bold truncate", f.isHome ? "text-primary" : "")}>{homeTeamName}</span>
-                                                        <TeamLogo teamName={homeTeamName} logoUrl={homeLogoUrl} logoConfig={homeLogoConfig} size={36} />
+                                                    <div className="flex items-center justify-end gap-3 z-10 transition-transform group-hover:translate-x-1 min-w-0">
+                                                        <span className={cn("text-sm font-bold truncate text-right", f.isHome ? "text-primary" : "")}>{homeTeamName}</span>
+                                                        <div className="shrink-0">
+                                                            <TeamLogo teamName={homeTeamName} logoUrl={homeLogoUrl} logoConfig={homeLogoConfig} size={36} />
+                                                        </div>
                                                     </div>
 
                                                     {/* Score */}
-                                                    <div className="flex justify-center w-[80px]">
+                                                    <div className="flex justify-center w-[80px] shrink-0">
                                                         {f.calculated ? (
                                                             <div className="px-3 py-1 bg-muted/50 rounded-lg font-mono font-bold text-lg border border-border/50">
                                                                 {f.homeGoals} - {f.awayGoals}
@@ -169,9 +171,11 @@ export default function ResultsPage() {
                                                     </div>
 
                                                     {/* Away */}
-                                                    <div className="flex items-center justify-start gap-3 z-10 transition-transform group-hover:-translate-x-1">
-                                                        <TeamLogo teamName={awayTeamName} logoUrl={awayLogoUrl} logoConfig={awayLogoConfig} size={36} />
-                                                        <span className={cn("text-sm font-bold truncate", !f.isHome ? "text-primary" : "")}>{awayTeamName}</span>
+                                                    <div className="flex items-center justify-start gap-3 z-10 transition-transform group-hover:-translate-x-1 min-w-0">
+                                                        <div className="shrink-0">
+                                                            <TeamLogo teamName={awayTeamName} logoUrl={awayLogoUrl} logoConfig={awayLogoConfig} size={36} />
+                                                        </div>
+                                                        <span className={cn("text-sm font-bold truncate text-left", !f.isHome ? "text-primary" : "")}>{awayTeamName}</span>
                                                     </div>
                                                 </div>
 
@@ -200,12 +204,12 @@ export default function ResultsPage() {
 
                                                 <div className="flex items-center justify-between px-2">
                                                     {/* Home */}
-                                                    <div className="flex flex-col items-center justify-start w-[35%] gap-2 text-center">
-                                                        <div className="relative">
+                                                    <div className="flex flex-col items-center justify-start w-[35%] gap-2 text-center min-w-0">
+                                                        <div className="relative shrink-0">
                                                             <TeamLogo teamName={homeTeamName} logoUrl={homeLogoUrl} logoConfig={homeLogoConfig} size={42} />
                                                             {f.isHome && <div className="absolute -bottom-1 -right-1 h-3 w-3 bg-blue-500 rounded-full border-2 border-background" />}
                                                         </div>
-                                                        <span className={cn("text-[11px] font-bold leading-tight line-clamp-2", f.isHome ? "text-primary" : "")}>
+                                                        <span className={cn("text-[11px] font-bold leading-tight line-clamp-2 w-full", f.isHome ? "text-primary" : "")}>
                                                             {homeTeamName}
                                                         </span>
                                                     </div>
@@ -226,8 +230,8 @@ export default function ResultsPage() {
                                                     </div>
 
                                                     {/* Away */}
-                                                    <div className="flex flex-col items-center justify-start w-[35%] gap-2 text-center">
-                                                        <div className="relative">
+                                                    <div className="flex flex-col items-center justify-start w-[35%] gap-2 text-center min-w-0">
+                                                        <div className="relative shrink-0">
                                                             <TeamLogo teamName={awayTeamName} logoUrl={awayLogoUrl} logoConfig={awayLogoConfig} size={42} />
                                                             {!f.isHome && <div className="absolute -bottom-1 -left-1 h-3 w-3 bg-blue-500 rounded-full border-2 border-background" />}
                                                         </div>

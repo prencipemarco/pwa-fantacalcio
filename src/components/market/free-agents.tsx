@@ -10,6 +10,7 @@ import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { Plus, Search, Loader2 } from 'lucide-react';
 
 import { useLanguage } from '@/contexts/LanguageContext';
+import { PlayerDetailsModal } from '@/components/market/player-details-modal';
 
 export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () => void, teamId: string, refreshCredits: () => void }) {
     const { t } = useLanguage();
@@ -21,6 +22,7 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
     const [showFilters, setShowFilters] = useState(false);
+    const [selectedPlayer, setSelectedPlayer] = useState<any>(null);
 
     // Initial load
     useEffect(() => {
@@ -127,8 +129,8 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {results.map((player) => (
-                    <Card key={player.id} className="hover:border-primary/50 transition-colors shadow-sm">
-                        <CardContent className="p-2.5 flex justify-between items-center">
+                    <Card key={player.id} className="hover:border-primary/50 transition-colors shadow-sm cursor-pointer" onClick={() => setSelectedPlayer(player)}>
+                        <CardContent className="p-2 flex justify-between items-center">
                             <div className="flex items-center gap-2">
                                 {/* Role Badge */}
                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0
@@ -149,11 +151,11 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
 
                             <Button
                                 size="sm"
-                                onClick={() => handleStartAuction(player)}
+                                onClick={(e) => { e.stopPropagation(); handleStartAuction(player); }}
                                 disabled={buyingId === player.id}
-                                className="rounded-full w-9 h-9 p-0 shadow-sm shrink-0"
+                                className="rounded-full w-8 h-8 p-0 shadow-sm shrink-0"
                             >
-                                {buyingId === player.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-5 h-5" />}
+                                {buyingId === player.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
                             </Button>
                         </CardContent>
                     </Card>
@@ -171,6 +173,12 @@ export function FreeAgentsList({ onBack, teamId, refreshCredits }: { onBack: () 
                     <Loader2 className="w-8 h-8 animate-spin text-primary" />
                 </div>
             )}
+
+            <PlayerDetailsModal
+                player={selectedPlayer}
+                isOpen={!!selectedPlayer}
+                onClose={() => setSelectedPlayer(null)}
+            />
         </div>
     );
 }

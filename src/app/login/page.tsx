@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function UserLoginPage() {
     const [email, setEmail] = useState('');
@@ -71,7 +72,10 @@ export default function UserLoginPage() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center p-4">
+        <div className="flex min-h-screen flex-col items-center justify-center p-4">
+            <div className="w-full max-w-md flex justify-center mb-4">
+                <ThemeToggle />
+            </div>
             <Card className="w-full max-w-md">
                 <CardHeader className="text-center">
                     <CardTitle className="text-2xl">Fantacalcio Login</CardTitle>
@@ -79,9 +83,9 @@ export default function UserLoginPage() {
                 </CardHeader>
                 <CardContent>
                     <Tabs defaultValue="login">
-                        <TabsList className="grid w-full grid-cols-2 mb-6 p-1 bg-muted rounded-full">
-                            <TabsTrigger value="login" className="rounded-full data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all">Login</TabsTrigger>
-                            <TabsTrigger value="signup" className="rounded-full data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all">Sign Up</TabsTrigger>
+                        <TabsList className="grid w-full grid-cols-2 mb-6 p-1 bg-muted dark:bg-zinc-800/50 rounded-full">
+                            <TabsTrigger value="login" className="rounded-full text-muted-foreground data-[state=active]:bg-background dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-foreground data-[state=active]:shadow-sm transition-all">Login</TabsTrigger>
+                            <TabsTrigger value="signup" className="rounded-full text-muted-foreground data-[state=active]:bg-background dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-foreground data-[state=active]:shadow-sm transition-all">Sign Up</TabsTrigger>
                         </TabsList>
 
                         <TabsContent value="login">
@@ -110,7 +114,7 @@ export default function UserLoginPage() {
                                     <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
                                 </div>
                                 {error && <p className="text-green-600 text-sm">{error}</p>}
-                                <Button type="submit" className="w-full" variant="outline" disabled={loading}>{loading ? '...' : 'Sign Up'}</Button>
+                                <Button type="submit" className="w-full" disabled={loading}>{loading ? '...' : 'Sign Up'}</Button>
                             </form>
                         </TabsContent>
                     </Tabs>

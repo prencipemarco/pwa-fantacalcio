@@ -204,7 +204,7 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
 
 
 
-                <div className="relative min-h-[140px] flex items-center justify-center bg-card overflow-hidden">
+                <div className="relative min-h-[280px] flex items-center justify-center bg-card overflow-hidden">
                     <AnimatePresence mode="wait" initial={false}>
                         {statements.length > 0 && currentStatement ? (
                             <motion.div
@@ -213,7 +213,7 @@ export function HomePressRoom({ userTeamId }: { userTeamId?: string }) {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -20 }}
                                 transition={{ duration: 0.3 }}
-                                className="w-full h-auto p-4 flex flex-col gap-3 min-h-[140px]"
+                                className="w-full h-auto p-4 flex flex-col gap-3 min-h-[280px]"
                                 drag="x"
                                 dragConstraints={{ left: 0, right: 0 }}
                                 dragElastic={1}

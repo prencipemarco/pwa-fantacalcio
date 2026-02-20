@@ -6,6 +6,7 @@ import { BottomNav } from "@/components/bottom-nav";
 import { IntroSplash } from "@/components/intro-splash";
 import { SwipeNavigator } from "@/components/swipe-navigator";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
@@ -30,19 +31,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <LanguageProvider>
-          <IntroSplash />
-          <div className="pb-20">
-            <SwipeNavigator>
-              {children}
-            </SwipeNavigator>
-          </div>
-          <BottomNav />
-          <SpeedInsights />
-          <Toaster />
-        </LanguageProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <LanguageProvider>
+            <IntroSplash />
+            <div className="pb-20">
+              <SwipeNavigator>
+                {children}
+              </SwipeNavigator>
+            </div>
+            <BottomNav />
+            <SpeedInsights />
+            <Toaster />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
