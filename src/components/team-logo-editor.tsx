@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { TeamLogo, LogoConfig } from '@/components/team-logo';
-import { updateTeamLogo } from '@/app/actions/team-settings';
+import { updateTeamLogo, uploadLogoFile } from '@/app/actions/team-settings';
 import { Pencil, Loader2, ZoomIn, ZoomOut, Check, X } from 'lucide-react';
 import { createClient } from '@/utils/supabase/client';
 import { toast } from 'sonner';
@@ -109,21 +109,13 @@ export function TeamLogoEditor({ teamId, teamName, initialLogoUrl, initialLogoCo
 
             if (activeTab === 'upload') {
                 if (uploadBlob) {
-                    const supabase = createClient();
-                    const fileExt = 'jpg'; // getCroppedImg returns jpeg
-                    const fileName = `${teamId}-${Date.now()}.${fileExt}`;
+                    const formData = new FormData();
+                    formData.append('file', uploadBlob);
 
-                    const { error } = await supabase.storage
-                        .from('logos')
-                        .upload(fileName, uploadBlob, { upsert: true, contentType: 'image/jpeg' });
+                    const uploadRes = await uploadLogoFile(teamId, formData);
+                    if (!uploadRes.success) throw new Error(uploadRes.error);
 
-                    if (error) throw error;
-
-                    const { data: { publicUrl } } = supabase.storage
-                        .from('logos')
-                        .getPublicUrl(fileName);
-
-                    finalLogoUrl = publicUrl;
+                    finalLogoUrl = uploadRes.url || null;
                 }
                 // If switching to upload tab but keeping existing URL (and no new upload), finalLogoUrl remains
             } else {
