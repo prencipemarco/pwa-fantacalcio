@@ -78,8 +78,8 @@ def convert_excel_to_csv(input_path, output_path):
 
 if __name__ == "__main__":
     # Default paths
-    src_dir = os.path.join(os.getcwd(), 'src', 'xlsx')
-    out_dir = os.path.join(os.getcwd(), 'src', 'csv')
+    src_dir = os.path.join(os.getcwd(), 'xlsx')
+    out_dir = os.path.join(os.getcwd(), 'csv')
     
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)

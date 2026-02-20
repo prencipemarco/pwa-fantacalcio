@@ -1,17 +1,71 @@
-# 📚 Fantacalcio PWA - Documentazione Completa
+# ⚽️ FantaCalcio PWA - Documentazione Completa
 
-Questo documento fornisce una panoramica dettagliata del codice della PWA Fantacalcio, spiegando l'architettura, la struttura delle cartelle e i dettagli chiave dell'implementazione.
+Manage your Fantacalcio team with this modern, mobile-first Progressive Web App (PWA). Questo documento fornisce una panoramica dettagliata del codice della PWA Fantacalcio, spiegando l'architettura, la struttura delle cartelle e i dettagli chiave dell'implementazione.
 
 ---
 
-## 🏗 Panoramica Architettura
+## 📱 Features
+
+*   **PWA Ready**: Installable on iOS (Add to Home Screen) and Android.
+*   **Team Management**: Set your lineup (3-4-3, 4-3-3, etc.), manage bench, and view player prices/stats.
+*   **Live Results**: View match results with calculated fantasy scores (Win/Draw/Loss badges).
+*   **Standings**: Stylish, interactive league table with podium visualization.
+*   **Transfer Market**:
+    *   **Auction System**: Create and bid on players (24h auctions).
+    *   **Trades**: Propose and accept trades with other users (Players + Credits).
+    *   **Free Agents**: Sign available players.
+*   **Matchday Reminder**: Countdown to lineup lock and Next Matchday info.
+*   **Admin Panel**: Manage market, auctions, and score calculation.
+*   **Dark Mode**: Fully supported system-wide dark mode.
+*   **Multi-language**: Italian 🇮🇹 and English 🇬🇧 support.
+
+---
+
+## 🛠 Tech Stack & Panoramica Architettura
 
 L'applicazione è costruita usando **Next.js 14** con architettura **App Router**. Sfrutta le Server Actions per la logica backend (interazioni Supabase) e i Client Components per l'interfaccia interattiva.
 
-*   **Frontend**: React (Next.js), Tailwind CSS, Lucide Icons, Shadcn UI.
-*   **Backend**: Supabase (PostgreSQL, Auth).
+*   **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+*   **Database & Auth**: [Supabase](https://supabase.com/) (PostgreSQL)
+*   **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+*   **Icons**: [Lucide React](https://lucide.dev/)
+*   **Animations**: Framer Motion & Tailwind Animate
 *   **Gestione Stato**: React Context (`LanguageContext` per impostazioni globali) + React State.
 *   **PWA**: configurata via `manifest.json` e `src/app/layout.tsx`.
+
+---
+
+## 🚀 Getting Started
+
+1.  **Clone the repo**
+    ```bash
+    git clone https://github.com/prencipemarco/pwa-fantacalcio.git
+    cd pwa-fantacalcio
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Environment Setup**
+    Create `.env.local` con le tue credenziali Supabase:
+    ```env
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+    FOOTBALL_DATA_API_KEY=your_football_data_api_key (Optional)
+    ```
+
+4.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Build for Production**
+    ```bash
+    npm run build
+    npm start
+    ```
 
 ---
 
@@ -42,17 +96,19 @@ Contiene la logica lato server. Next.js 14 permette di chiamare queste funzioni 
 *   **`standings.ts`**: Calcolo e recupero classifica.
 *   **`results.ts`**: Recupero calendario e storico partite.
 *   **`football-data.ts`**: Integrazione API esterne per orari reali partite.
+*   **`stats.ts`**: Calcolo e recupero delle statistiche giocatori (Media Voto, Fantavoto, Bonus/Malus).
 
 ### `src/components` (Componenti UI)
 Blocchi UI riutilizzabili.
 
 *   **`ui/`**: Primitive core (Bottoni, Card, Modali) da **shadcn/ui**.
 *   **`home/`**: Componenti specifici dashboard (Bottoni rapidi).
-*   **`market/`**: Componenti complessi mercato (`ActiveAuctionsList`, `CreateAuctionModal`, `TradesSection`).
+*   **`market/`**: Componenti complessi mercato (`ActiveAuctionsList`, `CreateAuctionModal`, `TradesSection`, modale `PlayerDetailsModal`).
 *   **`team-logo.tsx`**: Utility per renderizzare stemmi squadre (SVG/PNG) con fallback.
 *   **`bottom-nav.tsx`**: Barra navigazione mobile-first.
 *   **`swipe-navigator.tsx`**: Gestore gesture swipe per navigazione tab (Logica intelligente Stop-Propagation).
 *   **`settings-dialog.tsx`**: Modale per cambio Lingua e Tema.
+*   **`theme-provider.tsx` / `theme-toggle.tsx`**: Gestori visuali del Theme Dark/Light tramite `next-themes`.
 
 ### `src/contexts` (Stato Globale)
 *   **`LanguageContext.tsx`**:
@@ -63,6 +119,10 @@ Blocchi UI riutilizzabili.
 Asset statici.
 *   **`manifest.json`**: Critico per PWA. Definisce nome app, icone e colori tema.
 *   **`teams/`**: Cartella contenente SVG/PNG per loghi squadre Serie A.
+
+### `scripts`
+Contiene script Python di utilità generica:
+*   Conversione `.xlsx` in `.csv` per listone e voti (es. `process_listone.py`, `process_votes.py`, `process_rosters.py`).
 
 ---
 
@@ -75,15 +135,15 @@ L'app è progettata per essere installata su dispostivi mobili.
 *   **Viewport**: Meta tag `user-scalable=no` per prevenire zoom e dare feeling nativo.
 
 ### 2. Localizzazione & Temi
-*   **Provider**: Avvolge l'intera app in `src/app/layout.tsx`.
+*   **Provider**: Avvolge l'intera app in `src/app/layout.tsx`. E' affiancato anche dal `ThemeProvider` di `next-themes` per una corretta idratazione.
 *   **Storage**: Salva preferenze Lingua ('it'/'en') e Tema ('light'/'dark') nel `localStorage`.
-*   **Uso**: I componenti usano l'hook: `const { t, theme } = useLanguage();`.
+*   **Uso**: I componenti usano l'hook: `const { t } = useLanguage();` o `useTheme()`.
 
 ### 3. Mercato Trasferimenti
 Una sezione complessa gestita in `src/app/team/market/page.tsx`.
 *   **Aste**: Gli utenti aprono aste per giocatori. Altri utenti offrono crediti. Offerta più alta dopo 24h vince. Include **Timer Live** e notifiche push al vincitore.
 *   **Scambi**: Utenti propongono scambi diretti. Supporto per scambi multi-giocatore + bilanciamento crediti.
-*   **Svincolati**: Visualizzazione lista giocatori liberi (Listone) con filtri rapidi.
+*   **Svincolati**: Visualizzazione lista giocatori liberi (Listone) con filtri rapidi. Cliccando un giocatore si può accedere alle sue **statistiche dettagliate**.
 *   **Taglio**: Utenti possono tagliare giocatori per recuperare crediti.
 
 ### 4. Gestore Formazione (`src/app/team/lineup/page.tsx`)
@@ -136,6 +196,11 @@ Usa `@dnd-kit/core` per drag-and-drop.
 
 ## 📋 Changelog (Registro Modifiche)
 
+### Recenti (Feature Statistiche e UI Polishing)
+*   **Statistiche Giocatori**: Implementata aggregazione delle statistiche su base DB (`Media Voto`, `Fantavoto`, Gol, Assist ecc.) visualizzabili in UI per ogni svincolato.
+*   **Layout Fixes**: Corretti allineamenti `Risultati Partite` per i nomi squadre lunghi. Aggiornati i dark mode color in login (`Sign Up`).
+*   **Sala Stampa**: Dimensione visiva raddoppiata di default in homepage.
+
 ### v0.3.0 - Live Feature (In Planning)
 *   **Backup**: Creata copia di sicurezza in `/archivio`.
 *   **Live Mode**: Progettazione "Live Match".
@@ -144,61 +209,20 @@ Usa `@dnd-kit/core` per drag-and-drop.
     *   Nuova UI dedicata con navigazione personalizzata.
 
 ### v0.2.2 - Security, Market Refactor & Polishing
-*   **Sicurezza**: Implementata protezione globale delle rotte via Middleware. Gli utenti non loggati vengono reindirizzati al login. La barra di navigazione è nascosta nella pagina di login.
-*   **Mercato 2.0**: La creazione Asta ora avviene in una pagina dedicata (non più modale) per correggere i problemi con la tastiera mobile.
-*   **Filtri Ricerca**: La ricerca giocatori ora esclude automaticamente i giocatori già presenti in altre rose o in aste attive.
-*   **UI Formazione**: Semplificato il design del "pallino" giocatore nel campo: rimosso il logo squadra, aggiunto badge ruolo per maggiore chiarezza.
-*   **Admin Fix**: Risolto crash critico causato da impostazioni lingua non valide.
-*   **Bugfix**: Corretto swipe accidentale nella creazione scambi.
+*   **Sicurezza**: Implementata protezione globale delle rotte via Middleware.
+*   **Mercato 2.0**: La creazione Asta ora avviene in una pagina dedicata.
+*   **Filtri Ricerca**: Svincolati ricerca intelligente esclude tesserati in altre rose.
+*   **UI Formazione**: Semplificato il design del "pallino".
 
-### v0.2.1 - Teams, Hotfixes & UI Reset (Attuale)
-*   **Swipe Navigation Fix**: Risolto bug che attivava lo swipe cambio pagina interagendo con le modali (es. Nuova Asta).
-*   **Pagina Squadre**: Nuova sezione `/teams` per visualizzare tutte le rose avversarie.
-*   **Home Redesign**: Nuovi pulsanti rapidi per accesso diretto a "La Mia Rosa", "Listone Svincolati" e "Tutte le Squadre".
-*   **Deep Linking**: Il pulsante "Listone" apre direttamente il mercato sula scheda Svincolati.
+### v0.2.1 - Teams, Hotfixes & UI Reset
+*   **Swipe Navigation Fix**: Risolto propagazione eventi modali.
+*   **Pagina Squadre**: Nuova sezione `/teams`.
 
 ### v0.2.0 - UI Polish & Auction System
-*   **Navigazione**: Implementate gesture swipe native tra i tab principali.
-*   **Aste**: Aggiunto timer countdown live, logica creazione migliorata (creatore = primo offerente) e notifiche push "Hai Vinto".
-*   **Impostazioni**: Ridisegnate con switch e controlli segmentati.
-*   **Fix**: Risolto bug push "Sent to 0 devices" e vari layout fix.
+*   **Navigazione**: Implementate gesture swipe native.
+*   **Aste**: Timer live e push notifiche.
 
 ---
+## 📝 License
 
-- **Fix (v0.2.4-patch)**:
-    - Added public **`/calendar`** page.
-    - Improved **Audio Autoplay** (Tap to Unmute button).
-    - Tweaked **Press Room** UI (Arrows moved to bottom).
-    - **Feature**: Aggiunto **Image Cropping** (ritaglio) per le foto della Sala Stampa.
-    - **Refinements**:
-        - Audio: Tap to Stop/Mute.
-        - Home Buttons: Nuovi tasti "Rosa" e "Mercato" compatti.
-        - Mercato: Card giocatori ridotte.
-        - Risultati: Giornata in grassetto.
-        - Animazione App: Uscita più smooth.
-    - **Refinements v2**:
-        - **Calendario**: Implementazione API reale Serie A (`football-data.org`).
-        - **Home**: Margini ridotti, Tasto Logout (Door Icon) al posto dei crediti.
-        - **Audio**: Autoplay forzato e UI meno intrusiva.
-        - **Sala Stampa**: Refresh rate aumentato a 10s, visualizzazione immagini migliorata.
-    - **Refinements v3/v4**:
-        - **Layout**: Full width reale (rimosso container/padding su mobile).
-        - **Sala Stampa**: Auto-scroll (Carousel) ogni 7s.
-        - **UI**: Padding rimossi dalle card per recuperare spazio.
-    - **Refinements v6 (UI Polish)**:
-        - **Home**: Header invertito (Logout <-> Settings), rimossi bottoni ridondanti, aggiunto tasto "Inserisci Rosa" (full width).
-        - **Sala Stampa**: Indicatori a pallini (dots), swipe fluido (natural physics).
-        - **Layout**: Margini globali `px-3` per respiro, Admin Login spaziato meglio.
-
-*Documentazione aggiornata al 26/01/2026.*
-
-### v0.2.4 - Press Room & Intro Refinements (Attuale)
-*   **Sala Stampa 2.0**: Durata messaggi ridotta a 2h, supporto immagini, swipe navigation e timestamp relativi.
-*   **Intro Fix**: Migliorata logica autoplay audio e aggiunta fallback "Tap to Unmute".
-*   **Database**: Aggiunta colonna `image_url` per allegati multimediali.
-
-### v0.2.3 - UI Overhaul & Community Features
-*   **Intro Animation**: Nuova splash screen cinematica con loghi squadre orbitanti e audio personalizzabile.
-*   **Next Match Widget**: Card "Prossimo Turno" ridisegnata con conto alla rovescia espandibile e link al calendario.
-*   **Sala Stampa**: Nuova sezione in Home per messaggi e dichiarazioni tra presidenti (sviluppo community).
-*   **Audio System**: Supporto per file MP3 caricabili da Admin per l'intro dell'app.
+This project is licensed under the MIT License test.

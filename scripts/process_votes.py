@@ -4,8 +4,8 @@ import glob
 import sys
 
 # Directories
-INPUT_DIR = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/src/xlsx/voti'
-OUTPUT_DIR = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/src/csv/voti'
+INPUT_DIR = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/scripts/xlsx/voti'
+OUTPUT_DIR = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/scripts/csv/voti'
 
 def process_votes():
     # Ensure output exists

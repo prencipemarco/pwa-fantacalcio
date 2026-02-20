@@ -2,9 +2,9 @@ import pandas as pd
 import os
 
 # Paths
-INPUT_XLSX = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/src/xlsx/listone/lista_calciatori_lista calciatori_classic_francescodibbar.xlsx'
-OUTPUT_ROSTERS = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/src/csv/squadre/roosters.csv'
-OUTPUT_SVINCOLATI = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/src/csv/listone/svincolati.csv'
+INPUT_XLSX = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/scripts/xlsx/listone/lista_calciatori_lista calciatori_classic_francescodibbar.xlsx'
+OUTPUT_ROSTERS = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/scripts/csv/squadre/roosters.csv'
+OUTPUT_SVINCOLATI = '/Volumes/Crucial X6/workspace/web/pwa-fantacalcio/scripts/csv/listone/svincolati.csv'
 
 def process_data():
     if not os.path.exists(INPUT_XLSX):
