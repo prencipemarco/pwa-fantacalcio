@@ -10,7 +10,6 @@ import { Label } from '@/components/ui/label';
 
 export default function CreateTeamPage() {
     const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const router = useRouter();
@@ -21,7 +20,7 @@ export default function CreateTeamPage() {
         setError('');
 
         try {
-            const res = await createTeam(name, password);
+            const res = await createTeam(name);
             if (res.success) {
                 // Redirect to market to buy players
                 router.push('/team/market');
@@ -51,17 +50,6 @@ export default function CreateTeamPage() {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 placeholder="e.g. Real Madrid"
-                                required
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="password">Team Password</Label>
-                            <Input
-                                id="password"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Security for your team"
                                 required
                             />
                         </div>

@@ -61,7 +61,7 @@ import { cookies } from 'next/headers';
 
 import { logEvent } from './admin';
 
-export async function createTeam(name: string, password: string) {
+export async function createTeam(name: string) {
     const supabase = await createClient();
     const { data: sessionData } = await supabase.auth.getSession();
 
@@ -82,15 +82,12 @@ export async function createTeam(name: string, password: string) {
         if (newLeague) leagueId = newLeague.id;
     }
 
-    const hashedPassword = await hash(password, 10);
-
     const { data, error } = await supabase
         .from('teams')
         .insert({
             user_id: userId,
             league_id: leagueId,
             name: name,
-            password: hashedPassword,
             credits_left: 1000
         })
         .select()
