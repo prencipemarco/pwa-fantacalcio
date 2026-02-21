@@ -97,7 +97,7 @@ export function NextMatchWidget({ nextMatch }: NextMatchWidgetProps) {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                     >
-                        <Card className="mt-2 overflow-hidden border-none shadow-lg bg-gradient-to-br from-primary/90 to-blue-600 text-white relative group">
+                        <Card className="mt-2 overflow-hidden border-none shadow-lg bg-gradient-to-br from-primary/90 to-blue-600 text-white relative group p-0 gap-0">
                             {/* Content from original card... */}
                             <div className="absolute top-0 right-0 -mr-8 -mt-8 w-40 h-40 rounded-full bg-white/10 blur-3xl" />
                             <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-32 h-32 rounded-full bg-black/10 blur-2xl" />

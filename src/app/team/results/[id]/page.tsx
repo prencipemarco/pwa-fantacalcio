@@ -140,7 +140,7 @@ export default function MatchDetailsPage() {
             </div>
 
             {/* SCOREBOARD - Compact & Clean */}
-            <div className="bg-card py-6 px-4 mb-2 shadow-sm border-b border-border/40">
+            <div className="bg-card py-6 px-4 mx-4 my-4 shadow-sm border border-border/40 rounded-2xl">
                 <div className="flex items-center justify-between max-w-md mx-auto">
                     {/* Home */}
                     <div className="flex flex-col items-center w-[30%] text-center">
