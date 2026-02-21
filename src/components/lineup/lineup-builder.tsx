@@ -21,6 +21,7 @@ import { getFormationCoords, MODULES, getRoleColor } from '@/lib/lineup-utils';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Save, LogOut, Loader2, ChevronLeft, Calendar } from 'lucide-react';
 import Link from 'next/link';
+import { PlayerDetailsModal } from '@/components/market/player-details-modal';
 
 interface LineupBuilderProps {
     roster: any[];
@@ -98,6 +99,7 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
     // -- Click Handling (Modal Selector) --
 
     const [selectorOpen, setSelectorOpen] = useState<{ type: 'field' | 'bench', index: number, role: string } | null>(null);
+    const [selectedPlayerDetails, setSelectedPlayerDetails] = useState<any | null>(null);
 
     const handleSlotClick = (index: number, role: string, type: 'field' | 'bench') => {
         setSelectorOpen({ type, index, role });
@@ -177,7 +179,7 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
 
                     {/* FIELD Section */}
-                    <div className="md:col-span-12 flex flex-col gap-6">
+                    <div className="md:col-span-8 lg:col-span-9 flex flex-col gap-6">
 
                         {/* Visual Field */}
                         <LineupField
@@ -186,55 +188,55 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                             onRemove={(id) => removeFromTeam(id)}
                             onSlotClick={(index, role) => handleSlotClick(index, role, 'field')}
                         />
-
-                        {/* Bench Section */}
-                        <div className="space-y-3">
-                            <h3 className="font-bold text-xs uppercase text-muted-foreground tracking-wider flex items-center gap-2">
-                                {t('bench')}
-                                <span className="h-px bg-border flex-1"></span>
-                            </h3>
-                            <div className="grid grid-cols-6 sm:grid-cols-11 gap-2 overflow-x-auto pb-2">
-                                {bench.map((item, index) => {
-                                    // Bench Bench Structure mapping
-                                    // 2 P, 3 D, 3 C, 3 A
-                                    const role = index < 2 ? 'P' : index < 5 ? 'D' : index < 8 ? 'C' : 'A';
-
-                                    return (
-                                        <div
-                                            key={index}
-                                            onClick={() => handleSlotClick(index, role, 'bench')}
-                                            className={cn(
-                                                "aspect-square rounded-xl flex flex-col items-center justify-center border-2 border-dashed cursor-pointer transition-all relative overflow-hidden",
-                                                item ? "border-solid border-border bg-card shadow-sm" : "border-muted/30 hover:bg-accent/50"
-                                            )}
-                                        >
-                                            {item ? (
-                                                <div className="w-full h-full p-1 flex flex-col items-center justify-center">
-                                                    <span className="text-[9px] font-bold truncate w-full text-center">{item.player.name.split(' ').pop()?.substring(0, 8)}</span>
-                                                    <Badge variant="secondary" className="text-[7px] h-3 px-1 mt-0.5">{item.player.role}</Badge>
-                                                    <div
-                                                        className="absolute top-0 right-0 p-0.5 bg-destructive text-white rounded-bl-md opacity-0 group-hover:opacity-100"
-                                                        onClick={(e) => { e.stopPropagation(); removeFromTeam(item.player.id) }}
-                                                    >
-                                                        ✕
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                <span className="text-[10px] font-bold text-muted-foreground/40">{role}</span>
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-
                     </div>
+
+                    {/* Bench Section */}
+                    <div className="md:col-span-4 lg:col-span-3 space-y-3 p-4 bg-muted/20 border rounded-2xl">
+                        <h3 className="font-bold text-xs uppercase text-muted-foreground tracking-wider flex items-center gap-2">
+                            {t('bench')}
+                            <span className="h-px bg-border flex-1"></span>
+                        </h3>
+                        <div className="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-3 gap-3 overflow-x-auto md:overflow-y-auto pb-2 md:max-h-[600px] scrollbar-hide">
+                            {bench.map((item, index) => {
+                                // Bench Bench Structure mapping
+                                // 2 P, 3 D, 3 C, 3 A
+                                const role = index < 2 ? 'P' : index < 5 ? 'D' : index < 8 ? 'C' : 'A';
+
+                                return (
+                                    <div
+                                        key={index}
+                                        onClick={() => handleSlotClick(index, role, 'bench')}
+                                        className={cn(
+                                            "aspect-square rounded-xl flex flex-col items-center justify-center border-2 border-dashed cursor-pointer transition-all relative overflow-hidden",
+                                            item ? "border-solid border-border bg-card shadow-sm" : "border-muted/30 hover:bg-accent/50"
+                                        )}
+                                    >
+                                        {item ? (
+                                            <div className="w-full h-full p-1 flex flex-col items-center justify-center">
+                                                <span className="text-[9px] font-bold truncate w-full text-center">{item.player.name.split(' ').pop()?.substring(0, 8)}</span>
+                                                <Badge variant="secondary" className="text-[7px] h-3 px-1 mt-0.5">{item.player.role}</Badge>
+                                                <div
+                                                    className="absolute top-0 right-0 p-0.5 bg-destructive text-white rounded-bl-md opacity-0 group-hover:opacity-100 z-10"
+                                                    onClick={(e) => { e.stopPropagation(); removeFromTeam(item.player.id) }}
+                                                >
+                                                    ✕
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <span className="text-[10px] font-bold text-muted-foreground/40">{role}</span>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
                 </div>
 
                 {/* --- DIALOG SELECTOR (MODAL) --- */}
                 <Dialog open={!!selectorOpen} onOpenChange={(open) => !open && setSelectorOpen(null)}>
                     <DialogContent className="max-w-md h-[80vh] flex flex-col p-0 gap-0 border-0 md:border md:rounded-xl md:h-[600px]">
-                        <DialogHeader className="p-4 border-b bg-muted/20">
+                        <DialogHeader className="p-4 border-b bg-muted/20 pr-12">
                             <DialogTitle className="flex items-center gap-2">
                                 Select {selectorOpen?.role}
                                 <Badge variant="outline" className="ml-auto">{
@@ -249,8 +251,8 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                                 .map(r => (
                                     <div
                                         key={r.id}
-                                        onClick={() => handleSelectFromDialog(r)}
-                                        className="p-3 rounded-lg border border-transparent hover:bg-accent/40 hover:border-border cursor-pointer flex justify-between items-center transition-all active:scale-[0.98]"
+                                        onClick={() => setSelectedPlayerDetails(r.player)}
+                                        className="p-3 mb-1 rounded-lg border border-transparent hover:bg-accent/40 hover:border-border cursor-pointer flex justify-between items-center transition-all active:scale-[0.98]"
                                     >
                                         <div className="flex items-center gap-3">
                                             {/* Role Badge */}
@@ -273,8 +275,8 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                                             </div>
                                         </div>
 
-                                        <Button size="icon" variant="ghost" className="h-8 w-8 rounded-full">
-                                            <div className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-lg leading-none pb-0.5">+</div>
+                                        <Button size="icon" variant="ghost" className="h-8 w-8 rounded-full shrink-0 z-10 bg-primary/10 hover:bg-primary/20 text-primary" onClick={(e) => { e.stopPropagation(); handleSelectFromDialog(r); }}>
+                                            <div className="w-6 h-6 rounded-full flex items-center justify-center text-lg leading-none pb-0.5">+</div>
                                         </Button>
                                     </div>
                                 ))
@@ -289,7 +291,18 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                     </DialogContent>
                 </Dialog>
 
-            </DndContext>
-        </div>
+                {/* --- PLAYER DETAILS MODAL (Read Only) --- */}
+                {
+                    selectedPlayerDetails && (
+                        <PlayerDetailsModal
+                            player={selectedPlayerDetails}
+                            isOpen={!!selectedPlayerDetails}
+                            onClose={() => setSelectedPlayerDetails(null)}
+                        />
+                    )
+                }
+
+            </DndContext >
+        </div >
     );
 }
