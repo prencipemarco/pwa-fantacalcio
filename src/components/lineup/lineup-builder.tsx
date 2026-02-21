@@ -179,7 +179,7 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
 
                     {/* FIELD Section */}
-                    <div className="md:col-span-8 lg:col-span-9 flex flex-col gap-6">
+                    <div className="md:col-span-12 flex flex-col gap-6">
 
                         {/* Visual Field */}
                         <LineupField
@@ -188,46 +188,46 @@ export function LineupBuilder({ roster, initialLineup = {}, initialBench = new A
                             onRemove={(id) => removeFromTeam(id)}
                             onSlotClick={(index, role) => handleSlotClick(index, role, 'field')}
                         />
-                    </div>
 
-                    {/* Bench Section */}
-                    <div className="md:col-span-4 lg:col-span-3 space-y-3 p-4 bg-muted/20 border rounded-2xl">
-                        <h3 className="font-bold text-xs uppercase text-muted-foreground tracking-wider flex items-center gap-2">
-                            {t('bench')}
-                            <span className="h-px bg-border flex-1"></span>
-                        </h3>
-                        <div className="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-3 gap-3 overflow-x-auto md:overflow-y-auto pb-2 md:max-h-[600px] scrollbar-hide">
-                            {bench.map((item, index) => {
-                                // Bench Bench Structure mapping
-                                // 2 P, 3 D, 3 C, 3 A
-                                const role = index < 2 ? 'P' : index < 5 ? 'D' : index < 8 ? 'C' : 'A';
+                        {/* Bench Section */}
+                        <div className="space-y-3">
+                            <h3 className="font-bold text-xs uppercase text-muted-foreground tracking-wider flex items-center gap-2">
+                                {t('bench')}
+                                <span className="h-px bg-border flex-1"></span>
+                            </h3>
+                            <div className="grid grid-cols-6 sm:grid-cols-11 gap-2 overflow-x-auto pb-2">
+                                {bench.map((item, index) => {
+                                    // Bench Bench Structure mapping
+                                    // 2 P, 3 D, 3 C, 3 A
+                                    const role = index < 2 ? 'P' : index < 5 ? 'D' : index < 8 ? 'C' : 'A';
 
-                                return (
-                                    <div
-                                        key={index}
-                                        onClick={() => handleSlotClick(index, role, 'bench')}
-                                        className={cn(
-                                            "aspect-square rounded-xl flex flex-col items-center justify-center border-2 border-dashed cursor-pointer transition-all relative overflow-hidden",
-                                            item ? "border-solid border-border bg-card shadow-sm" : "border-muted/30 hover:bg-accent/50"
-                                        )}
-                                    >
-                                        {item ? (
-                                            <div className="w-full h-full p-1 flex flex-col items-center justify-center">
-                                                <span className="text-[9px] font-bold truncate w-full text-center">{item.player.name.split(' ').pop()?.substring(0, 8)}</span>
-                                                <Badge variant="secondary" className="text-[7px] h-3 px-1 mt-0.5">{item.player.role}</Badge>
-                                                <div
-                                                    className="absolute top-0 right-0 p-0.5 bg-destructive text-white rounded-bl-md opacity-0 group-hover:opacity-100 z-10"
-                                                    onClick={(e) => { e.stopPropagation(); removeFromTeam(item.player.id) }}
-                                                >
-                                                    ✕
+                                    return (
+                                        <div
+                                            key={index}
+                                            onClick={() => handleSlotClick(index, role, 'bench')}
+                                            className={cn(
+                                                "aspect-square rounded-xl flex flex-col items-center justify-center border-2 border-dashed cursor-pointer transition-all relative overflow-hidden",
+                                                item ? "border-solid border-border bg-card shadow-sm" : "border-muted/30 hover:bg-accent/50"
+                                            )}
+                                        >
+                                            {item ? (
+                                                <div className="w-full h-full p-1 flex flex-col items-center justify-center">
+                                                    <span className="text-[9px] font-bold truncate w-full text-center">{item.player.name.split(' ').pop()?.substring(0, 8)}</span>
+                                                    <Badge variant="secondary" className="text-[7px] h-3 px-1 mt-0.5">{item.player.role}</Badge>
+                                                    <div
+                                                        className="absolute top-0 right-0 p-0.5 bg-destructive text-white rounded-bl-md opacity-0 group-hover:opacity-100 z-10"
+                                                        onClick={(e) => { e.stopPropagation(); removeFromTeam(item.player.id) }}
+                                                    >
+                                                        ✕
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        ) : (
-                                            <span className="text-[10px] font-bold text-muted-foreground/40">{role}</span>
-                                        )}
-                                    </div>
-                                );
-                            })}
+                                            ) : (
+                                                <span className="text-[10px] font-bold text-muted-foreground/40">{role}</span>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
 

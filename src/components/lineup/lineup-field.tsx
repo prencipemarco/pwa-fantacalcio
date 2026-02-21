@@ -12,7 +12,7 @@ interface LineupFieldProps {
 
 export function LineupField({ formation, lineup, onRemove, onSlotClick }: LineupFieldProps) {
     return (
-        <div className="relative w-full aspect-[3/4] rounded-2xl shadow-xl overflow-hidden touch-none select-none bg-[#1a472a] border-2 border-white/10">
+        <div className="relative w-full aspect-[4/5] rounded-2xl shadow-xl overflow-hidden touch-none select-none bg-[#1a472a] border-2 border-white/10">
             {/* --- Advanced Pitch Visuals --- */}
 
             {/* Grass Texture (Subtle Striping) */}
