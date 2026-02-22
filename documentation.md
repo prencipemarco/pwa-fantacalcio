@@ -196,7 +196,15 @@ Usa `@dnd-kit/core` per drag-and-drop.
 
 ## 📋 Changelog (Registro Modifiche)
 
-### Recenti (Feature Statistiche e UI Polishing)
+### Recenti (Admin Tools, Score Calculation & UI Polishing)
+*   **Calcolo Punteggi**: Risolto bug logico sul calcolo dei gol, stabilito a scaglioni di 4 punti (1 gol = 66 pt, 2 gol = 70 pt, ecc.). Corretto il filtro per `matchday` in `calculateTeamScore` per evitare crash al caricamento di giornate multiple.
+*   **Gestione Dati Admin**: Creata la nuova pagina `/admin/data` per monitorare, contare e svuotare selettivamente formzioni e voti di specifiche giornate.
+*   **Fix Importazione Massiva**: Risolto il bug delle importazioni duplicate o bloccanti delle formazioni via CSV (con `.limit(1)`).
+*   **Danger Zone**: Estesa la "Danger Zone" nelle Impostazioni Admin aggiungendo checkbox selettive per pulire solo File, Voti o Formazioni, senza intaccare i Dati Lega strutturali.
+*   **UI/UX Formazione (Lineup Builder)**: Polishing completo dell'interfaccia skiera formazione. Inserita l'anteprima rapida giocatori al click (PlayerDetailsModal), corretti i problemi di sovrapposizione sui bottoni di rimozione ("X") e migliorato l'aspect ratio (4/5) del campo, per ospitare il campo e la panchina adiacenti senza over-scrolling su desktop/mobile.
+*   **UI/UX Generale**: Applicati arrotondamenti moderni (`rounded-2xl`) alle card come nello Scoreboard delle Partite e sistemati i padding eccessivi (widget Prossimo Match in home).
+
+### Precedenti (Feature Statistiche e UI Polishing)
 *   **Statistiche Giocatori**: Implementata aggregazione delle statistiche su base DB (`Media Voto`, `Fantavoto`, Gol, Assist ecc.) visualizzabili in UI per ogni svincolato.
 *   **Layout Fixes**: Corretti allineamenti `Risultati Partite` per i nomi squadre lunghi. Aggiornati i dark mode color in login (`Sign Up`).
 *   **Sala Stampa**: Dimensione visiva raddoppiata di default in homepage.
